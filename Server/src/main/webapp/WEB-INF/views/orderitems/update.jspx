@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_omo_domain_OrderItem" modelAttribute="orderItem" path="/orderitems" versionField="none" z="OTLraOOwxhuiDNp4GbtQvFgSAxs=">
+        <field:input field="quantity" id="c_com_omo_domain_OrderItem_quantity" validationMessageCode="field_invalid_integer" z="glgKII6/uJ/TfevQnuozQ6Zwbdk="/>
+        <field:input field="description" id="c_com_omo_domain_OrderItem_description" z="+5YwY2IwadbLHWjg4hHS/ss8SGY="/>
+    </form:update>
+</div>

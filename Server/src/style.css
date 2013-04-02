@@ -1,0 +1,4 @@
+.divMenu ul {list-style: none; padding: 0; margin: 0;}
+.divMenu ul li {list-style: none; float:left; width:150px;}
+.spanMenuItemPrice {float:right; margin-right:20px;}
+.divMenuXX ul {float:left;}

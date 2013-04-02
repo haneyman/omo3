@@ -1,0 +1,97 @@
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-02-24 13:29:32
+project --topLevelPackage com.omo
+mongo setup
+entity mongo --class ~.domain.Restaurant  --testAutomatically
+field string --fieldName name --sizeMin 2 --notNull 
+field string --fieldName description
+field string --fieldName address
+entity mongo --class ~.domain.Reseller
+field string --fieldName name --sizeMin 2 --notNull
+field string --fieldName address
+entity mongo --class ~.domain.Schedule
+field string --fieldName dayOfWeek
+field reference --fieldName reseller --type ~.domain.Reseller
+field reference --fieldName restaurant --type ~.domain.Restaurant
+entity mongo --class ~.domain.Order
+field date --fieldName orderDate --type java.util.Date
+entity mongo --class ~.domain.OrderItem
+field number --fieldName quantity --type java.lang.Integer
+field string --fieldName description
+entity mongo --class ~.domain.MenuItem
+field string name
+field string description
+field string type
+field number --fieldName price --type float
+entity mongo --class ~.domain.Menu 
+field reference --fieldName restaurant --type ~.domain.Restaurant
+field set --fieldName menuItems --type ~.domain.MenuItem 
+repository mongo --interface ~.repository.RestaurantRepository --entity ~.domain.Restaurant
+repository mongo --interface ~.repository.ResellerRepository --entity ~.domain.Reseller
+repository mongo --interface ~.repository.OrderRepository --entity ~.domain.Order
+repository mongo --interface ~.repository.ScheduleRepository --entity ~.domain.Schedule
+repository mongo --interface ~.repository.MenuRepository --entity ~.domain.Menu
+repository mongo --interface ~.repository.MenuItemRepository --entity ~.domain.MenuItem
+service --interface ~.service.OrderService --entity ~.domain.Order
+service --interface ~.service.MenuService --entity ~.domain.Menu
+web mvc setup
+web mvc all --package ~.web
+// script script.roo
+backup
+focus --class ~.domain.MenuItem
+enum type --class ~.domain.MenuItemTypes
+// [failed] enum constant --name Group
+enum constant --name MenuGroup
+enum constant --name MenuItem
+// [failed] focus --class ~.domain.MenuItem
+field reference --type ~.domain.Menu --fieldName menu
+backup
+poll now
+entity mongo --class ~.domain.Mennu 
+field string name
+field string description
+field ref --type ~.domain.Restaurant --fieldName restaurant
+field set --fieldName items --type ~.domain.MenuItem
+web mvc all --package ~.web
+focus --class ~.domain.Mennu
+web mvc scaffold --class ~.web.MennuController
+exit
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-02-24 14:45:36
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-02-24 14:45:41
+entity mongo --class ~.domain.MenuMain 
+web mvc scaffold --class ~.web.MenuMainController
+web mvc scaffold --class ~.web.MenuMainController
+web mvc scaffold --class ~.web.MenuMainController
+poll now
+web mvc scaffold --class ~.web.MenuMainController
+web mvc scaffold --class ~.web.MenuController 
+exit
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-02-24 16:55:32
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-02-24 16:56:17
+backup
+exit
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-02-24 18:23:52
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-02-24 21:54:27
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-02-25 15:02:58
+poll now
+poll now
+poll now
+poll now
+poll now
+poll now
+hint 
+hint
+hint 
+hint
+quit
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-02-25 15:09:50
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-02-25 15:10:21
+          !                              
+hint 
+hint
+focus --class ~.domain.Menu 
+field string b
+field string blu
+field string blur
+field string blurb
+// [failed] field string blurb
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-02-26 08:51:34

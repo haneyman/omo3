@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_omo_domain_Menu" modelAttribute="menu" path="/menus" versionField="none" z="s15KCoQRKGLJX+mFHfb4NoUU0k8=">
+        <field:select field="restaurant" id="c_com_omo_domain_Menu_restaurant" itemValue="id" items="${restaurants}" path="/restaurants" z="DwWvGNEHbruGxUbGiIuuDj0pVRM="/>
+        <field:input field="name" id="c_com_omo_domain_Menu_name" z="g5498ZVRzejw2nSryVHZDAhyZ6U="/>
+        <field:input field="description" id="c_com_omo_domain_Menu_description" z="sEIU1+0L8ZZrdhWCOrcU7O16H5k="/>
+        <field:simple field="menuItems" id="c_com_omo_domain_Menu_menuItems" messageCode="entity_reference_not_managed" messageCodeAttribute="Menu Item" z="Q2KcRJjs/No9ZfkSs2kftkQx5OQ="/>
+        <field:input field="blurb" id="c_com_omo_domain_Menu_blurb" z="11sNNDW1XbQOelgZXincmdWhFxo="/>
+        <field:input field="address" id="c_com_omo_domain_Menu_address" z="bPcgqiWqJpdjJDcuGYNu0GC1rPQ="/>
+        <field:input field="orderContactType" id="c_com_omo_domain_Menu_orderContactType" z="INBlUqWrD8xdk7NFDSpxQ3cWlYU="/>
+        <field:input field="orderContact" id="c_com_omo_domain_Menu_orderContact" z="AQEvy8af31nPLgJAmB4Amf+MabU="/>
+    </form:update>
+</div>

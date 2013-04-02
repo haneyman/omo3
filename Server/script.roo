@@ -1,0 +1,36 @@
+project --topLevelPackage com.omo
+mongo setup
+entity mongo --class ~.domain.Restaurant  --testAutomatically
+field string --fieldName name --sizeMin 2 --notNull 
+field string --fieldName description
+field string --fieldName address
+entity mongo --class ~.domain.Reseller
+field string --fieldName name --sizeMin 2 --notNull
+field string --fieldName address
+entity mongo --class ~.domain.Schedule
+field string --fieldName dayOfWeek
+field reference --fieldName reseller --type ~.domain.Reseller
+field reference --fieldName restaurant --type ~.domain.Restaurant
+entity mongo --class ~.domain.Order
+field date --fieldName orderDate --type java.util.Date
+entity mongo --class ~.domain.OrderItem
+field number --fieldName quantity --type java.lang.Integer
+field string --fieldName description
+entity mongo --class ~.domain.MenuItem
+field string name
+field string description
+field string type
+field number --fieldName price --type float
+entity mongo --class ~.domain.Menu 
+field reference --fieldName restaurant --type ~.domain.Restaurant
+field set --fieldName menuItems --type ~.domain.MenuItem 
+repository mongo --interface ~.repository.RestaurantRepository --entity ~.domain.Restaurant
+repository mongo --interface ~.repository.ResellerRepository --entity ~.domain.Reseller
+repository mongo --interface ~.repository.OrderRepository --entity ~.domain.Order
+repository mongo --interface ~.repository.ScheduleRepository --entity ~.domain.Schedule
+repository mongo --interface ~.repository.MenuRepository --entity ~.domain.Menu
+repository mongo --interface ~.repository.MenuItemRepository --entity ~.domain.MenuItem
+service --interface ~.service.OrderService --entity ~.domain.Order
+service --interface ~.service.MenuService --entity ~.domain.Menu
+web mvc setup
+web mvc all --package ~.web

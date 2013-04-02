@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Getting Started Ordering</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+	<style>
+		.section {border-top: 1px solid red}
+	</style>
+	
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="assets/css/docs.css" rel="stylesheet">
+    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+
+    <link rel="stylesheet" href="assets/css/digitss.css">
+</head>
+
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+<!-- Navbar
+================================================== -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container" style="">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="./index.html">Bootstrap</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li class="active">
+                        <a href="./index.html">Home</a>
+                    </li>
+                    <li class="">
+                        <a href="./getting-started.html">Order</a>
+                    </li>
+                    <li class="">
+                        <a href="./scaffolding.html">About</a>
+                    </li>
+                    <li class="">
+                        <a href="./base-css.html">Other</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-collapse collapse" style="float:right;width:120px;">
+                <ul class="nav">
+                    <li class="active">
+                        <a href="./order.html">Your ORDER</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Subhead
+================================================== -->
+<header class="jumbotron subhead" id="overview">
+    <div class="container">
+        <h1>Order It from El Cafecito</h1>
+        <p class="lead">Reseller: El Cafecito featuring today's Menu from: Bentelino's
+        <div style="width:50px;"></div>Sandwiches and Salads</p>
+    </div>
+</header>
+
+
+
+<div class="container">
+
+    <div class="row-fluid">
+        <div class="span18">
+            <div class="row-fluid">
+                <div class="span5" style="">
+                    <h4>Sandwiches: $6.00</h4>
+					Made with Mayo, Mustard, Lettuce, Tomato and Pickles
+                    <div class="row-fluid">
+                        <div class="span6" style="">
+                            <input type="checkbox" id="BLT">BLT</input><br>
+                            <input type="checkbox" id="">Tuna Salad</input><br>
+                            <input type="checkbox" id="">Corn Beef</input><br>
+                            <input type="checkbox" id="">Turkey</input><br>
+                            <input type="checkbox">Oven Roasted Turkey</input><br>
+                            <input type="checkbox">Roast Beef</input><br>
+                            <input type="checkbox">Pastrami</input><br>
+                        </div>
+                        <div class="span4">
+                            <input type="checkbox">Provolone</input><br>
+                            <input type="checkbox">Ham</input><br>
+                            <input type="checkbox">Chicken Salad</input><br>
+                            <input type="checkbox">Crab Salad</input><br>
+                            <input type="checkbox">Salami</input><br>
+                            <input type="checkbox">Egg Salad</input><br>
+                            <input type="checkbox">Vegetarian</input><br>
+                        </div>
+                    </div>
+					<br/>
+					<br/>
+					<div style="margin-left:100px;">
+						<span style="font-weight:bold">Combos</span>: Add <b>$0.45</b> cents for extra Cheese on the Sandwiches
+					</div>
+                </div>
+                <div class="span4">
+                    <h4>Cheese: $0.80</h4>
+                    <div class="row-fluid">
+                        <div class="span4">
+                            <input type="checkbox">Provolone</input><br>
+                            <input type="checkbox">Cheddar</input><br>
+                        </div>
+                        <div class="span4">
+                            <input type="checkbox">Swiss</input><br>
+                            <input type="checkbox">American</input><br>
+                        </div>
+                        <div class="span3">
+                            <input type="checkbox">Jack</input><br>
+                        </div>
+                    </div>
+					<br/>
+					<h4>Hot Sandwiches: $7.95</h4>
+                    <div class="row-fluid">
+                        <div class="span9">
+                            <input type="checkbox">Chicken Parmesan W/Provolone</input><br>
+                            <input type="checkbox">Chicken Pesto W/Jack<br>
+                            <input type="checkbox">French Dip W/Au Jus<br>
+                        </div>
+                    </div>
+                </div>
+                <div class="span3">
+                    <h4>Sandwich Extras</h4>
+                    <div class="row-fluid">
+                        <div class="span8">
+                            <input type="checkbox">Cranberry</input><br>
+                            <input type="checkbox">Avocado</input><br>
+                            <input type="checkbox">Bacon</input><br>
+                            <input type="checkbox">Cheese</input><br>
+							<br/>
+							<h4>Combos: $7.25</h4>
+                            <input type="checkbox">1/2 Sand + Soup</input><br>
+                            <input type="checkbox">1/2 Sand + Salad</input><br>
+                            <input type="checkbox">Soup + Salad</input><br>
+							<br/>
+							Combo Salads are Caesar or Garden Salad
+                        </div>
+                    </div>
+                </div>
+            </div>
+		
+        </div>
+		<!-- end top row -->
+        <div class="span18 section">
+            <div class="row-fluid">
+                <div class="span5" style="">
+                    <h4>Choice of Bread:</h4>
+                    <div class="row-fluid">
+                        <div class="span6" style="">
+                            <input type="checkbox" id="">Sour French Roll</input><br>
+                            <input type="checkbox" id="">Dutch Crunch Roll</input><br>
+                            <input type="checkbox" id="">Wheat Roll</input><br>
+                            <input type="checkbox" id="">Sliced Sourdough</input><br>
+                            <input type="checkbox" id="">Honey White</input><br>
+                            <input type="checkbox" id="">Dark Rye</input><br>
+                        </div>
+                        <div class="span4">
+                            <input type="checkbox" id="">Soft Roll</input><br>
+                            <input type="checkbox" id="">Multi Grain</input><br>
+                            <input type="checkbox" id="">Light Rye</input><br>
+                        </div>
+                    </div>
+					<br/>
+					<div class="span12">
+						<input type="checkbox" id="">Croissants and</input>
+						<input type="checkbox" id="">Focaccia Rolls</input>
+						are <b>$1.00</b> extra
+					</div>
+					<br/>
+					<div style="margin-left:100px;">
+					</div>
+                </div>
+                <div class="span4">
+                    <h4>Hot Food: $5.50</h4>
+                    <div class="row-fluid">
+                        <div class="span6">
+                            <input type="checkbox">Beef Lasagna</input><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="span3">
+                    <h4>Soup</h4>
+					<h5>12oz $3.75  16oz $5.00</h5>
+					<br/>
+					<b>Monday</b><br/>
+                    <div class="row-fluid">
+                        <div class="span8">
+                            <input type="checkbox">Cream Potato</input><br>
+                        </div>
+                    </div>
+					<b>Tuesday</b><br/>
+                    <div class="row-fluid">
+                        <div class="span8">
+                            <input type="checkbox">Minestrone</input><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+			<div class="zzrow-fluid">
+			  <div class="span6" >
+				<h4>Deli Salads: 1/2 Pints $3.50 </h4>
+				<div class="span3" style="">
+					<input type="checkbox" id="">Macaroni</input><br>
+					<input type="checkbox" id="">Fresh Fruit</input><br>
+					<input type="checkbox" id="">Cucumber Tomato</input><br>
+				</div>
+				<div class="span3">
+					<input type="checkbox" id="">Red Potato</input><br>
+					<input type="checkbox" id="">Mixed Beans</input><br>
+					<input type="checkbox" id="">Cold Tuna <br/> w/ Pasta Shells</input><br>
+				</div>
+				<div class="span3">
+					<input type="checkbox" id="">Cajun Bean</input><br>
+					<input type="checkbox" id="">Pretzel Jell-O</input><br>
+				</div>
+			  </div>
+			  <div class="span3">
+					<h4>1/2 Pint: $3.85</h4>
+					<input type="checkbox" id="">Chicken Salad</input><br>
+					<input type="checkbox" id="">Tuna Salad</input><br>
+			  </div>
+              <div class="span3">
+				<h4>Wraps</h4>
+				<input type="checkbox" id="">Chicken Caesar Salad $5.45</input><br>
+				<input type="checkbox" id="">CLUB $5.95</input><br>
+			  </div>
+			</div>
+        </div>
+
+		<div class="section" style="">
+			<div class="row-fluid">
+				<div class="">
+					<h4>Green Salads</h4>
+				</div>
+				<br/>
+				<div class="span2">
+					<h5>$5.50</h5>
+					<input type="checkbox" id="">Caeser</input><br>
+					<input type="checkbox" id="">Garden Salad</input><br>
+				</div>
+				<div class="span3">
+					<h5>$6.00</h5>
+					<input type="checkbox" id="">Chicken Caesar Salad</input><br>
+					<input type="checkbox" id="">Garden Salad w/ Chicken</input><br>
+				</div>
+				<div class="span2">
+					<h5>$6.00</h5>
+					<input type="checkbox" id="">Taco Salad</input><br>
+					<input type="checkbox" id="">Oriental Salad</input><br>
+				</div>
+				<div class="span3">
+					<h5>Dressing: $.50</h5>
+					<input type="checkbox" id="">Caesar, Ranch, Oriental</input><br>
+					<input type="checkbox" id="">Italian</input><br>
+					<input type="checkbox" id="">Balsamic Vinegar</input><br>
+				</div>
+			</div>
+			<br/>
+			<br/>
+		</div>
+
+
+
+		
+    </div>
+
+    <!-- Footer
+    ================================================== -->
+    <footer class="footer">
+        <div class="container">
+            <p>Blah blah blah</p>
+        </div>
+    </footer>
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap-transition.js"></script>
+    <script src="assets/js/bootstrap-alert.js"></script>
+    <script src="assets/js/bootstrap-modal.js"></script>
+    <script src="assets/js/bootstrap-dropdown.js"></script>
+    <script src="assets/js/bootstrap-scrollspy.js"></script>
+    <script src="assets/js/bootstrap-tab.js"></script>
+    <script src="assets/js/bootstrap-tooltip.js"></script>
+    <script src="assets/js/bootstrap-popover.js"></script>
+    <script src="assets/js/bootstrap-button.js"></script>
+    <script src="assets/js/bootstrap-collapse.js"></script>
+    <script src="assets/js/bootstrap-carousel.js"></script>
+    <script src="assets/js/bootstrap-typeahead.js"></script>
+    <script src="assets/js/bootstrap-affix.js"></script>
+    <script src="assets/js/jquery.custom_radio_checkbox.js"></script>
+
+    <script src="assets/js/holder/holder.js"></script>
+    <script src="assets/js/google-code-prettify/prettify.js"></script>
+
+    <script src="assets/js/application.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".radio").dgStyle();
+            $(".checkbox").dgStyle();
+        });
+    </script>
+
+
+
+</body>
+</html>

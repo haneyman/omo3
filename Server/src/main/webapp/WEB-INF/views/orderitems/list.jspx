@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_omo_domain_OrderItem" items="${orderitems}" z="imq2F/78B50u9anpvOW7JJsyc+c=">
+        <table:table data="${orderitems}" id="l_com_omo_domain_OrderItem" path="/orderitems" z="rvI2J8T3hTLrUXXiNCZYoXt/At8=">
+            <table:column id="c_com_omo_domain_OrderItem_quantity" property="quantity" z="hqz5u0cOxDS6sYYP9FEhQwSq0VM="/>
+            <table:column id="c_com_omo_domain_OrderItem_description" property="description" z="znyhBciO4vsIRuw3nghjxFmlT5w="/>
+        </table:table>
+    </page:list>
+</div>

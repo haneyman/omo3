@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_omo_domain_Schedule" items="${schedules}" z="kbEBDvIRLvLTGE2qj8Nxq0pobmQ=">
+        <table:table data="${schedules}" id="l_com_omo_domain_Schedule" path="/schedules" z="Xwca1S9iZW2DVl/stjOrLhz9bXE=">
+            <table:column id="c_com_omo_domain_Schedule_dayOfWeek" property="dayOfWeek" z="WciigRVAxJc3tuiushaG+D4afzE="/>
+            <table:column id="c_com_omo_domain_Schedule_reseller" property="reseller" z="unrt39kMmEh+GPzOC7Jn2rPbjKQ="/>
+            <table:column id="c_com_omo_domain_Schedule_restaurant" property="restaurant" z="v43NpYv5KfR9hRKkRo/bAuSYUU4="/>
+        </table:table>
+    </page:list>
+</div>

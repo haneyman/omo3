@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_omo_domain_Menu" items="${menus}" z="BhFmzPn7pVG+kt+/LyJe6sAdYDM=">
+        <table:table data="${menus}" id="l_com_omo_domain_Menu" path="/menus" z="yNZkFKVZaDjNkXiV/U4+dRBgMAE=">
+            <table:column id="c_com_omo_domain_Menu_restaurant" property="restaurant" z="hecGcqroO4w5sblj5WVFHCiHQHc="/>
+            <table:column id="c_com_omo_domain_Menu_name" property="name" z="ntdue8krsBUc/zedYjtAWLDxnqU="/>
+            <table:column id="c_com_omo_domain_Menu_description" property="description" z="hNGYaJbHi9/IhchdJSVt9fOwIcE="/>
+            <table:column id="c_com_omo_domain_Menu_blurb" property="blurb" z="cGHO7ncAvnjCR+HT/z0Hh7zQfxU="/>
+            <table:column id="c_com_omo_domain_Menu_address" property="address" z="7Aw+dbhyEFXCXXya3NTmP7MeaS8="/>
+        </table:table>
+    </page:list>
+</div>

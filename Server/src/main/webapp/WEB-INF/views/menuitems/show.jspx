@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_omo_domain_MenuItem" object="${menuitem}" path="/menuitems" z="dYKwmIYhCFiB3Y8RHWm7cYzurDI=">
+        <field:display field="name" id="s_com_omo_domain_MenuItem_name" object="${menuitem}" z="mUTKsosVQkqVKASOR+jYCS3JtO8="/>
+        <field:display field="description" id="s_com_omo_domain_MenuItem_description" object="${menuitem}" z="jVE/Zib+gif7YUkFDjuyhbVxkmE="/>
+        <field:display field="price" id="s_com_omo_domain_MenuItem_price" object="${menuitem}" z="79ZLcJEhGevWcCZhZBOL+yBGQe8="/>
+        <field:display field="sortOrder" id="s_com_omo_domain_MenuItem_sortOrder" object="${menuitem}" z="lv20JGNxIRT14/7WCyDmg/rWXKo="/>
+        <field:display field="type" id="s_com_omo_domain_MenuItem_type" object="${menuitem}" z="uaor9d71/zCoHSZN6XEAxULkkFc="/>
+    </page:show>
+</div>

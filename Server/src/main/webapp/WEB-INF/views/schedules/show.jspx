@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_omo_domain_Schedule" object="${schedule}" path="/schedules" z="CDG0mawQ6b9VaqreObT/8ErnTTA=">
+        <field:display field="dayOfWeek" id="s_com_omo_domain_Schedule_dayOfWeek" object="${schedule}" z="O3qvp4PtDAjZNEdljUc/j36koz0="/>
+        <field:display field="reseller" id="s_com_omo_domain_Schedule_reseller" object="${schedule}" z="FAnwZU7RlHzc7jd2oaUUpI2FhAY="/>
+        <field:display field="restaurant" id="s_com_omo_domain_Schedule_restaurant" object="${schedule}" z="wjs5Svfyrwvp/9By+FZAPdaGTuI="/>
+    </page:show>
+</div>
