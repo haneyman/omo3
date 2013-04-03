@@ -3,7 +3,7 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_com_omo_domain_Menu" modelAttribute="menu" path="/menus" render="${empty dependencies}" z="WmkuJVjMIQ23uAX9wy4Y+qreNZg=">
-        <field:select field="restaurant" id="c_com_omo_domain_Menu_restaurant" itemValue="id" items="${restaurants}" path="/restaurants" z="DwWvGNEHbruGxUbGiIuuDj0pVRM="/>
+        <field:input field="restaurant" id="c_com_omo_domain_Menu_restaurant" z="FW7krNkivwXTzP0s/5IomWMcuZs="/>
         <field:input field="name" id="c_com_omo_domain_Menu_name" z="g5498ZVRzejw2nSryVHZDAhyZ6U="/>
         <field:input field="description" id="c_com_omo_domain_Menu_description" z="sEIU1+0L8ZZrdhWCOrcU7O16H5k="/>
         <!--<field:select field="restaurant" id="c_com_omo_domain_Menu_restaurant" itemValue="restaurant" items="${restaurants}" path="/menus" z="user-managed"/>-->

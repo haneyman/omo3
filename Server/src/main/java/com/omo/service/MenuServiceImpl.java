@@ -7,6 +7,7 @@ import com.omo.domain.MenuItem;
 import java.math.BigInteger;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MenuServiceImpl implements MenuService {
     private static final String INDENT = "   ";
@@ -25,7 +26,7 @@ public class MenuServiceImpl implements MenuService {
         for (MenuItem menuItem: menu.getMenuItems()) {
             loadMenuItem(menuItem, html, 1);
         }
-        html.add("      </li>");
+//        html.add("      </li>");
         html.add("   </ul>" + NEW_LINE);
         html.add("</div>" + NEW_LINE);
         html.add("<!-- end generated menu html -->" + NEW_LINE);
@@ -36,13 +37,13 @@ public class MenuServiceImpl implements MenuService {
 
     private void loadMenuItem(MenuItem menuItem, ArrayList<String> html, Integer level) throws Exception {
         //logger.debug("   loadMenuItem...");
-        String totalIndention = String.format(String.format("%%0%dd", level+2), 0).replace("0", INDENT);//adds level+1 number of indents to total indents
-
+        String totalIndention = String.format(String.format("%%0%dd", level), 0).replace("0", INDENT);//adds level+1 number of indents to total indents
+            totalIndention += totalIndention;
         boolean checked = false;
         if (menuItem.getType().equals(MenuItem.MenuItemTypes.MenuGroup)) {
-            html.add("      <li class=\"menulistitem1\" >");
-            html.add(totalIndention + "<br/>");
-            html.add(totalIndention + "<h3 class=\"menuGroupTitle\">" + menuItem.getName() + "</h3>");
+            html.add(totalIndention + "<li class=\"menulistitem1\" >");
+//            html.add(totalIndention + "<br/>");
+            html.add(totalIndention + totalIndention + "<h3 class=\"menuGroupTitle\">" + menuItem.getName() + "</h3>");
         } else if (menuItem.getType().equals(MenuItem.MenuItemTypes.MenuItem)) {
             DecimalFormat myFormatter = new DecimalFormat("###.00");
             String priceOutput = myFormatter.format(menuItem.getPrice());
@@ -56,14 +57,22 @@ public class MenuServiceImpl implements MenuService {
 
         //int grandchildren = countGrandchildren(employee, employees);
         if (menuItem.getChildMenuItems().size() > 0) {
-            html.add(totalIndention + INDENT + "<ul class=\"menuList\" id='" + menuItem.getName() + "'>" + NEW_LINE);
+            html.add(totalIndention + totalIndention + "<ul class=\"menuList\" id='" + menuItem.getName() + "'>" + NEW_LINE);
             for (MenuItem child: menuItem.getChildMenuItems()) {
                 loadMenuItem(child, html, level + 2);
             }
-            html.add(totalIndention + INDENT + "</ul>" + NEW_LINE);
+            html.add(totalIndention + totalIndention + "</ul>" + NEW_LINE);
         }
         if (menuItem.getType().equals(MenuItem.MenuItemTypes.MenuGroup))
             html.add(totalIndention + "</li>");
+    }
+
+    public List<Menu> getMenuByName(String menuName) {
+        return menuRepository.findByName(menuName);
+    }
+
+    public void deleteMenu(Menu menu) {
+        menuRepository.delete(menu);
     }
 
 /*

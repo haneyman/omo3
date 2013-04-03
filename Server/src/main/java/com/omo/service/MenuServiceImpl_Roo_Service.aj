@@ -25,10 +25,6 @@ privileged aspect MenuServiceImpl_Roo_Service {
         return menuRepository.count();
     }
     
-    public void MenuServiceImpl.deleteMenu(Menu menu) {
-        menuRepository.delete(menu);
-    }
-    
     public Menu MenuServiceImpl.findMenu(BigInteger id) {
         return menuRepository.findOne(id);
     }

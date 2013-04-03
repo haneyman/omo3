@@ -26,20 +26,20 @@ privileged aspect Menu_Roo_JavaBean {
         this.description = description;
     }
     
-    public Restaurant Menu.getRestaurant() {
-        return this.restaurant;
-    }
-    
-    public void Menu.setRestaurant(Restaurant restaurant) {
-        this.restaurant = restaurant;
-    }
-    
     public Set<MenuItem> Menu.getMenuItems() {
         return this.menuItems;
     }
     
     public void Menu.setMenuItems(Set<MenuItem> menuItems) {
         this.menuItems = menuItems;
+    }
+    
+    public Restaurant Menu.getRestaurant() {
+        return this.restaurant;
+    }
+    
+    public void Menu.setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
     }
     
     public String Menu.getBlurb() {

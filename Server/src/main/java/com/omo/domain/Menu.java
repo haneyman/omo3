@@ -1,5 +1,6 @@
 package com.omo.domain;
 
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.layers.repository.mongo.RooMongoEntity;
 import org.springframework.roo.addon.tostring.RooToString;
@@ -20,11 +21,11 @@ public class Menu {
 
     private String description;
 
-    @OneToOne
-    private Restaurant restaurant;
-
     @OneToMany(cascade = CascadeType.ALL)
     private Set<MenuItem> menuItems = new HashSet<MenuItem>();
+
+    @DBRef
+    private Restaurant restaurant;
 
     private String blurb;
     private String address;

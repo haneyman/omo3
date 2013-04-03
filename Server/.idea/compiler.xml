@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AjcSettings">
-    <option name="ajcPath" value="C:\Documents and Settings\Mark\.m2\repository\org\aspectj\aspectjtools\1.7.0\aspectjtools-1.7.0.jar" />
+    <option name="ajcPath" value="C:\Users\haney_000\.m2\repository\org\aspectj\aspectjtools\1.7.0\aspectjtools-1.7.0.jar" />
     <option name="cmdLineParams" value="-target 1.6" />
     <option name="explicitAspectPath" value="true" />
   </component>

@@ -3,15 +3,10 @@
 
 package com.omo.repository;
 
-import com.omo.domain.Restaurant;
 import com.omo.repository.RestaurantRepository;
-import java.math.BigInteger;
-import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
 privileged aspect RestaurantRepository_Roo_Mongo_Repository {
-    
-    declare parents: RestaurantRepository extends PagingAndSortingRepository<Restaurant, BigInteger>;
     
     declare @type: RestaurantRepository: @Repository;
     
