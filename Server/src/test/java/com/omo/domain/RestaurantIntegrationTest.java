@@ -96,60 +96,99 @@ public class RestaurantIntegrationTest {
         menu.setDescription("Description of menu: " + MENU1);
         menu.setRestaurant(restaurant1);
         //
-        MenuItem groupItem = new MenuItem();
-        groupItem.setName("Sandwiches");
-        groupItem.setType(MenuItem.MenuItemTypes.MenuGroup);
-        groupItem.setSortOrder(1);
-        menu.getMenuItems().add(groupItem);
+        menu.getMenuItems().add(new MenuItem("Sandwiches","",1,MenuItem.MenuItemTypes.MenuGroup, 6.00f));
+        menu.getMenuItems().add(new MenuItem("BLT","",2,MenuItem.MenuItemTypes.MenuItem, 6.00f));
+        menu.getMenuItems().add(new MenuItem("Tuna Salad","",3,MenuItem.MenuItemTypes.MenuItem, 6.00f));
+        menu.getMenuItems().add(new MenuItem("Corn Beef","",4,MenuItem.MenuItemTypes.MenuItem, 6.00f));
+        menu.getMenuItems().add(new MenuItem("Turkey","",5,MenuItem.MenuItemTypes.MenuItem, 6.00f));
+        menu.getMenuItems().add(new MenuItem("Oen Roasted Turkey","",6,MenuItem.MenuItemTypes.MenuItem, 6.00f));
+        menu.getMenuItems().add(new MenuItem("Roast Beef","",7,MenuItem.MenuItemTypes.MenuItem, 6.00f));
+        menu.getMenuItems().add(new MenuItem("Pastrami","",8,MenuItem.MenuItemTypes.MenuItem, 6.00f));
+        menu.getMenuItems().add(new MenuItem("Meatloaf","",9,MenuItem.MenuItemTypes.MenuItem, 6.00f));
+        menu.getMenuItems().add(new MenuItem("Ham","",10,MenuItem.MenuItemTypes.MenuItem, 6.00f));
+        menu.getMenuItems().add(new MenuItem("Chicken Salad","",11,MenuItem.MenuItemTypes.MenuItem, 6.00f));
+        menu.getMenuItems().add(new MenuItem("Crab Salad","",12,MenuItem.MenuItemTypes.MenuItem, 6.00f));
+        menu.getMenuItems().add(new MenuItem("Salami","",13,MenuItem.MenuItemTypes.MenuItem, 6.00f));
+        menu.getMenuItems().add(new MenuItem("Egg Salad","",14,MenuItem.MenuItemTypes.MenuItem, 6.00f));
+        menu.getMenuItems().add(new MenuItem("Vegetarian","",15,MenuItem.MenuItemTypes.MenuItem, 6.00f));
 
-        MenuItem item = new MenuItem();
-        item.setName("BLT");
-        item.setPrice(2.50f);
-        item.setType(MenuItem.MenuItemTypes.MenuItem);
-        item.setSortOrder(2);
-        groupItem.getChildMenuItems().add(item);
+        menu.getMenuItems().add(new MenuItem("Cheese","",20,MenuItem.MenuItemTypes.MenuGroup, .80f));
+        menu.getMenuItems().add(new MenuItem("Provolone","",21,MenuItem.MenuItemTypes.MenuItem, .80f));
+        menu.getMenuItems().add(new MenuItem("Cheddar","",22,MenuItem.MenuItemTypes.MenuItem, .80f));
+        menu.getMenuItems().add(new MenuItem("Swiss","",23,MenuItem.MenuItemTypes.MenuItem, .80f));
+        menu.getMenuItems().add(new MenuItem("American","",24,MenuItem.MenuItemTypes.MenuItem, .80f));
+        menu.getMenuItems().add(new MenuItem("Jack","",25,MenuItem.MenuItemTypes.MenuItem, .80f));
 
-        item = new MenuItem();
-        item.setName("Turkey");
-        item.setPrice(2.50f);
-        item.setType(MenuItem.MenuItemTypes.MenuItem);
-        item.setSortOrder(3);
-        groupItem.getChildMenuItems().add(item);
+        menu.getMenuItems().add(new MenuItem("Hot Sandwiches","",30,MenuItem.MenuItemTypes.MenuGroup, 7.95f));
+        menu.getMenuItems().add(new MenuItem("Chicken Parmesan W/Provolone","",31,MenuItem.MenuItemTypes.MenuItem, 7.95f));
+        menu.getMenuItems().add(new MenuItem("Chicken Pesto W/Jack","",32,MenuItem.MenuItemTypes.MenuItem, 7.95f));
+        menu.getMenuItems().add(new MenuItem("French Dip W/Au Jus","",33,MenuItem.MenuItemTypes.MenuItem, 7.95f));
 
-        item = new MenuItem();
-        item.setName("Salami");
-        item.setPrice(2.75f);
-        item.setType(MenuItem.MenuItemTypes.MenuItem);
-        item.setSortOrder(4);
-        groupItem.getChildMenuItems().add(item);
+        menu.getMenuItems().add(new MenuItem("Sandwich Extras","",40,MenuItem.MenuItemTypes.MenuGroup, 0.00f));
+        menu.getMenuItems().add(new MenuItem("Cranberry","",41,MenuItem.MenuItemTypes.MenuItem, 0.75f));
+        menu.getMenuItems().add(new MenuItem("Avocado","",42,MenuItem.MenuItemTypes.MenuItem, 1.00f));
+        menu.getMenuItems().add(new MenuItem("Bacon","",43,MenuItem.MenuItemTypes.MenuItem, 0.30f));
 
-        groupItem = new MenuItem();
-        groupItem.setName("Cheese");
-        item.setPrice(.50f);
-        groupItem.setType(MenuItem.MenuItemTypes.MenuGroup);
-        groupItem.setSortOrder(2);
-        menu.getMenuItems().add(groupItem);
+        menu.getMenuItems().add(new MenuItem("Combos","",50,MenuItem.MenuItemTypes.MenuGroup, 7.25f));
+        menu.getMenuItems().add(new MenuItem("1/2 Sand + Soup","",51,MenuItem.MenuItemTypes.MenuItem, 7.25f));
+        menu.getMenuItems().add(new MenuItem("1/2 Sand + Salad","",52,MenuItem.MenuItemTypes.MenuItem, 7.25f));
+        menu.getMenuItems().add(new MenuItem("Soup + Salad","",53,MenuItem.MenuItemTypes.MenuItem, 7.25f));
 
-        item = new MenuItem();
-        item.setName("Provolone");
-        item.setPrice(.50f);
-        item.setType(MenuItem.MenuItemTypes.MenuItem);
-        item.setSortOrder(1);
-        groupItem.getChildMenuItems().add(item);
+        menu.getMenuItems().add(new MenuItem("Bread","",60,MenuItem.MenuItemTypes.MenuGroup, 0.00f));
+        menu.getMenuItems().add(new MenuItem("Sour French Bread","",61,MenuItem.MenuItemTypes.MenuItem, 0.00f));
+        menu.getMenuItems().add(new MenuItem("Dutch Crunch Roll","",62,MenuItem.MenuItemTypes.MenuItem, 0.00f));
+        menu.getMenuItems().add(new MenuItem("Wheat Roll","",63,MenuItem.MenuItemTypes.MenuItem, 0.00f));
+        menu.getMenuItems().add(new MenuItem("Sliced Sourdough","",64,MenuItem.MenuItemTypes.MenuItem, 0.00f));
+        menu.getMenuItems().add(new MenuItem("Honey White","",65,MenuItem.MenuItemTypes.MenuItem, 0.00f));
+        menu.getMenuItems().add(new MenuItem("Dark Rye","",66,MenuItem.MenuItemTypes.MenuItem, 0.00f));
+        menu.getMenuItems().add(new MenuItem("Soft Roll","",67,MenuItem.MenuItemTypes.MenuItem, 0.00f));
+        menu.getMenuItems().add(new MenuItem("Multi Grain","",68,MenuItem.MenuItemTypes.MenuItem, 0.00f));
+        menu.getMenuItems().add(new MenuItem("Croissants","",69,MenuItem.MenuItemTypes.MenuItem, 1.00f));
+        menu.getMenuItems().add(new MenuItem("Focaccia Rolls","",70,MenuItem.MenuItemTypes.MenuItem, 1.00f));
 
-        item = new MenuItem();
-        item.setName("Cheddar");
-        item.setPrice(.50f);
-        item.setType(MenuItem.MenuItemTypes.MenuItem);
-        item.setSortOrder(2);
-        groupItem.getChildMenuItems().add(item);
+        menu.getMenuItems().add(new MenuItem("Soup","",80,MenuItem.MenuItemTypes.MenuGroup, 0.00f));
+        menu.getMenuItems().add(new MenuItem("12 Oz","",81,MenuItem.MenuItemTypes.MenuItem, 3.95f));
+        menu.getMenuItems().add(new MenuItem("16 Oz","",82,MenuItem.MenuItemTypes.MenuItem, 5.00f));
 
-        item = new MenuItem();
-        item.setName("Swiss");
-        item.setPrice(.50f);
-        item.setType(MenuItem.MenuItemTypes.MenuItem);
-        item.setSortOrder(3);
-        groupItem.getChildMenuItems().add(item);
+        menu.getMenuItems().add(new MenuItem("Monday","",90,MenuItem.MenuItemTypes.MenuGroup, 0.00f));
+        menu.getMenuItems().add(new MenuItem("Cream Potato","",91,MenuItem.MenuItemTypes.MenuItem, 0.00f));
+        menu.getMenuItems().add(new MenuItem("TuesDay","",92,MenuItem.MenuItemTypes.MenuGroup, 0.00f));
+        menu.getMenuItems().add(new MenuItem("Minestrone","",93,MenuItem.MenuItemTypes.MenuItem, 0.00f));
+        
+        menu.getMenuItems().add(new MenuItem("Hot Food","",100,MenuItem.MenuItemTypes.MenuGroup, 5.50f));
+        menu.getMenuItems().add(new MenuItem("Beef Lasagna","",101,MenuItem.MenuItemTypes.MenuItem, 5.50f));
+        
+        menu.getMenuItems().add(new MenuItem("Deli Salads","",110,MenuItem.MenuItemTypes.MenuGroup, 3.50f));
+        menu.getMenuItems().add(new MenuItem("Macaroni","",111,MenuItem.MenuItemTypes.MenuGroup, 3.50f));
+        menu.getMenuItems().add(new MenuItem("Fresh Fruit","",112,MenuItem.MenuItemTypes.MenuItem, 3.50f));
+        menu.getMenuItems().add(new MenuItem("Cucumber Tomato","",113,MenuItem.MenuItemTypes.MenuItem, 3.50f));
+        menu.getMenuItems().add(new MenuItem("Red Potato","",114,MenuItem.MenuItemTypes.MenuItem, 3.50f));
+        menu.getMenuItems().add(new MenuItem("Mixed Beans","",115,MenuItem.MenuItemTypes.MenuItem, 3.50f));
+        menu.getMenuItems().add(new MenuItem("Cold Tuna with Pasta Shells","",116,MenuItem.MenuItemTypes.MenuItem, 3.50f));
+        menu.getMenuItems().add(new MenuItem("Cajun Bean","",117,MenuItem.MenuItemTypes.MenuItem, 3.50f));
+        menu.getMenuItems().add(new MenuItem("Pretzel Jell-O","",118,MenuItem.MenuItemTypes.MenuItem, 3.50f));
+        menu.getMenuItems().add(new MenuItem("Chicken Salad","",119,MenuItem.MenuItemTypes.MenuItem, 3.85f));
+        menu.getMenuItems().add(new MenuItem("Tuna Salad","",120,MenuItem.MenuItemTypes.MenuItem, 3.85f));
+        
+        menu.getMenuItems().add(new MenuItem("Green Salads","",130,MenuItem.MenuItemTypes.MenuGroup, 0.00f));
+        menu.getMenuItems().add(new MenuItem("Dressing on the side","",131,MenuItem.MenuItemTypes.MenuItem, 0.00f));
+        menu.getMenuItems().add(new MenuItem("Caesar Salad","",132,MenuItem.MenuItemTypes.MenuItem, 5.50f));
+        menu.getMenuItems().add(new MenuItem("Garden Salad","",133,MenuItem.MenuItemTypes.MenuItem, 5.50f));
+        menu.getMenuItems().add(new MenuItem("Chicken Caesar Salad","",134,MenuItem.MenuItemTypes.MenuItem, 6.00f));
+        menu.getMenuItems().add(new MenuItem("Garden Salad w/Chicken","",135,MenuItem.MenuItemTypes.MenuItem, 6.00f));
+        menu.getMenuItems().add(new MenuItem("Pasta primavera w/chicken","",136,MenuItem.MenuItemTypes.MenuItem, 6.00f));
+        menu.getMenuItems().add(new MenuItem("Taco Salad","",137,MenuItem.MenuItemTypes.MenuItem, 6.00f));
+        menu.getMenuItems().add(new MenuItem("Oriental Salad","",138,MenuItem.MenuItemTypes.MenuItem, 6.00f));
+        menu.getMenuItems().add(new MenuItem("Caesar","",139,MenuItem.MenuItemTypes.MenuItem, 0.50f));
+        menu.getMenuItems().add(new MenuItem("Ranch","",140,MenuItem.MenuItemTypes.MenuItem, 0.50f));
+        menu.getMenuItems().add(new MenuItem("Oriental","",141,MenuItem.MenuItemTypes.MenuItem, 0.50f));
+        menu.getMenuItems().add(new MenuItem("Italian","",142,MenuItem.MenuItemTypes.MenuItem, 0.50f));
+        menu.getMenuItems().add(new MenuItem("Balsamic Vinegar","",143,MenuItem.MenuItemTypes.MenuItem, 0.50f));
+
+
+        
+
+
 
 
         //menu.setRestaurant("");

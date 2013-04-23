@@ -24,4 +24,15 @@ public class MenuItem {
     @OneToMany(cascade = CascadeType.ALL)
     private Set<MenuItem> childMenuItems = new HashSet<MenuItem>();
 
+
+    public MenuItem(String inName, String inDescription, Integer inSortOrder, MenuItemTypes inType, Float inPrice) {
+        name = inName;
+        description = inDescription;
+        sortOrder = inSortOrder;
+        type = inType;
+        price = inPrice;
+    }
+
+    public MenuItem() {
+    }
 }

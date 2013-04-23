@@ -7,7 +7,10 @@ import com.omo.domain.MenuItem;
 import java.math.BigInteger;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+
 
 public class MenuServiceImpl implements MenuService {
     private static final String INDENT = "   ";
@@ -23,10 +26,17 @@ public class MenuServiceImpl implements MenuService {
         html.add("<div class=\"divMenu\">" + NEW_LINE);
         Menu menu = findMenu(menuId);
         html.add("   <ul class=\"listMenu menulist\" id='menu_" + menuId + "'>" + NEW_LINE);
-        for (MenuItem menuItem: menu.getMenuItems()) {
+        //Collections.sort(new ArrayList(menu.getMenuItems()), menuItemComparator);
+        List<MenuItem> menuItems = new ArrayList(menu.getMenuItems());
+        Collections.sort(menuItems, new Comparator<MenuItem>() {
+            public int compare(MenuItem mi1, MenuItem mi2) {
+                return (mi1.getSortOrder()>mi2.getSortOrder() ? -1 : (mi1.getSortOrder()==mi2.getSortOrder() ? 0 : 1));
+            }
+        });
+
+        for (MenuItem menuItem: menuItems) {
             loadMenuItem(menuItem, html, 1);
         }
-//        html.add("      </li>");
         html.add("   </ul>" + NEW_LINE);
         html.add("</div>" + NEW_LINE);
         html.add("<!-- end generated menu html -->" + NEW_LINE);
@@ -34,6 +44,13 @@ public class MenuServiceImpl implements MenuService {
         return html;
     }
 
+    public class menuItemComparator implements Comparator<MenuItem> {
+
+        @Override
+        public int compare(MenuItem o1, MenuItem o2) {
+            return (o1.getSortOrder()>o2.getSortOrder() ? -1 : (o1.getSortOrder()==o2.getSortOrder() ? 0 : 1));
+        }
+    }
 
     private void loadMenuItem(MenuItem menuItem, ArrayList<String> html, Integer level) throws Exception {
         //logger.debug("   loadMenuItem...");
