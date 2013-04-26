@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Order Lunch</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+	<style>
+		.section {border-top: 1px solid red}
+
+        label {
+            display: block;
+            padding-left: 15px;
+            text-indent: -15px;
+        }
+        input {
+            width: 13px;
+            height: 13px;
+            padding: 0;
+            margin:0;
+            vertical-align: bottom;
+            position: relative;
+            top: -1px;
+            *overflow: hidden;
+        }
+
+        .divCheckbox {
+            float:left;
+            width:18px;
+            margin-left:20px;
+        }
+        .divNamePrice {
+            width: 170px;
+            float:left;
+        }
+
+        .menuItemName{
+            float:left;
+        }
+
+        .menuItemPrice{
+            float:right;
+        }
+
+
+
+	</style>
+	
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="assets/css/docs.css" rel="stylesheet">
+    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+
+    <link rel="stylesheet" href="assets/css/digitss.css">
+</head>
+<body data-spy="scroll" data-target=".bs-docs-sidebar"><!-- Navbar
+================================================== -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container" style="">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="./index.html">Bootstrap</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li class="active">
+                        <a href="./index.html">Home</a>
+                    </li>
+                    <li class="">
+                        <a href="./getting-started.html">Order</a>
+                    </li>
+                    <li class="">
+                        <a href="./scaffolding.html">About</a>
+                    </li>
+                    <li class="">
+                        <a href="./base-css.html">Other</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-collapse collapse" style="float:right;width:120px;">
+                <ul class="nav">
+                    <li class="active">
+                        <a href="./order.html">Your ORDER</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Subhead
+================================================== -->
+<header class="jumbotron subhead" id="overview">
+    <div class="container">
+        <h1>El Cafecito</h1>
+        <p class="lead">Featured Menu: Bentelino's
+        <div style="width:50px;"></div>Sandwiches and Salads..blah blah...from bentelino...</p>
+    </div>
+</header>
+<!-- begin generated menu html -->
+<div class="container divMenu">
+         <div class="row">
+            <div class="span8">
+               <h4 class="menuGroupTitle">Soup</h4>
+               <p>additional menuGroup text</p>
+               <div class="row">
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_12_Oz" value="12_Oz">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">12 Oz </div>
+                          <div class="menuItemPrice">$3.95</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_16_Oz" value="16_Oz">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">16 Oz </div>
+                          <div class="menuItemPrice">$5.00</div>
+                      </div>
+                  </label>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="span8">
+               <h4 class="menuGroupTitle">Combos</h4>
+               <p>additional menuGroup text</p>
+               <div class="row">
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Soup_+_Salad" value="Soup_+_Salad">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Soup + Salad </div>
+                          <div class="menuItemPrice">$7.25</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_1_2_Sand_+_Soup" value="1_2_Sand_+_Soup">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">1/2 Sand + Soup </div>
+                          <div class="menuItemPrice">$7.25</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_1_2_Sand_+_Salad" value="1_2_Sand_+_Salad">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">1/2 Sand + Salad </div>
+                          <div class="menuItemPrice">$7.25</div>
+                      </div>
+                  </label>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="span8">
+               <h4 class="menuGroupTitle">Sandwiches</h4>
+               <p>additional menuGroup text</p>
+               <div class="row">
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Corn_Beef" value="Corn_Beef">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Corn Beef </div>
+                          <div class="menuItemPrice">$6.00</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Meatloaf" value="Meatloaf">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Meatloaf </div>
+                          <div class="menuItemPrice">$6.00</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Roast_Beef" value="Roast_Beef">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Roast Beef </div>
+                          <div class="menuItemPrice">$6.00</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Tuna_Salad" value="Tuna_Salad">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Tuna Salad </div>
+                          <div class="menuItemPrice">$6.00</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Chicken_Salad" value="Chicken_Salad">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Chicken Salad </div>
+                          <div class="menuItemPrice">$6.00</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Egg_Salad" value="Egg_Salad">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Egg Salad </div>
+                          <div class="menuItemPrice">$6.00</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Vegetarian" value="Vegetarian">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Vegetarian </div>
+                          <div class="menuItemPrice">$6.00</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_BLT" value="BLT">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">BLT </div>
+                          <div class="menuItemPrice">$6.00</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Salami" value="Salami">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Salami </div>
+                          <div class="menuItemPrice">$6.00</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Oen_Roasted_Turkey" value="Oen_Roasted_Turkey">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Oen Roasted Turkey </div>
+                          <div class="menuItemPrice">$6.00</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Ham" value="Ham">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Ham </div>
+                          <div class="menuItemPrice">$6.00</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Turkey" value="Turkey">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Turkey </div>
+                          <div class="menuItemPrice">$6.00</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Crab_Salad" value="Crab_Salad">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Crab Salad </div>
+                          <div class="menuItemPrice">$6.00</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Pastrami" value="Pastrami">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Pastrami </div>
+                          <div class="menuItemPrice">$6.00</div>
+                      </div>
+                  </label>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="span8">
+               <h4 class="menuGroupTitle">Sandwich_Extras</h4>
+               <p>additional menuGroup text</p>
+               <div class="row">
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Avocado" value="Avocado">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Avocado </div>
+                          <div class="menuItemPrice">$1.00</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Cranberry" value="Cranberry">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Cranberry </div>
+                          <div class="menuItemPrice">$.75</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Bacon" value="Bacon">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Bacon </div>
+                          <div class="menuItemPrice">$.30</div>
+                      </div>
+                  </label>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="span8">
+               <h4 class="menuGroupTitle">Deli_Salads</h4>
+               <p>additional menuGroup text</p>
+               <div class="row">
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Mixed_Beans" value="Mixed_Beans">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Mixed Beans </div>
+                          <div class="menuItemPrice">$3.50</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Cold_Tuna_with_Pasta_Shells" value="Cold_Tuna_with_Pasta_Shells">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Cold Tuna with Pasta Shells </div>
+                          <div class="menuItemPrice">$3.50</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Cucumber_Tomato" value="Cucumber_Tomato">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Cucumber Tomato </div>
+                          <div class="menuItemPrice">$3.50</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Chicken_Salad" value="Chicken_Salad">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Chicken Salad </div>
+                          <div class="menuItemPrice">$3.85</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Red_Potato" value="Red_Potato">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Red Potato </div>
+                          <div class="menuItemPrice">$3.50</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Tuna_Salad" value="Tuna_Salad">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Tuna Salad </div>
+                          <div class="menuItemPrice">$3.85</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Pretzel_Jell-O" value="Pretzel_Jell-O">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Pretzel Jell-O </div>
+                          <div class="menuItemPrice">$3.50</div>
+                      </div>
+                  </label>
+               <div class="row">
+                  <div class="span8">
+                     <h4 class="menuGroupTitle">Macaroni</h4>
+                     <p>additional menuGroup text</p>
+                     <div class="row">
+                     </div>
+                  </div>
+               </div>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Fresh_Fruit" value="Fresh_Fruit">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Fresh Fruit </div>
+                          <div class="menuItemPrice">$3.50</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Cajun_Bean" value="Cajun_Bean">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Cajun Bean </div>
+                          <div class="menuItemPrice">$3.50</div>
+                      </div>
+                  </label>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="span8">
+               <h4 class="menuGroupTitle">Cheese</h4>
+               <p>additional menuGroup text</p>
+               <div class="row">
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Jack" value="Jack">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Jack </div>
+                          <div class="menuItemPrice">$.80</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_American" value="American">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">American </div>
+                          <div class="menuItemPrice">$.80</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Cheddar" value="Cheddar">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Cheddar </div>
+                          <div class="menuItemPrice">$.80</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Swiss" value="Swiss">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Swiss </div>
+                          <div class="menuItemPrice">$.80</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Provolone" value="Provolone">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Provolone </div>
+                          <div class="menuItemPrice">$.80</div>
+                      </div>
+                  </label>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="span8">
+               <h4 class="menuGroupTitle">Bread</h4>
+               <p>additional menuGroup text</p>
+               <div class="row">
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Multi_Grain" value="Multi_Grain">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Multi Grain </div>
+                          <div class="menuItemPrice">$.00</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Focaccia_Rolls" value="Focaccia_Rolls">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Focaccia Rolls </div>
+                          <div class="menuItemPrice">$1.00</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Honey_White" value="Honey_White">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Honey White </div>
+                          <div class="menuItemPrice">$.00</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Sliced_Sourdough" value="Sliced_Sourdough">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Sliced Sourdough </div>
+                          <div class="menuItemPrice">$.00</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Wheat_Roll" value="Wheat_Roll">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Wheat Roll </div>
+                          <div class="menuItemPrice">$.00</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Sour_French_Bread" value="Sour_French_Bread">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Sour French Bread </div>
+                          <div class="menuItemPrice">$.00</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Croissants" value="Croissants">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Croissants </div>
+                          <div class="menuItemPrice">$1.00</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Dutch_Crunch_Roll" value="Dutch_Crunch_Roll">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Dutch Crunch Roll </div>
+                          <div class="menuItemPrice">$.00</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Soft_Roll" value="Soft_Roll">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Soft Roll </div>
+                          <div class="menuItemPrice">$.00</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Dark_Rye" value="Dark_Rye">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Dark Rye </div>
+                          <div class="menuItemPrice">$.00</div>
+                      </div>
+                  </label>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="span8">
+               <h4 class="menuGroupTitle">Monday</h4>
+               <p>additional menuGroup text</p>
+               <div class="row">
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Minestrone" value="Minestrone">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Minestrone </div>
+                          <div class="menuItemPrice">$.00</div>
+                      </div>
+                  </label>
+               <div class="row">
+                  <div class="span8">
+                     <h4 class="menuGroupTitle">TuesDay</h4>
+                     <p>additional menuGroup text</p>
+                     <div class="row">
+                     </div>
+                  </div>
+               </div>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Cream_Potato" value="Cream_Potato">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Cream Potato </div>
+                          <div class="menuItemPrice">$.00</div>
+                      </div>
+                  </label>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="span8">
+               <h4 class="menuGroupTitle">Green_Salads</h4>
+               <p>additional menuGroup text</p>
+               <div class="row">
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Taco_Salad" value="Taco_Salad">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Taco Salad </div>
+                          <div class="menuItemPrice">$6.00</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Pasta_primavera_w_chicken" value="Pasta_primavera_w_chicken">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Pasta primavera w/chicken </div>
+                          <div class="menuItemPrice">$6.00</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Oriental" value="Oriental">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Oriental </div>
+                          <div class="menuItemPrice">$.50</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Balsamic_Vinegar" value="Balsamic_Vinegar">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Balsamic Vinegar </div>
+                          <div class="menuItemPrice">$.50</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Chicken_Caesar_Salad" value="Chicken_Caesar_Salad">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Chicken Caesar Salad </div>
+                          <div class="menuItemPrice">$6.00</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Garden_Salad_w_Chicken" value="Garden_Salad_w_Chicken">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Garden Salad w/Chicken </div>
+                          <div class="menuItemPrice">$6.00</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Oriental_Salad" value="Oriental_Salad">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Oriental Salad </div>
+                          <div class="menuItemPrice">$6.00</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Ranch" value="Ranch">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Ranch </div>
+                          <div class="menuItemPrice">$.50</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Garden_Salad" value="Garden_Salad">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Garden Salad </div>
+                          <div class="menuItemPrice">$5.50</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Italian" value="Italian">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Italian </div>
+                          <div class="menuItemPrice">$.50</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Dressing_on_the_side" value="Dressing_on_the_side">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Dressing on the side </div>
+                          <div class="menuItemPrice">$.00</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Caesar" value="Caesar">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Caesar </div>
+                          <div class="menuItemPrice">$.50</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Caesar_Salad" value="Caesar_Salad">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Caesar Salad </div>
+                          <div class="menuItemPrice">$5.50</div>
+                      </div>
+                  </label>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="span8">
+               <h4 class="menuGroupTitle">Hot_Food</h4>
+               <p>additional menuGroup text</p>
+               <div class="row">
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Beef_Lasagna" value="Beef_Lasagna">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Beef Lasagna </div>
+                          <div class="menuItemPrice">$5.50</div>
+                      </div>
+                  </label>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="span8">
+               <h4 class="menuGroupTitle">Hot_Sandwiches</h4>
+               <p>additional menuGroup text</p>
+               <div class="row">
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Chicken_Pesto_W_Jack" value="Chicken_Pesto_W_Jack">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Chicken Pesto W/Jack </div>
+                          <div class="menuItemPrice">$7.95</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_French_Dip_W_Au_Jus" value="French_Dip_W_Au_Jus">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">French Dip W/Au Jus </div>
+                          <div class="menuItemPrice">$7.95</div>
+                      </div>
+                  </label>
+                  <label>
+                      <div class="divCheckbox">
+                          <input type="checkbox" false name="menuitem_Chicken_Parmesan_W_Provolone" value="Chicken_Parmesan_W_Provolone">
+                      </div>
+                      <div class="divNamePrice">
+                          <div class="menuItemName">Chicken Parmesan W/Provolone </div>
+                          <div class="menuItemPrice">$7.95</div>
+                      </div>
+                  </label>
+               </div>
+            </div>
+         </div>
+</div>
+<!-- end generated menu html -->
+
+    <!-- Footer
+    ================================================== -->
+    <footer class="footer">
+        <div class="container">
+            <p>Blah blah blah</p>
+        </div>
+    </footer>
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap-transition.js"></script>
+    <script src="assets/js/bootstrap-alert.js"></script>
+    <script src="assets/js/bootstrap-modal.js"></script>
+    <script src="assets/js/bootstrap-dropdown.js"></script>
+    <script src="assets/js/bootstrap-scrollspy.js"></script>
+    <script src="assets/js/bootstrap-tab.js"></script>
+    <script src="assets/js/bootstrap-tooltip.js"></script>
+    <script src="assets/js/bootstrap-popover.js"></script>
+    <script src="assets/js/bootstrap-button.js"></script>
+    <script src="assets/js/bootstrap-collapse.js"></script>
+    <script src="assets/js/bootstrap-carousel.js"></script>
+    <script src="assets/js/bootstrap-typeahead.js"></script>
+    <script src="assets/js/bootstrap-affix.js"></script>
+    <script src="assets/js/jquery.custom_radio_checkbox.js"></script>
+
+    <script src="assets/js/holder/holder.js"></script>
+    <script src="assets/js/google-code-prettify/prettify.js"></script>
+
+    <script src="assets/js/application.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".radio").dgStyle();
+            $(".checkbox").dgStyle();
+        });
+    </script></body></html>

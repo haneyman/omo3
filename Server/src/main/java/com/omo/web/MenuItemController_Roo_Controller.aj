@@ -5,7 +5,7 @@ package com.omo.web;
 
 import com.omo.domain.MenuItem;
 import com.omo.repository.MenuItemRepository;
-
+import com.omo.web.MenuItemController;
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import javax.servlet.http.HttpServletRequest;
@@ -35,7 +35,7 @@ privileged aspect MenuItemController_Roo_Controller {
         menuItemRepository.save(menuItem);
         return "redirect:/menuitems/" + encodeUrlPathSegment(menuItem.getId().toString(), httpServletRequest);
     }
-
+    
     @RequestMapping(value = "/{id}", produces = "text/html")
     public String MenuItemController.show(@PathVariable("id") BigInteger id, Model uiModel) {
         uiModel.addAttribute("menuitem", menuItemRepository.findOne(id));

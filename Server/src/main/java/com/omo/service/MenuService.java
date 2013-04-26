@@ -10,6 +10,6 @@ import java.util.List;
 @RooService(domainTypes = { com.omo.domain.Menu.class })
 public interface MenuService {
 
-    public ArrayList<String> getMenuAsHTML(BigInteger menuId) throws Exception;
+    public String getMenuAsHTML(BigInteger menuId) throws Exception;
     public List<Menu> getMenuByName(String menuName);
 }
