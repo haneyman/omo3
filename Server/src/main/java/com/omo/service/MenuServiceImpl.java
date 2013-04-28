@@ -20,29 +20,15 @@ public class MenuServiceImpl implements MenuService {
         logger.debug("getMenuAsHTML - loading html for menu " + menuId +  "...");
         html = new ArrayList<String>();
         html.add(NEW_LINE + "<!-- begin generated menu html -->" + NEW_LINE);
-        //addHeader();
-        //addToHTML("<body>");
-//        html.add("<LINK href=\"bootstrap/css/bootstrap.css\" rel=\"stylesheet\" type=\"text/css\">" + NEW_LINE);
         html.add("<div class=\"container divMenu\">" + NEW_LINE);
-//        html.add("  <div class=\"row-fluid\">" + NEW_LINE);
-//        html.add("    <div class=\"span18\">" + NEW_LINE);
+        html.add("    <div class=\"row-fluid divMenuRow\">" + NEW_LINE);
         Menu menu = findMenu(menuId);
-//        html.add("      <ul class=\"listMenu menulist\" id='menu_" + menuId + "'>" + NEW_LINE);
-        loadMenuItems(menu.getMenuItems(), 2);
-//        html.add("      </ul> <!-- end of listMenu -->" + NEW_LINE);
-//        html.add("    </div>" + NEW_LINE);
-//        html.add("  </div>" + NEW_LINE);
-        html.add("</div>" + NEW_LINE);
+        loadMenuItems(menu.getMenuItems(), 1);
+        html.add("    </div> <!-- divMenuRow -->" + NEW_LINE);
+        html.add("</div> <!-- divMenu -->" + NEW_LINE);
         html.add("<!-- end generated menu html -->" + NEW_LINE);
         logger.debug("Loading html for menu complete. Lines:" + html.size());
         return htmlAsString();
-    }
-    
-    public class menuItemComparator implements Comparator<MenuItem> {
-        @Override
-        public int compare(MenuItem o1, MenuItem o2) {
-            return (o1.getSortOrder()>o2.getSortOrder() ? -1 : (o1.getSortOrder()==o2.getSortOrder() ? 0 : 1));
-        }
     }
 
     private void loadMenuItems(Set<MenuItem> menuItems, int level) throws Exception {
@@ -53,8 +39,10 @@ public class MenuServiceImpl implements MenuService {
             }
         });
 
-        for (MenuItem menuItem: menuItems) {
-            if (menuItem.getType().equals(MenuItem.MenuItemTypes.MenuGroup)) {
+        for (MenuItem menuItem: menuItemsList) {
+            if (menuItem.getType().equals(MenuItem.MenuItemTypes.MenuSection)) {
+                loadMenuSection(menuItem, level);
+            } else if (menuItem.getType().equals(MenuItem.MenuItemTypes.MenuGroup)) {
                 loadMenuGroup(menuItem, level);
             } else if (menuItem.getType().equals(MenuItem.MenuItemTypes.MenuItem)) {
                 loadMenuItem(menuItem, level);
@@ -62,21 +50,34 @@ public class MenuServiceImpl implements MenuService {
                 throw new Exception("Invalid Menu Item Type: \"" + menuItem.getType() + "\"");
         }
     }
-        //logger.debug("   loadMenuItem...");
+
+    private void loadMenuSection(MenuItem menuItem, int level) throws Exception {
+        level++;
+//        addToHTML("<div class=\"row\">",level);
+        addToHTML(INDENT + "<div class=\"divMenuSection row\">",level);
+        addToHTML(INDENT + "<h3>" + menuItem.getName() + "</h3>",level);
+
+        if (menuItem.getChildMenuItems().size() > 0) {
+            loadMenuItems(menuItem.getChildMenuItems(), level + 1);
+        }
+        addToHTML(INDENT + "</div> <!-- divMenuSection -->",level);
+//        addToHTML("</div>",level);
+    }
 
     private void loadMenuGroup(MenuItem menuItem, int level) throws Exception {
         level++;
-//        addToHTML("<ul class=\" menuGroup\" id='menuGroup_" + menuItem.getName() + "'>", level);
-        addToHTML("<div class=\"row\">",level);
-        addToHTML(INDENT + "<div class=\"span8\">",level);
-        addToHTML(INDENT + INDENT + "<h4 class=\"menuGroupTitle\">" + menuItem.getName().replaceAll(" ", "_").replaceAll("/","_") + "</h4>", level);
-        addToHTML(INDENT + INDENT + "<p>additional menuGroup text</p>",level);
-        addToHTML(INDENT + INDENT + "<div class=\"row\">",level);
-        loadMenuItems(menuItem.getChildMenuItems(), level+1);
-        addToHTML(INDENT + INDENT + "</div>",level);
-        addToHTML(INDENT + "</div>",level);
-        addToHTML("</div>",level);
-//        addToHTML("</ul>",level);
+//        addToHTML("<div class=\"row\">",level);
+        addToHTML(INDENT + "<div class=\"span5 divMenuGroup\">",level);
+        addToHTML(INDENT + INDENT + "<div class=\"row-fluid divMenuGroupRow\">",level);
+        addToHTML(INDENT + INDENT + INDENT + "<h4 class=\"menuGroupTitle\">" + menuItem.getName() + "</h4>", level);
+        addToHTML(INDENT + INDENT + INDENT + "<p>" + menuItem.getDescription() + "</p>",level);
+        addToHTML(INDENT + INDENT + INDENT + "<div class=\"divItemNamePrice\">",level);
+        loadMenuItems(menuItem.getChildMenuItems(), level + 2);
+        addToHTML(INDENT + INDENT + INDENT + "</div> <!-- divItemNamePrice -->", level);
+        addToHTML(INDENT + INDENT + "</div> <!-- divMenuGroupRow -->",level);
+        addToHTML(INDENT + "</div> <!-- divMenuGroup -->",level);
+        addToHTML("<br/>",level);
+//        addToHTML("</div>",level);
     }
 
     private void loadMenuItem(MenuItem menuItem, int level) {
@@ -85,19 +86,16 @@ public class MenuServiceImpl implements MenuService {
         DecimalFormat myFormatter = new DecimalFormat("###.00");
         String priceOutput = myFormatter.format(menuItem.getPrice());
         String name =  menuItem.getName().replaceAll(" ", "_").replaceAll("/","_");
-/*
-        addToHTML("<li class=\"nodeLevel" + level + " menuListItem"  + "\"><input type=\"checkbox\" "  + checked
-                + " name=\"menuitem_" + menuItem.getName().replaceAll(" ", "_").replaceAll("/","_") + "\" value=\"" + menuItem.getName() + "\">"
-                + "<label>" + menuItem.getName() + " </label>"
-                + "<span class=\"spanMenuItemPrice\">$" + priceOutput + "</span></li>", level);
-*/
         addToHTML(INDENT + "<label>",level);
         addToHTML(INDENT + "    <div class=\"divCheckbox\">",level);
         addToHTML(INDENT + "        <input type=\"checkbox\" "  + checked + " name=\"menuitem_" + name + "\" value=\"" + name + "\">", level);
         addToHTML(INDENT + "    </div>",level);
         addToHTML(INDENT + "    <div class=\"divNamePrice\">",level);
         addToHTML(INDENT + "        <div class=\"menuItemName\">" + menuItem.getName() + " </div>",level);
-        addToHTML(INDENT + "        <div class=\"menuItemPrice\">$" + priceOutput + "</div>",level);
+        if (menuItem.getPrice() > 0)
+            addToHTML(INDENT + "        <div class=\"menuItemPrice\">$" + priceOutput + "</div>",level);
+        else
+            addToHTML(INDENT + "        <div class=\"menuItemPrice\">" + "&nbsp;" + "</div>",level);
         addToHTML(INDENT + "    </div>", level);
         addToHTML(INDENT + "</label>",level);
     }

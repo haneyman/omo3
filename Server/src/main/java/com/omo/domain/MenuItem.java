@@ -13,7 +13,7 @@ import java.util.Set;
 @RooToString
 @RooMongoEntity
 public class MenuItem {
-    public enum MenuItemTypes {MenuGroup, MenuItem;}   // Arrays.asList(Menu.MenuItemTypes.values())
+    public enum MenuItemTypes {MenuGroup, MenuItem, MenuSection, MenuBreak;}   // Arrays.asList(Menu.MenuItemTypes.values())
 
     private String name;
 
