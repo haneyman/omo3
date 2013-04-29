@@ -21,7 +21,7 @@ public class MenuServiceImpl implements MenuService {
         html = new ArrayList<String>();
         html.add(NEW_LINE + "<!-- begin generated menu html -->" + NEW_LINE);
         html.add("<div class=\"container divMenu\">" + NEW_LINE);
-        html.add("    <div class=\"row-fluid divMenuRow\">" + NEW_LINE);
+        html.add("    <div class=\"row divMenuRow\">" + NEW_LINE);
         Menu menu = findMenu(menuId);
         loadMenuItems(menu.getMenuItems(), 1);
         html.add("    </div> <!-- divMenuRow -->" + NEW_LINE);
@@ -68,12 +68,12 @@ public class MenuServiceImpl implements MenuService {
         level++;
 //        addToHTML("<div class=\"row\">",level);
         addToHTML(INDENT + "<div class=\"span5 divMenuGroup\">",level);
-        addToHTML(INDENT + INDENT + "<div class=\"row-fluid divMenuGroupRow\">",level);
+        addToHTML(INDENT + INDENT + "<div class=\"row divMenuGroupRow\">",level);
         addToHTML(INDENT + INDENT + INDENT + "<h4 class=\"menuGroupTitle\">" + menuItem.getName() + "</h4>", level);
         addToHTML(INDENT + INDENT + INDENT + "<p>" + menuItem.getDescription() + "</p>",level);
-        addToHTML(INDENT + INDENT + INDENT + "<div class=\"divItemNamePrice\">",level);
+        addToHTML(INDENT + INDENT + INDENT + "<div class=\"divItems\">",level);
         loadMenuItems(menuItem.getChildMenuItems(), level + 2);
-        addToHTML(INDENT + INDENT + INDENT + "</div> <!-- divItemNamePrice -->", level);
+        addToHTML(INDENT + INDENT + INDENT + "</div> <!-- divItems -->", level);
         addToHTML(INDENT + INDENT + "</div> <!-- divMenuGroupRow -->",level);
         addToHTML(INDENT + "</div> <!-- divMenuGroup -->",level);
         addToHTML("<br/>",level);

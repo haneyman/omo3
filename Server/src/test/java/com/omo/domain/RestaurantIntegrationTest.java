@@ -223,11 +223,13 @@ public class RestaurantIntegrationTest {
         menuItem.getChildMenuItems().add(new MenuItem("Pasta primavera w/chicken","",136,MenuItem.MenuItemTypes.MenuItem, 6.00f));
         menuItem.getChildMenuItems().add(new MenuItem("Taco Salad","",137,MenuItem.MenuItemTypes.MenuItem, 6.00f));
         menuItem.getChildMenuItems().add(new MenuItem("Oriental Salad","",138,MenuItem.MenuItemTypes.MenuItem, 6.00f));
-        menuItem.getChildMenuItems().add(new MenuItem("Caesar","",139,MenuItem.MenuItemTypes.MenuItem, 0.50f));
-        menuItem.getChildMenuItems().add(new MenuItem("Ranch","",140,MenuItem.MenuItemTypes.MenuItem, 0.50f));
-        menuItem.getChildMenuItems().add(new MenuItem("Oriental","",141,MenuItem.MenuItemTypes.MenuItem, 0.50f));
-        menuItem.getChildMenuItems().add(new MenuItem("Italian","",142,MenuItem.MenuItemTypes.MenuItem, 0.50f));
-        menuItem.getChildMenuItems().add(new MenuItem("Balsamic Vinegar","",143,MenuItem.MenuItemTypes.MenuItem, 0.50f));
+        MenuItem menuItem2 = new MenuItem("Dressing","",150,MenuItem.MenuItemTypes.MenuGroup, 0.00f);
+        menuItem2.getChildMenuItems().add(new MenuItem("Caesar","",1,MenuItem.MenuItemTypes.MenuItem, 0.50f));
+        menuItem2.getChildMenuItems().add(new MenuItem("Ranch","",2,MenuItem.MenuItemTypes.MenuItem, 0.50f));
+        menuItem2.getChildMenuItems().add(new MenuItem("Oriental","",3,MenuItem.MenuItemTypes.MenuItem, 0.50f));
+        menuItem2.getChildMenuItems().add(new MenuItem("Italian","",4,MenuItem.MenuItemTypes.MenuItem, 0.50f));
+        menuItem2.getChildMenuItems().add(new MenuItem("Balsamic Vinegar","",5,MenuItem.MenuItemTypes.MenuItem, 0.50f));
+        menuItem.getChildMenuItems().add(menuItem2);
         sectionMenuItem.getChildMenuItems().add(menuItem);
 
 
