@@ -9,20 +9,138 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=8" />
 
-    <util:load-scripts />
+    <meta charset="utf-8"/>
+    <title>Order Lunch</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
 
-    <spring:message code="application_name" var="app_name" htmlEscape="false"/>
+    <style>
+        .section {border-top: 1px solid red}
+
+        label {
+            display: block;
+            padding-left: 15px;
+            text-indent: -15px;
+        }
+        input {
+            width: 13px;
+            height: 13px;
+            padding: 0;
+            margin:0;
+            vertical-align: bottom;
+            position: relative;
+            top: -1px;
+            *overflow: hidden;
+        }
+
+        .divCheckbox {
+            float:left;
+            width:18px;
+            margin-left:20px;
+        }
+        .divNamePrice {
+            width: 170px;
+            float:left;
+        }
+
+        .menuItemName{
+            float:left;
+        }
+
+        .menuItemPrice{
+            float:right;
+        }
+
+        .divMenuSection {
+            border-style: solid;
+            border-width: 1px;
+            border-color: #195f91;
+            margin-top: 10px;
+            padding: 3px;
+            background-color: #e9e7ff;
+        }
+
+    </style>
+
+    <!-- Le styles -->
+    <spring:url value="/resources/assets" var="assets_url" />
+    <link href="${assets_url}/css/bootstrap.css" rel="stylesheet"/>
+    <link href="${assets_url}/css/bootstrap-responsive.css" rel="stylesheet"/>
+    <link href="${assets_url}/css/docs.css" rel="stylesheet"/>
+    <link href="${assets_url}/js/google-code-prettify/prettify.css" rel="stylesheet"/>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="${assets_url}/ico/apple-touch-icon-144-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="${assets_url}/ico/apple-touch-icon-114-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="${assets_url}/ico/apple-touch-icon-72-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" href="${assets_url}/ico/apple-touch-icon-57-precomposed.png"/>
+    <link rel="shortcut icon" href="${assets_url}/ico/favicon.png"/>
+
+    <link rel="stylesheet" href="${assets_url}/css/digitss.css"/>
+
+
+
     <title><spring:message code="welcome_h3" arguments="${app_name}" /></title>
 </head>
 
-<body class="tundra spring">
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
 <div id="wrapper">
-    <tiles:insertAttribute name="header" ignore="true" />
-    <!--<tiles:insertAttribute name="menu" ignore="true" />   -->
+    <tiles:insertAttribute name="bodyTop" ignore="true" />
+    <tiles:insertAttribute name="menu" ignore="true" />
     <div id="main">
         <tiles:insertAttribute name="body"/>
-        <tiles:insertAttribute name="footer" ignore="true"/>
     </div>
 </div>
+
+<!-- Footer  ================================================== -->
+<footer class="footer">
+    <div class="container">
+        <p>This is the footer and something important should probably be said here.</p>
+        <!--
+                <p>Designed and built with all the love in the world by <a href="http://twitter.com/mdo" target="_blank">@mdo</a> and <a href="http://twitter.com/fat" target="_blank">@fat</a>.</p>
+                <p>Code licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+                <p><a href="http://glyphicons.com">Glyphicons Free</a> licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+                <ul class="footer-links">
+                  <li><a href="http://blog.getbootstrap.com">Blog</a></li>
+                  <li class="muted">&middot;</li>
+                  <li><a href="https://github.com/twitter/bootstrap/issues?state=open">Issues</a></li>
+                  <li class="muted">&middot;</li>
+                  <li><a href="https://github.com/twitter/bootstrap/wiki">Roadmap and changelog</a></li>
+                </ul>
+        -->
+    </div>
+</footer>
+
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+<script src="${assets_url}/js/jquery.js"></script>
+<script src="${assets_url}/js/bootstrap-transition.js"></script>
+<script src="${assets_url}/js/bootstrap-alert.js"></script>
+<script src="${assets_url}/js/bootstrap-modal.js"></script>
+<script src="${assets_url}/js/bootstrap-dropdown.js"></script>
+<script src="${assets_url}/js/bootstrap-scrollspy.js"></script>
+<script src="${assets_url}/js/bootstrap-tab.js"></script>
+<script src="${assets_url}/js/bootstrap-tooltip.js"></script>
+<script src="${assets_url}/js/bootstrap-popover.js"></script>
+<script src="${assets_url}/js/bootstrap-button.js"></script>
+<script src="${assets_url}/js/bootstrap-collapse.js"></script>
+<script src="${assets_url}/js/bootstrap-carousel.js"></script>
+<script src="${assets_url}/js/bootstrap-typeahead.js"></script>
+<script src="${assets_url}/js/bootstrap-affix.js"></script>
+
+<script src="${assets_url}/js/holder/holder.js"></script>
+<script src="${assets_url}/js/google-code-prettify/prettify.js"></script>
+
+<script src="${assets_url}/js/application.js"></script>
+
 </body>
+
 </html>

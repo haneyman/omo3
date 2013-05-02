@@ -11,10 +11,8 @@
     <put-attribute name="footer" value="/WEB-INF/views/footer.jspx" />
   </definition>
 
-  <definition name="public" template="/WEB-INF/layouts/default.jspx">
-    <put-attribute name="header" value="/WEB-INF/views/public/header.jspx" />
-    <put-attribute name="nav" value="/WEB-INF/views/public/nav.jspx" />
-    <put-attribute name="footer" value="/WEB-INF/views/header/footer.jspx" />
+  <definition name="public" template="/WEB-INF/layouts/public.jspx">
+    <put-attribute name="bodyTop" value="/WEB-INF/views/public/bodyTop.jsp" />
   </definition>
 
 </tiles-definitions>

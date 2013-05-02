@@ -2,6 +2,15 @@
 <!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
 <tiles-definitions>
     <definition extends="public" name="public/index">
-        <put-attribute name="body" value="/WEB-INF/views/resellers/index.html"/>
+        <put-attribute name="bodyTop" value="/WEB-INF/views/public/bodyTop.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/views/public/index.jsp"/>
+    </definition>
+    <definition extends="public" name="public/preorder">
+        <put-attribute name="bodyTop" value="/WEB-INF/views/public/bodyTop.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/views/public/preorder.jsp"/>
+    </definition>
+    <definition extends="public" name="public/menu">
+        <put-attribute name="bodyTop" value="/WEB-INF/views/public/bodyTop.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/views/public/menu.jsp"/>
     </definition>
 </tiles-definitions>
