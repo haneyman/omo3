@@ -41,7 +41,7 @@
         }
         .divNamePrice {
             width: 170px;
-            float:left;
+            /*float:left;*/
         }
 
         .menuItemName{

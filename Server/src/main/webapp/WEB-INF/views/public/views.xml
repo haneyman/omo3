@@ -13,4 +13,8 @@
         <put-attribute name="bodyTop" value="/WEB-INF/views/public/bodyTop.jsp"/>
         <put-attribute name="body" value="/WEB-INF/views/public/menu.jsp"/>
     </definition>
+    <definition extends="public" name="public/confirmOrder">
+        <put-attribute name="bodyTop" value="/WEB-INF/views/public/bodyTop.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/views/public/confirmOrder.jsp"/>
+    </definition>
 </tiles-definitions>
