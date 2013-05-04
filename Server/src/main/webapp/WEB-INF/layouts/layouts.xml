@@ -12,7 +12,7 @@
   </definition>
 
   <definition name="public" template="/WEB-INF/layouts/public.jspx">
-    <put-attribute name="bodyTop" value="/WEB-INF/views/public/bodyTop.jsp" />
+    <put-attribute name="bodyTop" value="/WEB-INF/views/public/bodyTop.jspx" />
   </definition>
 
 </tiles-definitions>

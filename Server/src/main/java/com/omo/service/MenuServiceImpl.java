@@ -28,6 +28,7 @@ public class MenuServiceImpl implements MenuService {
         html.add("</div> <!-- divMenu -->" + NEW_LINE);
         html.add("<!-- end generated menu html -->" + NEW_LINE);
         logger.debug("Loading html for menu complete. Lines:" + html.size());
+        logger.debug("getMenuAsHTML done");
         return htmlAsString();
     }
 
@@ -88,6 +89,7 @@ public class MenuServiceImpl implements MenuService {
         String name =  menuItem.getName().replaceAll(" ", "_").replaceAll("/","_");
         addToHTML(INDENT + "<label>",level);
         addToHTML(INDENT + "    <div class=\"divCheckbox\">",level);
+        String group =
         addToHTML(INDENT + "        <input type=\"checkbox\" "  + checked + " name=\"menuitem_" + name + "\" value=\"" + name + "\">", level);
         addToHTML(INDENT + "    </div>",level);
         addToHTML(INDENT + "    <div class=\"divNamePrice\">",level);
