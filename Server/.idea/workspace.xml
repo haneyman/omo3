@@ -2,18 +2,65 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="25af7e77-f6fd-4cd0-9f56-3c1b54060c66" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/omo.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/omo/service/MenuServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/omo/service/MenuServiceImpl.java" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__aopalliance_aopalliance_1_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__commons_beanutils_commons_beanutils_1_8_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__commons_codec_commons_codec_1_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__commons_digester_commons_digester_2_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__commons_fileupload_commons_fileupload_1_2_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__commons_io_commons_io_2_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__javax_el_el_api_2_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__javax_persistence_persistence_api_1_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__javax_servlet_jsp_jsp_api_2_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__javax_servlet_jsp_jstl_jstl_api_1_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__javax_servlet_servlet_api_2_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__javax_validation_validation_api_1_0_0_GA.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__joda_time_joda_time_1_6.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__junit_junit_4_10.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__log4j_log4j_1_2_16.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__net_sf_flexjson_flexjson_2_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__org_apache_commons_commons_lang3_3_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__org_apache_tiles_tiles_api_2_2_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__org_apache_tiles_tiles_core_2_2_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__org_apache_tiles_tiles_jsp_2_2_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__org_apache_tiles_tiles_servlet_2_2_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__org_apache_tiles_tiles_template_2_2_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__org_aspectj_aspectjrt_1_7_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__org_aspectj_aspectjweaver_1_7_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__org_cloudfoundry_cloudfoundry_runtime_0_8_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__org_glassfish_web_jstl_impl_1_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__org_hamcrest_hamcrest_core_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__org_hibernate_hibernate_validator_4_2_0_Final.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__org_mongodb_mongo_java_driver_2_6_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__org_slf4j_jcl_over_slf4j_1_7_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__org_slf4j_slf4j_api_1_7_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__org_slf4j_slf4j_log4j12_1_7_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__org_springframework_data_spring_data_commons_core_1_2_0_M2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__org_springframework_data_spring_data_mongodb_1_0_0_M5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__org_springframework_roo_org_springframework_roo_annotations_1_2_3_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__org_springframework_spring_aop_3_2_0_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__org_springframework_spring_aspects_3_2_0_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__org_springframework_spring_beans_3_2_0_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__org_springframework_spring_context_3_2_0_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__org_springframework_spring_context_support_3_2_0_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__org_springframework_spring_core_3_2_0_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__org_springframework_spring_expression_3_2_0_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__org_springframework_spring_test_3_2_0_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__org_springframework_spring_tx_3_0_6_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__org_springframework_spring_web_3_2_0_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__org_springframework_spring_webmvc_3_2_0_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Mark\My Documents\GitHub\omo3\Server\.idea\libraries\Maven__org_springframework_webflow_spring_js_resources_2_2_1_RELEASE.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/omo/web/MenuItemController_Roo_Controller.aj" afterPath="$PROJECT_DIR$/src/main/java/com/omo/web/MenuItemController_Roo_Controller.aj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/omo/repository/MenuItemRepository_Roo_Mongo_Repository.aj" afterPath="$PROJECT_DIR$/src/main/java/com/omo/repository/MenuItemRepository_Roo_Mongo_Repository.aj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/omo/domain/MenuItem_Roo_JavaBean.aj" afterPath="$PROJECT_DIR$/src/main/java/com/omo/domain/MenuItem_Roo_JavaBean.aj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/omo/repository/MenuRepository_Roo_Mongo_Repository.aj" afterPath="$PROJECT_DIR$/src/main/java/com/omo/repository/MenuRepository_Roo_Mongo_Repository.aj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/omo/service/MenuServiceImpl_Roo_Service.aj" afterPath="$PROJECT_DIR$/src/main/java/com/omo/service/MenuServiceImpl_Roo_Service.aj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/omo/domain/Menu_Roo_JavaBean.aj" afterPath="$PROJECT_DIR$/src/main/java/com/omo/domain/Menu_Roo_JavaBean.aj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/omo/domain/RestaurantIntegrationTest_Roo_IntegrationTest.aj" afterPath="$PROJECT_DIR$/src/test/java/com/omo/domain/RestaurantIntegrationTest_Roo_IntegrationTest.aj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/omo/repository/RestaurantRepository_Roo_Mongo_Repository.aj" afterPath="$PROJECT_DIR$/src/main/java/com/omo/repository/RestaurantRepository_Roo_Mongo_Repository.aj" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/layouts/layouts.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/layouts/layouts.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log.roo" afterPath="$PROJECT_DIR$/log.roo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/layouts/public.jspx" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/layouts/public.jspx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/testBodyTop.html" afterPath="$PROJECT_DIR$/src/main/webapp/testBodyTop.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/testHeader.html" afterPath="$PROJECT_DIR$/src/main/webapp/testHeader.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/views.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/views.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/omo.iml" afterPath="$PROJECT_DIR$/omo.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="D:\Projects\omo3\Server\src\main\webapp\WEB-INF\views\public\bodyTop.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/bodyTop.jspx" />
     </list>
     <ignored path="omoServer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,7 +81,7 @@
     <file path="/views.xml" changelist="25af7e77-f6fd-4cd0-9f56-3c1b54060c66" time="1367196284386" ignored="false" />
     <file path="/MenuController.java" changelist="25af7e77-f6fd-4cd0-9f56-3c1b54060c66" time="1361835798820" ignored="false" />
     <file path="$PROJECT_DIR$/../server2/log.roo" changelist="25af7e77-f6fd-4cd0-9f56-3c1b54060c66" time="1361741433461" ignored="false" />
-    <file path="/Dummy.txt" changelist="25af7e77-f6fd-4cd0-9f56-3c1b54060c66" time="1367626868481" ignored="false" />
+    <file path="/Dummy.txt" changelist="25af7e77-f6fd-4cd0-9f56-3c1b54060c66" time="1367638591718" ignored="false" />
     <file path="/MenuItem.java" changelist="25af7e77-f6fd-4cd0-9f56-3c1b54060c66" time="1367105386581" ignored="false" />
     <file path="/Menu.java" changelist="25af7e77-f6fd-4cd0-9f56-3c1b54060c66" time="1364949665921" ignored="false" />
     <file path="/create.jspx" changelist="25af7e77-f6fd-4cd0-9f56-3c1b54060c66" time="1361743917877" ignored="false" />
@@ -78,7 +125,6 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -115,6 +161,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
@@ -164,7 +211,7 @@
       <file leaf-file-name="public.jspx" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/layouts/public.jspx">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="103" column="36" selection-start="3923" selection-end="3923" vertical-scroll-proportion="-5.8076925">
+            <state line="103" column="36" selection-start="3923" selection-end="3923" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -173,7 +220,7 @@
       <file leaf-file-name="MenuServiceImpl.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/omo/service/MenuServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="23" selection-start="4284" selection-end="4284" vertical-scroll-proportion="0.6439791">
+            <state line="125" column="25" selection-start="5674" selection-end="5674" vertical-scroll-proportion="0.5555556">
               <folding />
             </state>
           </provider>
@@ -182,7 +229,7 @@
       <file leaf-file-name="bodyTop.jspx" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/bodyTop.jspx">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="8" selection-start="0" selection-end="3465" vertical-scroll-proportion="-15.038462">
+            <state line="23" column="8" selection-start="0" selection-end="3465" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -236,11 +283,6 @@
     </option>
   </component>
   <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="D:\maven" />
-      </MavenGeneralSettings>
-    </option>
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="importAutomatically" value="true" />
@@ -326,7 +368,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
-    <option name="STATE" value="0" />
+    <option name="STATE" value="1" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
@@ -341,21 +383,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="omoServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="omoServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -636,6 +663,21 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="omoServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="omoServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -645,7 +687,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="options.lastSelected" value="appearance" />
+    <property name="options.lastSelected" value="MavenSettings" />
     <property name="last_opened_file_path" value="C:/Git/bin/git.exe" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="GoToClass.includeJavaFiles" value="false" />
@@ -1017,7 +1059,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="181" y="16" width="1288" height="982" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32969698" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1034,10 +1076,10 @@
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18352365" sideWeight="0.58373785" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18314424" sideWeight="0.58373785" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3254486" sideWeight="0.58373785" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3249595" sideWeight="0.58373785" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.41747573" sideWeight="0.49915966" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24957983" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Roo Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32917705" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1249,21 +1291,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/bodyTop.jspx">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="8" selection-start="0" selection-end="3465" vertical-scroll-proportion="-15.038462">
+        <state line="23" column="8" selection-start="0" selection-end="3465" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/layouts/public.jspx">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="103" column="36" selection-start="3923" selection-end="3923" vertical-scroll-proportion="-5.8076925">
+        <state line="103" column="36" selection-start="3923" selection-end="3923" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/omo/service/MenuServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="23" selection-start="4284" selection-end="4284" vertical-scroll-proportion="0.6439791">
+        <state line="125" column="25" selection-start="5674" selection-end="5674" vertical-scroll-proportion="0.5555556">
           <folding />
         </state>
       </provider>
