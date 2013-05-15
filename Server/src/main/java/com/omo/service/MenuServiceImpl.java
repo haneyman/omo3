@@ -89,7 +89,7 @@ public class MenuServiceImpl implements MenuService {
         String name =  menuItem.getName().replaceAll(" ", "_").replaceAll("/","_");
         addToHTML(INDENT + "<label>",level);
         addToHTML(INDENT + "    <div class=\"divCheckbox\">",level);
-        String group =
+//        String group =
         addToHTML(INDENT + "        <input type=\"checkbox\" "  + checked + " name=\"menuitem_" + name + "\" value=\"" + name + "\">", level);
         addToHTML(INDENT + "    </div>",level);
         addToHTML(INDENT + "    <div class=\"divNamePrice\">",level);

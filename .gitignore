@@ -6,3 +6,4 @@
 *.ear
 Server/target/*
 Server/.idea/*
+Server/*.iml

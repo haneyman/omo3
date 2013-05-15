@@ -24,6 +24,14 @@ privileged aspect MenuItem_Roo_JavaBean {
         this.description = description;
     }
     
+    public String MenuItem.getUuid() {
+        return this.uuid;
+    }
+    
+    public void MenuItem.setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+    
     public Integer MenuItem.getSortOrder() {
         return this.sortOrder;
     }

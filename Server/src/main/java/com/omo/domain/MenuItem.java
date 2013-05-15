@@ -8,6 +8,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.OneToMany;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 @RooJavaBean
 @RooToString
@@ -18,6 +19,7 @@ public class MenuItem {
     private String name;
 
     private String description;
+    private String uuid;
     private Integer sortOrder;
     private MenuItemTypes type;
     private float price;
@@ -31,6 +33,7 @@ public class MenuItem {
         sortOrder = inSortOrder;
         type = inType;
         price = inPrice;
+        uuid = UUID.randomUUID().toString();
     }
 
     public MenuItem() {
