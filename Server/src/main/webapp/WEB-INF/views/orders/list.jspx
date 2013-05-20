@@ -5,6 +5,7 @@
     <page:list id="pl_com_omo_domain_Order" items="${orders}" z="lP9ZTFdBQ+croescQsqnWFH87No=">
         <table:table data="${orders}" id="l_com_omo_domain_Order" path="/orders" z="CHMfJUoIw1qhPudOuYBIqCHSN4A=">
             <table:column date="true" dateTimePattern="${order_orderdate_date_format}" id="c_com_omo_domain_Order_orderDate" property="orderDate" z="LuKFCqFeU9dAbjDk21PWE0jfiO0="/>
+            <table:column id="c_com_omo_domain_Order_menu" property="menu" z="mkoZCsPDec+01EiYICECqKeIaKs="/>
         </table:table>
     </page:list>
 </div>

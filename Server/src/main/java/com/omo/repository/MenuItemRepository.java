@@ -11,4 +11,5 @@ import java.util.List;
 public interface MenuItemRepository  extends PagingAndSortingRepository<MenuItem, BigInteger> {
 
     List<MenuItem> findAll();
+    List<MenuItem> findByUuid(String uuid);
 }

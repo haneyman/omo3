@@ -4,6 +4,8 @@
 package com.omo.web;
 
 import com.omo.domain.Order;
+import com.omo.repository.MenuItemRepository;
+import com.omo.service.MenuService;
 import com.omo.service.OrderService;
 import com.omo.web.OrderController;
 import java.io.UnsupportedEncodingException;
@@ -26,6 +28,12 @@ privileged aspect OrderController_Roo_Controller {
     
     @Autowired
     OrderService OrderController.orderService;
+    
+    @Autowired
+    MenuService OrderController.menuService;
+    
+    @Autowired
+    MenuItemRepository OrderController.menuItemRepository;
     
     @RequestMapping(method = RequestMethod.POST, produces = "text/html")
     public String OrderController.create(@Valid Order order, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
@@ -101,6 +109,8 @@ privileged aspect OrderController_Roo_Controller {
     void OrderController.populateEditForm(Model uiModel, Order order) {
         uiModel.addAttribute("order", order);
         addDateTimeFormatPatterns(uiModel);
+        uiModel.addAttribute("menus", menuService.findAllMenus());
+        uiModel.addAttribute("menuitems", menuItemRepository.findAll());
     }
     
     String OrderController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

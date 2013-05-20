@@ -15,7 +15,7 @@ import java.util.UUID;
 @RooMongoEntity
 public class MenuItem {
     public enum MenuItemTypes {MenuGroup, MenuItem, MenuSection, MenuBreak;}   // Arrays.asList(Menu.MenuItemTypes.values())
-
+    public static final String MENUITEM_LABEL = "menuitem_";
     private String name;
 
     private String description;

@@ -31,4 +31,7 @@ public class Menu {
     private String address;
     private ORDER_CONTACT_TYPES orderContactType;
     private String orderContact;
+
+
+
 }

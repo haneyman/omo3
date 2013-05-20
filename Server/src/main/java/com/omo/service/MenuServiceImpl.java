@@ -23,6 +23,7 @@ public class MenuServiceImpl implements MenuService {
         html.add("<div class=\"container divMenu\">" + NEW_LINE);
         html.add("    <div class=\"row divMenuRow\">" + NEW_LINE);
         Menu menu = findMenu(menuId);
+        html.add("    <input type=\"hidden\" name=\"menuId\" value=\"" + menu.getId() + "\">" + NEW_LINE);
         loadMenuItems(menu.getMenuItems(), 1);
         html.add("    </div> <!-- divMenuRow -->" + NEW_LINE);
         html.add("</div> <!-- divMenu -->" + NEW_LINE);
@@ -90,7 +91,7 @@ public class MenuServiceImpl implements MenuService {
         addToHTML(INDENT + "<label>",level);
         addToHTML(INDENT + "    <div class=\"divCheckbox\">",level);
 //        String group =
-        addToHTML(INDENT + "        <input type=\"checkbox\" "  + checked + " name=\"menuitem_" + name + "\" value=\"" + name + "\">", level);
+        addToHTML(INDENT + "        <input type=\"checkbox\" "  + checked + " name=\"" + MenuItem.MENUITEM_LABEL + "_" + menuItem.getUuid() + "\" value=\"" + name + "\">", level);
         addToHTML(INDENT + "    </div>",level);
         addToHTML(INDENT + "    <div class=\"divNamePrice\">",level);
         addToHTML(INDENT + "        <div class=\"menuItemName\">" + menuItem.getName() + " </div>",level);
@@ -125,6 +126,24 @@ public class MenuServiceImpl implements MenuService {
 
     public void deleteMenu(Menu menu) {
         menuRepository.delete(menu);
+    }
+
+    public static MenuItem getMenuItemFromSet(Set<MenuItem> menuItemSet, String menuItemUUID) {
+        logger.debug("getmenuitemfromset looking for " + menuItemUUID);
+        MenuItem result = null;
+        for (MenuItem menuItem: menuItemSet) {
+            logger.debug("getMenuItemFromSet checking " + menuItem.getUuid() + "  " + menuItem.getName());
+            if (menuItem.getChildMenuItems().size() > 0) {
+                result = getMenuItemFromSet(menuItem.getChildMenuItems(), menuItemUUID);
+            }
+            if (menuItem.getUuid().equalsIgnoreCase(menuItemUUID)) {
+                logger.debug(" found it!");
+                result = menuItem;
+            }
+            if (result != null)
+                return result;
+        }
+        return null;
     }
 
 /*

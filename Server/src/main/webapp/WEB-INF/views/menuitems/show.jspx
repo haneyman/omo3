@@ -8,5 +8,6 @@
         <field:display field="price" id="s_com_omo_domain_MenuItem_price" object="${menuitem}" z="79ZLcJEhGevWcCZhZBOL+yBGQe8="/>
         <field:display field="sortOrder" id="s_com_omo_domain_MenuItem_sortOrder" object="${menuitem}" z="lv20JGNxIRT14/7WCyDmg/rWXKo="/>
         <field:display field="type" id="s_com_omo_domain_MenuItem_type" object="${menuitem}" z="uaor9d71/zCoHSZN6XEAxULkkFc="/>
+        <field:display field="uuid" id="s_com_omo_domain_MenuItem_uuid" object="${menuitem}" z="ASBo3yVYECbZBvnquZhu07YvHBU="/>
     </page:show>
 </div>

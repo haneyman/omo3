@@ -104,7 +104,7 @@
         <!--</a>-->
 
         <meta charset="utf-8"/>
-        <title>Bootstrap</title>
+        <title>El Cafecito Order</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta name="description" content=""/>
         <meta name="author" content=""/>
@@ -133,12 +133,12 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container" style="">
-                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+<!--                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                </button>
-                <a class="brand" href="./index.html">Bootstrap</a>
+                </button>-->
+                <a class="brand" href="./index.html">OMO</a>
                 <div class="nav-collapse collapse">
                     <ul class="nav">
                         <li class="active">
@@ -151,14 +151,14 @@
                             <a href="./scaffolding.html">About</a>
                         </li>
                         <li class="">
-                            <a href="./base-css.html">Other</a>
+                            <a href="./base-css.html">Login</a>
                         </li>
                     </ul>
                 </div>
                 <div class="nav-collapse collapse" style="float:right;width:120px;">
                     <ul class="nav">
                         <li class="active">
-                            <a href="./order.html">Your ORDER</a>
+                            <a href="./order.html">ORDERS</a>
                         </li>
                     </ul>
                 </div>

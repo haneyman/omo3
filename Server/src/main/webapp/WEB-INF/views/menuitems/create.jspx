@@ -9,6 +9,7 @@
         <field:input field="sortOrder" id="c_com_omo_domain_MenuItem_sortOrder" validationMessageCode="field_invalid_integer" z="kWPVfdjknCm1/GvQewm9XONvmJU="/>
         <field:simple field="childMenuItems" id="c_com_omo_domain_MenuItem_childMenuItems" messageCode="entity_reference_not_managed" messageCodeAttribute="Menu Item" z="q/GzBTVEZPwTbTfNEflB9tgPes8="/>
         <field:input field="type" id="c_com_omo_domain_MenuItem_type" z="N/fyj/h20Muod4mlu5Rq2Lk8c9M="/>
+        <field:input field="uuid" id="c_com_omo_domain_MenuItem_uuid" z="il6ZhmiP9bVfEFvIlyXTnGYzuIs="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_omo_domain_MenuItem" render="${not empty dependencies}" z="7ogFR2yib/0G54hXxZ6b1qBJ7sI="/>
 </div>

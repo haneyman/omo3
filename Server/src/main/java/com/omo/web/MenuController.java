@@ -20,6 +20,7 @@ public class MenuController {
     public String showMenu(@PathVariable("id") BigInteger id, Model uiModel) {
         logger.debug("showMenu for:" + id);
         //http://localhost:8080/omo/menus/showMenu/25228012736225668066740962972
+        //http://localhost:8080/omo/menus/showMenu/25218716663578156317953998846   Haneymain
 /*
         BigInteger bi = new BigInteger("512c0357ff3acce65673455d");
         id = bi;//temp

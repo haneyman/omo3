@@ -3,8 +3,11 @@
 
 package com.omo.domain;
 
+import com.omo.domain.Menu;
+import com.omo.domain.MenuItem;
 import com.omo.domain.Order;
 import java.util.Date;
+import java.util.Set;
 
 privileged aspect Order_Roo_JavaBean {
     
@@ -14,6 +17,22 @@ privileged aspect Order_Roo_JavaBean {
     
     public void Order.setOrderDate(Date orderDate) {
         this.orderDate = orderDate;
+    }
+    
+    public Menu Order.getMenu() {
+        return this.menu;
+    }
+    
+    public void Order.setMenu(Menu menu) {
+        this.menu = menu;
+    }
+    
+    public Set<MenuItem> Order.getMenuItems() {
+        return this.menuItems;
+    }
+    
+    public void Order.setMenuItems(Set<MenuItem> menuItems) {
+        this.menuItems = menuItems;
     }
     
 }
