@@ -6,6 +6,7 @@
         <field:datetime dateTimePattern="${order_orderdate_date_format}" field="orderDate" id="c_com_omo_domain_Order_orderDate" z="2MDYhgJfpXPf5+Z3ay5dFnLUXo4="/>
         <field:simple field="menuItems" id="c_com_omo_domain_Order_menuItems" messageCode="entity_reference_not_managed" messageCodeAttribute="Menu Item" z="OaipueTcp1ywzgNTt/73CMw30To="/>
         <field:input field="menu" id="c_com_omo_domain_Order_menu" z="uZtASZ5ugTO+DNSvmOa+m++fI8A="/>
+        <field:input field="status" id="c_com_omo_domain_Order_status" z="PvyahqPF9zyW1QRqX54xM6RE58Y="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_omo_domain_Order" render="${not empty dependencies}" z="lHwAcyki01vxJGLWtJ57Qy9nyk4="/>
 </div>

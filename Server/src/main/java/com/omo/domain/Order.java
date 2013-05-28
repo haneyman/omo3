@@ -21,6 +21,7 @@ public class Order {
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(style = "M-")
     private Date orderDate;
+    private ORDER_STATUS status;
     @DBRef
     private Menu menu;
 
@@ -30,5 +31,7 @@ public class Order {
     public Order() {
         setOrderDate(new Date());
     }
+
+    public enum  ORDER_STATUS {INIT, OPEN, CANCELLED, CLOSED};
 
 }

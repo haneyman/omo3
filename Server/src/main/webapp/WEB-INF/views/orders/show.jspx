@@ -5,5 +5,6 @@
     <page:show id="ps_com_omo_domain_Order" object="${order}" path="/orders" z="XgAIwoLlMpS8Tum71Nc3doASFnE=">
         <field:display date="true" dateTimePattern="${order_orderdate_date_format}" field="orderDate" id="s_com_omo_domain_Order_orderDate" object="${order}" z="5J1U/pckNzkby+Oy8pkTTWfzbIg="/>
         <field:display field="menu" id="s_com_omo_domain_Order_menu" object="${order}" z="WkWN+N9ZLUHnZOAbpFKvaVo5x7Q="/>
+        <field:display field="status" id="s_com_omo_domain_Order_status" object="${order}" z="3CqnH2snztWytJd/cmFPJHSwW58="/>
     </page:show>
 </div>

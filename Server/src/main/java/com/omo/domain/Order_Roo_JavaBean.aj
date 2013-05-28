@@ -19,6 +19,14 @@ privileged aspect Order_Roo_JavaBean {
         this.orderDate = orderDate;
     }
     
+    public ORDER_STATUS Order.getStatus() {
+        return this.status;
+    }
+    
+    public void Order.setStatus(ORDER_STATUS status) {
+        this.status = status;
+    }
+    
     public Menu Order.getMenu() {
         return this.menu;
     }

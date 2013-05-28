@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.roo.addon.web.mvc.controller.scaffold.RooWebScaffold;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -27,6 +28,23 @@ public class OrderController {
 
     @Autowired
     MenuRepository menuRepository;
+
+    @RequestMapping(value = "confirmOrder/{id}", produces = "text/html")
+    public String confirmOrder(@PathVariable("id") BigInteger id, Model uiModel, HttpServletRequest httpServletRequest) throws Exception {
+        logger.debug("confirmOrder");
+        uiModel.addAttribute("order", orderService.findOrder(id));
+        uiModel.addAttribute("id", id);
+        return "public/confirmOrder";
+    }
+
+
+    @RequestMapping(value = "confirmOrder", method = RequestMethod.POST, produces = "text/html")
+    public String confirmOrderPost(Order order, Model uiModel) throws Exception {
+        logger.debug("confirmOrderPost for order " + order.getId());
+        order.setStatus(Order.ORDER_STATUS.OPEN);
+        orderService.updateOrder(order);
+        return "public/myOrders";
+    }
 
 
     @RequestMapping(value = "publicCreate", method = RequestMethod.POST, produces = "text/html")
@@ -68,13 +86,17 @@ public class OrderController {
                 if (menuItem == null)
                     throw new Exception("order could not find menuItem UUID:" + menuItemUUID);
                 order.getMenuItems().add(menuItem);
-                logger.debug("   Menu Item added to new order " + order.getId());
+                logger.debug("   Menu Item added to new order " );
             }
         }
+        order.setStatus(Order.ORDER_STATUS.INIT);
         uiModel.asMap().clear();
         orderService.saveOrder(order);
         //pass the order id to confirmOrder?
-        return "public/confirmOrder";
+        logger.debug("New order added with " + order.getMenuItems().size() + " items." );
+//        return "public/confirmOrder";
+        return "redirect:/orders/confirmOrder/" + encodeUrlPathSegment(order.getId().toString(), httpServletRequest);
+
 //        return "redirect:/orders/" + encodeUrlPathSegment(order.getId().toString(), httpServletRequest);
     }
 

@@ -129,15 +129,15 @@ public class MenuServiceImpl implements MenuService {
     }
 
     public static MenuItem getMenuItemFromSet(Set<MenuItem> menuItemSet, String menuItemUUID) {
-        logger.debug("getmenuitemfromset looking for " + menuItemUUID);
+        //logger.debug("getmenuitemfromset looking for " + menuItemUUID);
         MenuItem result = null;
         for (MenuItem menuItem: menuItemSet) {
-            logger.debug("getMenuItemFromSet checking " + menuItem.getUuid() + "  " + menuItem.getName());
+            //logger.debug("getMenuItemFromSet checking " + menuItem.getUuid() + "  " + menuItem.getName());
             if (menuItem.getChildMenuItems().size() > 0) {
                 result = getMenuItemFromSet(menuItem.getChildMenuItems(), menuItemUUID);
             }
             if (menuItem.getUuid().equalsIgnoreCase(menuItemUUID)) {
-                logger.debug(" found it!");
+                //logger.debug(" found it!");
                 result = menuItem;
             }
             if (result != null)

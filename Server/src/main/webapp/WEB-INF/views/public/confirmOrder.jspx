@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div style="margin-left: 100px;" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:c="http://java.sun.com/jsp/jstl/core" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_omo_domain_Order" object="${order}" path="/orders" z="XgAIwoLlMpS8Tum71Nc3doASFnE=">
+        <field:display date="true" dateTimePattern="${order_orderdate_date_format}" field="orderDate" id="s_com_omo_domain_Order_orderDate" object="${order}" z="5J1U/pckNzkby+Oy8pkTTWfzbIg="/>
+        <field:display render="false" field="menu" id="s_com_omo_domain_Order_menu" object="${order}" z="WkWN+N9ZLUHnZOAbpFKvaVo5x7Q="/>
+        <field:display render="false" field="status" id="s_com_omo_domain_Order_status" object="${order}" z="3CqnH2snztWytJd/cmFPJHSwW58="/>
+        <h4>Press CONFIRM to place your order.</h4>
+        <div style="margin-left:30px;width:200px;margin-bottom: 50px;">
+            <c:forEach items="${order.menuItems}" var="menuItem">
+                <div style="float:left;width:100px;">
+                    ${menuItem.name}
+                </div>
+                <div style="float:right;width:100px;">
+                    $ ${menuItem.price}
+                </div>
+                <br/>
+            </c:forEach>
+        </div>
+        <form>
+            <input type='hidden' name='orderId' value='${order.id}' />
+            <div style="height:30px;margin-top: 10px;margin-left:70px;margin-bottom:200px;">
+                <button type="submit" class="btn">CONFIRM ORDER</button>
+            </div>
+        </form>
+    </page:show>
+</div>
