@@ -7,5 +7,8 @@
         <field:simple field="menuItems" id="c_com_omo_domain_Order_menuItems" messageCode="entity_reference_not_managed" messageCodeAttribute="Menu Item" z="OaipueTcp1ywzgNTt/73CMw30To="/>
         <field:input field="menu" id="c_com_omo_domain_Order_menu" z="uZtASZ5ugTO+DNSvmOa+m++fI8A="/>
         <field:input field="status" id="c_com_omo_domain_Order_status" z="PvyahqPF9zyW1QRqX54xM6RE58Y="/>
+        <field:input field="totalPretax" id="c_com_omo_domain_Order_totalPretax" validationMessageCode="field_invalid_number" z="XE3uOM3FMuietgHiZKCDx68cIOA="/>
+        <field:input field="notes" id="c_com_omo_domain_Order_notes" z="n97NRd54WdgxiFAzbHIbAw/h69o="/>
+        <field:input field="userid" id="c_com_omo_domain_Order_userid" z="sZ9xcLwFKZpqxb2l7xNHQR585rw="/>
     </form:update>
 </div>

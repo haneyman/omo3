@@ -6,5 +6,8 @@
         <field:display date="true" dateTimePattern="${order_orderdate_date_format}" field="orderDate" id="s_com_omo_domain_Order_orderDate" object="${order}" z="5J1U/pckNzkby+Oy8pkTTWfzbIg="/>
         <field:display field="menu" id="s_com_omo_domain_Order_menu" object="${order}" z="WkWN+N9ZLUHnZOAbpFKvaVo5x7Q="/>
         <field:display field="status" id="s_com_omo_domain_Order_status" object="${order}" z="3CqnH2snztWytJd/cmFPJHSwW58="/>
+        <field:display field="totalPretax" id="s_com_omo_domain_Order_totalPretax" object="${order}" z="dGW8BAWORfcjxJL0MX28peqxsyA="/>
+        <field:display field="notes" id="s_com_omo_domain_Order_notes" object="${order}" z="NujXUO40oIFUMFzdlJX8wglsVSQ="/>
+        <field:display field="userid" id="s_com_omo_domain_Order_userid" object="${order}" z="BaDivGwohvKCaTWrpV4FwIVW+nQ="/>
     </page:show>
 </div>

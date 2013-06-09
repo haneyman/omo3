@@ -32,6 +32,14 @@ privileged aspect MenuItem_Roo_JavaBean {
         this.uuid = uuid;
     }
     
+    public String MenuItem.getParentUuid() {
+        return this.parentUuid;
+    }
+    
+    public void MenuItem.setParentUuid(String parentUuid) {
+        this.parentUuid = parentUuid;
+    }
+    
     public Integer MenuItem.getSortOrder() {
         return this.sortOrder;
     }
@@ -62,6 +70,14 @@ privileged aspect MenuItem_Roo_JavaBean {
     
     public void MenuItem.setChildMenuItems(Set<MenuItem> childMenuItems) {
         this.childMenuItems = childMenuItems;
+    }
+    
+    public String MenuItem.getInternalNotes() {
+        return this.internalNotes;
+    }
+    
+    public void MenuItem.setInternalNotes(String internalNotes) {
+        this.internalNotes = internalNotes;
     }
     
 }

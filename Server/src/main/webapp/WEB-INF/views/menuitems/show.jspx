@@ -9,5 +9,7 @@
         <field:display field="sortOrder" id="s_com_omo_domain_MenuItem_sortOrder" object="${menuitem}" z="lv20JGNxIRT14/7WCyDmg/rWXKo="/>
         <field:display field="type" id="s_com_omo_domain_MenuItem_type" object="${menuitem}" z="uaor9d71/zCoHSZN6XEAxULkkFc="/>
         <field:display field="uuid" id="s_com_omo_domain_MenuItem_uuid" object="${menuitem}" z="ASBo3yVYECbZBvnquZhu07YvHBU="/>
+        <field:display field="parentUuid" id="s_com_omo_domain_MenuItem_parentUuid" object="${menuitem}" z="FdgOQRfcuM3aw1VZUbbI1kArqy8="/>
+        <field:display field="internalNotes" id="s_com_omo_domain_MenuItem_internalNotes" object="${menuitem}" z="Pa3BaM3p0HtCIsTR7yjAlYtKcuM="/>
     </page:show>
 </div>

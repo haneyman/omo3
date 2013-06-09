@@ -35,6 +35,30 @@ privileged aspect Order_Roo_JavaBean {
         this.menu = menu;
     }
     
+    public Float Order.getTotalPretax() {
+        return this.totalPretax;
+    }
+    
+    public void Order.setTotalPretax(Float totalPretax) {
+        this.totalPretax = totalPretax;
+    }
+    
+    public String Order.getNotes() {
+        return this.notes;
+    }
+    
+    public void Order.setNotes(String notes) {
+        this.notes = notes;
+    }
+    
+    public String Order.getUserid() {
+        return this.userid;
+    }
+    
+    public void Order.setUserid(String userid) {
+        this.userid = userid;
+    }
+    
     public Set<MenuItem> Order.getMenuItems() {
         return this.menuItems;
     }

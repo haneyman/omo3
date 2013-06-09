@@ -24,6 +24,10 @@ public class Order {
     private ORDER_STATUS status;
     @DBRef
     private Menu menu;
+    private Float totalPretax;
+    private String notes;
+    private String userid;
+
 
     @OneToMany(cascade = CascadeType.ALL)
     private java.util.Set<MenuItem> menuItems = new HashSet<MenuItem>();

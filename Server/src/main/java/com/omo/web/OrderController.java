@@ -31,8 +31,13 @@ public class OrderController {
 
     @RequestMapping(value = "confirmOrder/{id}", produces = "text/html")
     public String confirmOrder(@PathVariable("id") BigInteger id, Model uiModel, HttpServletRequest httpServletRequest) throws Exception {
-        logger.debug("confirmOrder");
-        uiModel.addAttribute("order", orderService.findOrder(id));
+        logger.debug("confirmOrder " + id);
+        Order order = orderService.findOrder(id);
+        if (order != null) {
+            uiModel.addAttribute("order", order);
+            //logger.debug("   order" + order);
+        } else
+            throw new Exception("Order not found:" + id);
         uiModel.addAttribute("id", id);
         return "public/confirmOrder";
     }
@@ -47,7 +52,14 @@ public class OrderController {
     }
 
 
-    @RequestMapping(value = "publicCreate", method = RequestMethod.POST, produces = "text/html")
+    @RequestMapping(value = "myOrders", produces = "text/html")
+    public String myOrders(Order order, Model uiModel) throws Exception {
+        logger.debug("myOrders " );
+        return "public/myOrders";
+    }
+
+
+    @RequestMapping(value = "submitOrder", method = RequestMethod.POST, produces = "text/html")
     public String createOrder(Model uiModel, HttpServletRequest httpServletRequest) throws Exception {
         logger.debug("createOrder");
 /*
@@ -59,9 +71,11 @@ public class OrderController {
         String menuId="";
         String menuItemUUID;
         MenuItem menuItem;
+        MenuItem menuItemParent;
         Order order = new Order();
         Menu menu=null;
-        //first find the menu looping parameters
+        Float total=0f;
+        //first find the menu - by looping through parameters
         Enumeration enumeration = httpServletRequest.getParameterNames();
         while (enumeration.hasMoreElements()) {
             String parameterName = (String) enumeration.nextElement();
@@ -74,7 +88,7 @@ public class OrderController {
                 logger.debug("Menu id parm found, menu set to: " + menu.getId());
             }
         }
-        //now loop through looking for ordered menu items
+        //now find the selected menuItems
         enumeration = httpServletRequest.getParameterNames();
         while (enumeration.hasMoreElements()) {
             String parameterName = (String) enumeration.nextElement();
@@ -83,13 +97,21 @@ public class OrderController {
                 menuItemUUID = parameterName.substring(MenuItem.MENUITEM_LABEL.length() + 1);
 //                logger.debug("   Order has menu item: " + menuItemUUID + " retrieving...");
                 menuItem = MenuServiceImpl.getMenuItemFromSet(menu.getMenuItems(), menuItemUUID);
+                menuItemParent = MenuServiceImpl.getMenuItemFromSet(menu.getMenuItems(), menuItem.getParentUuid());
                 if (menuItem == null)
                     throw new Exception("order could not find menuItem UUID:" + menuItemUUID);
+                if (menuItemParent != null) {
+                    menuItem.setInternalNotes(menuItemParent.getName());
+                }
+                total += menuItem.getPrice();
                 order.getMenuItems().add(menuItem);
                 logger.debug("   Menu Item added to new order " );
             }
         }
         order.setStatus(Order.ORDER_STATUS.INIT);
+        order.setNotes(httpServletRequest.getParameter("notes"));
+        order.setTotalPretax(total);
+
         uiModel.asMap().clear();
         orderService.saveOrder(order);
         //pass the order id to confirmOrder?

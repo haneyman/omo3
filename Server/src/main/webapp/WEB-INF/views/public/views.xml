@@ -15,6 +15,10 @@
     </definition>
     <definition extends="public" name="public/confirmOrder">
         <!--<put-attribute name="bodyTop" value="/WEB-INF/views/public/bodyTop.jspx"/>-->
-        <put-attribute name="body" value="/WEB-INF/views/public/confirmOrder.jspx"/>
+        <put-attribute name="body" value="/WEB-INF/views/public/confirmOrder.jsp"/>
+    </definition>
+    <definition extends="public" name="public/myOrders">
+        <!--<put-attribute name="bodyTop" value="/WEB-INF/views/public/bodyTop.jspx"/>-->
+        <put-attribute name="body" value="/WEB-INF/views/public/myOrders.jsp"/>
     </definition>
 </tiles-definitions>

@@ -6,10 +6,10 @@
         <table:table data="${menuitems}" id="l_com_omo_domain_MenuItem" path="/menuitems" z="4r2JBKABVIu+0zs6HdoZAHlCvVE=">
             <table:column id="c_com_omo_domain_MenuItem_name" property="name" z="fY6C8evBHhyiFankIgZzniljx5U="/>
             <table:column id="c_com_omo_domain_MenuItem_description" property="description" z="0ArEc77DcUEnCtK7ObWxiPTk+9k="/>
-            <table:column id="c_com_omo_domain_MenuItem_price" property="price" z="wA0dlhc4X+TGGOoOSbLpnW7O75k="/>
             <table:column id="c_com_omo_domain_MenuItem_sortOrder" property="sortOrder" z="Wir4P79z4WnqP/IY+MReelgqCuY="/>
             <table:column id="c_com_omo_domain_MenuItem_type" property="type" z="oWAxTG9VSNTeQagzRl/BfYol7jo="/>
             <table:column id="c_com_omo_domain_MenuItem_uuid" property="uuid" z="iWQwbPSbS/n0Y68FwgD3/P0X+6M="/>
+            <table:column id="c_com_omo_domain_MenuItem_parentUuid" property="parentUuid" z="+bIcN95QJfWJcZkAL4weXOotOEM="/>
         </table:table>
     </page:list>
 </div>
