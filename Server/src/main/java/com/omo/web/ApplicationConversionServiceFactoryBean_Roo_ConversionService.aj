@@ -3,6 +3,7 @@
 
 package com.omo.web;
 
+import com.omo.domain.ApplicationUser;
 import com.omo.domain.Menu;
 import com.omo.domain.MenuItem;
 import com.omo.domain.Order;
@@ -10,6 +11,7 @@ import com.omo.domain.OrderItem;
 import com.omo.domain.Reseller;
 import com.omo.domain.Restaurant;
 import com.omo.domain.Schedule;
+import com.omo.repository.ApplicationUserRepository;
 import com.omo.repository.MenuItemRepository;
 import com.omo.repository.ResellerRepository;
 import com.omo.repository.RestaurantRepository;
@@ -28,6 +30,9 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     declare @type: ApplicationConversionServiceFactoryBean: @Configurable;
     
     @Autowired
+    ApplicationUserRepository ApplicationConversionServiceFactoryBean.applicationUserRepository;
+    
+    @Autowired
     MenuService ApplicationConversionServiceFactoryBean.menuService;
     
     @Autowired
@@ -44,6 +49,30 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     
     @Autowired
     ScheduleRepository ApplicationConversionServiceFactoryBean.scheduleRepository;
+    
+    public Converter<ApplicationUser, String> ApplicationConversionServiceFactoryBean.getApplicationUserToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.omo.domain.ApplicationUser, java.lang.String>() {
+            public String convert(ApplicationUser applicationUser) {
+                return new StringBuilder().append(applicationUser.getEmail()).append(' ').append(applicationUser.getPassword()).append(' ').append(applicationUser.getNameFirst()).append(' ').append(applicationUser.getNameLast()).toString();
+            }
+        };
+    }
+    
+    public Converter<BigInteger, ApplicationUser> ApplicationConversionServiceFactoryBean.getIdToApplicationUserConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.math.BigInteger, com.omo.domain.ApplicationUser>() {
+            public com.omo.domain.ApplicationUser convert(java.math.BigInteger id) {
+                return applicationUserRepository.findOne(id);
+            }
+        };
+    }
+    
+    public Converter<String, ApplicationUser> ApplicationConversionServiceFactoryBean.getStringToApplicationUserConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.omo.domain.ApplicationUser>() {
+            public com.omo.domain.ApplicationUser convert(String id) {
+                return getObject().convert(getObject().convert(id, BigInteger.class), ApplicationUser.class);
+            }
+        };
+    }
     
     public Converter<Menu, String> ApplicationConversionServiceFactoryBean.getMenuToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.omo.domain.Menu, java.lang.String>() {
@@ -206,6 +235,9 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     }
     
     public void ApplicationConversionServiceFactoryBean.installLabelConverters(FormatterRegistry registry) {
+        registry.addConverter(getApplicationUserToStringConverter());
+        registry.addConverter(getIdToApplicationUserConverter());
+        registry.addConverter(getStringToApplicationUserConverter());
         registry.addConverter(getMenuToStringConverter());
         registry.addConverter(getIdToMenuConverter());
         registry.addConverter(getStringToMenuConverter());

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_omo_domain_ApplicationUser" object="${applicationuser}" path="/applicationusers" z="wRlgjf9UniayjaKh4zlkdMOG45k=">
+        <field:display field="email" id="s_com_omo_domain_ApplicationUser_email" object="${applicationuser}" z="wE1fbsgmu2PjZzZub3ykxVWkPZ4="/>
+        <field:display field="password" id="s_com_omo_domain_ApplicationUser_password" object="${applicationuser}" z="T3zavxlAZ1SxbnDSdWrmbDrba5A="/>
+        <field:display field="nameFirst" id="s_com_omo_domain_ApplicationUser_nameFirst" object="${applicationuser}" z="/r+usY3Pi2VibtV8/BZAFyrDv9w="/>
+        <field:display field="nameLast" id="s_com_omo_domain_ApplicationUser_nameLast" object="${applicationuser}" z="BuHu29MPj6V5dzcK5yIcKkXjmkQ="/>
+        <field:display field="phoneNumber" id="s_com_omo_domain_ApplicationUser_phoneNumber" object="${applicationuser}" z="fk9/EW9ciyThg8Yb/f9LeBFmkYg="/>
+        <field:display date="true" dateTimePattern="${applicationUser_dateadded_date_format}" field="dateAdded" id="s_com_omo_domain_ApplicationUser_dateAdded" object="${applicationuser}" z="Y9lMUmd4fu8Y9tdvhMkFvUvSQ2s="/>
+        <field:display date="true" dateTimePattern="${applicationUser_datelastlogin_date_format}" field="dateLastLogin" id="s_com_omo_domain_ApplicationUser_dateLastLogin" object="${applicationuser}" z="/PkTQvHOlbxuCBNWqmBxwXbGi1k="/>
+    </page:show>
+</div>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_omo_domain_ApplicationUser" items="${applicationusers}" z="uOZ9VFX/ysv0ibLBkPCpRLfLPfA=">
+        <table:table data="${applicationusers}" id="l_com_omo_domain_ApplicationUser" path="/applicationusers" z="bVaxNxPiDUjvRwEMkv1NS/R4xUg=">
+            <table:column id="c_com_omo_domain_ApplicationUser_email" property="email" z="QY1fA7DKBTiRTtLkjX6NVFntusE="/>
+            <table:column id="c_com_omo_domain_ApplicationUser_password" property="password" z="J00GpgIFuH5/N9dVjRzCcGWVSo4="/>
+            <table:column id="c_com_omo_domain_ApplicationUser_nameFirst" property="nameFirst" z="9oPuaoHI6jl73VeUk91p8MwLUfI="/>
+            <table:column id="c_com_omo_domain_ApplicationUser_nameLast" property="nameLast" z="4tQN9J+6GTVns0z+AuvTN6CC3PU="/>
+            <table:column id="c_com_omo_domain_ApplicationUser_phoneNumber" property="phoneNumber" z="PppByQHGj2BPTd+DuIVNT/fvo3A="/>
+            <table:column date="true" dateTimePattern="${applicationUser_dateadded_date_format}" id="c_com_omo_domain_ApplicationUser_dateAdded" property="dateAdded" z="HC6cjN88oU6BTu/aADQCvN8cCI0="/>
+        </table:table>
+    </page:list>
+</div>

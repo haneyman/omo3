@@ -116,3 +116,14 @@ exit
 // Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-05-19 19:51:33
 // Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-05-27 13:54:55
 // Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-06-08 16:15:12
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-09-16 11:18:02
+entity mongo --class ~.domain.ApplicationUser
+repository mongo --interface ~.repository.ApplicationUserRepository
+field string --fieldName nameFirst
+field string --fieldName nameLast
+field string --fieldName phoneNumber
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-09-22 22:32:42
+focus --class ~.domain.ApplicationUser
+field date --fieldName dateAdded --type java.util.Date
+field date --fieldName dateLastLogin --type java.util.Date
+web mvc scaffold --class ~.web.ApplicationUserController

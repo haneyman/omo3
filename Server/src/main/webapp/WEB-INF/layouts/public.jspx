@@ -14,7 +14,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content=""/>
     <meta name="author" content=""/>
+    <spring:url value="/resources/assets" var="assets_url" />
+    <!--<title><spring:message code="welcome_h3" arguments="${app_name}" /></title>-->
 
+    <!--<script src="${assets_url}/js/jquery.js"></script>-->
     <style>
         .section {border-top: 1px solid red}
 
@@ -64,7 +67,6 @@
     </style>
 
     <!-- Le styles -->
-    <spring:url value="/resources/assets" var="assets_url" />
     <link href="${assets_url}/css/bootstrap.css" rel="stylesheet"/>
     <link href="${assets_url}/css/bootstrap-responsive.css" rel="stylesheet"/>
     <link href="${assets_url}/css/docs.css" rel="stylesheet"/>
@@ -84,9 +86,28 @@
 
     <link rel="stylesheet" href="${assets_url}/css/digitss.css"/>
 
+    <script src="/omo/resources/assets/js/jquery.js"></script>
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    <script src="${assets_url}/js/bootstrap-transition.js"></script>
+    <script src="${assets_url}/js/bootstrap-alert.js"></script>
+    <script src="${assets_url}/js/bootstrap-modal.js"></script>
+    <script src="${assets_url}/js/bootstrap-dropdown.js"></script>
+    <script src="${assets_url}/js/bootstrap-scrollspy.js"></script>
+    <script src="${assets_url}/js/bootstrap-tab.js"></script>
+    <script src="${assets_url}/js/bootstrap-tooltip.js"></script>
+    <script src="${assets_url}/js/bootstrap-popover.js"></script>
+    <script src="${assets_url}/js/bootstrap-button.js"></script>
+    <script src="${assets_url}/js/bootstrap-collapse.js"></script>
+    <script src="${assets_url}/js/bootstrap-carousel.js"></script>
+    <script src="${assets_url}/js/bootstrap-typeahead.js"></script>
+    <script src="${assets_url}/js/bootstrap-affix.js"></script>
+
+    <script src="${assets_url}/js/holder/holder.js"></script>
+    <script src="${assets_url}/js/google-code-prettify/prettify.js"></script>
+
+    <script src="${assets_url}/js/application.js"></script>
 
 
-    <title><spring:message code="welcome_h3" arguments="${app_name}" /></title>
 </head>
 
 <body data-spy="scroll" data-target=".bs-docs-sidebar">
@@ -138,11 +159,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>-->
-                <a class="brand" href="./index.html">OMO</a>
+                <a class="brand" href="./">*OMO*</a>
                 <div class="nav-collapse collapse">
                     <ul class="nav">
                         <li class="active">
-                            <a href="./index.html">Home</a>
+                            <a href="./">Home</a>
                         </li>
                         <li class="">
                             <a href="./getting-started.html">Order</a>
@@ -195,26 +216,6 @@
 <!-- Le javascript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-<script src="${assets_url}/js/jquery.js"></script>
-<script src="${assets_url}/js/bootstrap-transition.js"></script>
-<script src="${assets_url}/js/bootstrap-alert.js"></script>
-<script src="${assets_url}/js/bootstrap-modal.js"></script>
-<script src="${assets_url}/js/bootstrap-dropdown.js"></script>
-<script src="${assets_url}/js/bootstrap-scrollspy.js"></script>
-<script src="${assets_url}/js/bootstrap-tab.js"></script>
-<script src="${assets_url}/js/bootstrap-tooltip.js"></script>
-<script src="${assets_url}/js/bootstrap-popover.js"></script>
-<script src="${assets_url}/js/bootstrap-button.js"></script>
-<script src="${assets_url}/js/bootstrap-collapse.js"></script>
-<script src="${assets_url}/js/bootstrap-carousel.js"></script>
-<script src="${assets_url}/js/bootstrap-typeahead.js"></script>
-<script src="${assets_url}/js/bootstrap-affix.js"></script>
-
-<script src="${assets_url}/js/holder/holder.js"></script>
-<script src="${assets_url}/js/google-code-prettify/prettify.js"></script>
-
-<script src="${assets_url}/js/application.js"></script>
 
 </body>
 

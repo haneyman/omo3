@@ -3,7 +3,6 @@ package com.omo.web;
 import com.omo.domain.Menu;
 import com.omo.domain.MenuItem;
 import com.omo.domain.Order;
-import com.omo.repository.MenuItemRepository;
 import com.omo.repository.MenuRepository;
 import com.omo.service.MenuServiceImpl;
 import org.apache.log4j.Logger;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpServletRequest;
 import java.math.BigInteger;
 import java.util.Enumeration;
-import java.util.List;
 
 @RequestMapping("/orders")
 @Controller
@@ -35,7 +33,6 @@ public class OrderController {
         Order order = orderService.findOrder(id);
         if (order != null) {
             uiModel.addAttribute("order", order);
-            //logger.debug("   order" + order);
         } else
             throw new Exception("Order not found:" + id);
         uiModel.addAttribute("id", id);
@@ -44,8 +41,13 @@ public class OrderController {
 
 
     @RequestMapping(value = "confirmOrder", method = RequestMethod.POST, produces = "text/html")
-    public String confirmOrderPost(Order order, Model uiModel) throws Exception {
-        logger.debug("confirmOrderPost for order " + order.getId());
+    public String confirmOrderPost(Model uiModel, HttpServletRequest request) throws Exception {
+        logger.debug("confirmOrderPost for order ");
+        String orderid = request.getParameter("orderId");
+        Order order = orderService.findOrder(new BigInteger(orderid));
+        if (order == null)
+            throw new Exception("Could not retrieve order: " + order);
+        logger.debug("   order found: " + order.getId() + " , status set to OPEN");
         order.setStatus(Order.ORDER_STATUS.OPEN);
         orderService.updateOrder(order);
         return "public/myOrders";
@@ -99,8 +101,10 @@ public class OrderController {
                 menuItem = MenuServiceImpl.getMenuItemFromSet(menu.getMenuItems(), menuItemUUID);
                 menuItemParent = MenuServiceImpl.getMenuItemFromSet(menu.getMenuItems(), menuItem.getParentUuid());
                 if (menuItem == null)
-                    throw new Exception("order could not find menuItem UUID:" + menuItemUUID);
-                if (menuItemParent != null) {
+                    throw new Exception("   order could not find menuItem UUID:" + menuItemUUID);
+                if (menuItemParent == null)
+                    throw new Exception("   order could not find menuItem parent:" );
+                else {
                     menuItem.setInternalNotes(menuItemParent.getName());
                 }
                 total += menuItem.getPrice();

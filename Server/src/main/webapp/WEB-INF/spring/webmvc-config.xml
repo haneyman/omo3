@@ -25,7 +25,18 @@
     </mvc:interceptors>
 
     <!-- Selects a static view for rendering without the need for an explicit controller -->
-    <mvc:view-controller path="/" view-name="index"/>
+    <mvc:view-controller path="/" view-name="public/index"/>
+    <mvc:view-controller path="/index" view-name="public/index"/>
+    <mvc:view-controller path="/default" view-name="public/index"/>
+    <!-- these use the public.jspx parent with all the javascript and css and should work
+    but the html does not generate for some reason related to putting javascript at the top
+     which is necessary to get dialog to work - argh -->
+<!--
+    <mvc:view-controller path="/" view-name="public/preorder"/>
+    <mvc:view-controller path="/index" view-name="public/preorder"/>
+    <mvc:view-controller path="/default" view-name="public/preorder"/>
+-->
+    <!--<mvc:view-controller path="/" view-name="public/preorder"/>-->
     <mvc:view-controller path="/uncaughtException"/>
     <mvc:view-controller path="/resourceNotFound"/>
     <mvc:view-controller path="/dataAccessFailure"/>

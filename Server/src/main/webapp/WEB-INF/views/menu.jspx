@@ -30,5 +30,9 @@
         <menu:category id="c_orderitem" z="GhqzxV1aYjPOUg7hl+4kei/yyy4=">
             <menu:item id="i_orderitem_new" messageCode="global_menu_new" url="/orderitems?form" z="ykmCDiknORyKBokHMxCvTtTSsD0="/>
         </menu:category>
+        <menu:category id="c_applicationuser" z="v79aQ/QkMH7PCPKfrV5dAc2kaIs=">
+            <menu:item id="i_applicationuser_new" messageCode="global_menu_new" url="/applicationusers?form" z="my4Meg61ezcWcDO+i5f9Fl7SsfU="/>
+            <menu:item id="i_applicationuser_list" messageCode="global_menu_list" url="/applicationusers?page=1&amp;size=${empty param.size ? 10 : param.size}" z="18oGQE63MUIZ2YAKBPnDk0gNcZA="/>
+        </menu:category>
     </menu:menu>
 </div>

@@ -15,4 +15,8 @@
     <put-attribute name="bodyTop" value="/WEB-INF/views/public/bodyTop.jspx" />
   </definition>
 
+  <definition name="basic" template="/WEB-INF/layouts/basic.jspx">
+    <put-attribute name="content" value="/WEB-INF/views/public/basic.jspx" />
+  </definition>
+
 </tiles-definitions>

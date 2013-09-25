@@ -8,9 +8,11 @@
 
 
 <div class="container">
-
-    <!-- Download
-    ================================================== -->
+    <a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
+    <button type='button' onclick="openDialog();"  >Launch bs dialog</button>
+    <button type='button' onclick="openDialog2();"  >Launch jquery dialog</button>
+    <%--<button type='button' onclick="alert('ffkfk');">Launch 3</button>--%>
+    <!-- Download  ================================================== -->
     <section id="step1">
         <div class="row-fluid">
             <div class="span20">
@@ -38,4 +40,55 @@
             </div>
         </div>
     </section>
+
+
+    <div id="dialog" title="Basic dialog">
+        <p>ndow can be moved, resized and closed with the 'x' icon.</p>
+    </div>
+    <!-- Modal -->
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">Modal header</h3>
+        </div>
+        <div class="modal-body">
+            <p>One fine body…</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+            <button class="btn btn-primary">Save changes</button>
+        </div>
+    </div>
+
+
+
 </div>
+<script src="/omo/resources/assets/js/jquery.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.js"></script>
+<script type="text/javascript">
+    function openDialog() {
+        alert('should be open');
+        $('#myModal').dialog('open');
+    }
+    function openDialog2() {
+//        alert('should be open');
+        $('#dialog').dialog('open');
+    }
+    $('#myFormSubmit').click(function(e){
+        e.preventDefault();
+        alert($('#myField').val());
+        /*
+         $.post('http://path/to/post',
+         $('#myForm').serialize(),
+         function(data, status, xhr){
+         // do something here with response;
+         });
+         */
+        alert('ffkfk');
+    });
+    $( document ).ready(function() {
+        //console.log( "ready!" );
+        //$( "#dialog" ).dialog();
+        $( "#dialog" ).dialog();
+    });
+</script>

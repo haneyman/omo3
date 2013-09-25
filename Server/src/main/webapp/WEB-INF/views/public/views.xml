@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
 <tiles-definitions>
-    <definition extends="public" name="public/index">
+    <definition extends="basic" name="public/index">
         <!--<put-attribute name="bodyTop" value="/WEB-INF/views/public/bodyTop.jspx"/>-->
-        <put-attribute name="body" value="/WEB-INF/views/public/index.jsp"/>
+        <put-attribute name="content" value="/WEB-INF/views/public/index.jsp"/>
     </definition>
     <definition extends="public" name="public/preorder">
         <!--<put-attribute name="bodyTop" value="/WEB-INF/views/public/bodyTop.jspx"/>-->
