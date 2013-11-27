@@ -172,9 +172,17 @@
                             <a href="./scaffolding.html">About</a>
                         </li>
                         <li class="">
-                            <a href="./base-css.html">Login</a>
+                            <a href="./base-css.html">Loginn</a>
                         </li>
                     </ul>
+                </div>
+                <div style="float:left;"> The Log in:
+                    <c:choose>
+                        <c:when test="${sessionScope.applicationUser != null}">
+                            ${sessionScope.applicationUser.email}
+                        </c:when>
+                        <c:otherwise>Not Logged In</c:otherwise>
+                    </c:choose>
                 </div>
                 <div class="nav-collapse collapse" style="float:right;width:120px;">
                     <ul class="nav">
@@ -192,7 +200,12 @@
     <div id="main">
         <tiles:insertAttribute name="body"/>
     </div>
+
 </div>
+
+
+
+
 
 <!-- Footer  ================================================== -->
 <footer class="footer">

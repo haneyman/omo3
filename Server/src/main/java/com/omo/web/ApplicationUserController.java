@@ -1,16 +1,16 @@
 package com.omo.web;
 
 import com.omo.domain.ApplicationUser;
+import org.apache.log4j.Logger;
 import org.springframework.roo.addon.web.mvc.controller.scaffold.RooWebScaffold;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
-import org.apache.log4j.Logger;
 
 
 @RequestMapping("/applicationusers")
@@ -20,11 +20,26 @@ public class ApplicationUserController {
     private static org.apache.log4j.Logger logger = Logger.getLogger(ApplicationUserController.class);
 
     @RequestMapping(value = "registerUser", method = RequestMethod.POST, produces = "text/html")
-    public String confirmOrderPost(ApplicationUser appUser, Model uiModel, HttpServletRequest request, sess) throws Exception {
-        logger.debug("confirmOrderPost for order ");
+    public String registerUser(ApplicationUser appUser, Model uiModel, HttpServletRequest request) throws Exception {
+        logger.debug("registerUser for " + appUser.getEmail());
         //String orderid = request.getParameter("orderId");
         logger.debug("email:" + appUser.getEmail());
         applicationUserRepository.save(appUser);
+        HttpSession session = request.getSession();
+        session.setAttribute("applicationUser", appUser);
+        return "public/index";
+    }
+
+    @RequestMapping(value = "login", method = RequestMethod.POST, produces = "text/html")
+    public String login(@RequestParam(value="email") String email, @RequestParam(value="password") String password,
+                        Model uiModel, HttpServletRequest request) throws Exception {
+        logger.debug("login for order ");
+        //String orderid = request.getParameter("orderId");
+        logger.debug("email:" + email);
+        ApplicationUser appUser = applicationUserRepository.findOneByEmail(email);
+        if (appUser == null){
+            return "public/index";
+        }
         HttpSession session = request.getSession();
         session.setAttribute("applicationUser", appUser);
         return "public/index";
