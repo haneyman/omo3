@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@include file="bodyTop.jsp" %>
 <div style="margin:70px;" >
     <h4>Press "CONFIRM ORDER" to place your order.</h4>
     Order from ${order.menu.name}  on ${order.orderDate} <br/>

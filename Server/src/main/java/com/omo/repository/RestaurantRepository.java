@@ -13,4 +13,5 @@ public interface RestaurantRepository  extends PagingAndSortingRepository<Restau
 
     List<com.omo.domain.Restaurant> findAll();
     List<com.omo.domain.Restaurant> findByName(String name);
+    Restaurant findOneByName(String name);
 }

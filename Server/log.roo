@@ -127,3 +127,9 @@ focus --class ~.domain.ApplicationUser
 field date --fieldName dateAdded --type java.util.Date
 field date --fieldName dateLastLogin --type java.util.Date
 web mvc scaffold --class ~.web.ApplicationUserController
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-12-29 08:08:03
+poll now
+poll now
+exit
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-12-29 11:02:00
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-12-29 11:02:05

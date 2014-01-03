@@ -8,4 +8,5 @@ import org.springframework.roo.addon.layers.repository.mongo.RooMongoRepository;
 public interface ResellerRepository {
 
     List<com.omo.domain.Reseller> findAll();
+    Reseller findOneByName(String name);
 }

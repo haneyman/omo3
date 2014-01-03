@@ -1,6 +1,7 @@
 package com.omo.domain;
 
 import com.omo.repository.MenuItemRepository;
+import com.omo.repository.ResellerRepository;
 import com.omo.repository.RestaurantRepository;
 import com.omo.service.MenuService;
 import com.sun.corba.se.impl.logging.ORBUtilSystemException;
@@ -33,55 +34,14 @@ public class RestaurantIntegrationTest {
     @Autowired
     RestaurantRepository restaurantRepository;
 
+    @SuppressWarnings("SpringJavaAutowiringInspection")
+    @Autowired
+    ResellerRepository resellerRepository;
+
     private static final String TEST_RESTAURANT_1 = "Test Restaurant 1";
     private static final String TEST_RESTAURANT_2 = "Test Restaurant 2";
     private static final String TEST_RESTAURANT_3 = "Test Restaurant 3";
     private static final String MENU1 = "Menu for " + TEST_RESTAURANT_1;
-
-    @Test
-    public void testGetMenuHTML() {
-        int expectedMinimumSize = 6;
-        Menu menu1 = menuService.getMenuByName(MENU1).get(0);
-
-        String html = null;
-        html = "<!DOCTYPE html>\n" +
-                "<html lang=\"en\">\n";
-        html += getHeader();
-        html += "<body data-spy=\"scroll\" data-target=\".bs-docs-sidebar\">";
-        html += getBodyTop();
-        try {
-            html += menuService.getMenuAsHTML(menu1.getId());
-        } catch (Exception e) {
-            System.out.println("Exception: " + e.getMessage());
-            e.printStackTrace();
-        }
-        html += getBodyBottom();
-        html += "</body>";
-        html += "</html>";
-
-        System.out.println(html);
-
-        Writer writer = null;
-        File outFile = new File("D:\\Projects\\omo3\\Server\\src\\main\\webapp\\testMenu.html");
-
-        try {
-            writer = new BufferedWriter(new OutputStreamWriter(
-                    new FileOutputStream(outFile)));
-            writer.write(html);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        } catch (IOException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        } finally {
-            try {writer.close();} catch (Exception ex) {}
-        }
-        //System.out.println("testGetMenuHTML got: " + html.toString());
-        //logger.debug("testGetMenuHTML got: " + html.toString());
-
-        assertTrue("html for a menu should be " + expectedMinimumSize + " but is " + html.length(), html.length() > expectedMinimumSize);
-    }
 
     @Test
     public void testAddTestRestaurants() {
@@ -94,7 +54,10 @@ public class RestaurantIntegrationTest {
         assertTrue("Restaurant 3 not found.", restaurantRepository.findByName(TEST_RESTAURANT_3).size() > 0);
     }
 
-    private Restaurant addRestaurant(String name) {
+
+    //****************************************************************************************************************
+
+    public Restaurant addRestaurant(String name) {
         List<Restaurant> restaurants = restaurantRepository.findByName(name);
         if (restaurants != null && restaurants.size() > 0) {
             Restaurant restaurant = restaurants.get(0);
@@ -110,19 +73,27 @@ public class RestaurantIntegrationTest {
     }
 
     @Test
-    public void testAddMenuBentolinos() {
-        testAddTestRestaurants();
-        Restaurant restaurant1 = restaurantRepository.findByName(TEST_RESTAURANT_1).get(0);
+    public void testAddMenuForBentolinos() {
+        Menu menu = createBentolinosMenu();
+        assertTrue("Menu is null", menu != null);
+    }
 
-        List<Menu> menus = menuService.getMenuByName(MENU1);
+    public Menu createBentolinosMenu() {
+        //testAddTestRestaurants();
+        String restaurantName = "Bentolinos";
+        Restaurant restaurant1 = restaurantRepository.findByName(restaurantName).get(0);
+        String menuName = "Menu for " + restaurant1.getName();
+        String menuDescription = "Description for menu for " + restaurant1.getName();
+
+        List<Menu> menus = menuService.getMenuByName(menuName);
         if (menus != null && menus.size() > 0) {
             Menu menu = menus.get(0);
             menuService.deleteMenu(menu);
         }
 
         Menu menu = new Menu();
-        menu.setName(MENU1);
-        menu.setDescription("Description of menu: " + MENU1);
+        menu.setName(menuName);
+        menu.setDescription(menuDescription);
         menu.setRestaurant(restaurant1);
         //
         MenuItem sectionMenuItem = new MenuItem("Sandwiches","",1,MenuItem.MenuItemTypes.MenuSection, 0f, null);
@@ -236,98 +207,13 @@ public class RestaurantIntegrationTest {
         sectionMenuItem.getChildMenuItems().add(menuItem);
 
 
-
-
-
-
-
-
         //menu.setRestaurant("");
         menuService.saveMenu(menu);
 
         assertTrue("Menu " + MENU1 + " not found! ", menuService.getMenuByName(MENU1).get(0) != null);
 
+        return menu;
 
     }
 
-    public String getHeader() {
-        FileInputStream stream = null;
-        try {
-            stream = new FileInputStream("D:\\Projects\\omo3\\Server\\src\\main\\webapp\\testHeader.html");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        }
-        try {
-            FileChannel fc = stream.getChannel();
-            MappedByteBuffer bb = null;
-            try {
-                bb = fc.map(FileChannel.MapMode.READ_ONLY, 0, fc.size());
-            } catch (IOException e) {
-                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-            }
-    /* Instead of using default, pass in a decoder. */
-            return Charset.defaultCharset().decode(bb).toString();
-        }
-        finally {
-            try {
-                stream.close();
-            } catch (IOException e) {
-                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-            }
-        }
-    }
-
-    public String getBodyTop() {
-        FileInputStream stream = null;
-        try {
-            stream = new FileInputStream("D:\\Projects\\omo3\\Server\\src\\main\\webapp\\testBodyTop.html");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        }
-        try {
-            FileChannel fc = stream.getChannel();
-            MappedByteBuffer bb = null;
-            try {
-                bb = fc.map(FileChannel.MapMode.READ_ONLY, 0, fc.size());
-            } catch (IOException e) {
-                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-            }
-    /* Instead of using default, pass in a decoder. */
-            return Charset.defaultCharset().decode(bb).toString();
-        }
-        finally {
-            try {
-                stream.close();
-            } catch (IOException e) {
-                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-            }
-        }
-    }
-
-    public String getBodyBottom() {
-        FileInputStream stream = null;
-        try {
-            stream = new FileInputStream("D:\\Projects\\omo3\\Server\\src\\main\\webapp\\testBodyBottom.html");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        }
-        try {
-            FileChannel fc = stream.getChannel();
-            MappedByteBuffer bb = null;
-            try {
-                bb = fc.map(FileChannel.MapMode.READ_ONLY, 0, fc.size());
-            } catch (IOException e) {
-                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-            }
-    /* Instead of using default, pass in a decoder. */
-            return Charset.defaultCharset().decode(bb).toString();
-        }
-        finally {
-            try {
-                stream.close();
-            } catch (IOException e) {
-                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-            }
-        }
-    }
 }

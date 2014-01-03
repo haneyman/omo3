@@ -5,13 +5,13 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8" />
     <jsp:directive.page pageEncoding="UTF-8" />
 
-        <tiles:insertAttribute name="head"/>
-        <tiles:insertAttribute name="bodyTop"/>
-        <tiles:insertAttribute name="content"/>
-        <tiles:insertAttribute name="bodyBottom"/>
-
-
-
-
+    <tiles:insertAttribute name="head"/>
+    <body data-target=".bs-docs-sidebar" data-spy="scroll">
+        <div id="wrapper"> <!-- from basic.jspx -->
+            <!--<tiles:insertAttribute name="bodyTop"/>-->
+            <tiles:insertAttribute name="content"/>
+            <tiles:insertAttribute name="bodyBottom"/>
+        </div> <!-- wrapper from basic.jspx -->
+    </body>
 
 </html>

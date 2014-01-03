@@ -3,17 +3,18 @@
 
 package com.omo.domain;
 
+import com.omo.domain.Menu;
 import com.omo.domain.Reseller;
 import com.omo.domain.Restaurant;
 import com.omo.domain.Schedule;
 
 privileged aspect Schedule_Roo_JavaBean {
     
-    public String Schedule.getDayOfWeek() {
+    public Integer Schedule.getDayOfWeek() {
         return this.dayOfWeek;
     }
     
-    public void Schedule.setDayOfWeek(String dayOfWeek) {
+    public void Schedule.setDayOfWeek(Integer dayOfWeek) {
         this.dayOfWeek = dayOfWeek;
     }
     
@@ -31,6 +32,14 @@ privileged aspect Schedule_Roo_JavaBean {
     
     public void Schedule.setRestaurant(Restaurant restaurant) {
         this.restaurant = restaurant;
+    }
+    
+    public Menu Schedule.getMenu() {
+        return this.menu;
+    }
+    
+    public void Schedule.setMenu(Menu menu) {
+        this.menu = menu;
     }
     
 }

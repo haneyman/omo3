@@ -1,8 +1,11 @@
 package com.omo.service;
 
 
-import com.omo.domain.Menu;
-import com.omo.domain.MenuItem;
+import com.omo.domain.*;
+import com.omo.repository.ResellerRepository;
+import com.omo.repository.RestaurantRepository;
+import com.omo.repository.ScheduleRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.math.BigInteger;
 import java.text.DecimalFormat;
@@ -10,11 +13,23 @@ import java.util.*;
 
 
 public class MenuServiceImpl implements MenuService {
+    private static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(MenuServiceImpl.class);
     private static final String INDENT = "   ";
     private static final String NEW_LINE = "\n";//"\n";
     private ArrayList<String> html;
 
-    private static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(MenuServiceImpl.class);
+    @Autowired
+    @SuppressWarnings("SpringJavaAutowiringInspection")
+    ResellerRepository resellerRepository;
+
+    @Autowired
+    @SuppressWarnings("SpringJavaAutowiringInspection")
+    RestaurantRepository restaurantRepository;
+
+    @Autowired
+    @SuppressWarnings("SpringJavaAutowiringInspection")
+    ScheduleRepository scheduleRepository;
+
 
     public String getMenuAsHTML(BigInteger menuId) throws Exception {
         logger.debug("getMenuAsHTML - loading html for menu " + menuId +  "...");
@@ -124,9 +139,6 @@ public class MenuServiceImpl implements MenuService {
         return menuRepository.findByName(menuName);
     }
 
-    public void deleteMenu(Menu menu) {
-        menuRepository.delete(menu);
-    }
 
     //
     public static MenuItem getMenuItemFromSet(Set<MenuItem> menuItemSet, String menuItemUUID) {
@@ -146,6 +158,41 @@ public class MenuServiceImpl implements MenuService {
         }
         return null;
     }
+
+    public Menu findTodaysMenu(String resellerName, String restaurantName) throws Exception {
+        logger.debug("findMenu for reseller:" + resellerName + " restaurant:" + restaurantName);
+        Reseller reseller = resellerRepository.findOneByName(resellerName);
+        if (reseller == null)
+            throw new Exception("Reseller not found in resellers:" + reseller);
+        Restaurant restaurant = restaurantRepository.findOneByName(restaurantName);
+        if (restaurant == null)
+            throw new Exception("Restaurant not found in restaurants:" + restaurantName);
+        Calendar calendar = Calendar.getInstance();
+        Integer day = calendar.get(Calendar.DAY_OF_WEEK);
+        Schedule scheduleFound = null;
+
+        List<Schedule> schedules = scheduleRepository.findAll();
+        for (Schedule schedule : schedules) {
+            if (schedule.getReseller().getId().equals(reseller.getId())
+                && schedule.getRestaurant().getId().equals(restaurant.getId())) {
+                if (schedule.getDayOfWeek() == 0) {
+                    scheduleFound = schedule;
+                    break;
+                } else if (schedule.getDayOfWeek() == day) {
+                    scheduleFound = schedule;
+                    break;
+                }
+            }
+        }
+        if (scheduleFound == null)
+            throw new Exception("Schedule not found for day:" + day + ", reseller:" + resellerName + ", restaurant:" +restaurantName);
+
+        Menu menu = scheduleFound.getMenu();
+        logger.debug("   findMenu found a menu: " + menu.getName());
+
+        return menu;
+    }
+
 
 /*
     private static int countGrandchildren(MenuItem menuItem, HashMap<String, MenuItem> menuItems) {

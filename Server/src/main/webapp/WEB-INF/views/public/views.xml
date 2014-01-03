@@ -3,27 +3,35 @@
 <tiles-definitions>
     <definition extends="basic" name="public/index">
         <put-attribute name="head" value="/WEB-INF/views/public/head.jsp"/>
-        <put-attribute name="bodyTop" value="/WEB-INF/views/public/bodyTop.jsp"/>
+        <!-- can't get to work!!  el doesn't evaluate - <put-attribute name="bodyTop" value="/WEB-INF/views/public/bodyTop.jsp"/>-->
         <put-attribute name="content" value="/WEB-INF/views/public/index.jsp"/>
         <put-attribute name="bodyBottom" value="/WEB-INF/views/public/bodyBottom.jsp"/>
     </definition>
-
-
-
-    <definition extends="public" name="public/preorder">
-        <!--<put-attribute name="bodyTop" value="/WEB-INF/views/public/bodyTop.jspx"/>-->
-        <put-attribute name="body" value="/WEB-INF/views/public/preorder.jsp"/>
+    <definition extends="basic" name="public/start">
+        <put-attribute name="head" value="/WEB-INF/views/public/start.jsp"/>
+        <!-- can't get to work!!  el doesn't evaluate - <put-attribute name="bodyTop" value="/WEB-INF/views/public/bodyTop.jsp"/>-->
+        <put-attribute name="content" value="/WEB-INF/views/public/index.jsp"/>
+        <put-attribute name="bodyBottom" value="/WEB-INF/views/public/bodyBottom.jsp"/>
     </definition>
-    <definition extends="public" name="public/menu">
-        <!--<put-attribute name="bodyTop" value="/WEB-INF/views/public/bodyTop.jspx"/>-->
-        <put-attribute name="body" value="/WEB-INF/views/public/menu.jsp"/>
+    <definition extends="basic" name="public/menu">
+        <put-attribute name="head" value="/WEB-INF/views/public/head.jsp"/>
+        <put-attribute name="content" value="/WEB-INF/views/public/menu.jsp"/>
+        <put-attribute name="bodyBottom" value="/WEB-INF/views/public/bodyBottom.jsp"/>
+        <!--<put-attribute name="body" value="/WEB-INF/views/public/menu.jsp"/>-->
     </definition>
-    <definition extends="public" name="public/confirmOrder">
-        <!--<put-attribute name="bodyTop" value="/WEB-INF/views/public/bodyTop.jspx"/>-->
-        <put-attribute name="body" value="/WEB-INF/views/public/confirmOrder.jsp"/>
+    <definition extends="basic" name="public/confirmOrder">
+        <put-attribute name="head" value="/WEB-INF/views/public/head.jsp"/>
+        <put-attribute name="content" value="/WEB-INF/views/public/confirmOrder.jsp"/>
+        <put-attribute name="bodyBottom" value="/WEB-INF/views/public/bodyBottom.jsp"/>
     </definition>
-    <definition extends="public" name="public/myOrders">
-        <!--<put-attribute name="bodyTop" value="/WEB-INF/views/public/bodyTop.jspx"/>-->
-        <put-attribute name="body" value="/WEB-INF/views/public/myOrders.jsp"/>
+    <definition extends="basic" name="public/preorder">
+        <put-attribute name="head" value="/WEB-INF/views/public/head.jsp"/>
+        <put-attribute name="content" value="/WEB-INF/views/public/preorder.jsp"/>
+        <put-attribute name="bodyBottom" value="/WEB-INF/views/public/bodyBottom.jsp"/>
+    </definition>
+    <definition extends="basic" name="public/myOrders">
+        <put-attribute name="head" value="/WEB-INF/views/public/head.jsp"/>
+        <put-attribute name="content" value="/WEB-INF/views/public/myOrders.jsp"/>
+        <put-attribute name="bodyBottom" value="/WEB-INF/views/public/bodyBottom.jsp"/>
     </definition>
 </tiles-definitions>

@@ -12,4 +12,5 @@ public interface MenuService {
 
     public String getMenuAsHTML(BigInteger menuId) throws Exception;
     public List<Menu> getMenuByName(String menuName);
+    public Menu findTodaysMenu(String resellerName, String restaurantName) throws Exception;
 }

@@ -38,10 +38,22 @@ public class ApplicationUserController {
         logger.debug("email:" + email);
         ApplicationUser appUser = applicationUserRepository.findOneByEmail(email);
         if (appUser == null){
+            logger.debug("login unsuccessful");
             return "public/index";
+        } else {
+            logger.debug("login successful");
         }
         HttpSession session = request.getSession();
         session.setAttribute("applicationUser", appUser);
+        return "public/index";
+    }
+
+
+    @RequestMapping(value = "logout", produces = "text/html")
+    public String logout(Model uiModel, HttpServletRequest request) throws Exception {
+        logger.debug("logout for order ");
+        HttpSession session = request.getSession();
+        session.setAttribute("applicationUser", null);
         return "public/index";
     }
 

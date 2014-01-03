@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="/omo/resources/assets/css/bootstrap-responsive.css" />
     <link rel="stylesheet" href="/omo/resources/assets/css/docs.css" />
     <link rel="stylesheet" href="/omo/resources/assets/js/google-code-prettify/prettify.css" />
+    <LINK href="/omo/resources/styles/style.css" rel="stylesheet" type="text/css">
+    <%--<LINK href="/omo/resources/styles/standard.css" rel="stylesheet" type="text/css">--%>
+
     <link href="/omo/resources/assets/ico/apple-touch-icon-144-precomposed.png" sizes="144x144" rel="apple-touch-icon-precomposed" />
     <link href="/omo/resources/assets/ico/apple-touch-icon-114-precomposed.png" sizes="114x114" rel="apple-touch-icon-precomposed" />
     <link href="/omo/resources/assets/ico/apple-touch-icon-72-precomposed.png" sizes="72x72" rel="apple-touch-icon-precomposed" />

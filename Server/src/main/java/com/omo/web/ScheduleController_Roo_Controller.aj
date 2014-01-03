@@ -7,6 +7,7 @@ import com.omo.domain.Schedule;
 import com.omo.repository.ResellerRepository;
 import com.omo.repository.RestaurantRepository;
 import com.omo.repository.ScheduleRepository;
+import com.omo.service.MenuService;
 import com.omo.web.ScheduleController;
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
@@ -26,6 +27,9 @@ privileged aspect ScheduleController_Roo_Controller {
     
     @Autowired
     ScheduleRepository ScheduleController.scheduleRepository;
+    
+    @Autowired
+    MenuService ScheduleController.menuService;
     
     @Autowired
     ResellerRepository ScheduleController.resellerRepository;
@@ -100,6 +104,7 @@ privileged aspect ScheduleController_Roo_Controller {
     
     void ScheduleController.populateEditForm(Model uiModel, Schedule schedule) {
         uiModel.addAttribute("schedule", schedule);
+        uiModel.addAttribute("menus", menuService.findAllMenus());
         uiModel.addAttribute("resellers", resellerRepository.findAll());
         uiModel.addAttribute("restaurants", restaurantRepository.findAll());
     }

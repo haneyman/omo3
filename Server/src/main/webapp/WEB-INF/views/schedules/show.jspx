@@ -6,5 +6,6 @@
         <field:display field="dayOfWeek" id="s_com_omo_domain_Schedule_dayOfWeek" object="${schedule}" z="O3qvp4PtDAjZNEdljUc/j36koz0="/>
         <field:display field="reseller" id="s_com_omo_domain_Schedule_reseller" object="${schedule}" z="FAnwZU7RlHzc7jd2oaUUpI2FhAY="/>
         <field:display field="restaurant" id="s_com_omo_domain_Schedule_restaurant" object="${schedule}" z="wjs5Svfyrwvp/9By+FZAPdaGTuI="/>
+        <field:display field="menu" id="s_com_omo_domain_Schedule_menu" object="${schedule}" z="hndX7UKvYAsyFYKzqagZgq+GJ4E="/>
     </page:show>
 </div>
