@@ -9,7 +9,7 @@
             <table:column id="c_com_omo_domain_Order_status" property="status" z="CRpkzk4j3qhnxErz1M1WBjtWDVI="/>
             <table:column id="c_com_omo_domain_Order_totalPretax" property="totalPretax" z="YGotrZLGSZHVhJFJLJyP/x+uVI4="/>
             <table:column id="c_com_omo_domain_Order_notes" property="notes" z="mJJOKIlLkEYZ59QhU7pAve5y3/k="/>
-            <table:column id="c_com_omo_domain_Order_userid" property="userid" z="m1pMOyqPDgiQBvkd/xTwct9pwlE="/>
+            <table:column id="c_com_omo_domain_Order_user" property="user" z="a1zAW0IDxWK1Y76F1reSPHSNO+I="/>
         </table:table>
     </page:list>
 </div>

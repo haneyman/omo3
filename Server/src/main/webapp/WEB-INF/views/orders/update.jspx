@@ -9,6 +9,6 @@
         <field:input field="status" id="c_com_omo_domain_Order_status" z="PvyahqPF9zyW1QRqX54xM6RE58Y="/>
         <field:input field="totalPretax" id="c_com_omo_domain_Order_totalPretax" validationMessageCode="field_invalid_number" z="XE3uOM3FMuietgHiZKCDx68cIOA="/>
         <field:input field="notes" id="c_com_omo_domain_Order_notes" z="n97NRd54WdgxiFAzbHIbAw/h69o="/>
-        <field:input field="userid" id="c_com_omo_domain_Order_userid" z="sZ9xcLwFKZpqxb2l7xNHQR585rw="/>
+        <field:input field="user" id="c_com_omo_domain_Order_user" z="2dw7zTphmMwZ6rP9KNQkJvZ+xH8="/>
     </form:update>
 </div>

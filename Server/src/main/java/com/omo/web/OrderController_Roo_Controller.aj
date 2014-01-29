@@ -4,6 +4,7 @@
 package com.omo.web;
 
 import com.omo.domain.Order;
+import com.omo.repository.ApplicationUserRepository;
 import com.omo.repository.MenuItemRepository;
 import com.omo.service.MenuService;
 import com.omo.service.OrderService;
@@ -28,6 +29,9 @@ privileged aspect OrderController_Roo_Controller {
     
     @Autowired
     OrderService OrderController.orderService;
+    
+    @Autowired
+    ApplicationUserRepository OrderController.applicationUserRepository;
     
     @Autowired
     MenuService OrderController.menuService;
@@ -109,6 +113,7 @@ privileged aspect OrderController_Roo_Controller {
     void OrderController.populateEditForm(Model uiModel, Order order) {
         uiModel.addAttribute("order", order);
         addDateTimeFormatPatterns(uiModel);
+        uiModel.addAttribute("applicationusers", applicationUserRepository.findAll());
         uiModel.addAttribute("menus", menuService.findAllMenus());
         uiModel.addAttribute("menuitems", menuItemRepository.findAll());
     }

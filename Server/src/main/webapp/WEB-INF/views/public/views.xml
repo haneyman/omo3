@@ -1,37 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
 <tiles-definitions>
-    <definition extends="basic" name="public/index">
+    <definition extends="public" name="public/start">
         <put-attribute name="head" value="/WEB-INF/views/public/head.jsp"/>
-        <!-- can't get to work!!  el doesn't evaluate - <put-attribute name="bodyTop" value="/WEB-INF/views/public/bodyTop.jsp"/>-->
-        <put-attribute name="content" value="/WEB-INF/views/public/index.jsp"/>
-        <put-attribute name="bodyBottom" value="/WEB-INF/views/public/bodyBottom.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/views/public/start.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/views/public/bodyBottom.jsp"/>
     </definition>
-    <definition extends="basic" name="public/start">
-        <put-attribute name="head" value="/WEB-INF/views/public/start.jsp"/>
-        <!-- can't get to work!!  el doesn't evaluate - <put-attribute name="bodyTop" value="/WEB-INF/views/public/bodyTop.jsp"/>-->
-        <put-attribute name="content" value="/WEB-INF/views/public/index.jsp"/>
-        <put-attribute name="bodyBottom" value="/WEB-INF/views/public/bodyBottom.jsp"/>
-    </definition>
-    <definition extends="basic" name="public/menu">
+
+    <definition extends="public" name="public/myOrders">
         <put-attribute name="head" value="/WEB-INF/views/public/head.jsp"/>
-        <put-attribute name="content" value="/WEB-INF/views/public/menu.jsp"/>
-        <put-attribute name="bodyBottom" value="/WEB-INF/views/public/bodyBottom.jsp"/>
-        <!--<put-attribute name="body" value="/WEB-INF/views/public/menu.jsp"/>-->
+        <put-attribute name="body" value="/WEB-INF/views/public/myOrders.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/views/public/bodyBottom.jsp"/>
     </definition>
-    <definition extends="basic" name="public/confirmOrder">
+
+    <definition extends="public" name="public/preOrder">
         <put-attribute name="head" value="/WEB-INF/views/public/head.jsp"/>
-        <put-attribute name="content" value="/WEB-INF/views/public/confirmOrder.jsp"/>
-        <put-attribute name="bodyBottom" value="/WEB-INF/views/public/bodyBottom.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/views/public/preOrder.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/views/public/bodyBottom.jsp"/>
     </definition>
-    <definition extends="basic" name="public/preorder">
+
+    <definition extends="public" name="public/menu">
         <put-attribute name="head" value="/WEB-INF/views/public/head.jsp"/>
-        <put-attribute name="content" value="/WEB-INF/views/public/preorder.jsp"/>
-        <put-attribute name="bodyBottom" value="/WEB-INF/views/public/bodyBottom.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/views/public/menu.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/views/public/bodyBottom.jsp"/>
     </definition>
-    <definition extends="basic" name="public/myOrders">
+
+    <definition extends="public" name="public/confirmOrder">
         <put-attribute name="head" value="/WEB-INF/views/public/head.jsp"/>
-        <put-attribute name="content" value="/WEB-INF/views/public/myOrders.jsp"/>
-        <put-attribute name="bodyBottom" value="/WEB-INF/views/public/bodyBottom.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/views/public/confirmOrder.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/views/public/bodyBottom.jsp"/>
     </definition>
+
+    <definition extends="public" name="public/preorder">
+        <put-attribute name="head" value="/WEB-INF/views/public/head.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/views/public/preorder.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/views/public/bodyBottom.jsp"/>
+    </definition>
+
 </tiles-definitions>

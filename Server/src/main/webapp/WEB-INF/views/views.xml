@@ -5,8 +5,26 @@
 
 <tiles-definitions>
 
-  <definition name="index" extends="default">
-    <put-attribute name="body" value="/WEB-INF/views/index.jspx" />
+    <definition name="index" extends="public">
+        <put-attribute name="head" value="/WEB-INF/views/public/head.jsp"/>
+        <put-attribute name="navbar" value=""/>
+        <put-attribute name="bodyTop" value="" />
+        <put-attribute name="body" value="/WEB-INF/views/index.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/views/public/footer.jsp" />
+        <!--<put-attribute name="bodyBottom" value="/WEB-INF/views/public/bodyBottom.jsp"/>-->
+    </definition>
+
+    <definition name="about" extends="public">
+        <put-attribute name="head" value="/WEB-INF/views/public/head.jsp"/>
+        <!--<put-attribute name="navbar" value=""/>-->
+        <put-attribute name="bodyTop" value="" />
+        <put-attribute name="body" value="/WEB-INF/views/about.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/views/public/footer.jsp" />
+        <!--<put-attribute name="bodyBottom" value="/WEB-INF/views/public/bodyBottom.jsp"/>-->
+    </definition>
+
+  <definition name="admin" extends="default">
+    <put-attribute name="body" value="/WEB-INF/views/menu.jspx" />
   </definition>
 
   <definition name="dataAccessFailure" extends="public">

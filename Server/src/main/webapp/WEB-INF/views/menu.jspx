@@ -34,5 +34,8 @@
             <menu:item id="i_applicationuser_new" messageCode="global_menu_new" url="/applicationusers?form" z="my4Meg61ezcWcDO+i5f9Fl7SsfU="/>
             <menu:item id="i_applicationuser_list" messageCode="global_menu_list" url="/applicationusers?page=1&amp;size=${empty param.size ? 10 : param.size}" z="18oGQE63MUIZ2YAKBPnDk0gNcZA="/>
         </menu:category>
+        <menu:category id="c_controller" z="nj8Dm3hojIyIEyPkwE1UMDIs+K8=">
+            <menu:item id="i_controller__publicindex_id" messageCode="global_generic" url="/public/index" z="pQ1/bCC9eSkj/R1yUF3Xo1GqmUk="/>
+        </menu:category>
     </menu:menu>
 </div>

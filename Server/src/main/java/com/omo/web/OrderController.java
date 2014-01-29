@@ -1,10 +1,13 @@
 package com.omo.web;
 
+import com.omo.domain.ApplicationUser;
 import com.omo.domain.Menu;
 import com.omo.domain.MenuItem;
 import com.omo.domain.Order;
 import com.omo.repository.MenuRepository;
+import com.omo.repository.OrderRepository;
 import com.omo.service.MenuServiceImpl;
+import com.omo.service.OrderService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.roo.addon.web.mvc.controller.scaffold.RooWebScaffold;
@@ -15,8 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.math.BigInteger;
 import java.util.Enumeration;
+import java.util.List;
 
 @RequestMapping("/orders")
 @Controller
@@ -26,6 +31,8 @@ public class OrderController {
 
     @Autowired
     MenuRepository menuRepository;
+    @Autowired
+    OrderRepository orderRepository;
 
     @RequestMapping(value = "confirmOrder/{id}", produces = "text/html")
     public String confirmOrder(@PathVariable("id") BigInteger id, Model uiModel, HttpServletRequest httpServletRequest) throws Exception {
@@ -50,19 +57,24 @@ public class OrderController {
         logger.debug("   order found: " + order.getId() + " , status set to OPEN");
         order.setStatus(Order.ORDER_STATUS.OPEN);
         orderService.updateOrder(order);
-        return "public/myOrders";
+        return "redirect:myOrders";
     }
 
 
     @RequestMapping(value = "myOrders", produces = "text/html")
-    public String myOrders(Order order, Model uiModel) throws Exception {
+    public String myOrders(Model uiModel, HttpSession session) throws Exception {
         logger.debug("myOrders " );
+        ApplicationUser user = (ApplicationUser) session.getAttribute("applicationUser");
+        //List<Order> orders = orderRepository.findAll();
+        //List<Order> orders = orderRepository.findOrdersByUser(user);
+        List<Order> orders = orderService.getOrdersByUser(user);
+        uiModel.addAttribute("orders", orders);
         return "public/myOrders";
     }
 
 
     @RequestMapping(value = "submitOrder", method = RequestMethod.POST, produces = "text/html")
-    public String createOrder(Model uiModel, HttpServletRequest httpServletRequest) throws Exception {
+    public String createOrder(Model uiModel, HttpServletRequest httpServletRequest, HttpSession session) throws Exception {
         logger.debug("createOrder");
 /*
         if (bindingResult.hasErrors()) {
@@ -115,6 +127,8 @@ public class OrderController {
         order.setStatus(Order.ORDER_STATUS.INIT);
         order.setNotes(httpServletRequest.getParameter("notes"));
         order.setTotalPretax(total);
+        ApplicationUser user = (ApplicationUser) session.getAttribute("applicationUser");
+        order.setUser(user);
 
         uiModel.asMap().clear();
         orderService.saveOrder(order);

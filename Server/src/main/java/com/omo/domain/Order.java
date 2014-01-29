@@ -26,7 +26,8 @@ public class Order {
     private Menu menu;
     private Float totalPretax;
     private String notes;
-    private String userid;
+    @DBRef
+    private ApplicationUser user;
 
 
     @OneToMany(cascade = CascadeType.ALL)

@@ -133,3 +133,6 @@ poll now
 exit
 // Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-12-29 11:02:00
 // Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-12-29 11:02:05
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2014-01-19 11:03:08
+controller class --class ~.web.PublicController
+backup

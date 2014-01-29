@@ -1,4 +1,4 @@
-<head>
+<!-- /public/head.jsp -->
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
     <meta content="IE=8" http-equiv="X-UA-Compatible" />
     <meta charset="utf-8" />
@@ -21,5 +21,24 @@
     <link href="/omo/resources/assets/ico/favicon.png" rel="shortcut icon" />
     <link href="/omo/resources/assets/css/digitss.css" rel="stylesheet" />
 
-    <title>Welcome to HTML {0}</title>
-</head>
+<script src="/omo/resources/assets/js/jquery.js" ></script>
+    <%--<script src="http://platform.twitter.com/widgets.js" type="text/javascript" ></script>--%>
+    <script src="/omo/resources/assets/js/bootstrap-transition.js" ></script>
+    <script src="/omo/resources/assets/js/bootstrap-alert.js" ></script>
+    <script src="/omo/resources/assets/js/bootstrap-modal.js" ></script>
+    <script src="/omo/resources/assets/js/bootstrap-dropdown.js" ></script>
+    <script src="/omo/resources/assets/js/bootstrap-scrollspy.js" ></script>
+    <script src="/omo/resources/assets/js/bootstrap-tab.js" ></script>
+    <script src="/omo/resources/assets/js/bootstrap-tooltip.js" ></script>
+    <script src="/omo/resources/assets/js/bootstrap-popover.js" ></script>
+    <script src="/omo/resources/assets/js/bootstrap-button.js" ></script>
+    <script src="/omo/resources/assets/js/bootstrap-collapse.js" ></script>
+    <script src="/omo/resources/assets/js/bootstrap-carousel.js" ></script>
+    <script src="/omo/resources/assets/js/bootstrap-typeahead.js" ></script>
+    <script src="/omo/resources/assets/js/bootstrap-affix.js" ></script>
+    <script src="/omo/resources/assets/js/holder/holder.js" ></script>
+    <script src="/omo/resources/assets/js/google-code-prettify/prettify.js" ></script>
+    <script src="/omo/resources/assets/js/application.js" ></script>
+
+    <title>Order Food</title>
+<!-- END of /public/head.jsp -->

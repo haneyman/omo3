@@ -3,6 +3,7 @@
 
 package com.omo.domain;
 
+import com.omo.domain.ApplicationUser;
 import com.omo.domain.Menu;
 import com.omo.domain.MenuItem;
 import com.omo.domain.Order;
@@ -51,12 +52,12 @@ privileged aspect Order_Roo_JavaBean {
         this.notes = notes;
     }
     
-    public String Order.getUserid() {
-        return this.userid;
+    public ApplicationUser Order.getUser() {
+        return this.user;
     }
     
-    public void Order.setUserid(String userid) {
-        this.userid = userid;
+    public void Order.setUser(ApplicationUser user) {
+        this.user = user;
     }
     
     public Set<MenuItem> Order.getMenuItems() {

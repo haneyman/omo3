@@ -13,4 +13,5 @@ public interface MenuRepository  extends PagingAndSortingRepository<Menu, BigInt
 
     List<com.omo.domain.Menu> findAll();
     List<com.omo.domain.Menu> findByName(String menuName);
+    Menu findOneByName(String menuName);
 }

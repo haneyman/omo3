@@ -27,7 +27,7 @@ public class ApplicationUserController {
         applicationUserRepository.save(appUser);
         HttpSession session = request.getSession();
         session.setAttribute("applicationUser", appUser);
-        return "public/index";
+        return "redirect:/public/start";
     }
 
     @RequestMapping(value = "login", method = RequestMethod.POST, produces = "text/html")
@@ -39,22 +39,22 @@ public class ApplicationUserController {
         ApplicationUser appUser = applicationUserRepository.findOneByEmail(email);
         if (appUser == null){
             logger.debug("login unsuccessful");
-            return "public/index";
+            return "redirect:/public/start";
         } else {
             logger.debug("login successful");
         }
         HttpSession session = request.getSession();
         session.setAttribute("applicationUser", appUser);
-        return "public/index";
+        return "redirect:/public/start";
     }
 
 
     @RequestMapping(value = "logout", produces = "text/html")
     public String logout(Model uiModel, HttpServletRequest request) throws Exception {
-        logger.debug("logout for order ");
+        logger.debug("logout  ");
         HttpSession session = request.getSession();
         session.setAttribute("applicationUser", null);
-        return "public/index";
+        return "redirect:/public/start";
     }
 
 

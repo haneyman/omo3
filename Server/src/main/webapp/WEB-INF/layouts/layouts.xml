@@ -12,11 +12,13 @@
   </definition>
 
   <definition name="public" template="/WEB-INF/layouts/public.jspx">
-    <put-attribute name="bodyTop" value="/WEB-INF/views/public/bodyTop.jspx" />
+    <!--<put-attribute name="bodyTop" value="/WEB-INF/views/public/topNavBar.jsp" />-->
   </definition>
 
-  <definition name="basic" template="/WEB-INF/layouts/basic.jspx">
-    <put-attribute name="content" value="/WEB-INF/views/public/basic.jspx" />
+<!--
+  <definition name="default" template="/WEB-INF/layouts/default.jspx">
+    &lt;!&ndash;<put-attribute name="content" value="/WEB-INF/layouts/.jspx" />&ndash;&gt;
   </definition>
+-->
 
 </tiles-definitions>

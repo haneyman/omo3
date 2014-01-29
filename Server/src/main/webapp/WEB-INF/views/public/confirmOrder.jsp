@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@include file="bodyTop.jsp" %>
+<%@include file="topNavBar.jsp" %>
 <div style="margin:70px;" >
     <h4>Press "CONFIRM ORDER" to place your order.</h4>
     Order from ${order.menu.name}  on ${order.orderDate} <br/>
@@ -28,9 +28,9 @@
     <c:set var="url" value="${pageContext.request.contextPath}/menus/showMenu/${order.menu.id}"/>
     <form id="orderConfirmation" action="/omo/orders/confirmOrder" method="POST" enctype="application/x-www-form-urlencoded">
         <div style="margin-top: 20px;margin-left:200px;">
-            <button type="button" class="btn-danger btn-large" onclick="window.location='${pageContext.request.contextPath}/menus/showMenu/${order.menu.id}'">CANCEL</button>
+            <button type="button" class="btn-danger btn-lg" onclick="window.location='${pageContext.request.contextPath}/menus/showMenu/${order.menu.id}'">CANCEL</button>
             <span>&nbsp;</span>
-            <button type="submit" class="btn-success btn-large">CONFIRM ORDER</button>
+            <button type="submit" class="btn-success btn-lg">CONFIRM ORDER</button>
         </div>
         <input type='hidden' name='orderId' value='${order.id}' />
     </form>

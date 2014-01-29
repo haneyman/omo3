@@ -3,9 +3,11 @@ package com.omo.domain;
 import com.omo.repository.MenuItemRepository;
 import com.omo.repository.ResellerRepository;
 import com.omo.repository.RestaurantRepository;
+import com.omo.repository.ScheduleRepository;
 import com.omo.service.MenuService;
 import com.sun.corba.se.impl.logging.ORBUtilSystemException;
 import org.junit.Test;
+import org.junit.runners.Suite;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.roo.addon.test.RooIntegrationTest;
 
@@ -38,38 +40,102 @@ public class RestaurantIntegrationTest {
     @Autowired
     ResellerRepository resellerRepository;
 
+    @SuppressWarnings("SpringJavaAutowiringInspection")
+    @Autowired
+    ScheduleRepository scheduleRepository;
+
+    private static final String BENTOLINOS = "Bentolinos";
+    private static final String ELCAFECITO = "El Cafecito";
+
     private static final String TEST_RESTAURANT_1 = "Test Restaurant 1";
     private static final String TEST_RESTAURANT_2 = "Test Restaurant 2";
     private static final String TEST_RESTAURANT_3 = "Test Restaurant 3";
     private static final String MENU1 = "Menu for " + TEST_RESTAURANT_1;
 
     @Test
-    public void testAddTestRestaurants() {
-        addRestaurant(TEST_RESTAURANT_1);
-        addRestaurant(TEST_RESTAURANT_2);
-        addRestaurant(TEST_RESTAURANT_3);
+    public void LoadAllData(){
+        deleteAllMenus();
+        deleteAllRestaurants();
+        deleteAllSchedules();
 
-        assertTrue("Restaurant 1 not found.", restaurantRepository.findByName(TEST_RESTAURANT_1).size() > 0);
-        assertTrue("Restaurant 2 not found.", restaurantRepository.findByName(TEST_RESTAURANT_2).size() > 0);
-        assertTrue("Restaurant 3 not found.", restaurantRepository.findByName(TEST_RESTAURANT_3).size() > 0);
+        testAddTestRestaurants();
+        Menu menu = createBentolinosMenu();
+
+        testScheduleMenu(menu);
+    }
+
+
+
+    @Test
+    public void testAddTestRestaurants() {
+        addRestaurant(BENTOLINOS);
+//        addRestaurant(TEST_RESTAURANT_1);
+//        addRestaurant(TEST_RESTAURANT_2);
+//        addRestaurant(TEST_RESTAURANT_3);
+
+        assertTrue("Restaurant Bentolinos not found.", restaurantRepository.findByName(BENTOLINOS).size() > 0);
+//        assertTrue("Restaurant 1 not found.", restaurantRepository.findByName(TEST_RESTAURANT_1).size() > 0);
+//        assertTrue("Restaurant 2 not found.", restaurantRepository.findByName(TEST_RESTAURANT_2).size() > 0);
+//        assertTrue("Restaurant 3 not found.", restaurantRepository.findByName(TEST_RESTAURANT_3).size() > 0);
     }
 
 
     //****************************************************************************************************************
 
     public Restaurant addRestaurant(String name) {
-        List<Restaurant> restaurants = restaurantRepository.findByName(name);
-        if (restaurants != null && restaurants.size() > 0) {
-            Restaurant restaurant = restaurants.get(0);
-            restaurantRepository.delete(restaurant);
-        }
-
         Restaurant restaurant = new Restaurant();
+        Reseller resller = resellerRepository.findOneByName(ELCAFECITO);
         //String restaurantName = name + new Date();
         restaurant.setName(name);
         restaurant.setDescription(name + " Description created " + new Date());
         restaurantRepository.save(restaurant);
         return restaurant;
+    }
+
+    public void deleteAllSchedules() {
+        List<Schedule>schedules = scheduleRepository.findAll();
+        for (Schedule schedule: schedules) {
+            scheduleRepository.delete(schedule);
+        }
+    }
+
+    public void deleteAllMenus() {
+        List<Menu> menus = menuService.findAllMenus();
+        for (Menu menu:menus) {
+            menuService.deleteMenu(menu);
+        }
+    }
+
+    public void deleteAllRestaurants() {
+        List<Restaurant> restaurants = restaurantRepository.findAll();
+        for (Restaurant restaurant:restaurants) {
+            restaurantRepository.delete(restaurant);
+        }
+    }
+
+
+
+    public void testScheduleMenu(Menu menu) {
+        Restaurant restaurant = restaurantRepository.findOneByName(BENTOLINOS);
+        Reseller reseller = resellerRepository.findOneByName(ELCAFECITO);
+        createNewSchedule(reseller, restaurant, menu, 1);
+        createNewSchedule(reseller, restaurant, menu, 2);
+        createNewSchedule(reseller, restaurant, menu, 3);
+        createNewSchedule(reseller, restaurant, menu, 4);
+        createNewSchedule(reseller, restaurant, menu, 5);
+        createNewSchedule(reseller, restaurant, menu, 6);
+        createNewSchedule(reseller, restaurant, menu, 7);
+    }
+
+
+    public Schedule createNewSchedule(Reseller reseller, Restaurant restaurant, Menu menu, Integer day){
+        Schedule schedule = new Schedule();
+        schedule.setMenu(menu);
+        schedule.setReseller(reseller);
+        schedule.setRestaurant(restaurant);
+        schedule.setDayOfWeek(day);
+        scheduleRepository.save(schedule);
+        return schedule;
     }
 
     @Test
@@ -84,12 +150,6 @@ public class RestaurantIntegrationTest {
         Restaurant restaurant1 = restaurantRepository.findByName(restaurantName).get(0);
         String menuName = "Menu for " + restaurant1.getName();
         String menuDescription = "Description for menu for " + restaurant1.getName();
-
-        List<Menu> menus = menuService.getMenuByName(menuName);
-        if (menus != null && menus.size() > 0) {
-            Menu menu = menus.get(0);
-            menuService.deleteMenu(menu);
-        }
 
         Menu menu = new Menu();
         menu.setName(menuName);
@@ -152,8 +212,8 @@ public class RestaurantIntegrationTest {
         menuItem.addChildMenuItem("Dark Rye","",66,MenuItem.MenuItemTypes.MenuItem, 0.00f);
         menuItem.addChildMenuItem("Soft Roll","",67,MenuItem.MenuItemTypes.MenuItem, 0.00f);
         menuItem.addChildMenuItem("Multi Grain","",68,MenuItem.MenuItemTypes.MenuItem, 0.00f);
-        menuItem.addChildMenuItem("Croissants","",69,MenuItem.MenuItemTypes.MenuItem, 1.00f);
-        menuItem.addChildMenuItem("Focaccia Rolls","",70,MenuItem.MenuItemTypes.MenuItem, 1.00f);
+        menuItem.addChildMenuItem("Croissant","",69,MenuItem.MenuItemTypes.MenuItem, 1.00f);
+        menuItem.addChildMenuItem("Focaccia Roll","",70,MenuItem.MenuItemTypes.MenuItem, 1.00f);
         sectionMenuItem.getChildMenuItems().add(menuItem);//add group to section
 
 
@@ -203,14 +263,14 @@ public class RestaurantIntegrationTest {
         menuItem2.addChildMenuItem("Oriental","",3,MenuItem.MenuItemTypes.MenuItem, 0.50f);
         menuItem2.addChildMenuItem("Italian","",4,MenuItem.MenuItemTypes.MenuItem, 0.50f);
         menuItem2.addChildMenuItem("Balsamic Vinegar","",5,MenuItem.MenuItemTypes.MenuItem, 0.50f);
-        menuItem.getChildMenuItems().add(menuItem2);
+        sectionMenuItem.getChildMenuItems().add(menuItem2);
         sectionMenuItem.getChildMenuItems().add(menuItem);
 
 
         //menu.setRestaurant("");
         menuService.saveMenu(menu);
 
-        assertTrue("Menu " + MENU1 + " not found! ", menuService.getMenuByName(MENU1).get(0) != null);
+        assertTrue("Menu " + MENU1 + " not found! ", menuService.getMenuByName(menuName).get(0) != null);
 
         return menu;
 

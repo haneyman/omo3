@@ -8,6 +8,6 @@
         <field:display field="status" id="s_com_omo_domain_Order_status" object="${order}" z="3CqnH2snztWytJd/cmFPJHSwW58="/>
         <field:display field="totalPretax" id="s_com_omo_domain_Order_totalPretax" object="${order}" z="dGW8BAWORfcjxJL0MX28peqxsyA="/>
         <field:display field="notes" id="s_com_omo_domain_Order_notes" object="${order}" z="NujXUO40oIFUMFzdlJX8wglsVSQ="/>
-        <field:display field="userid" id="s_com_omo_domain_Order_userid" object="${order}" z="BaDivGwohvKCaTWrpV4FwIVW+nQ="/>
+        <field:display field="user" id="s_com_omo_domain_Order_user" object="${order}" z="dq84ihf6oTlV5I/9C7dN6zGcPXA="/>
     </page:show>
 </div>

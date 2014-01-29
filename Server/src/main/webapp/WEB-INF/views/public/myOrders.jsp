@@ -1,11 +1,50 @@
-<div class=" masthead">
-    <div class="divOrderConfirmation" style="padding:10px;background-color: #7aba7b">
-        Your order has been received.  Enjoy!!
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@include file="topNavBar.jsp" %>
+
+<div class="container">
+    <div class="" style="padding-left:20px;background-color: #7aba7b">
+        <h3>Your orders</h3>
     </div>
-    <div class="container">
-        <h1>Orders</h1>
-        <c:forEach items="${map}" var="entry">
-            Key = ${entry.key}, value = ${entry.value}<br>
+    <table class="table">
+        <tr>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Items</th>
+        </tr>
+        <c:forEach items="${orders}" var="order">
+            <tr>
+                <td><fmt:formatDate value="${order.orderDate}" pattern="E MM/dd/yyyy "/>
+                    <br/><fmt:formatDate value="${order.orderDate}" pattern="hh:mm aa"/></td>
+                <td>${order.status}</td>
+                <td>
+                    <table class="table table-striped" >
+                        <c:forEach items="${order.menuItems}" var="menuItem">
+                            <tr>
+                                <td>${menuItem.internalNotes} - ${menuItem.name}</td>
+                                <td>
+                                    $ <fmt:formatNumber value="${menuItem.price}" type="currency" currencySymbol="" />
+                                </td>
+                            </tr>
+                        </c:forEach>
+                        <tr><td style="text-align: right;"><b>Total:</b></td>
+                            <td>
+                                <b>$ <fmt:formatNumber value="${order.totalPretax}" type="currency" currencySymbol="" /></b>
+                            </td>
+                        </tr>
+                    </table>
+                    <c:choose>
+                        <c:when test="${order.notes == ''}">
+                            <!-- no notes  -->
+                        </c:when>
+                        <c:otherwise>
+                            <table class="table " >
+                                <tr><td><b>Notes:</b> ${order.notes}</td><td></td></tr>
+                            </table>
+                        </c:otherwise>
+                    </c:choose>
+                </td>
+            </tr>
         </c:forEach>
-    </div>
+    </table>
 </div>

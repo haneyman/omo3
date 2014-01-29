@@ -84,7 +84,7 @@ public class MenuServiceImpl implements MenuService {
     private void loadMenuGroup(MenuItem menuItem, int level) throws Exception {
         level++;
 //        addToHTML("<div class=\"row\">",level);
-        addToHTML(INDENT + "<div class=\"span5 divMenuGroup\">",level);
+        addToHTML(INDENT + "<div class=\"col-md-6 divMenuGroup\">",level);
         addToHTML(INDENT + INDENT + "<div class=\"row divMenuGroupRow\">",level);
         addToHTML(INDENT + INDENT + INDENT + "<h4 class=\"menuGroupTitle\">" + menuItem.getName() + "</h4>", level);
         addToHTML(INDENT + INDENT + INDENT + "<p>" + menuItem.getDescription() + "</p>",level);
@@ -103,6 +103,27 @@ public class MenuServiceImpl implements MenuService {
         DecimalFormat myFormatter = new DecimalFormat("###.00");
         String priceOutput = myFormatter.format(menuItem.getPrice());
         String name =  menuItem.getName().replaceAll(" ", "_").replaceAll("/","_");
+        addToHTML(INDENT + "<div class=\"checkbox\">",level);
+        addToHTML(INDENT + "    <label>",level);
+        addToHTML(INDENT + "        <input type=\"checkbox\" "  + checked + " name=\"" + MenuItem.MENUITEM_LABEL + "_" + menuItem.getUuid() + "\" value=\"" + name + "\">", level);
+        addToHTML(INDENT + "    </label>",level);
+        addToHTML(INDENT + "    <div class=\"divNamePrice\">",level);
+        addToHTML(INDENT + "        <div class=\"menuItemName\">" + menuItem.getName() + " </div>",level);
+        if (menuItem.getPrice() > 0)
+            addToHTML(INDENT + "        <div class=\"menuItemPrice\">$" + priceOutput + "</div>",level);
+        else
+            addToHTML(INDENT + "        <div class=\"menuItemPrice\"> -----" + /*"&nbsp;" +*/ "</div>",level);
+        addToHTML(INDENT + "    </div>", level);
+        addToHTML(INDENT + "</div><div style=\"clear:both\"></div>",level);
+    }
+/*
+
+    private void loadMenuItem(MenuItem menuItem, int level) {
+        level++;
+        boolean checked = false;
+        DecimalFormat myFormatter = new DecimalFormat("###.00");
+        String priceOutput = myFormatter.format(menuItem.getPrice());
+        String name =  menuItem.getName().replaceAll(" ", "_").replaceAll("/","_");
         addToHTML(INDENT + "<label>",level);
         addToHTML(INDENT + "    <div class=\"divCheckbox\">",level);
 //        String group =
@@ -113,10 +134,13 @@ public class MenuServiceImpl implements MenuService {
         if (menuItem.getPrice() > 0)
             addToHTML(INDENT + "        <div class=\"menuItemPrice\">$" + priceOutput + "</div>",level);
         else
-            addToHTML(INDENT + "        <div class=\"menuItemPrice\">" + "&nbsp;" + "</div>",level);
+            addToHTML(INDENT + "        <div class=\"menuItemPrice\"> -----" + */
+/*"&nbsp;" +*//*
+ "</div>",level);
         addToHTML(INDENT + "    </div>", level);
         addToHTML(INDENT + "</label>",level);
     }
+*/
 
 
     private void addToHTML(String htmlLine, int level) {
