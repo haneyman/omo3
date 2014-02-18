@@ -11,9 +11,9 @@
 
 <div class="container">
     <form action="/omo/menus/viewMenu" method="POST" enctype="application/x-www-form-urlencoded">
-        <section id="step1">
+        <%--<section id="step1">--%>
             <div class="row">
-                <div class="span20">
+                <div class="" style="margin-top: -40px;">
                     <%--<p><a class="btn btn-large btn-primary" href="" >&nbsp;&nbsp;&nbsp;Pick Reseller&nbsp;&nbsp;&nbsp;</a></p>--%>
                     <h3>1) Pick where to deliver your lunch.</h3>
                     <div class="btn-group">
@@ -30,11 +30,11 @@
                     </div>
                 </div>
             </div>
-        </section>
+        <%--</section>--%>
 
-        <section id="step2">
+        <%--<section id="step2">--%>
             <div class="row">
-                <div class="span20">
+                <div class="">
                     <%--<p><a class="btn btn-large btn-primary" href="" >&nbsp;&nbsp;&nbsp;Pick Reseller&nbsp;&nbsp;&nbsp;</a></p>--%>
                     <h3>2) Pick the restaurant menu.</h3>
                     <div id="divMenus" class="btn-group ">
@@ -49,16 +49,16 @@
                     </div>
                 </div>
             </div>
-        </section>
+        <%--</section>--%>
 
-        <section id="step3">
+        <%--<section id="step3">--%>
             <div class="row">
-                <div class="span20">
+                <div class="">
                     <h3>3) Show me the Menu.</h3>
                     <button style="width:200px;margin-left:50px;" id="buttonSubmit" type="submit" class="btn btn-lg btn-primary disabled btn-success">Order From Menu</button>
                 </div>
             </div>
-        </section>
+        <%--</section>--%>
     </form>
     <%--
 

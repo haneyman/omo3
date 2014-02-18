@@ -10,5 +10,6 @@
         <field:display field="phoneNumber" id="s_com_omo_domain_ApplicationUser_phoneNumber" object="${applicationuser}" z="fk9/EW9ciyThg8Yb/f9LeBFmkYg="/>
         <field:display date="true" dateTimePattern="${applicationUser_dateadded_date_format}" field="dateAdded" id="s_com_omo_domain_ApplicationUser_dateAdded" object="${applicationuser}" z="Y9lMUmd4fu8Y9tdvhMkFvUvSQ2s="/>
         <field:display date="true" dateTimePattern="${applicationUser_datelastlogin_date_format}" field="dateLastLogin" id="s_com_omo_domain_ApplicationUser_dateLastLogin" object="${applicationuser}" z="/PkTQvHOlbxuCBNWqmBxwXbGi1k="/>
+        <field:display field="isAdmin" id="s_com_omo_domain_ApplicationUser_isAdmin" object="${applicationuser}" z="NLsc0g6KRviJO/kcJ+Fx8IN+qm4="/>
     </page:show>
 </div>

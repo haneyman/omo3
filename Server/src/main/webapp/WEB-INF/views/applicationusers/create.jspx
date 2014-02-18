@@ -10,6 +10,7 @@
         <field:input field="phoneNumber" id="c_com_omo_domain_ApplicationUser_phoneNumber" z="7XwCV5S8DPGc5Rapa2Od97UOt+M="/>
         <field:datetime dateTimePattern="${applicationUser_dateadded_date_format}" field="dateAdded" id="c_com_omo_domain_ApplicationUser_dateAdded" z="GAJsNzL5tyCPRvIJXPF4ovJxV1M="/>
         <field:datetime dateTimePattern="${applicationUser_datelastlogin_date_format}" field="dateLastLogin" id="c_com_omo_domain_ApplicationUser_dateLastLogin" z="HHuAaFKxssLnQwd64DgEvuImhrM="/>
+        <field:checkbox field="isAdmin" id="c_com_omo_domain_ApplicationUser_isAdmin" z="AuSNqiu49q5YKlBspesCxusk3Q8="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_omo_domain_ApplicationUser" render="${not empty dependencies}" z="6ZxJ1cyAd9P5hf3KTO9imwZnhgA="/>
 </div>

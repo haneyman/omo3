@@ -13,6 +13,7 @@
         <roo.version>1.2.3.RELEASE</roo.version>
         <slf4j.version>1.7.2</slf4j.version>
         <spring.version>3.2.0.RELEASE</spring.version>
+        <jetty.port>8085</jetty.port>
     </properties>
     <repositories>
         <repository>
@@ -242,6 +243,7 @@
         </dependency>
     </dependencies>
     <build>
+        <finalName>omo</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

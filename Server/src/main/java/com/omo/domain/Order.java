@@ -1,5 +1,6 @@
 package com.omo.domain;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
 import javax.persistence.CascadeType;
@@ -38,5 +39,10 @@ public class Order {
     }
 
     public enum  ORDER_STATUS {INIT, OPEN, CANCELLED, CLOSED};
+
+    public boolean isToday() {
+        SimpleDateFormat fmt = new SimpleDateFormat("yyyyMMdd");
+        return fmt.format(new Date()).equals(fmt.format(orderDate));
+    }
 
 }

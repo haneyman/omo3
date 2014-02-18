@@ -1,11 +1,17 @@
 <!-- /public/head.jsp -->
-    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+<%--    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
     <meta content="IE=8" http-equiv="X-UA-Compatible" />
-    <meta charset="utf-8" />
+    <meta charset="utf-8" />--%>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Order Lunch</title>
+<%--
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="" name="description" />
     <meta content="" name="author" />
+--%>
+    <%--<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">--%>
 
     <link rel="stylesheet" href="/omo/resources/assets/css/bootstrap.css" />
     <link rel="stylesheet" href="/omo/resources/assets/css/bootstrap-responsive.css" />
@@ -39,6 +45,11 @@
     <script src="/omo/resources/assets/js/holder/holder.js" ></script>
     <script src="/omo/resources/assets/js/google-code-prettify/prettify.js" ></script>
     <script src="/omo/resources/assets/js/application.js" ></script>
-
+    <script src="/omo/resources/assets/js/css3-mediaqueries.js"></script>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <!--<script src="/omo/resources/assets/js/html5shiv.js"></script>-->
+    <!--<script src="/omo/resources/assets/js/respond.min.js"></script>-->
+    <![endif]-->
     <title>Order Food</title>
 <!-- END of /public/head.jsp -->

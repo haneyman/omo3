@@ -31,4 +31,6 @@ public class ApplicationUser {
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(style = "M-")
     private Date dateLastLogin;
+
+    private Boolean isAdmin;
 }

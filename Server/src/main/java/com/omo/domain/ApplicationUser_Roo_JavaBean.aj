@@ -64,4 +64,12 @@ privileged aspect ApplicationUser_Roo_JavaBean {
         this.dateLastLogin = dateLastLogin;
     }
     
+    public Boolean ApplicationUser.getIsAdmin() {
+        return this.isAdmin;
+    }
+    
+    public void ApplicationUser.setIsAdmin(Boolean isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+    
 }

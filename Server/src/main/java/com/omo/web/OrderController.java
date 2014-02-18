@@ -10,6 +10,10 @@ import com.omo.service.MenuServiceImpl;
 import com.omo.service.OrderService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Sort;
 import org.springframework.roo.addon.web.mvc.controller.scaffold.RooWebScaffold;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -70,6 +74,20 @@ public class OrderController {
         List<Order> orders = orderService.getOrdersByUser(user);
         uiModel.addAttribute("orders", orders);
         return "public/myOrders";
+    }
+
+
+    @RequestMapping(value = "allOrders", produces = "text/html")
+    public String allOrders(Model uiModel, HttpSession session) throws Exception {
+        logger.debug("allOrders " );
+//        List<Order> orders = orderRepository.findAllOrderByOrderdateDesc();
+//        List<Order> orders = orderRepository.findAll(new Sort("orderDate", org.springframework.data.mongodb.core.query.Order.DESCENDING));
+        PageRequest request =
+                new PageRequest(0, 100, org.springframework.data.domain.Sort.Direction.DESC, "orderDate");
+        Page<Order> orders = orderRepository.findAll(request);
+                //null, new PageRequest(0,10000, org.springframework.data.domain.Sort.Direction.DESC));
+        uiModel.addAttribute("orders", orders.getContent());
+        return "public/orders";
     }
 
 

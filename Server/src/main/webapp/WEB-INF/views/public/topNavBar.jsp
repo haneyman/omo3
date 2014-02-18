@@ -8,13 +8,18 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">OMO</a>
+                <a class="navbar-brand" href="/omo">OMO</a>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/omo/">Home</a></li>
+                    <li class="active"><a href="/omo">Home</a></li>
                     <li class=""><a href="/omo/orders/myOrders">My Orders</a></li>
                     <li class=""><a href="/omo/about">About</a></li>
+                        <c:if test="${sessionScope.applicationUser != null}">
+                            <c:if test="${sessionScope.applicationUser.isAdmin }">
+                                <li class=""><a href="/omo/orders/allOrders">All Orders</a></li>
+                            </c:if>
+                        </c:if>
                 </ul>
                 <div style="float:right; "  class="">
                     <c:choose>
