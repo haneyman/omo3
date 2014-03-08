@@ -73,7 +73,7 @@ public class MenuController {
         return "redirect:/menus/showMenu/" + encodeUrlPathSegment(menu.getId().toString(), httpServletRequest);
     }
 
-    @RequestMapping(value = "byResellerToday/{resllerName}")
+    @RequestMapping(value = "byResellerToday/{resllerName:.+}")
     public @ResponseBody List<Menu> menusForReseller(@PathVariable("resllerName") String resellerName) throws Exception {
         Calendar calendar = Calendar.getInstance();
         int day = calendar.get(Calendar.DAY_OF_WEEK);

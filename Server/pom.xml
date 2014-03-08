@@ -6,6 +6,26 @@
     <packaging>war</packaging>
     <version>0.1.0.BUILD-SNAPSHOT</version>
     <name>omo</name>
+    <profiles>
+        <profile>
+            <id>LOCO DB</id>
+            <properties>
+                <mongo.host>localhost</mongo.host>
+            </properties>
+        </profile>
+        <profile>
+            <id>Amazon Micro DB</id>
+            <properties>
+                <mongo.host>ec2-54-193-69-199.us-west-1.compute.amazonaws.com</mongo.host>
+            </properties>
+        </profile>
+        <profile>
+            <id>Skip Tests</id>
+            <properties>
+                <maven.test.skip>true</maven.test.skip>
+            </properties>
+        </profile>
+    </profiles>
     <properties>
         <aspectj.version>1.7.0</aspectj.version>
         <java.version>1.6</java.version>
@@ -241,6 +261,14 @@
             <artifactId>jackson-mapper-asl</artifactId>
             <version>1.9.12</version>
         </dependency>
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4</version>
+        </dependency>
+
+
+
     </dependencies>
     <build>
         <finalName>omo</finalName>
@@ -386,6 +414,7 @@
                     </webAppConfig>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 </project>

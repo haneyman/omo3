@@ -17,7 +17,7 @@
                     <li class=""><a href="/omo/about">About</a></li>
                         <c:if test="${sessionScope.applicationUser != null}">
                             <c:if test="${sessionScope.applicationUser.isAdmin }">
-                                <li class=""><a href="/omo/orders/allOrders">All Orders</a></li>
+                                <li class=""><a href="/omo/orders/orders/all">All Orders</a></li>
                             </c:if>
                         </c:if>
                 </ul>

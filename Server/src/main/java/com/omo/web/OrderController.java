@@ -8,6 +8,7 @@ import com.omo.repository.MenuRepository;
 import com.omo.repository.OrderRepository;
 import com.omo.service.MenuServiceImpl;
 import com.omo.service.OrderService;
+import org.apache.commons.lang3.time.DateUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -24,6 +25,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
 
@@ -77,16 +80,24 @@ public class OrderController {
     }
 
 
-    @RequestMapping(value = "allOrders", produces = "text/html")
-    public String allOrders(Model uiModel, HttpSession session) throws Exception {
-        logger.debug("allOrders " );
-//        List<Order> orders = orderRepository.findAllOrderByOrderdateDesc();
-//        List<Order> orders = orderRepository.findAll(new Sort("orderDate", org.springframework.data.mongodb.core.query.Order.DESCENDING));
+    @RequestMapping(value = "orders/{filter}", produces = "text/html")
+    public String allOrders(@PathVariable("filter") String filter, Model uiModel) throws Exception {
+        logger.debug("allOrders with filter " + filter );
+        List<Order> filteredOrders = new ArrayList<Order>();
         PageRequest request =
                 new PageRequest(0, 100, org.springframework.data.domain.Sort.Direction.DESC, "orderDate");
         Page<Order> orders = orderRepository.findAll(request);
-                //null, new PageRequest(0,10000, org.springframework.data.domain.Sort.Direction.DESC));
-        uiModel.addAttribute("orders", orders.getContent());
+        if (filter.equalsIgnoreCase("all")) {
+            uiModel.addAttribute("orders", orders.getContent());
+        } else if (filter.equalsIgnoreCase("today")) {
+            for (Order order: orders) {
+                if (DateUtils.isSameDay(order.getOrderDate(), new Date())) {
+                    filteredOrders.add(order);
+                }
+            }
+            uiModel.addAttribute("orders", filteredOrders);
+            uiModel.addAttribute("filter", filter);
+        }
         return "public/orders";
     }
 

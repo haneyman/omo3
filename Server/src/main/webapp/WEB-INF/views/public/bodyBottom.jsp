@@ -3,6 +3,13 @@
     label {margin-right: 5px;font-weight: 800;}
     .col-sm-10 {margin-bottom: 5px;}
 </style>
+<script>
+    function remind() {
+        url = "/omo/applicationusers/remind/" + encodeURIComponent($('#email').val().replace(/\./g, '&#46;'));
+//        alert(url);
+        window.location.href=url;
+    }
+</script>
 <%--</div>--%>
 <!-- Modal -->
 <div id="dialogLogin" class="modal  fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -10,28 +17,36 @@
         <div class="modal-content">
             <div class="modal-header">
                 <%--<h1 id="myModalLabel">Welcome to OMO</h1>--%>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h3 id="myModalLabel2">Who are you?</h3>
+                <%--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>--%>
+                <div style="Zfloat: left;">
+                    <h3 id="myModalLabel2">Log In</h3>
+                </div>
+                    <div style="float: right;margin-top: -40px;">
+                        Not Registered Yet? <button class="btn btn-primary" onclick="$('#dialogLogin').modal('hide');$('#dialogRegister').modal('show');">Register</button>
+                    </div>
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" role="form" id="login" action="/omo/applicationusers/login" method="POST" enctype="application/x-www-form-urlencoded">
                     <div class="form-group">
                         <label for="email" class="col-sm-2 control-label">Email</label>
-                        <div class="col-sm-8">
+                        <div class="col-sm-6">
                             <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="password" class="col-sm-2 control-label">Password</label>
-                        <div class="col-sm-8">
+                        <div class="col-sm-6">
                             <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                            <a href="#" onclick="remind();">Remind me</a>
                         </div>
                     </div>
-                    <button class="btn btn-default">Login</button>
+                    <div>
+                        <button class="btn btn-success" style="margin-left: 104px;">Login</button>
+                    </div>
                 </form>
             </div>
             <div class="modal-footer">
-                Not Registered Yet? <button class="btn btn-primary" onclick="$('#dialogLogin').modal('hide');$('#dialogRegister').modal('show');">Register</button>
+                <span style="font-size: small;font-style: italic">Enter your login information OR press the "Register" button if you are NEW.</span>
             </div>
         </div>
     </div>
@@ -41,7 +56,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <%--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>--%>
                 <h3 id="registerHeader">New User - Welcome!</h3>
             </div>
             <div class="modal-body">
