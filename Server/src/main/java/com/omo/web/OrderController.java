@@ -6,6 +6,7 @@ import com.omo.domain.MenuItem;
 import com.omo.domain.Order;
 import com.omo.repository.MenuRepository;
 import com.omo.repository.OrderRepository;
+import com.omo.service.EmailViaSES;
 import com.omo.service.MenuServiceImpl;
 import com.omo.service.OrderService;
 import org.apache.commons.lang3.time.DateUtils;
@@ -63,9 +64,14 @@ public class OrderController {
             throw new Exception("Could not retrieve order: " + order);
         logger.debug("   order found: " + order.getId() + " , status set to OPEN");
         order.setStatus(Order.ORDER_STATUS.OPEN);
+        orderService.notifyOrder(order);
         orderService.updateOrder(order);
+
         return "redirect:myOrders";
     }
+
+
+
 
 
     @RequestMapping(value = "myOrders", produces = "text/html")

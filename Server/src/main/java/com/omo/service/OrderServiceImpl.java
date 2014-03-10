@@ -2,11 +2,17 @@ package com.omo.service;
 
 
 import com.omo.domain.ApplicationUser;
+import com.omo.domain.MenuItem;
 import com.omo.domain.Order;
 import com.omo.repository.OrderRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.mail.MailException;
+import org.springframework.mail.javamail.MimeMessagePreparator;
 
+import javax.mail.Message;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,4 +36,71 @@ public class OrderServiceImpl implements OrderService {
 
         return userOrders;
     }
+
+    public void notifyOrder(Order order) {
+        StringBuffer body = new StringBuffer();
+//        body.append("<html><body>");
+        body.append("<h3>OMO</h3><hr/>");
+        body.append("<div style='color:#7aba7b'>Yummy, you've just ordered food from OMO!</div>");
+        body.append("<br/>");
+        body.append("<br/>");
+        body.append("<b>Order Date: </b>" + order.getOrderDate());
+        body.append("<br/><b>Status: " + order.getStatus() + "</b>");
+        body.append("<br/>");
+        body.append("<b>Menu: </b>" + order.getMenu().getName());
+//        body.append("<br/>" + order.getMenu().getRestaurant().getName());
+        body.append("<div style='margin-left:20px;'>");
+        for (MenuItem item : order.getMenuItems()) {
+            //body.append("<div><b></b>" + item.internalNotes  + "</div>");
+            body.append("      <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + item.getName() + "</div>");
+        }
+        body.append("   <div><b>Notes:</b>" + order.getNotes() + "</div>");
+        body.append("   <div><b>Total:</b>" + order.getTotalPretax() + "</div>");
+        body.append("</div>");
+        body.append("");
+        body.append("<br/>");
+        body.append("<br/>");
+        body.append("<div><i>Thanks for the business, enjoy your eats!</div>");
+
+        String from = "omo@markhaney.net";
+        String to = "haneyman@yahoo.com";
+        try {
+            EmailViaSES.sendEmail("OMO - Order Confirmed", body.toString(), from, to);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+/*
+
+    private void getMimeMessage(final String recipient, final String from, final String message, final String subject)  {
+
+        MimeMessagePreparator preparator = new MimeMessagePreparator() {
+
+            public void prepare(MimeMessage mimeMessage) throws Exception {
+
+                mimeMessage.setRecipient(Message.RecipientType.TO,
+                        new InternetAddress(recipient));
+                mimeMessage.setFrom(new InternetAddress(from));
+                mimeMessage.setText(message);
+            }
+        };
+
+        try {
+            this.mailSender.send(preparator);
+        }
+        catch (MailException ex) {
+            // simply log it and go on...
+            System.err.println(ex.getMessage());
+        }
+    }
+*/
+
+
+
+
+
 }

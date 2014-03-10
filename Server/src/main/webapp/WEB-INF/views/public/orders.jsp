@@ -4,7 +4,9 @@
 
 <script>
     function printThis() {
+        $('#moneyFilter').hide();
         window.print();
+        $('#moneyFilter').show();
     }
 </script>
 
@@ -27,7 +29,6 @@
         <li class="${allActive} "><a href="/omo/orders/orders/all">All Orders</a></li>
         <li class="${todayActive} "><a href="/omo/orders/orders/today">Today's Orders</a></li>
         <li><a href="#">????</a></li>
-        <button style="margin-top: 2px;margin-left: 10px;" type="button" class="btn btn-info " data-toggle="button" onclick="$('.money').toggle();">Hide $$</button>
     </ul>
     <div class="hidden-print" style="float:right; margin-top: -40px;" >
         <button type="button" class="btn btn-info" onclick="printThis();">Print</button>
@@ -40,19 +41,23 @@
             <th>Who</th>
             <th>Date</th>
             <th>Status</th>
-            <th>Items</th>
+            <th>Items
+               <div class="" id="moneyFilter" style="margin-top: 0px;margin-right: 50px;float:right;">
+                <input type="checkbox" checked="true" onclick="$('.money').toggle();">Prices</input>
+               </div>
+            </th>
         </tr>
-        <c:set var="break" value="False"/>
+        <c:set var="isBreak" value="false"/>
         <c:forEach items="${orders}" var="order">
             <c:if test="${!order.isToday()}">
-                <c:if test='${break == "False"}'>
+                <c:if test="${not isBreak}">
                     </table>
                         <div class="" style="padding-left:20px;background-color: #7aba7b">
                             <h3>Previous Orders</h3>
                         </div>
                     <table class="table">
                 </c:if>
-                <c:set var="break" value="True"/>
+                <c:set var="isBreak" value="true"/>
             </c:if>
 
             <tr>

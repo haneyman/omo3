@@ -10,5 +10,7 @@ import java.util.List;
 public interface OrderService {
     //public List<Order> getOrdersByUser(ApplicationUser user);
     List<Order> getOrdersByUser(ApplicationUser user) ;
+    void notifyOrder(Order order) ;
+
 
 }

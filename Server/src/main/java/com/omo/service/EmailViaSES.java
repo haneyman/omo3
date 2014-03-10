@@ -46,7 +46,7 @@ public class EmailViaSES {
         msg.setFrom(new InternetAddress(from));
         msg.setRecipient(Message.RecipientType.TO, new InternetAddress(to));
         msg.setSubject(subject);
-        msg.setContent(body,"text/plain");
+        msg.setContent(body, "text/html; charset=utf-8");
 
         // Create a transport.
         Transport transport = session.getTransport();
@@ -73,4 +73,8 @@ public class EmailViaSES {
             transport.close();
         }
     }
+
+
+
+
 }

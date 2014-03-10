@@ -1,6 +1,9 @@
 package com.omo.services;
 
+        import com.omo.domain.Order;
         import com.omo.service.EmailViaSES;
+        import com.omo.service.OrderService;
+        import com.omo.service.OrderServiceImpl;
         import org.junit.Before;
         import org.junit.Test;
         import org.junit.runner.RunWith;
@@ -35,5 +38,14 @@ public class TestEmail {
     @Test
     public void simple() throws Exception {
         EmailViaSES.sendEmail("OMO Test subject", "This is the fantastic body", "omo@markhaney.net", "haneyman@yahoo.com");
+    }
+
+    @Test
+    public void testOrderConfirmation() throws Exception {
+        EmailViaSES.sendEmail("OMO Test subject", "This is the fantastic body", "omo@markhaney.net", "haneyman@yahoo.com");
+        OrderService os = new OrderServiceImpl();
+        //Order o = new Order();
+        //o.set
+        //os.notifyOrder();
     }
 }
