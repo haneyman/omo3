@@ -5,16 +5,10 @@ import com.omo.repository.ResellerRepository;
 import com.omo.repository.RestaurantRepository;
 import com.omo.repository.ScheduleRepository;
 import com.omo.service.MenuService;
-import com.sun.corba.se.impl.logging.ORBUtilSystemException;
 import org.junit.Test;
-import org.junit.runners.Suite;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.roo.addon.test.RooIntegrationTest;
 
-import java.io.*;
-import java.nio.MappedByteBuffer;
-import java.nio.channels.FileChannel;
-import java.nio.charset.Charset;
 import java.util.Date;
 import java.util.List;
 
@@ -59,7 +53,7 @@ public class RestaurantIntegrationTest {
         deleteAllSchedules();
 
         testAddTestRestaurants();
-        Menu menu = createBentolinosMenu();
+        Menu menu = createMenuBentolinos();
 
         testScheduleMenu(menu);
     }
@@ -140,11 +134,11 @@ public class RestaurantIntegrationTest {
 
     @Test
     public void testAddMenuForBentolinos() {
-        Menu menu = createBentolinosMenu();
+        Menu menu = createMenuBentolinos();
         assertTrue("Menu is null", menu != null);
     }
 
-    public Menu createBentolinosMenu() {
+    public Menu createMenuBentolinos() {
         //testAddTestRestaurants();
         String restaurantName = "Bentolinos";
         Restaurant restaurant1 = restaurantRepository.findByName(restaurantName).get(0);
@@ -266,6 +260,175 @@ public class RestaurantIntegrationTest {
         sectionMenuItem.getChildMenuItems().add(menuItem2);
         sectionMenuItem.getChildMenuItems().add(menuItem);
 
+
+        //menu.setRestaurant("");
+        menuService.saveMenu(menu);
+
+        assertTrue("Menu " + MENU1 + " not found! ", menuService.getMenuByName(menuName).get(0) != null);
+
+        return menu;
+
+    }
+
+
+    public Menu createMenuElMolino(Restaurant restaurant) {
+        //testAddTestRestaurants();
+        String restaurantName = "El Molino";
+        String menuName = "Menu for " + restaurant.getName();
+        String menuDescription = "Mexican Food";
+
+        Menu menu = new Menu();
+        menu.setName(menuName);
+        menu.setDescription(menuDescription);
+        menu.setRestaurant(restaurant);
+        //
+        MenuItem sectionMenuItem = new MenuItem("","",1,MenuItem.MenuItemTypes.MenuSection, 0f, null);
+        menu.getMenuItems().add(sectionMenuItem);
+
+        MenuItem menuItem = new MenuItem("Taco Salad","Served with Pico de Gallo, Sour Cream, Guacamole, Romaine Lettuce, Beans & Rice in a Flour Bowl."
+                ,1,MenuItem.MenuItemTypes.MenuGroup, .00f, sectionMenuItem.getUuid());
+        menuItem.addChildMenuItem("Chicken","",1,MenuItem.MenuItemTypes.MenuItem, 8.50f);
+        menuItem.addChildMenuItem("Beef","",2,MenuItem.MenuItemTypes.MenuItem, 8.50f);
+        menuItem.addChildMenuItem("Carnitas","",3,MenuItem.MenuItemTypes.MenuItem, 8.50f);
+        sectionMenuItem.getChildMenuItems().add(menuItem);//add group to section
+
+        menuItem = new MenuItem("Nachos","Jack Cheese, Beans, Lettuce, Guacamole, Pico De Gallo, Sour Cream",
+                2,MenuItem.MenuItemTypes.MenuGroup, .00f, sectionMenuItem.getUuid());
+        menuItem.addChildMenuItem("Steak","",1,MenuItem.MenuItemTypes.MenuItem, 7.50f);
+        menuItem.addChildMenuItem("Chicken","",2,MenuItem.MenuItemTypes.MenuItem, 7.50f);
+        menuItem.addChildMenuItem("Carnitas","",3,MenuItem.MenuItemTypes.MenuItem, 7.50f);
+        sectionMenuItem.getChildMenuItems().add(menuItem);//add group to section
+
+        menuItem = new MenuItem("Soft Tacos","Served with Chopped Onions, Cilantro, Salsa, Beans & Rice",
+                4,MenuItem.MenuItemTypes.MenuGroup, .00f, sectionMenuItem.getUuid());
+        menuItem.addChildMenuItem("Steak (Asada)","",1,MenuItem.MenuItemTypes.MenuItem, 7.50f);
+        menuItem.addChildMenuItem("Fried Pork (Carnitas","",2,MenuItem.MenuItemTypes.MenuItem, 7.50f);
+        menuItem.addChildMenuItem("Pork Stomach (Buche)","",3,MenuItem.MenuItemTypes.MenuItem, 7.50f);
+        menuItem.addChildMenuItem("Chicken (Pollo)","",4,MenuItem.MenuItemTypes.MenuItem, 7.50f);
+        sectionMenuItem.getChildMenuItems().add(menuItem);//add group to section
+
+        menuItem = new MenuItem("Burrito","Served with Onions, Guacamole, Sour Cream, Cheese, Tomatoes, Beans, Rice, Salsa & Cilantro",
+                5,MenuItem.MenuItemTypes.MenuGroup, .00f, sectionMenuItem.getUuid());
+        menuItem.addChildMenuItem("Steak (Asada)","",1,MenuItem.MenuItemTypes.MenuItem, 6.75f);
+        menuItem.addChildMenuItem("Chicken (Pollo)","",2,MenuItem.MenuItemTypes.MenuItem, 6.75f);
+        menuItem.addChildMenuItem("Marinated Pork (Alpastor)","",3,MenuItem.MenuItemTypes.MenuItem, 6.75f);
+        menuItem.addChildMenuItem("Fried Pork (Carnitas)","",4,MenuItem.MenuItemTypes.MenuItem, 6.75f);
+        menuItem.addChildMenuItem("Pork Stomach (Buche)","",5,MenuItem.MenuItemTypes.MenuItem, 6.75f);
+        menuItem.addChildMenuItem("Pork Skin (Cueritos)","",6,MenuItem.MenuItemTypes.MenuItem, 6.75f);
+        menuItem.addChildMenuItem("Beef Head (Cabeza)","",7,MenuItem.MenuItemTypes.MenuItem, 6.75f);
+        sectionMenuItem.getChildMenuItems().add(menuItem);//add group to section
+
+        menuItem = new MenuItem("Soup 32oz","Chicken Based Soup with Tortilla Chips, diced Avocado & Cheese",
+                6,MenuItem.MenuItemTypes.MenuGroup, .00f, sectionMenuItem.getUuid());
+        menuItem.addChildMenuItem("Chicken Tortilla Soup","",1,MenuItem.MenuItemTypes.MenuItem, 5.95f);
+        sectionMenuItem.getChildMenuItems().add(menuItem);//add group to section
+
+        menuItem = new MenuItem("Super Quesadilla","",
+                7,MenuItem.MenuItemTypes.MenuGroup, .00f, sectionMenuItem.getUuid());
+        menuItem.addChildMenuItem("Steak","",1,MenuItem.MenuItemTypes.MenuItem, 7.50f);
+        menuItem.addChildMenuItem("Ham","",1,MenuItem.MenuItemTypes.MenuItem, 7.50f);
+        sectionMenuItem.getChildMenuItems().add(menuItem);//add group to section
+
+        menuItem = new MenuItem("Chile Rellenos","Pasilla Pepper Stuffed with Cheese.  Served with Beans & Rice",
+                8,MenuItem.MenuItemTypes.MenuGroup, .00f, sectionMenuItem.getUuid());
+        menuItem.addChildMenuItem("Corn Tortilla","",1,MenuItem.MenuItemTypes.MenuItem, 8.99f);
+        menuItem.addChildMenuItem("Flour Tortilla","",2,MenuItem.MenuItemTypes.MenuItem, 8.99f);
+        sectionMenuItem.getChildMenuItems().add(menuItem);//add group to section
+
+        menuItem = new MenuItem("Sopes","Served with 2 Corn Shells, Sour Cream, Lettuce, Salsa, Beans & Rice",
+                9,MenuItem.MenuItemTypes.MenuGroup, .00f, sectionMenuItem.getUuid());
+        menuItem.addChildMenuItem("Beef (Asada)","",1,MenuItem.MenuItemTypes.MenuItem, 8.50f);
+        menuItem.addChildMenuItem("Pork Stomach (Buche) & Carnitas","",2,MenuItem.MenuItemTypes.MenuItem, 8.50f);
+        menuItem.addChildMenuItem("Cuerito (Pork Skin)","",3,MenuItem.MenuItemTypes.MenuItem, 8.50f);
+        menuItem.addChildMenuItem("Chicken (Pollo)","",4,MenuItem.MenuItemTypes.MenuItem, 8.50f);
+        sectionMenuItem.getChildMenuItems().add(menuItem);//add group to section
+
+        menuItem = new MenuItem("Tortas","Salvadorian food.  Lettuce, Tomato, Onion, Jalapeno, Guacamole & Mayo.  Served with Cabbage Salad  Tomato Sauce (Salsa)",
+                10,MenuItem.MenuItemTypes.MenuGroup, .00f, sectionMenuItem.getUuid());
+        menuItem.addChildMenuItem("2 Pupusas ","",1,MenuItem.MenuItemTypes.MenuItem, 5.95f);
+        menuItem.addChildMenuItem("Cheese","",2,MenuItem.MenuItemTypes.MenuItem, .0f);
+        menuItem.addChildMenuItem("Re-Fried Beans","",3,MenuItem.MenuItemTypes.MenuItem, .0f);
+        menuItem.addChildMenuItem("Pork","",4,MenuItem.MenuItemTypes.MenuItem, .0f);
+        menuItem.addChildMenuItem("Mix all together","",5,MenuItem.MenuItemTypes.MenuItem, .0f);
+        sectionMenuItem.getChildMenuItems().add(menuItem);//add group to section
+
+        menuItem = new MenuItem("Other Items","",
+                11,MenuItem.MenuItemTypes.MenuGroup, .00f, sectionMenuItem.getUuid());
+        menuItem.addChildMenuItem("Taco","",2,MenuItem.MenuItemTypes.MenuItem, 2.95f);
+        menuItem.addChildMenuItem("Sope","",3,MenuItem.MenuItemTypes.MenuItem, 3.25f);
+        menuItem.addChildMenuItem("Bionico - fruit salad with yogurt and coconuts","",1,MenuItem.MenuItemTypes.MenuItem, 4.00f);
+        sectionMenuItem.getChildMenuItems().add(menuItem);//add group to section
+
+        //menu.setRestaurant("");
+        menuService.saveMenu(menu);
+
+        assertTrue("Menu " + MENU1 + " not found! ", menuService.getMenuByName(menuName).get(0) != null);
+
+        return menu;
+
+    }
+
+
+    public Menu createMenuKinders(Restaurant restaurant) {
+        //testAddTestRestaurants();
+        String restaurantName = "Kinder's";
+        String menuName = "Menu for " + restaurant.getName();
+        String menuDescription = "Meat Deli BBQ";
+
+        Menu menu = new Menu();
+        menu.setName(menuName);
+        menu.setDescription(menuDescription);
+        menu.setRestaurant(restaurant);
+        //
+        MenuItem sectionMenuItem = new MenuItem("","",1,MenuItem.MenuItemTypes.MenuSection, 0f, null);
+        menu.getMenuItems().add(sectionMenuItem);
+
+        MenuItem menuItem = new MenuItem("Hot Sandwiches","(Excluding BBQ Beef) Include Mayo, Lettuce, Tomato & Mild BBQ Sauce."
+                ,1,MenuItem.MenuItemTypes.MenuGroup, .00f, sectionMenuItem.getUuid());
+        menuItem.addChildMenuItem("Kinder's Famous Ball Tip Sandwich","",1,MenuItem.MenuItemTypes.MenuItem, 8.50f);
+        menuItem.addChildMenuItem("Kinder's BBQ Beef Sandwich","",2,MenuItem.MenuItemTypes.MenuItem, 8.25f);
+        menuItem.addChildMenuItem("Louisiana Style Hot Link Sandwich","",3,MenuItem.MenuItemTypes.MenuItem, 8.25f);
+        menuItem.addChildMenuItem("Grilled Chicken Breast Sandwich","",4,MenuItem.MenuItemTypes.MenuItem, 8.25f);
+        menuItem.addChildMenuItem("California Chicken Club Sandwich - everything a Hot Sandwich has plus Bacon, Cheese and Avocado","",5,MenuItem.MenuItemTypes.MenuItem, 9.25f);
+        sectionMenuItem.getChildMenuItems().add(menuItem);//add group to section
+
+        menuItem = new MenuItem("Deli Sandwiches","",
+                2,MenuItem.MenuItemTypes.MenuGroup, .00f, sectionMenuItem.getUuid());
+        menuItem.addChildMenuItem("Roasted Turkey Sandwich","",1,MenuItem.MenuItemTypes.MenuItem, 7.25f);
+        menuItem.addChildMenuItem("Black Forest Ham Sandwich","",2,MenuItem.MenuItemTypes.MenuItem, 7.25f);
+        menuItem.addChildMenuItem("Roast Beef Sandwich","",3,MenuItem.MenuItemTypes.MenuItem, 7.25f);
+        menuItem.addChildMenuItem("Italian Dry Salami Sandwich","",4,MenuItem.MenuItemTypes.MenuItem, 7.25f);
+        menuItem.addChildMenuItem("Combination Sandwich (Roast beef, turkey, dry salami, ham, cheese)","",5,MenuItem.MenuItemTypes.MenuItem, 7.95f);
+        menuItem.addChildMenuItem("Vegetarian Sandwich (Cream Cheese, Crusshed Walnuts, Spinach Leaves, Bell Peppers, Cucumbers, Lettuce, and Tomato","",6,MenuItem.MenuItemTypes.MenuItem, 7.25f);
+        sectionMenuItem.getChildMenuItems().add(menuItem);//add group to section
+
+        menuItem = new MenuItem("Type of Bread for Sandwiches","Please choose a bread for your sandwich.",
+                3,MenuItem.MenuItemTypes.MenuGroup, .00f, sectionMenuItem.getUuid());
+        menuItem.addChildMenuItem("Wheat","",1,MenuItem.MenuItemTypes.MenuItem, 0f);
+        menuItem.addChildMenuItem("Soft Roll","",2,MenuItem.MenuItemTypes.MenuItem, 0f);
+        menuItem.addChildMenuItem("Wheat Roll","",3,MenuItem.MenuItemTypes.MenuItem, 0f);
+        menuItem.addChildMenuItem("Sourdough Roll","",4,MenuItem.MenuItemTypes.MenuItem, 0f);
+        menuItem.addChildMenuItem("Sliced Sourdough","",5,MenuItem.MenuItemTypes.MenuItem, 0f);
+        menuItem.addChildMenuItem("Dutch Crunch Roll","",6,MenuItem.MenuItemTypes.MenuItem, 0f);
+        sectionMenuItem.getChildMenuItems().add(menuItem);//add group to section
+
+
+        menuItem = new MenuItem("Cheese for Sandwiches","",
+                4,MenuItem.MenuItemTypes.MenuGroup, .00f, sectionMenuItem.getUuid());
+        menuItem.addChildMenuItem("Jack","",1,MenuItem.MenuItemTypes.MenuItem, 0.75f);
+        menuItem.addChildMenuItem("Cheddar","",1,MenuItem.MenuItemTypes.MenuItem, 0.75f);
+        menuItem.addChildMenuItem("Provolone","",1,MenuItem.MenuItemTypes.MenuItem, 0.75f);
+        menuItem.addChildMenuItem("Swiss","",1,MenuItem.MenuItemTypes.MenuItem, 0.75f);
+        menuItem.addChildMenuItem("American","",1,MenuItem.MenuItemTypes.MenuItem, 0.75f);
+        sectionMenuItem.getChildMenuItems().add(menuItem);//add group to section
+
+        menuItem = new MenuItem("Salads","",
+                5,MenuItem.MenuItemTypes.MenuGroup, .00f, sectionMenuItem.getUuid());
+        menuItem.addChildMenuItem("BBQ Chicken Salad - Iceberg Lettuce, Carrots, Cabbage, Tomato, Cucumber, Shredded Cheddar, Avocado, BBQ Ranch Dressing","",1,MenuItem.MenuItemTypes.MenuItem, 7.75f);
+        menuItem.addChildMenuItem("Chicken Caesar Salad - Romain Lettuce, Parmesan Cheese, Croutons, And Caesar Dressing","",1,MenuItem.MenuItemTypes.MenuItem, 7.75f);
+        menuItem.addChildMenuItem("Cobb Salad - Iceberg Lettuce, Egg, Tomato, Avocado, ?Blue Cheese Crubles, Bacon Bits, and Blue Cheese Dressing","",1,MenuItem.MenuItemTypes.MenuItem, 7.75f);
+        menuItem.addChildMenuItem("Tossed Green Salad - Iceberg Lettuce, Carrots, Cabbage, Tomato, Cucumber, and Shredded Cheddar Cheese with Ranch Dressing","",1,MenuItem.MenuItemTypes.MenuItem, 7.75f);
+        sectionMenuItem.getChildMenuItems().add(menuItem);//add group to section
 
         //menu.setRestaurant("");
         menuService.saveMenu(menu);

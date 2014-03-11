@@ -6,7 +6,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
-import org.springframework.roo.addon.test.RooIntegrationTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -27,73 +26,78 @@ public class InitializeAllData {
 
     @Test
     public void initializeAllTest() {
-        RestaurantIntegrationTest restaurantIntegrationTest = new RestaurantIntegrationTest();
-        //restaurant
-        Restaurant restaurant = restaurantIntegrationTest.addRestaurant("Bentolinos");
-        restaurantIntegrationTest.testAddMenuForBentolinos();
-
-        //reseller
+        //reseller -----------------------------------------------------------------------------------------------------
         String resellerName = "El Cafecito";
         Reseller reseller = resellerRepository.findOneByName(resellerName);
         if (reseller != null)
             resellerRepository.delete(reseller);
 
         reseller = new Reseller();
-        reseller.setAddress("111 Main St.");
+        reseller.setAddress("1400 Treat Blvd, Walnut Creek, CA");
         reseller.setName(resellerName);
         resellerRepository.save(reseller);
 
-        //menu
-        Menu menu = restaurantIntegrationTest.createBentolinosMenu();
+        //restaurants --------------------------------------------------------------------------------------------------
+        RestaurantIntegrationTest restaurantIntegrationTest = new RestaurantIntegrationTest();
+        restaurantIntegrationTest.deleteAllRestaurants();
+        Restaurant restaurantBentolinos     = restaurantIntegrationTest.addRestaurant("Bentolinos");
+        Restaurant restaurantElMolino       = restaurantIntegrationTest.addRestaurant("El Molino");
+        Restaurant restaurantASweetAffair   = restaurantIntegrationTest.addRestaurant("A Sweet Affair");
+        Restaurant restaurantKinders        = restaurantIntegrationTest.addRestaurant("Kinders");
 
-        //schedule
-        List<Schedule> schedules = scheduleRepository.findAll();
-        for (Schedule schedule: schedules) {
-            scheduleRepository.delete(schedule);
-        }
+
+        //menus --------------------------------------------------------------------------------------------------------
+        restaurantIntegrationTest.deleteAllMenus();
+        Menu menuBentolinos = restaurantIntegrationTest.createMenuBentolinos();
+        Menu menuElMolino = restaurantIntegrationTest.createMenuElMolino(restaurantElMolino);
+        Menu menuKinders = restaurantIntegrationTest.createMenuKinders(restaurantKinders);
+
+
+        //schedule -----------------------------------------------------------------------------------------------------
+        restaurantIntegrationTest.deleteAllSchedules();
 
         //Days of week start from 1 which is Sunday, 0 is all days
         Schedule schedule = new Schedule();
         schedule.setReseller(reseller);
-        schedule.setRestaurant(restaurant);
+        schedule.setRestaurant(restaurantBentolinos);
         schedule.setDayOfWeek(1);
-        schedule.setMenu(menu);
+        schedule.setMenu(menuBentolinos);
         scheduleRepository.save(schedule);
         schedule = new Schedule();
         schedule.setReseller(reseller);
-        schedule.setRestaurant(restaurant);
+        schedule.setRestaurant(restaurantKinders);
         schedule.setDayOfWeek(2);
-        schedule.setMenu(menu);
+        schedule.setMenu(menuKinders);
         scheduleRepository.save(schedule);
         schedule = new Schedule();
         schedule.setReseller(reseller);
-        schedule.setRestaurant(restaurant);
+        schedule.setRestaurant(restaurantBentolinos);
         schedule.setDayOfWeek(3);
-        schedule.setMenu(menu);
+        schedule.setMenu(menuBentolinos);
         scheduleRepository.save(schedule);
         schedule = new Schedule();
         schedule.setReseller(reseller);
-        schedule.setRestaurant(restaurant);
+        schedule.setRestaurant(restaurantBentolinos);
         schedule.setDayOfWeek(4);
-        schedule.setMenu(menu);
+        schedule.setMenu(menuBentolinos);
         scheduleRepository.save(schedule);
         schedule = new Schedule();
         schedule.setReseller(reseller);
-        schedule.setRestaurant(restaurant);
+        schedule.setRestaurant(restaurantBentolinos);
         schedule.setDayOfWeek(5);
-        schedule.setMenu(menu);
+        schedule.setMenu(menuBentolinos);
         scheduleRepository.save(schedule);
         schedule = new Schedule();
         schedule.setReseller(reseller);
-        schedule.setRestaurant(restaurant);
+        schedule.setRestaurant(restaurantBentolinos);
         schedule.setDayOfWeek(6);
-        schedule.setMenu(menu);
+        schedule.setMenu(menuBentolinos);
         scheduleRepository.save(schedule);
         schedule = new Schedule();
         schedule.setReseller(reseller);
-        schedule.setRestaurant(restaurant);
+        schedule.setRestaurant(restaurantBentolinos);
         schedule.setDayOfWeek(7);
-        schedule.setMenu(menu);
+        schedule.setMenu(menuBentolinos);
         scheduleRepository.save(schedule);
     }
 
