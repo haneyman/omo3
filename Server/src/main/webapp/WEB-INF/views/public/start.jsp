@@ -9,7 +9,7 @@
     </header>
 </div>
 
-<div class="container">
+<div class="container" style="margin-left: 100px;">
     <form action="/omo/menus/viewMenu" method="POST" enctype="application/x-www-form-urlencoded">
         <%--<section id="step1">--%>
             <div class="row">

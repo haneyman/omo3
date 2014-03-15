@@ -31,13 +31,12 @@ public class MenuServiceImpl implements MenuService {
     ScheduleRepository scheduleRepository;
 
 
-    public String getMenuAsHTML(BigInteger menuId) throws Exception {
-        logger.debug("getMenuAsHTML - loading html for menu " + menuId +  "...");
+    public String getMenuAsHTML(Menu menu) throws Exception {
+        logger.debug("getMenuAsHTML - loading html for menu " + menu.getName() +  "...");
         html = new ArrayList<String>();
         html.add(NEW_LINE + "<!-- begin generated menu html -->" + NEW_LINE);
         html.add("<div class=\"container divMenu\">" + NEW_LINE);
         html.add("    <div class=\"row divMenuRow\">" + NEW_LINE);
-        Menu menu = findMenu(menuId);
         html.add("    <input type=\"hidden\" name=\"menuId\" value=\"" + menu.getId() + "\">" + NEW_LINE);
         loadMenuItems(menu.getMenuItems(), 1);
         html.add("    </div> <!-- divMenuRow -->" + NEW_LINE);
@@ -181,6 +180,76 @@ public class MenuServiceImpl implements MenuService {
                 return result;
         }
         return null;
+    }
+
+    //this logic depends on schedules to be in order by reseller
+    public String whenAndWhereOffered(Menu menu) throws Exception {
+        //HashMap<String, >
+        StringBuffer results = new StringBuffer();
+        List<Schedule> schedules = scheduleRepository.findAll();
+        String curReseller = "yomama";
+        String days = "";
+        results.append("This menu is offered by ");
+        for (Schedule sched : schedules) {
+            if (menu.getId().compareTo(sched.getMenu().getId()) == 0) {
+                if (curReseller.equals(sched.getReseller().getName())) {
+                    if (days.length()==0) {
+                        results.append(" " + sched.getDayOfWeekName() );
+                        days = sched.getDayOfWeekName();
+                    } else {
+                        results.append(", " + sched.getDayOfWeekName() );
+                        days += sched.getDayOfWeekName();
+                    }
+                } else {
+                    results.append(sched.getReseller().getName() + " on " + sched.getDayOfWeekName());
+                    curReseller = sched.getReseller().getName();
+                    days = sched.getDayOfWeekName();
+                }
+            }
+        }
+        return results.toString();
+    }
+
+    public Boolean isMenuForToday(Menu menu) throws Exception {
+        List<Menu> todaysMenus = findTodaysMenus();
+        for (Menu todayMenu: todaysMenus) {
+            if (menu.getId().compareTo(todayMenu.getId()) == 0)
+                return true;
+        }
+        return false;
+    }
+
+    public List<Menu> findTodaysMenusForReseller(String resellerName) throws Exception {
+        Calendar calendar = Calendar.getInstance();
+        int day = calendar.get(Calendar.DAY_OF_WEEK);
+        logger.debug("menusForReseller starting for reseller: " + resellerName + " for day:" + day);
+        List<Menu> menus = new ArrayList<Menu>();
+        Reseller reseller = resellerRepository.findOneByName(resellerName);
+        if (reseller == null)
+            throw new Exception("reseller not found in menusForReseller.  That shouldn't happen.");
+        List<Schedule> schedules = scheduleRepository.findAll();
+        for (Schedule sched : schedules) {
+//            logger.debug("    " + sched.getReseller().getName() + " day:" + sched.getDayOfWeek() );
+            if (sched.getDayOfWeek() == day) {
+                if (sched.getReseller().getId().equals(reseller.getId())) {
+                    menus.add(sched.getMenu());
+                }
+            }
+        }
+        return menus;
+    }
+
+    public List<Menu> findTodaysMenus() throws Exception {
+        Calendar calendar = Calendar.getInstance();
+        int day = calendar.get(Calendar.DAY_OF_WEEK);
+        List<Menu> menus = new ArrayList<Menu>();
+        List<Schedule> schedules = scheduleRepository.findAll();
+        for (Schedule sched : schedules) {
+            if (sched.getDayOfWeek() == day) {
+                menus.add(sched.getMenu());
+            }
+        }
+        return menus;
     }
 
     public Menu findTodaysMenu(String resellerName, String restaurantName) throws Exception {

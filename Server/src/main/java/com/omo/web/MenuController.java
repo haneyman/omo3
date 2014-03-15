@@ -65,17 +65,15 @@ public class MenuController {
     }
 
     @RequestMapping(value = "showMenu/{id}", produces = "text/html")
-    public String showMenu(@PathVariable("id") BigInteger id, Model uiModel) {
+    public String showMenu(@PathVariable("id") BigInteger id, Model uiModel) throws Exception  {
         logger.debug("showMenu for:" + id);
-        //http://localhost:8080/omo/menus/showMenu/25228012736225668066740962972
-        //http://localhost:8080/omo/menus/showMenu/25218716663578156317953998846   Haneymain
-/*
-        BigInteger bi = new BigInteger("512c0357ff3acce65673455d");
-        id = bi;//temp
-        uiModel.addAttribute("menu", menuService.findMenu(id));
-*/
+        Menu menu = menuService.findMenu(id);
+        uiModel.addAttribute("menu", menu);
+        uiModel.addAttribute("canOrder", menuService.isMenuForToday(menu));
+        uiModel.addAttribute("offered", menuService.whenAndWhereOffered(menu));
+
         try {
-            uiModel.addAttribute("menuHTML", menuService.getMenuAsHTML(id));
+            uiModel.addAttribute("menuHTML", menuService.getMenuAsHTML(menu));
         } catch (Exception e) {
             System.out.println("Exception: " + e.getMessage());
             e.printStackTrace();
@@ -104,19 +102,7 @@ public class MenuController {
         Calendar calendar = Calendar.getInstance();
         int day = calendar.get(Calendar.DAY_OF_WEEK);
         logger.debug("menusForReseller starting for reseller: " + resellerName + " for day:" + day);
-        List<Menu> menus = new ArrayList<Menu>();
-        Reseller reseller = resellerRepository.findOneByName(resellerName);
-        if (reseller == null)
-            throw new Exception("reseller not found in menusForReseller.  That shouldn't happen.");
-        List<Schedule> schedules = scheduleRepository.findAll();
-        for (Schedule sched : schedules) {
-//            logger.debug("    " + sched.getReseller().getName() + " day:" + sched.getDayOfWeek() );
-            if (sched.getDayOfWeek() == day) {
-                if (sched.getReseller().getId().equals(reseller.getId())) {
-                    menus.add(sched.getMenu());
-                }
-            }
-        }
+        List<Menu> menus = menuService.findTodaysMenusForReseller(resellerName);
         logger.debug("menusForReseller found " + menus.size() +  " menus. ");
         logger.debug("   returning:" + menus);
         return menus;

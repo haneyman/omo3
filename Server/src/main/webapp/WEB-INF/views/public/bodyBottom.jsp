@@ -133,7 +133,8 @@
 
 <footer class="footer navbar navbar-fixed-bottom" >
     <div class="container">
-        <p>This is the footer and something important should probably be said here.</p>
+        <div style="float:left">Produced and Supported with loving care by <span style="text-align: center;color: #c12e2a"><a href="http://mtsconsulting.biz/">MTS Solutions</a></span></div>
+        <div style="float:right;">We love feedback - <a href="mailto:feedback@markhaney.net">Bring It!</a></div>
     </div>
 </footer>
 

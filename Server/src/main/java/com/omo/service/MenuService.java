@@ -10,7 +10,12 @@ import java.util.List;
 @RooService(domainTypes = { com.omo.domain.Menu.class })
 public interface MenuService {
 
-    public String getMenuAsHTML(BigInteger menuId) throws Exception;
+    public String getMenuAsHTML(Menu menu) throws Exception;
     public List<Menu> getMenuByName(String menuName);
     public Menu findTodaysMenu(String resellerName, String restaurantName) throws Exception;
-}
+    public List<Menu> findTodaysMenusForReseller(String resellerName) throws Exception ;
+    public Boolean isMenuForToday(Menu menu) throws Exception ;
+    public String whenAndWhereOffered(Menu menu) throws Exception ;
+
+
+    }
