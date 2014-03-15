@@ -11,6 +11,7 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooToString
 @RooMongoEntity
 public class Schedule {
+    String[] namesOfDays =  {"SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"};
 
     private Integer dayOfWeek;
 
@@ -25,4 +26,8 @@ public class Schedule {
     @DBRef
     @ManyToOne
     private Menu menu;
+
+    public String getDayOfWeekName() {
+        return namesOfDays[dayOfWeek - 1];
+    }
 }

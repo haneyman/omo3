@@ -10,6 +10,14 @@ import com.omo.domain.Schedule;
 
 privileged aspect Schedule_Roo_JavaBean {
     
+    public String[] Schedule.getNamesOfDays() {
+        return this.namesOfDays;
+    }
+    
+    public void Schedule.setNamesOfDays(String[] namesOfDays) {
+        this.namesOfDays = namesOfDays;
+    }
+    
     public Integer Schedule.getDayOfWeek() {
         return this.dayOfWeek;
     }

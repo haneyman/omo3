@@ -13,6 +13,7 @@
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="/omo">Home</a></li>
+                    <li class=""><a href="/omo/menus/listMenuPublic">Menus</a></li>
                     <li class=""><a href="/omo/orders/myOrders">My Orders</a></li>
                     <li class=""><a href="/omo/about">About</a></li>
                         <c:if test="${sessionScope.applicationUser != null}">

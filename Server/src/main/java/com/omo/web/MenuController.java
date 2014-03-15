@@ -6,6 +6,7 @@ import com.omo.domain.Restaurant;
 import com.omo.domain.Schedule;
 import com.omo.repository.MenuRepository;
 import com.omo.repository.ResellerRepository;
+import com.omo.repository.RestaurantRepository;
 import com.omo.repository.ScheduleRepository;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,31 @@ public class MenuController {
     MenuRepository menuRepository;
     @Autowired
     ResellerRepository resellerRepository;
+    @Autowired
+    RestaurantRepository restaurantRepository;
+
+    @RequestMapping(value = "listMenuPublic", produces = "text/html")
+    public String listMenusPublic(Model uiModel) {
+        uiModel.addAttribute("menus", menuService.findAllMenus());
+        uiModel.addAttribute("schedules", scheduleRepository.findAll());
+        return "public/menus";
+    }
+
+    @RequestMapping(value = "showMenuByRestaurant/{id}", produces = "text/html")
+    public String showMenuByRestaurant(@PathVariable("id") BigInteger id, Model uiModel) {
+        Restaurant restaurant = restaurantRepository.findOne(id);
+        List<Menu> menus = menuRepository.findAll();
+        Menu menuShow = null;
+        for (Menu menu : menus) {
+            if (menu.getRestaurant().getName().equals(restaurant.getName())) {
+                menuShow = menu;
+                 break;
+            }
+        }
+        uiModel.addAttribute("menu", menuShow);
+        //uiModel.addAttribute("itemId", menuShow.getId());
+        return "redirect:/menus/showMenu/"+menuShow.getId();
+    }
 
     @RequestMapping(value = "showMenu/{id}", produces = "text/html")
     public String showMenu(@PathVariable("id") BigInteger id, Model uiModel) {

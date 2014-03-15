@@ -8,6 +8,7 @@
             <table:column id="c_com_omo_domain_Schedule_reseller" property="reseller" z="unrt39kMmEh+GPzOC7Jn2rPbjKQ="/>
             <table:column id="c_com_omo_domain_Schedule_restaurant" property="restaurant" z="v43NpYv5KfR9hRKkRo/bAuSYUU4="/>
             <table:column id="c_com_omo_domain_Schedule_menu" property="menu" z="kan8BQDh7vuSm2+YLmYC6YeBwMU="/>
+            <table:column id="c_com_omo_domain_Schedule_namesOfDays" property="namesOfDays" z="DibEHTF3X7Cx3zd92lhhMItJlg0="/>
         </table:table>
     </page:list>
 </div>

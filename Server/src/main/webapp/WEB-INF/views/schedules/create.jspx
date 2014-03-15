@@ -7,6 +7,7 @@
         <field:select field="reseller" id="c_com_omo_domain_Schedule_reseller" itemValue="id" items="${resellers}" path="/resellers" z="m7HzH0bNgAsI754Ac3Mih7Ifqjo="/>
         <field:select field="restaurant" id="c_com_omo_domain_Schedule_restaurant" itemValue="id" items="${restaurants}" path="/restaurants" z="u0XxvqXR3oJ5fWnDc5JdiP+se5M="/>
         <field:select field="menu" id="c_com_omo_domain_Schedule_menu" itemValue="id" items="${menus}" path="/menus" z="K0oHGGdUTzznffLq57DafYd2mHE="/>
+        <field:input field="namesOfDays" id="c_com_omo_domain_Schedule_namesOfDays" z="Jlg6/xXUuCFPXSNqtmUkS00M5do="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_omo_domain_Schedule" render="${not empty dependencies}" z="PE/ZWfqFLyxcGa0WbYz3ud4y3Xc="/>
 </div>

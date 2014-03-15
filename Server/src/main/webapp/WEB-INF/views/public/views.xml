@@ -19,6 +19,12 @@
         <put-attribute name="footer" value="/WEB-INF/views/public/bodyBottom.jsp"/>
     </definition>
 
+    <definition extends="public" name="public/menus">
+        <put-attribute name="head" value="/WEB-INF/views/public/head.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/views/public/menus.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/views/public/bodyBottom.jsp"/>
+    </definition>
+
     <definition extends="public" name="public/menu">
         <put-attribute name="head" value="/WEB-INF/views/public/head.jsp"/>
         <put-attribute name="body" value="/WEB-INF/views/public/menu.jsp"/>

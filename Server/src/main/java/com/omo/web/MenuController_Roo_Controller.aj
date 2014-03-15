@@ -5,7 +5,6 @@ package com.omo.web;
 
 import com.omo.domain.Menu;
 import com.omo.repository.MenuItemRepository;
-import com.omo.repository.RestaurantRepository;
 import com.omo.service.MenuService;
 import com.omo.web.MenuController;
 import java.io.UnsupportedEncodingException;
@@ -29,9 +28,6 @@ privileged aspect MenuController_Roo_Controller {
     
     @Autowired
     MenuItemRepository MenuController.menuItemRepository;
-    
-    @Autowired
-    RestaurantRepository MenuController.restaurantRepository;
     
     @RequestMapping(method = RequestMethod.POST, produces = "text/html")
     public String MenuController.create(@Valid Menu menu, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
