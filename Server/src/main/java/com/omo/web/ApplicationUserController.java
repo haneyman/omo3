@@ -30,7 +30,11 @@ public class ApplicationUserController {
         applicationUserRepository.save(appUser);
         HttpSession session = request.getSession();
         session.setAttribute("applicationUser", appUser);
-        return "redirect:/public/start";
+        String returnView = request.getParameter("returnView");
+        if (returnView == null || returnView.length() == 0)
+            return "redirect:/public/start";
+        else
+            return "redirect:" + returnView;
     }
 
     @RequestMapping(value = "remind/{email}", produces = "text/html")
@@ -66,7 +70,11 @@ public class ApplicationUserController {
         }
         HttpSession session = request.getSession();
         session.setAttribute("applicationUser", appUser);
-        return "redirect:/public/start";
+        String returnView = request.getParameter("returnView");
+        if (returnView == null || returnView.length() == 0)
+            return "redirect:/public/start";
+        else
+            return "redirect:" + returnView;
     }
 
 

@@ -1,9 +1,7 @@
 package com.omo.web;
 
 import com.omo.domain.Menu;
-import com.omo.domain.Reseller;
 import com.omo.domain.Restaurant;
-import com.omo.domain.Schedule;
 import com.omo.repository.MenuRepository;
 import com.omo.repository.ResellerRepository;
 import com.omo.repository.RestaurantRepository;
@@ -13,16 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.roo.addon.web.mvc.controller.scaffold.RooWebScaffold;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 import java.math.BigInteger;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -69,7 +64,7 @@ public class MenuController {
         logger.debug("showMenu for:" + id);
         Menu menu = menuService.findMenu(id);
         uiModel.addAttribute("menu", menu);
-        uiModel.addAttribute("canOrder", menuService.isMenuForToday(menu));
+        uiModel.addAttribute("canOrder", menuService.isMenuOrderable(menu));
         uiModel.addAttribute("offered", menuService.whenAndWhereOffered(menu));
 
         try {

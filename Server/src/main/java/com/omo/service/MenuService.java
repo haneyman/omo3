@@ -14,7 +14,7 @@ public interface MenuService {
     public List<Menu> getMenuByName(String menuName);
     public Menu findTodaysMenu(String resellerName, String restaurantName) throws Exception;
     public List<Menu> findTodaysMenusForReseller(String resellerName) throws Exception ;
-    public Boolean isMenuForToday(Menu menu) throws Exception ;
+    public Boolean isMenuOrderable(Menu menu) throws Exception ;
     public String whenAndWhereOffered(Menu menu) throws Exception ;
 
 

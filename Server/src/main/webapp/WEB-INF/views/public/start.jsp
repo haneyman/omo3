@@ -85,7 +85,7 @@
             </c:when>
             <c:otherwise>
                 //alert('NOT logged in');
-                $('#dialogLogin').modal('show');
+                //$('#dialogLogin').modal('show');
             </c:otherwise>
         </c:choose>
     });

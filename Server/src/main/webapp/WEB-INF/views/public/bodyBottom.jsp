@@ -27,6 +27,7 @@
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" role="form" id="login" action="/omo/applicationusers/login" method="POST" enctype="application/x-www-form-urlencoded">
+                    <input class="returnView" id="returnView" name="returnView" type="hidden" value=""/>
                     <div class="form-group">
                         <label for="email" class="col-sm-2 control-label">Email</label>
                         <div class="col-sm-6">
@@ -61,6 +62,7 @@
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" role="form" id="applicationUser" action="/omo/applicationusers/registerUser" method="POST" enctype="application/x-www-form-urlencoded">
+                    <input  class="returnView" id="returnView" name="returnView" type="hidden" value=""/>
                     <div class="form-group">
                         <label for="email" class="col-sm-2 control-label">Email</label>
                         <div class="col-sm-8">

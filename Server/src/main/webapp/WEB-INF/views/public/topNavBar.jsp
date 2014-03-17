@@ -14,11 +14,13 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="/omo">Home</a></li>
                     <li class=""><a href="/omo/menus/listMenuPublic">Menus</a></li>
-                    <li class=""><a href="/omo/orders/myOrders">My Orders</a></li>
+                    <c:if test="${sessionScope.applicationUser != null}">
+                        <li class=""><a href="/omo/orders/myOrders">My Orders</a></li>
+                    </c:if>
                     <li class=""><a href="/omo/about">About</a></li>
                         <c:if test="${sessionScope.applicationUser != null}">
                             <c:if test="${sessionScope.applicationUser.isAdmin }">
-                                <li class=""><a href="/omo/orders/orders/all">All Orders</a></li>
+                                <li class=""><a href="/omo/orders/orders/open">All Orders</a></li>
                             </c:if>
                         </c:if>
                 </ul>

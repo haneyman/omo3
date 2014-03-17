@@ -58,20 +58,22 @@ public class InitializeAllData {
         restaurantIntegrationTest.deleteAllSchedules();
 
         //Days of week start from 1 which is Sunday, 0 is all days
-        //Sunday
         Schedule schedule = new Schedule();
+        //Sunday
         schedule.setReseller(reseller);
         schedule.setRestaurant(restaurantBentolinos);
         schedule.setDayOfWeek(1);
         schedule.setMenu(menuBentolinos);
         scheduleRepository.save(schedule);
+
         //Monday
         schedule = new Schedule();
         schedule.setReseller(reseller);
-        schedule.setRestaurant(restaurantKinders);
+        schedule.setRestaurant(restaurantBentolinos);
         schedule.setDayOfWeek(2);
-        schedule.setMenu(menuKinders);
+        schedule.setMenu(menuBentolinos);
         scheduleRepository.save(schedule);
+
         //Tuesday
         schedule = new Schedule();
         schedule.setReseller(reseller);
@@ -79,33 +81,39 @@ public class InitializeAllData {
         schedule.setDayOfWeek(3);
         schedule.setMenu(menuBentolinos);
         scheduleRepository.save(schedule);
+
         //Wednesday
         schedule = new Schedule();
         schedule.setReseller(reseller);
-        schedule.setRestaurant(restaurantBentolinos);
+        schedule.setRestaurant(restaurantElMolino);
         schedule.setDayOfWeek(4);
-        schedule.setMenu(menuBentolinos);
+        schedule.setMenu(menuElMolino);
         scheduleRepository.save(schedule);
+
         schedule = new Schedule();
         schedule.setReseller(reseller);
         schedule.setRestaurant(restaurantASweetAffair);
         schedule.setDayOfWeek(4);
         schedule.setMenu(menuASweetAffair);
         scheduleRepository.save(schedule);
+
         //Thursday
         schedule = new Schedule();
         schedule.setReseller(reseller);
-        schedule.setRestaurant(restaurantBentolinos);
+        schedule.setRestaurant(restaurantASweetAffair);
         schedule.setDayOfWeek(5);
-        schedule.setMenu(menuBentolinos);
+        schedule.setMenu(menuASweetAffair);
         scheduleRepository.save(schedule);
+
         //Friday
         schedule = new Schedule();
         schedule.setReseller(reseller);
-        schedule.setRestaurant(restaurantBentolinos);
+        schedule.setRestaurant(restaurantKinders);
         schedule.setDayOfWeek(6);
-        schedule.setMenu(menuBentolinos);
+        schedule.setMenu(menuKinders);
         scheduleRepository.save(schedule);
+
+/*
         //Saturday
         schedule = new Schedule();
         schedule.setReseller(reseller);
@@ -113,7 +121,7 @@ public class InitializeAllData {
         schedule.setDayOfWeek(7);
         schedule.setMenu(menuBentolinos);
         scheduleRepository.save(schedule);
-        //Sunday
+*/
     }
 
 }

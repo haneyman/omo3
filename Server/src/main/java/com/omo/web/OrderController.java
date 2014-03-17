@@ -93,12 +93,20 @@ public class OrderController {
         PageRequest request =
                 new PageRequest(0, 100, org.springframework.data.domain.Sort.Direction.DESC, "orderDate");
         Page<Order> orders = orderRepository.findAll(request);
+
         if (filter.equalsIgnoreCase("all")) {
             uiModel.addAttribute("orders", orders.getContent());
-        } else if (filter.equalsIgnoreCase("today")) {
-            for (Order order: orders) {
-                if (DateUtils.isSameDay(order.getOrderDate(), new Date())) {
-                    filteredOrders.add(order);
+        } else {
+            for (Order order: orders.getContent()) {
+                if (filter.equalsIgnoreCase("today")) {
+                    if (DateUtils.isSameDay(order.getOrderDate(), new Date())) {
+                        if (order.getStatus() == Order.ORDER_STATUS.OPEN) {
+                            filteredOrders.add(order);
+                        }
+                    }
+                } else if (filter.equalsIgnoreCase("open")) {
+                    if (order.getStatus() == Order.ORDER_STATUS.OPEN)
+                        filteredOrders.add(order);
                 }
             }
             uiModel.addAttribute("orders", filteredOrders);

@@ -9,16 +9,26 @@
         $('#moneyFilter').show();
     }
 </script>
-
+<style>
+    .container tr {
+        line-height: 5px;
+        min-height: 5px;
+        height: 5px;
+    }
+</style>
 <div class="container" style="margin-top: 25px;">
-    <c:set var="allActive"  value=""/>
-    <c:set var="todayActive"  value=""/>
+    <c:set var="open"  value=""/>
+    <c:set var="today"  value=""/>
+    <c:set var="all"  value=""/>
     <c:choose>
-        <c:when test='${filter.equals("all")}'>
-            <c:set var="allActive"  value="active"/>
+        <c:when test='${filter.equals("open")}'>
+            <c:set var="open"  value="active"/>
         </c:when>
         <c:when test='${filter.equals("today")}'>
-            <c:set var="todayActive"  value="active"/>
+            <c:set var="today"  value="active"/>
+        </c:when>
+        <c:when test='${filter.equals("all")}'>
+            <c:set var="all"  value="active"/>
         </c:when>
         <c:otherwise>
         </c:otherwise>
@@ -26,9 +36,9 @@
 
 
     <ul class="nav nav-pills hidden-print">
-        <li class="${allActive} "><a href="/omo/orders/orders/all">All Orders</a></li>
-        <li class="${todayActive} "><a href="/omo/orders/orders/today">Today's Orders</a></li>
-        <li><a href="#">????</a></li>
+        <li class="${open} "><a href="/omo/orders/orders/open">All Orders</a></li>
+        <li class="${today} "><a href="/omo/orders/orders/today">Today's Orders</a></li>
+        <li class="${all} "><a href="/omo/orders/orders/all">All + Init</a></li>
     </ul>
     <div class="hidden-print" style="float:right; margin-top: -40px;" >
         <button type="button" class="btn btn-info" onclick="printThis();">Print</button>

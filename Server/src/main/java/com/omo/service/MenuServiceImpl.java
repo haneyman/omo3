@@ -5,9 +5,14 @@ import com.omo.domain.*;
 import com.omo.repository.ResellerRepository;
 import com.omo.repository.RestaurantRepository;
 import com.omo.repository.ScheduleRepository;
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
+import org.joda.time.LocalDateTime;
+import org.joda.time.LocalTime;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.math.BigInteger;
+import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.util.*;
 
@@ -207,16 +212,31 @@ public class MenuServiceImpl implements MenuService {
                 }
             }
         }
+        results.append(", you must order by 10:00 AM");
         return results.toString();
     }
 
-    public Boolean isMenuForToday(Menu menu) throws Exception {
+    public Boolean isMenuOrderable(Menu menu) throws Exception {
+        Boolean result = false;
+        //check if correct day
         List<Menu> todaysMenus = findTodaysMenus();
         for (Menu todayMenu: todaysMenus) {
             if (menu.getId().compareTo(todayMenu.getId()) == 0)
-                return true;
+                result = true;
         }
-        return false;
+        //check time is before 10 am
+        LocalDateTime now = new LocalDateTime();
+        if (result) {
+            DateTime nowPacific = now.toDateTime(DateTimeZone.forID("US/Pacific"));
+            LocalTime deadline = new LocalTime(20, 00);//limit to 10:00 am
+            if (nowPacific.toLocalTime().isBefore(deadline))
+                result = true;
+            else
+                result = false;
+        }
+
+
+        return result;
     }
 
     public List<Menu> findTodaysMenusForReseller(String resellerName) throws Exception {
