@@ -60,11 +60,13 @@ public class InitializeAllData {
         //Days of week start from 1 which is Sunday, 0 is all days
         Schedule schedule = new Schedule();
         //Sunday
+/*
         schedule.setReseller(reseller);
         schedule.setRestaurant(restaurantBentolinos);
         schedule.setDayOfWeek(1);
         schedule.setMenu(menuBentolinos);
         scheduleRepository.save(schedule);
+*/
 
         //Monday
         schedule = new Schedule();

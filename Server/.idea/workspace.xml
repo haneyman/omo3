@@ -5,20 +5,11 @@
     <bookmark url="file://$PROJECT_DIR$/src/main/java/com/omo/web/MenuController.java" line="46" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eee9e14e-dffd-4610-8b6e-d35bceea7620" name="Default" comment="moved login to menu order">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/omo/services/TestMenuServices.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/omo/web/ApplicationUserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/omo/web/ApplicationUserController.java" />
+    <list default="true" id="eee9e14e-dffd-4610-8b6e-d35bceea7620" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/omo/domain/InitializeAllData.java" afterPath="$PROJECT_DIR$/src/test/java/com/omo/domain/InitializeAllData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/omo/web/MenuController.java" afterPath="$PROJECT_DIR$/src/main/java/com/omo/web/MenuController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/omo/service/MenuService.java" afterPath="$PROJECT_DIR$/src/main/java/com/omo/service/MenuService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/omo/service/MenuServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/omo/service/MenuServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/omo/web/OrderController.java" afterPath="$PROJECT_DIR$/src/main/java/com/omo/web/OrderController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/bodyBottom.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/bodyBottom.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/confirmOrder.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/confirmOrder.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/menu.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/menu.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/orders.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/orders.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/start.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/start.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/topNavBar.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/topNavBar.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/spring/database.properties" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/spring/database.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OMO6.iws" />
@@ -169,28 +160,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="start.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/start.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="81" column="0" selection-start="3882" selection-end="3920" vertical-scroll-proportion="-4.576923" vertical-offset="1258" max-vertical-offset="2482">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MenuController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/omo/web/MenuController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="29" selection-start="2542" selection-end="2542" vertical-scroll-proportion="0.0" vertical-offset="543" max-vertical-offset="1581">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="InitializeAllData.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/omo/domain/InitializeAllData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="25" selection-start="1106" selection-end="1106" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="2108">
+            <state line="68" column="0" selection-start="2953" selection-end="3172" vertical-scroll-proportion="0.0" vertical-offset="748" max-vertical-offset="2142">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="database.properties" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/spring/database.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="0" selection-start="112" selection-end="112" vertical-scroll-proportion="0.13737373" vertical-offset="0" max-vertical-offset="495">
               <folding />
             </state>
           </provider>
@@ -199,67 +181,10 @@
       <file leaf-file-name="MenuServiceImpl.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/omo/service/MenuServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="192" column="0" selection-start="8698" selection-end="8698" vertical-scroll-proportion="0.0" vertical-offset="2850" max-vertical-offset="5355">
+            <state line="230" column="48" selection-start="10431" selection-end="10431" vertical-scroll-proportion="0.0" vertical-offset="3434" max-vertical-offset="5355">
               <folding>
                 <element signature="e#10977#10983#0" expanded="true" />
                 <element signature="e#11850#11856#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="menu.jsp" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/menu.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="18" selection-start="1954" selection-end="1954" vertical-scroll-proportion="0.45287356" vertical-offset="585" max-vertical-offset="1054">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="confirmOrder.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/confirmOrder.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="0" selection-start="1904" selection-end="1904" vertical-scroll-proportion="-12.807693" vertical-offset="296" max-vertical-offset="731">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bodyBottom.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/bodyBottom.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="0" selection-start="5147" selection-end="5147" vertical-scroll-proportion="-0.65384614" vertical-offset="1530" max-vertical-offset="2516">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ApplicationUserController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/omo/web/ApplicationUserController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="0" selection-start="1562" selection-end="1562" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1428">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="orders.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/orders.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="15" selection-start="334" selection-end="334" vertical-scroll-proportion="-7.8461537" vertical-offset="0" max-vertical-offset="1989">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OrderController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/omo/web/OrderController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="112" column="43" selection-start="4754" selection-end="4754" vertical-scroll-proportion="0.0" vertical-offset="1483" max-vertical-offset="3281">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3727#3734#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -307,7 +232,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/omo/domain/Order.java" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/spring/applicationContext-mongo.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/spring/database.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/omo/service/OrderService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/omo/service/EmailViaSES.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/omo/services/TestEmail.java" />
@@ -322,11 +246,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/omo/service/MenuService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/omo/web/MenuController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/views.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" />
         <option value="$PROJECT_DIR$/src/test/java/com/omo/services/TestMenuServices.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/start.jsp" />
-        <option value="$PROJECT_DIR$/src/test/java/com/omo/domain/InitializeAllData.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/omo/service/MenuServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/topNavBar.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/omo/web/OrderController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/orders.jsp" />
@@ -334,6 +255,10 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/confirmOrder.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/omo/web/ApplicationUserController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/menu.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/omo/service/MenuServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/omo/domain/InitializeAllData.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/spring/database.properties" />
       </list>
     </option>
   </component>
@@ -1023,7 +948,7 @@
       <recent name="C:\GitHub\omo3\Server\src\main\webapp\WEB-INF\views\public" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.LOCO">
+  <component name="RunManager" selected="JUnit.InitializeAllData.initializeAllTest">
     <configuration default="false" name="InitializeAllData.initializeAllTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" runner="idea">
         <pattern>
@@ -1547,7 +1472,7 @@
       <workItem from="1392653466592" duration="14944000" />
       <workItem from="1393997761460" duration="43732000" />
       <workItem from="1394516595824" duration="16970000" />
-      <workItem from="1394897429635" duration="22341000" />
+      <workItem from="1394897429635" duration="24350000" />
     </task>
     <task id="LOCAL-00001" summary="latest as of 1/28/14&#10;">
       <created>1390957891077</created>
@@ -1581,11 +1506,15 @@
       <created>1394908072457</created>
       <updated>1394908072457</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="moved login to menu order, enhanced orders to consider INIT, other stuff">
+      <created>1395017528407</created>
+      <updated>1395017528407</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="218989000" />
+    <option name="totallyTimeSpent" value="220998000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="42" y="0" width="1558" height="900" extended-state="0" />
@@ -1651,7 +1580,8 @@
     <MESSAGE value="added kinders and el molinas" />
     <MESSAGE value="view menus essentially working" />
     <MESSAGE value="0.2, prettied up menu display, showing days offered, prettied up footer" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.2, prettied up menu display, showing days offered, prettied up footer" />
+    <MESSAGE value="moved login to menu order, enhanced orders to consider INIT, other stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="moved login to menu order, enhanced orders to consider INIT, other stuff" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1716,13 +1646,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/spring/applicationContext-mongo.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="9" selection-start="1294" selection-end="1294" vertical-scroll-proportion="-10.2" vertical-offset="0" max-vertical-offset="357">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/omo/domain/ApplicationUser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="70" selection-start="421" selection-end="421" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
@@ -1735,11 +1658,6 @@
         <state line="331" column="0" selection-start="12691" selection-end="12691" vertical-scroll-proportion="0.0" vertical-offset="5446" max-vertical-offset="7242">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/spring/database.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="90" selection-end="90" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/omo/service/OrderService.java">
@@ -1889,13 +1807,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="6" selection-start="527" selection-end="527" vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="323">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/views.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="45" selection-start="553" selection-end="553" vertical-scroll-proportion="0.0" vertical-offset="72" max-vertical-offset="816">
@@ -1940,13 +1851,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/omo/domain/InitializeAllData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="25" selection-start="1106" selection-end="1106" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="2108">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/topNavBar.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="77" selection-start="1368" selection-end="1368" vertical-scroll-proportion="0.7525151" vertical-offset="0" max-vertical-offset="1717">
@@ -1958,23 +1862,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="15" selection-start="334" selection-end="334" vertical-scroll-proportion="-7.8461537" vertical-offset="0" max-vertical-offset="1989">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/start.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="0" selection-start="3882" selection-end="3920" vertical-scroll-proportion="-4.576923" vertical-offset="1258" max-vertical-offset="2482">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/omo/service/MenuServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="192" column="0" selection-start="8698" selection-end="8698" vertical-scroll-proportion="0.0" vertical-offset="2850" max-vertical-offset="5355">
-          <folding>
-            <element signature="e#10977#10983#0" expanded="true" />
-            <element signature="e#11850#11856#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2018,7 +1905,52 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/menu.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="18" selection-start="1954" selection-end="1954" vertical-scroll-proportion="0.45287356" vertical-offset="585" max-vertical-offset="1054">
+        <state line="46" column="18" selection-start="1954" selection-end="1954" vertical-scroll-proportion="-7.576923" vertical-offset="585" max-vertical-offset="1054">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/start.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="130" column="16" selection-start="6044" selection-end="6044" vertical-scroll-proportion="-6.269231" vertical-offset="2047" max-vertical-offset="2482">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/spring/applicationContext-mongo.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="78" selection-start="1013" selection-end="1013" vertical-scroll-proportion="0.15477997" vertical-offset="0" max-vertical-offset="659">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="34" selection-start="555" selection-end="555" vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="323">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/omo/service/MenuServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="230" column="48" selection-start="10431" selection-end="10431" vertical-scroll-proportion="0.0" vertical-offset="3434" max-vertical-offset="5355">
+          <folding>
+            <element signature="e#10977#10983#0" expanded="true" />
+            <element signature="e#11850#11856#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/omo/domain/InitializeAllData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="0" selection-start="2953" selection-end="3172" vertical-scroll-proportion="0.0" vertical-offset="748" max-vertical-offset="2142">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/spring/database.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="112" selection-end="112" vertical-scroll-proportion="0.13737373" vertical-offset="0" max-vertical-offset="495">
           <folding />
         </state>
       </provider>

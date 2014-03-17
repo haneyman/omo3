@@ -9,5 +9,5 @@
         </div>
     </div>
 </div>
-<div>V 0.2 - 3/15/14 MPH</div>
+<div style="vertical-align: bottom">V 0.3 - 3/16/14 MPH</div>
 <!-- end of /index.jsp-->
