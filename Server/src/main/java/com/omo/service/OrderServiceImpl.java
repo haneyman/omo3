@@ -62,12 +62,14 @@ public class OrderServiceImpl implements OrderService {
         body.append("<br/>");
         body.append("<div><i>Thanks for the business, enjoy your eats!</div>");
 
-        String from = "omo@markhaney.net";
-        String to = "haneyman@yahoo.com";
-        try {
-            EmailViaSES.sendEmail("OMO - Order Confirmed", body.toString(), from, to);
-        } catch (Exception e) {
-            e.printStackTrace();
+        String from = "noreply@menubreeze.com";
+        String to = order.getUser().getEmail();
+        if (to != null && to.length() > 0) {
+            try {
+                EmailViaSES.sendEmail("OMO - Order Confirmed", body.toString(), from, to);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 

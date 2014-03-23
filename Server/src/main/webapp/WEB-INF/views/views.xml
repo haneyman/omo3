@@ -10,7 +10,8 @@
         <put-attribute name="navbar" value=""/>
         <put-attribute name="bodyTop" value="" />
         <put-attribute name="body" value="/WEB-INF/views/index.jsp" />
-        <put-attribute name="footer" value="" />
+        <put-attribute name="footer" value="/WEB-INF/views/public/bodyBottom.jsp"/>
+        <!--<put-attribute name="footer" value="" />-->
         <!--<put-attribute name="bodyBottom" value="/WEB-INF/views/public/bodyBottom.jsp"/>-->
     </definition>
 
@@ -19,7 +20,8 @@
         <!--<put-attribute name="navbar" value=""/>-->
         <put-attribute name="bodyTop" value="" />
         <put-attribute name="body" value="/WEB-INF/views/about.jsp" />
-        <put-attribute name="footer" value="/WEB-INF/views/public/footer.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/views/public/bodyBottom.jsp"/>
+        <!--<put-attribute name="footer" value="/WEB-INF/views/public/footer.jsp" />-->
         <!--<put-attribute name="bodyBottom" value="/WEB-INF/views/public/bodyBottom.jsp"/>-->
     </definition>
 

@@ -17,7 +17,7 @@
             Select your food and press the "Place Order" button at the bottom.
         </c:if>
         <c:if test="${!canOrder}">
-            You can <b>not</b> currently order from this menu.
+            <span style="color:red;">Sorry, you can <b>not</b> order from this menu right now.</span>
         </c:if>
     </div>
     <div style="clear: both;margin-left: 50px;"/>

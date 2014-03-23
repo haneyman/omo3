@@ -8,11 +8,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/omo">OMO</a>
+                <a class="navbar-brand" href="/omo">Menu<span style="font-style: italic">Breeze</span></a>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/omo">Home</a></li>
+                    <li class="active"><a href="/omo/public/start">Order</a></li>
                     <li class=""><a href="/omo/menus/listMenuPublic">Menus</a></li>
                     <c:if test="${sessionScope.applicationUser != null}">
                         <li class=""><a href="/omo/orders/myOrders">My Orders</a></li>

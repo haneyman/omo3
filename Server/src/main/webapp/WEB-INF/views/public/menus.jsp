@@ -2,10 +2,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="topNavBar.jsp" %>
 
+<div class="" style="padding-left:20px;background-color: #7aba7b;margin-bottom: 30px;">
+    <h3>Featured Menus</h3>
+</div>
 <div class="container">
-    <div class="" style="padding-left:20px;background-color: #7aba7b;margin-bottom: 30px;">
-        <h3>Featured Menus</h3>
-    </div>
     <c:set var="curReseller" value=""/>
     <c:forEach items="${schedules}" var="schedule">
         <div>

@@ -1,18 +1,25 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="topNavBar.jsp" %>
+<%--
 <div id="main"><!-- Subhead ================================================== -->
     <header class="jumbotron subhead" id="overview">
         <div class="container">
-            <h1>Order Lunch!</h1>
-            <p class="lead">Pick your reseller, pick the menu, order, eat!</p>
+            <h1>Menu Breeze</h1>
+            <p class="lead">Let's Order some food!</p>
         </div>
     </header>
 </div>
+--%>
+<div id="main"><!-- Subhead ================================================== -->
+    <div class="" style="padding-left:20px;background-color: #7aba7b;margin-bottom: 30px;">
+        <h3>Order Food</h3>
+    </div>
+</div>
 
-<div class="container" style="margin-left: 100px;">
+<div class="container" style="margin-left: 100px;margin-top: 40px;">
     <form action="/omo/menus/viewMenu" method="POST" enctype="application/x-www-form-urlencoded">
         <%--<section id="step1">--%>
-            <div class="row">
+            <div class="row" >
                 <div class="" style="margin-top: -40px;">
                     <%--<p><a class="btn btn-large btn-primary" href="" >&nbsp;&nbsp;&nbsp;Pick Reseller&nbsp;&nbsp;&nbsp;</a></p>--%>
                     <h3>1) Pick where to deliver your lunch.</h3>
@@ -21,6 +28,7 @@
                             <span id="textReseller">Who's got the food?</span>
                             <span class="caret"></span>
                         </a>
+                        <%--<div style="float:right"><img src="/omo/resources/images/elcafecito.jpg" width="200px;"></div>--%>
                         <input type="hidden" name="reseller" id="reseller">
                         <ul class="dropdown-menu">
                             <c:forEach var="reseller" items="${resellers}">
@@ -36,10 +44,10 @@
             <div class="row">
                 <div class="">
                     <%--<p><a class="btn btn-large btn-primary" href="" >&nbsp;&nbsp;&nbsp;Pick Reseller&nbsp;&nbsp;&nbsp;</a></p>--%>
-                    <h3>2) Pick the restaurant menu.</h3>
+                    <h3>2) Pick a restaurant.</h3>
                     <div id="divMenus" class="btn-group ">
                         <a style="width:200px;margin-left:50px;" id="dropDownMenus" class="btn btn-lg btn-primary dropdown-toggle disabled" data-toggle="dropdown" href="#">
-                            <span id="textRestaurant">Which food?</span>
+                            <span id="textRestaurant">What restaurant?</span>
                             <span class="caret"></span>
                         </a>
                         <input type="hidden" name="menu" id="menu">
@@ -54,8 +62,9 @@
         <%--<section id="step3">--%>
             <div class="row">
                 <div class="">
-                    <h3>3) Show me the Menu.</h3>
-                    <button style="width:200px;margin-left:50px;" id="buttonSubmit" type="submit" class="btn btn-lg btn-primary disabled btn-success">Order From Menu</button>
+                    <h3>3) Order from the Menu.</h3>
+                    <button style="width:200px;margin-left:50px;" id="buttonSubmit" type="submit" class="btn btn-lg btn-primary disabled btn-success">
+                        Show me the Menu!</button>
                 </div>
             </div>
         <%--</section>--%>
