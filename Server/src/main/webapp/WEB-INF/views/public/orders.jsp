@@ -15,6 +15,8 @@
         min-height: 5px;
         height: 5px;
     }
+
+    .table > TBODY > TR > TD { padding: 0px;}
 </style>
 <div class="container" style="margin-top: 25px;">
     <c:set var="open"  value=""/>
@@ -80,7 +82,7 @@
                     <table class="table " >
                         <c:forEach items="${order.menuItems}" var="menuItem">
                             <tr>
-                                <td>${menuItem.internalNotes} - ${menuItem.name}</td>
+                                <td style="">${menuItem.internalNotes} - ${menuItem.name}</td>
                                 <td class="money">
                                     $ <fmt:formatNumber value="${menuItem.price}" type="currency" currencySymbol="" />
                                 </td>
@@ -94,17 +96,15 @@
                                 <b>$ <fmt:formatNumber value="${order.totalPretax}" type="currency" currencySymbol="" /></b>
                             </td>
                         </tr>
-                    </table>
-                    <c:choose>
-                        <c:when test="${order.notes == ''}">
-                            <!-- no notes  -->
-                        </c:when>
-                        <c:otherwise>
-                            <table class="table " >
+                        <c:choose>
+                            <c:when test="${order.notes == ''}">
+                                <!-- no notes  -->
+                            </c:when>
+                            <c:otherwise>
                                 <tr><td><b>Notes:</b> ${order.notes}</td><td></td></tr>
-                            </table>
-                        </c:otherwise>
-                    </c:choose>
+                            </c:otherwise>
+                        </c:choose>
+                    </table>
                 </td>
             </tr>
         </c:forEach>
