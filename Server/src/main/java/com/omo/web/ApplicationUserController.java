@@ -49,7 +49,7 @@ public class ApplicationUserController {
         } else {
             passwordMsg = "You requested your password.  Password: " + appUser.getPassword();
         }
-        EmailViaSES.sendEmail("Password reminder", passwordMsg, "omo@markhaney.net", newEmail);
+        EmailViaSES.sendEmail("Password reminder", passwordMsg, "support@menubreeze.com", newEmail);
 
         return "redirect:/public/start";
 

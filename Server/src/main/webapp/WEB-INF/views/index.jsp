@@ -21,5 +21,9 @@
         </div>
     </div>
 </div>
-<div style="float: right;font-size: 9px;margin-right:10px;">V 0.5 - 3/24/14 MPH</div>
+<div class="well" style="margin-left: 20%;width:50%;text-align: center">
+    <h2>Sorry we had a boo boo 3/31 and 4/1  :(</h2>
+    <h4>Yaay, we are OK Now!   Thanks for your patience!</h4>
+</div><!-- end of /index.jsp-->
+<div style="float: right;font-size: 9px;margin-right:10px;">V 0.10 - 4/1/14 MPH</div>
 <!-- end of /index.jsp-->

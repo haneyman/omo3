@@ -136,15 +136,15 @@
 <footer class="footer navbar navbar-fixed-bottom" >
     <div class="container">
         <div style="float:left;font-size: 11px;font-style: italic">Produced and Supported with loving care by <span style="text-align: center;color: #c12e2a"><a href="http://mtsconsulting.biz/">MTS Solutions</a></span></div>
-        <div style="float:right;">We love feedback - <a href="mailto:feedback@markhaney.net">Bring It!</a></div>
+        <div style="float:right;">We love feedback - <a href="mailto:feedback@menubreeze.com">Bring It!</a></div>
     </div>
 </footer>
-<script>
+<%--<script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
             m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
     ga('create', 'UA-49343212-1', 'menubreeze.com');
     ga('send', 'pageview');
-</script>
+</script>--%>
 

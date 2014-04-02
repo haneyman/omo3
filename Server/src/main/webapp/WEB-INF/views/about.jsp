@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="container">
-        <div class="well">"I'd like to order a sandwich for lunch today, have it ready and waiting for me at noon downstairs."</div>
+        <div class="well">"I'd like to order a sandwich for lunch today, have it ready and waiting for me at noon at El Cafecito."</div>
 
         <p>MenuBreeze allows consumers to order food to be delivered to the nearest reseller.  For example they order food from a Deli and it gets delivered downstairs to their local coffee vendor.<p></p>
         <p>We connect restaurants to resellers, increasing sales and giving hungry customers great options for convenient lunches.</p>

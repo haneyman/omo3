@@ -14,8 +14,10 @@ public class EmailViaSES {
     //static final String SUBJECT = "Amazon SES test (SMTP interface accessed using Java)";
 
     // Supply your SMTP credentials below. Note that your SMTP credentials are different from your AWS credentials.
-    static final String SMTP_USERNAME = "AKIAIT2EIN3IPS4ZXCDA";  // Replace with your SMTP username.
-    static final String SMTP_PASSWORD = "ApNERvEUDq79h7R5AOA9OXGJ+6FYgG0bkzV6YuHggswA";  // Replace with your SMTP password.
+//    static final String SMTP_USERNAME = "AKIAIT2EIN3IPS4ZXCDA";  // Replace with your SMTP username.
+    static final String SMTP_USERNAME = "AKIAJENW67Y2MYKZGRNA" ;  // Replace with your SMTP username.
+//    static final String SMTP_PASSWORD = "ApNERvEUDq79h7R5AOA9OXGJ+6FYgG0bkzV6YuHggswA";  // Replace with your SMTP password.
+    static final String SMTP_PASSWORD = "Aphi65EEQdb23q7sIHuuylC5fsGb2yFp8L5/Qmt3NfFD";  // Replace with your SMTP password.
 
     // Amazon SES SMTP host name. This example uses the us-east-1 region.
     static final String HOST = "email-smtp.us-west-2.amazonaws.com";

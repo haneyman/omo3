@@ -41,7 +41,7 @@ public class OrderServiceImpl implements OrderService {
         StringBuffer body = new StringBuffer();
 //        body.append("<html><body>");
         body.append("<h3>OMO</h3><hr/>");
-        body.append("<div style='color:#7aba7b'>Yummy, you've just ordered food from OMO!</div>");
+        body.append("<div style='color:#7aba7b'>Yummy, you've just ordered food from MenuBreeze!</div>");
         body.append("<br/>");
         body.append("<br/>");
         body.append("<b>Order Date: </b>" + order.getOrderDate());
@@ -60,13 +60,13 @@ public class OrderServiceImpl implements OrderService {
         body.append("");
         body.append("<br/>");
         body.append("<br/>");
-        body.append("<div><i>Thanks for the business, enjoy your eats!</div>");
+        body.append("<div><i>Thanks for the business, enjoy your food!</div>");
 
-        String from = "noreply@menubreeze.com";
+        String from = "support@menubreeze.com";
         String to = order.getUser().getEmail();
         if (to != null && to.length() > 0) {
             try {
-                EmailViaSES.sendEmail("OMO - Order Confirmed", body.toString(), from, to);
+                EmailViaSES.sendEmail("MenuBreeze - Order Confirmed", body.toString(), from, to);
             } catch (Exception e) {
                 e.printStackTrace();
             }

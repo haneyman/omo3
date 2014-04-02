@@ -37,12 +37,12 @@ public class TestEmail {
 
     @Test
     public void simple() throws Exception {
-        EmailViaSES.sendEmail("OMO Test subject", "This is the fantastic body", "omo@markhaney.net", "haneyman@yahoo.com");
+        EmailViaSES.sendEmail("OMO Test subject", "This is the fantastic body", "support@menubreeze.com", "haneyman@yahoo.com");
     }
 
     @Test
     public void testOrderConfirmation() throws Exception {
-        EmailViaSES.sendEmail("OMO Test subject", "This is the fantastic body", "omo@markhaney.net", "haneyman@yahoo.com");
+        EmailViaSES.sendEmail("OMO Test subject", "This is the fantastic body", "support@menubreeze.com", "mark.haney@johnmuirhealth.com");
         OrderService os = new OrderServiceImpl();
         //Order o = new Order();
         //o.set

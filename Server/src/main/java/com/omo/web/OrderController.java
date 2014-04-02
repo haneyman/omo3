@@ -64,8 +64,12 @@ public class OrderController {
             throw new Exception("Could not retrieve order: " + order);
         logger.debug("   order found: " + order.getId() + " , status set to OPEN");
         order.setStatus(Order.ORDER_STATUS.OPEN);
-        orderService.notifyOrder(order);
         orderService.updateOrder(order);
+        try {
+            orderService.notifyOrder(order);
+        } catch (Exception e) {
+            //do nada
+        }
 
         return "redirect:myOrders";
     }
