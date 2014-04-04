@@ -59,6 +59,9 @@
             <div class="modal-header">
                 <%--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>--%>
                 <h3 id="registerHeader">New User - Welcome!</h3>
+                    <div style="float: right;margin-top: -40px;">
+                        <button class="btn btn-primary" onclick="$('#dialogRegister').modal('hide');$('#dialogLogin').modal('show');">Log In</button>
+                    </div>
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" role="form" id="applicationUser" action="/omo/applicationusers/registerUser" method="POST" enctype="application/x-www-form-urlencoded">

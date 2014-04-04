@@ -35,6 +35,7 @@
                         <c:otherwise>
                             <ul class="nav navbar-nav">
                                 <li class=""><a href="#dialogLogin"  data-toggle="modal">Log In</a></li>
+                                <li class=""><a href="#dialogRegister"  data-toggle="modal">Register</a></li>
                             </ul>
                         </c:otherwise>
                     </c:choose>

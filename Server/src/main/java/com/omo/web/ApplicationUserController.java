@@ -24,12 +24,15 @@ public class ApplicationUserController {
     @RequestMapping(value = "registerUser", method = RequestMethod.POST, produces = "text/html")
     public String registerUser(ApplicationUser appUser, Model uiModel, HttpServletRequest request) throws Exception {
         logger.debug("registerUser for " + appUser.getEmail());
-        //String orderid = request.getParameter("orderId");
-        logger.debug("email:" + appUser.getEmail());
-        appUser.setIsAdmin(false);
-        applicationUserRepository.save(appUser);
-        HttpSession session = request.getSession();
-        session.setAttribute("applicationUser", appUser);
+        if (appUser != null
+        && appUser.getEmail().trim().length() > 0
+        && appUser.getPassword().trim().length() > 0 ) {
+            appUser.setIsAdmin(false);
+            applicationUserRepository.save(appUser);
+            HttpSession session = request.getSession();
+            session.setAttribute("applicationUser", appUser);
+        }
+
         String returnView = request.getParameter("returnView");
         if (returnView == null || returnView.length() == 0)
             return "redirect:/public/start";

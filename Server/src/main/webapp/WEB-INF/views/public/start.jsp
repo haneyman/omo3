@@ -88,16 +88,8 @@
 <script type="text/javascript">
 
      $( document ).ready(function() {
-        <c:choose>
-            <c:when test="${sessionScope.applicationUser != null}">
-                //alert('logged in');
-            </c:when>
-            <c:otherwise>
-                //alert('NOT logged in');
-                //$('#dialogLogin').modal('show');
-            </c:otherwise>
-        </c:choose>
-    });
+         $('.returnView').val('/public/start');//sets the form field in login and register to which page to return to
+     });
 
     //picking a reseller, get valid menus for reseller for today
     function pickReseller(reseller) {

@@ -20,12 +20,12 @@
             <span style="color:red;">Sorry, you can <b>not</b> order from this menu right now.</span>
         </c:if>
     </div>
-    <div style="clear: both;margin-left: 50px;"/>
+    <div style="clear: both;margin-left: 50px;"></div>
         <form role="form" id="order" action="/omo/orders/submitOrder" method="POST" enctype="application/x-www-form-urlencoded">
         <c:if test="${canOrder}">
         </c:if>
         ${menuHTML}
-        <div style="clear: both;"
+        <div style="clear: both;"></div>
         <c:if test="${canOrder}">
             <div class="" style="margin-top: 18px;margin-left: 40px;">
                 <div class="form-group">
@@ -44,13 +44,12 @@
     </form> <!-- order -->
 </div> <!-- container -->
 <script>
-    <c:if test="${canOrder}">
-        <c:if test="${sessionScope.applicationUser == null}">
-            $( document ).ready(function() {
-                $('.returnView').val('/menus/showMenu/${menu.id}');//sets the form field in login and register to which page to return to
+    $( document ).ready(function() {
+        $('.returnView').val('/menus/showMenu/${menu.id}');//sets the form field in login and register to which page to return to
+        <c:if test="${canOrder}">
+            <c:if test="${sessionScope.applicationUser == null}">
                 $('#dialogLogin').modal('show');
-            });
+            </c:if>
         </c:if>
-    </c:if>
-
+    });
 </script>

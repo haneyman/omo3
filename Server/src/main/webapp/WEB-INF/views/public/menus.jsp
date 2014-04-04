@@ -27,3 +27,8 @@
         <c:set var="curDayOfWeek" value="${schedule.getDayOfWeekName()}"/>
     </c:forEach>
 </div>
+<script>
+    $( document ).ready(function() {
+        $('.returnView').val('/menus/listMenuPublic');//sets the form field in login and register to which page to return to
+    });
+</script>

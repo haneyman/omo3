@@ -21,9 +21,16 @@
         </div>
     </div>
 </div>
-<div class="well" style="margin-left: 20%;width:50%;text-align: center">
-    <h2>Sorry we had a boo boo 3/31 and 4/1  :(</h2>
-    <h4>Yaay, we are OK Now!   Thanks for your patience!</h4>
-</div><!-- end of /index.jsp-->
-<div style="float: right;font-size: 9px;margin-right:10px;">V 0.10 - 4/1/14 MPH</div>
+<%-- unavailable thang -->
+<%--
+<div id="main"><!-- Subhead ================================================== -->
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Menu Breeze</h1>
+            <p>Sorry we are unavailable today :(</p>
+        </div>
+    </div>
+</div>--%>
+<div style="float: left;font-size: 9px;margin-right:10px;">Days without injury: 1</div>
+<div style="float: right;font-size: 9px;margin-right:10px;">V 0.17 - 4/3/14 MPH</div>
 <!-- end of /index.jsp-->
