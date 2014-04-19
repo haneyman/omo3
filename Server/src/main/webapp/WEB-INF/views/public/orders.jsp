@@ -48,11 +48,11 @@
     <div class="" style="padding-left:20px;background-color: #7aba7b;">
         <h3>Today's Orders</h3>
     </div>
-    <table class="table table-striped">
+    <table class="table table-striped" >
         <tr>
             <th>Who</th>
             <th>Date</th>
-            <th>Status</th>
+            <%--<th>Status</th>--%>
             <th>Items
                <div class="" id="moneyFilter" style="margin-top: 0px;margin-right: 50px;float:right;">
                 <input type="checkbox" checked="true" onclick="$('.money').toggle();">Prices</input>
@@ -77,33 +77,37 @@
                 <%--<td>${order.applicationUser}  </td>--%>
                 <td><fmt:formatDate value="${order.orderDate}" pattern="E MM/dd/yyyy "/>
                     <br/><fmt:formatDate value="${order.orderDate}" pattern="hh:mm aa"/></td>
-                <td>${order.status}</td>
+                <%--<td>${order.status}</td>--%>
                 <td>
                     <table class="table " >
+                        <tr>
+                            <td><b>${order.menu.restaurant.name}</b></td>
+                            <td></td>
+                        </tr>
                         <c:forEach items="${order.menuItems}" var="menuItem">
                             <tr>
-                                <td style="">${menuItem.internalNotes} - ${menuItem.name}</td>
+                                <td style="width:90%;"><div style="margin-left: 10px;">${menuItem.internalNotes} - ${menuItem.name}</div></td>
                                 <td class="money">
                                     $ <fmt:formatNumber value="${menuItem.price}" type="currency" currencySymbol="" />
                                 </td>
                             </tr>
                         </c:forEach>
-                        <tr class="money">
-                            <td style="text-align: right;">
-                                <b>Total:</b>
-                            </td>
-                            <td>
-                                <b>$ <fmt:formatNumber value="${order.totalPretax}" type="currency" currencySymbol="" /></b>
-                            </td>
-                        </tr>
                         <c:choose>
                             <c:when test="${order.notes == ''}">
                                 <!-- no notes  -->
                             </c:when>
                             <c:otherwise>
-                                <tr><td><b>Notes:</b> ${order.notes}</td><td></td></tr>
+                                <tr><td><div style="margin-left: 10px;"><b>Notes:</b> ${order.notes}</div></td><td></td></tr>
                             </c:otherwise>
                         </c:choose>
+                        <tr class="money">
+                            <td style="text-align: left;">
+                                <div style="margin-left: 10px;text-align: right;margin-right: 4px;"><b>Total:</b></div>
+                            </td>
+                            <td>
+                                <div style="margin-left: 0px;"><b>$ <fmt:formatNumber value="${order.totalPretax}" type="currency" currencySymbol="" /></b></div>
+                            </td>
+                        </tr>
                     </table>
                 </td>
             </tr>

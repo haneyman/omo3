@@ -138,7 +138,7 @@
 
 <footer class="footer navbar navbar-fixed-bottom" >
     <div class="container">
-        <div style="float:left;font-size: 11px;font-style: italic">Produced and Supported with loving care by <span style="text-align: center;color: #c12e2a"><a href="http://mtsconsulting.biz/">MTS Solutions</a></span></div>
+        <div style="float:left;font-size: 11px;font-style: italic">Produced and Supported with loving care by <span style="text-align: center;color: #c12e2a"><a target="_blank" href="http://sales.mtsconsulting.biz">MTS Solutions</a></span></div>
         <div style="float:right;">We love feedback - <a href="mailto:feedback@menubreeze.com">Bring It!</a></div>
     </div>
 </footer>

@@ -40,10 +40,11 @@ public class OrderServiceImpl implements OrderService {
     public void notifyOrder(Order order) {
         StringBuffer body = new StringBuffer();
 //        body.append("<html><body>");
-        body.append("<h3>OMO</h3><hr/>");
+        body.append("<h3>Menu<i>Breeze</i></h3><hr/>");
         body.append("<div style='color:#7aba7b'>Yummy, you've just ordered food from MenuBreeze!</div>");
         body.append("<br/>");
         body.append("<br/>");
+        //body.append("<b>Who's got your food:" + order.);//TODO:Need reseller added to order
         body.append("<b>Order Date: </b>" + order.getOrderDate());
         body.append("<br/><b>Status: " + order.getStatus() + "</b>");
         body.append("<br/>");
@@ -60,7 +61,7 @@ public class OrderServiceImpl implements OrderService {
         body.append("");
         body.append("<br/>");
         body.append("<br/>");
-        body.append("<div><i>Thanks for the business, enjoy your food!</div>");
+        body.append("<div><i>Thanks for your business and enjoy your food!</div>");
 
         String from = "support@menubreeze.com";
         String to = order.getUser().getEmail();

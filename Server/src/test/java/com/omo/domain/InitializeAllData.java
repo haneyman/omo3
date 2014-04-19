@@ -40,10 +40,10 @@ public class InitializeAllData {
         //restaurants --------------------------------------------------------------------------------------------------
         RestaurantIntegrationTest restaurantIntegrationTest = new RestaurantIntegrationTest();
         restaurantIntegrationTest.deleteAllRestaurants();
-        Restaurant restaurantBentolinos     = restaurantIntegrationTest.addRestaurant("Bentolinos");
-        Restaurant restaurantElMolino       = restaurantIntegrationTest.addRestaurant("El Molino");
-        Restaurant restaurantASweetAffair   = restaurantIntegrationTest.addRestaurant("A Sweet Affair");
-        Restaurant restaurantKinders        = restaurantIntegrationTest.addRestaurant("Kinders");
+        Restaurant restaurantBentolinos     = restaurantIntegrationTest.addRestaurant("Bentolinos", "old fashioned family operated catering business and deli");
+        Restaurant restaurantElMolino       = restaurantIntegrationTest.addRestaurant("El Molino", "Mexcan Food Catering, Food To Go, and Tortilla Factory.");
+        Restaurant restaurantASweetAffair   = restaurantIntegrationTest.addRestaurant("A Sweet Affair","Bakery, Sandwiches, Salads, Soups");
+        Restaurant restaurantKinders        = restaurantIntegrationTest.addRestaurant("Kinders", "A tradition of great flavor.  A fresh taste for today.");
 
 
         //menus --------------------------------------------------------------------------------------------------------
@@ -115,7 +115,6 @@ public class InitializeAllData {
         schedule.setMenu(menuKinders);
         scheduleRepository.save(schedule);
 
-/*
         //Saturday
         schedule = new Schedule();
         schedule.setReseller(reseller);
@@ -123,7 +122,6 @@ public class InitializeAllData {
         schedule.setDayOfWeek(7);
         schedule.setMenu(menuBentolinos);
         scheduleRepository.save(schedule);
-*/
     }
 
 }

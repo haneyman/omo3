@@ -62,12 +62,12 @@ public class RestaurantIntegrationTest {
 
     @Test
     public void testAddTestRestaurants() {
-        addRestaurant(BENTOLINOS);
+//        addRestaurant(BENTOLINOS);
 //        addRestaurant(TEST_RESTAURANT_1);
 //        addRestaurant(TEST_RESTAURANT_2);
 //        addRestaurant(TEST_RESTAURANT_3);
 
-        assertTrue("Restaurant Bentolinos not found.", restaurantRepository.findByName(BENTOLINOS).size() > 0);
+//        assertTrue("Restaurant Bentolinos not found.", restaurantRepository.findByName(BENTOLINOS).size() > 0);
 //        assertTrue("Restaurant 1 not found.", restaurantRepository.findByName(TEST_RESTAURANT_1).size() > 0);
 //        assertTrue("Restaurant 2 not found.", restaurantRepository.findByName(TEST_RESTAURANT_2).size() > 0);
 //        assertTrue("Restaurant 3 not found.", restaurantRepository.findByName(TEST_RESTAURANT_3).size() > 0);
@@ -76,12 +76,12 @@ public class RestaurantIntegrationTest {
 
     //****************************************************************************************************************
 
-    public Restaurant addRestaurant(String name) {
+    public Restaurant addRestaurant(String name, String description) {
         Restaurant restaurant = new Restaurant();
-        Reseller resller = resellerRepository.findOneByName(ELCAFECITO);
+        Reseller resller = resellerRepository.findOneByName(name);
         //String restaurantName = name + new Date();
         restaurant.setName(name);
-        restaurant.setDescription(name + " Description created " + new Date());
+        restaurant.setDescription(description);
         restaurantRepository.save(restaurant);
         return restaurant;
     }
@@ -143,7 +143,7 @@ public class RestaurantIntegrationTest {
         String restaurantName = "Bentolinos";
         Restaurant restaurant1 = restaurantRepository.findByName(restaurantName).get(0);
         String menuName = "Menu for " + restaurant1.getName();
-        String menuDescription = "Description for menu for " + restaurant1.getName();
+        String menuDescription = "High Quality family operated Deli";
 
         Menu menu = new Menu();
         menu.setName(menuName);

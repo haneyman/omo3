@@ -228,8 +228,8 @@ public class MenuServiceImpl implements MenuService {
         LocalDateTime now = new LocalDateTime();
         if (result) {
             DateTime nowPacific = now.toDateTime(DateTimeZone.forID("US/Pacific"));
-            LocalTime deadline = new LocalTime(10, 00);//limit to 10:00 am
-//            LocalTime deadline = new LocalTime(23, 00);//limit to 10:00 am
+//            LocalTime deadline = new LocalTime(10, 00);//limit to 10:00 am
+            LocalTime deadline = new LocalTime(23, 00);//limit to 10:00 am
             if (nowPacific.toLocalTime().isBefore(deadline))
                 result = true;
             else

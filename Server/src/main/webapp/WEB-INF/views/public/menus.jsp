@@ -19,7 +19,7 @@
                     <span style="color:green;font-weight: 800;font-size: larger">${schedule.getDayOfWeekName()}</span>
                 </c:if>
                  <div style="margin-left: 20px;">
-                    <b><a target="_blank" href="/omo/menus/showMenuByRestaurant/${schedule.restaurant.id}">${schedule.restaurant.name}</a></b> - ${schedule.restaurant.description} at ${schedule.restaurant.address}
+                    <b><a target="_blank" href="/omo/menus/showMenuByRestaurant/${schedule.restaurant.id}">${schedule.restaurant.name}</a></b> - ${schedule.restaurant.description}
                  </div>
             </div>
         </div>

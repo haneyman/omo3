@@ -1,11 +1,9 @@
 <!-- /public/head.jsp -->
-<%--    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
-    <meta content="IE=8" http-equiv="X-UA-Compatible" />
-    <meta charset="utf-8" />--%>
-    <meta charset="utf-8">
+    <%--<meta charset="utf-8">--%>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-site-verification" content="hz3h7JDJm4RxE35GyuqhIArt0EmXG6MFnkFZWfh3Zzc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Lunch</title>
 <%--
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
@@ -28,7 +26,7 @@
     <link href="/omo/resources/assets/ico/favicon.png" rel="shortcut icon" />
     <link href="/omo/resources/assets/css/digitss.css" rel="stylesheet" />
 
-<script src="/omo/resources/assets/js/jquery.js" ></script>
+    <script src="/omo/resources/assets/js/jquery.js" ></script>
     <%--<script src="http://platform.twitter.com/widgets.js" type="text/javascript" ></script>--%>
     <script src="/omo/resources/assets/js/bootstrap-transition.js" ></script>
     <script src="/omo/resources/assets/js/bootstrap-alert.js" ></script>
@@ -48,11 +46,12 @@
     <script src="/omo/resources/assets/js/application.js" ></script>
     <script src="/omo/resources/assets/js/css3-mediaqueries.js"></script>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <!--<script src="/omo/resources/assets/js/html5shiv.js"></script>-->
-    <!--<script src="/omo/resources/assets/js/respond.min.js"></script>-->
+        <script src="/omo/resources/assets/js/html5shiv.js"></script>
+        <script src="/omo/resources/assets/js/respond.min.js"></script>
     <![endif]-->
-
     <!-- Google Analytics -->
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -31,6 +31,5 @@
         </div>
     </div>
 </div>--%>
-<div style="float: left;font-size: 9px;margin-right:10px;">Days without injury: 1</div>
-<div style="float: right;font-size: 9px;margin-right:10px;">V 0.17 - 4/3/14 MPH</div>
+<div style="float: right;font-size: 9px;margin-right:10px;">V 0.21 - 4/19/14 MPH</div>
 <!-- end of /index.jsp-->
