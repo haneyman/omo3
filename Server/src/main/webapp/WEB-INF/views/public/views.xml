@@ -30,6 +30,11 @@
         <put-attribute name="body" value="/WEB-INF/views/public/menu.jsp"/>
         <put-attribute name="footer" value="/WEB-INF/views/public/bodyBottom.jsp"/>
     </definition>
+    <definition extends="public" name="public/testMenu">
+        <put-attribute name="head" value="/WEB-INF/views/public/head.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/views/public/testMenu.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/views/public/bodyBottom.jsp"/>
+    </definition>
 
     <definition extends="public" name="public/confirmOrder">
         <put-attribute name="head" value="/WEB-INF/views/public/head.jsp"/>
