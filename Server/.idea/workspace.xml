@@ -8,13 +8,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eee9e14e-dffd-4610-8b6e-d35bceea7620" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/omo/service/MenuServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/omo/service/MenuServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/omo/web/OrderController.java" afterPath="$PROJECT_DIR$/src/main/java/com/omo/web/OrderController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/footer.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/footer.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/myOrders.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/myOrders.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/orders.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/orders.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/testMenu.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/testMenu.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/topNavBar.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/public/topNavBar.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OMO6.iws" />
@@ -1576,7 +1569,7 @@
       <workItem from="1396208782368" duration="36276000" />
       <workItem from="1397707829084" duration="16270000" />
       <workItem from="1398623568108" duration="598000" />
-      <workItem from="1398733012340" duration="3943000" />
+      <workItem from="1398733012340" duration="4022000" />
     </task>
     <task id="LOCAL-00001" summary="latest as of 1/28/14&#10;">
       <created>1390957891077</created>
@@ -1646,11 +1639,15 @@
       <created>1398017442378</created>
       <updated>1398017442378</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="added confirmation dialog, fixed nav buttons">
+      <created>1398736983812</created>
+      <updated>1398736983812</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="305209000" />
+    <option name="totallyTimeSpent" value="305288000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="131" y="12" width="1481" height="1015" extended-state="0" />
@@ -1765,7 +1762,8 @@
     <MESSAGE value="fixed login returnviews, fixed missing div, login button on register, register edits" />
     <MESSAGE value="fixed respond.min.js so ie8 now works yaaay" />
     <MESSAGE value="improved low res view of menu a bit, removed overlap" />
-    <option name="LAST_COMMIT_MESSAGE" value="improved low res view of menu a bit, removed overlap" />
+    <MESSAGE value="added confirmation dialog, fixed nav buttons" />
+    <option name="LAST_COMMIT_MESSAGE" value="added confirmation dialog, fixed nav buttons" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="XDebuggerManager">
