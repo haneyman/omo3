@@ -56,7 +56,7 @@ public class OrderController {
 
 
     @RequestMapping(value = "confirmOrder", method = RequestMethod.POST, produces = "text/html")
-    public String confirmOrderPost(Model uiModel, HttpServletRequest request) throws Exception {
+    public String confirmOrderPost(Model uiModel, HttpServletRequest request, HttpSession session) throws Exception {
         logger.debug("confirmOrderPost for order ");
         String orderid = request.getParameter("orderId");
         Order order = orderService.findOrder(new BigInteger(orderid));
@@ -70,8 +70,9 @@ public class OrderController {
         } catch (Exception e) {
             //do nada
         }
-
-        return "redirect:myOrders";
+        uiModel.addAttribute("order", order);
+//        return "orders/myOrders";
+        return myOrders(uiModel, session);
     }
 
 

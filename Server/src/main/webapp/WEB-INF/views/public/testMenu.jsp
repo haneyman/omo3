@@ -31,6 +31,9 @@
                 <label>
                     <input type="checkbox" false name="menuitem__60ff948f-5863-468a-a206-839d1e437265" value="BLT">
                 </label>
+                <label>
+                    <input type="checkbox" false name="half_menuitem__60ff948f-5863-468a-a206-839d1e437265" value="BLThalf">
+                </label>
                 <div class="divNamePrice">
                     <div class="menuItemName">BLT </div>
                     <div class="menuItemPrice">$6.00</div>

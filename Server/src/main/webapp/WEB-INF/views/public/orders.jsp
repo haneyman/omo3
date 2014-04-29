@@ -105,7 +105,7 @@
                                 <div style="margin-left: 10px;text-align: right;margin-right: 4px;"><b>Total:</b></div>
                             </td>
                             <td>
-                                <div style="margin-left: 0px;"><b>$ <fmt:formatNumber value="${order.totalPretax}" type="currency" currencySymbol="" /></b></div>
+                                <div style="margin-left: 0px; width: 50px;"><b>$ <fmt:formatNumber value="${order.totalPretax}" type="currency" currencySymbol="" /></b></div>
                             </td>
                         </tr>
                     </table>

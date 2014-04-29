@@ -1,5 +1,5 @@
-<footer class="footer">
-    <div class="container">
+<footer class="footer" >
+    <div class="container" style="height:10px;">
         <p>This is the footer and something important should probably be said here.</p>
         <!--
                 <p>Designed and built with all the love in the world by <a href="http://twitter.com/mdo" target="_blank">@mdo</a> and <a href="http://twitter.com/fat" target="_blank">@fat</a>.</p>
