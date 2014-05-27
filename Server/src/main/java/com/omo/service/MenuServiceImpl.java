@@ -88,8 +88,8 @@ public class MenuServiceImpl implements MenuService {
     private void loadMenuGroup(MenuItem menuItem, int level) throws Exception {
         level++;
 //        addToHTML("<div class=\"row\">",level);
-        addToHTML(INDENT + "<div class=\"col-xs-6 divMenuGroup\">",level);
-        addToHTML(INDENT + INDENT + "<div class=\"row divMenuGroupRow\">",level);
+        addToHTML(INDENT + "<div class=\"divMenuGroup\">",level);
+        addToHTML(INDENT + INDENT + "<div class=\"col-xs-6 row divMenuGroupRow\">",level);
         addToHTML(INDENT + INDENT + INDENT + "<h4 class=\"menuGroupTitle\">" + menuItem.getName() + "</h4>", level);
         addToHTML(INDENT + INDENT + INDENT + "<p><span style='padding:10px;'>" + menuItem.getDescription() + "</span></p>",level);
         addToHTML(INDENT + INDENT + INDENT + "<div class=\"divItems\">",level);

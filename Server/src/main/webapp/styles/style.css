@@ -1,5 +1,6 @@
 .divMenu ul {list-style: none; padding: 0; margin: 0;}
 .divMenu ul li {list-style: none; float:left; width:150px;}
+.divMenuGroup {margin-left: 30px;}
 .divCheckbox {}
 .divNamePrice {float:left;width:70%;}
 .menuItemPrice {float:right; margin-right:20px;}

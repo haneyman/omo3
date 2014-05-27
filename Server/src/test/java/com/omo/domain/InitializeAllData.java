@@ -116,12 +116,12 @@ public class InitializeAllData {
         scheduleRepository.save(schedule);
 
         //Saturday
-        schedule = new Schedule();
-        schedule.setReseller(reseller);
-        schedule.setRestaurant(restaurantBentolinos);
-        schedule.setDayOfWeek(7);
-        schedule.setMenu(menuBentolinos);
-        scheduleRepository.save(schedule);
+        //schedule = new Schedule();
+        //schedule.setReseller(reseller);
+        //schedule.setRestaurant(restaurantBentolinos);
+        //schedule.setDayOfWeek(7);
+        //schedule.setMenu(menuBentolinos);
+        //scheduleRepository.save(schedule);
     }
 
 }

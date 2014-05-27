@@ -169,12 +169,16 @@ public class OrderController {
                 }
                 total += menuItem.getPrice();
                 order.getMenuItems().add(menuItem);
+
+
+
                 logger.debug("   Menu Item added to new order " );
             }
         }
         order.setStatus(Order.ORDER_STATUS.INIT);
         order.setNotes(httpServletRequest.getParameter("notes"));
         order.setTotalPretax(total);
+        adjustForComboHack(order);
         ApplicationUser user = (ApplicationUser) session.getAttribute("applicationUser");
         order.setUser(user);
 
@@ -186,6 +190,44 @@ public class OrderController {
         return "redirect:/orders/confirmOrder/" + encodeUrlPathSegment(order.getId().toString(), httpServletRequest);
 
 //        return "redirect:/orders/" + encodeUrlPathSegment(order.getId().toString(), httpServletRequest);
+    }
+
+    private void adjustForComboHack (Order order) {
+        //HACK to adjust for 1/2 sand 1/2 soup
+        boolean containsComboHalfSand = false;
+        boolean containsComboSoup = false;
+        boolean containsComboSalad = false;
+        for (MenuItem item : order.getMenuItems()) {
+            if (item.getInternalNotes().contains("Combo")  && item.getName().contains("1/2 Sand")) {  //internalNotes contain the parent name
+                containsComboHalfSand = true;
+            }
+            if (item.getInternalNotes().contains("Combo")  && item.getName().contains("Soup")) {
+                containsComboSoup = true;
+            }
+            if (item.getInternalNotes().contains("Combo")  && item.getName().contains("Salad")) {
+                containsComboSalad = true;
+                break;
+            }
+        }
+
+        if (containsComboHalfSand || containsComboSalad || containsComboSoup) {
+            for (MenuItem item2 : order.getMenuItems()) {
+                if (containsComboHalfSand && item2.getInternalNotes().contains("Sandwich")) {
+                    order.setTotalPretax(order.getTotalPretax() - item2.getPrice()); //credit back item so only combo is charged
+                    containsComboHalfSand = false;//so they don't get any more credits
+                    item2.setPrice(0f);
+                } else if (containsComboSalad && item2.getInternalNotes().contains("Salad")) {
+                    order.setTotalPretax(order.getTotalPretax() - item2.getPrice()); //credit back item so only combo is charged
+                    containsComboSalad = false;//so they don't get any more credits
+                    item2.setPrice(0f);
+                } else if (containsComboSoup && item2.getInternalNotes().contains("Soup")) {
+                    order.setTotalPretax(order.getTotalPretax() - item2.getPrice()); //credit back item so only combo is charged
+                    containsComboSoup = false;//so they don't get any more credits
+                    item2.setPrice(0f);
+                }
+            }
+        }
+
     }
 
 

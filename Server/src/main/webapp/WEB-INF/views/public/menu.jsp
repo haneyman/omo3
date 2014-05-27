@@ -7,7 +7,7 @@
         });
     </c:if>
 </script>
-<div class="container" style="margin-bottom: 200px">
+<div class="container" style="margin-bottom: 200px;">
     <div class="" style="padding-left:20px;background-color: #7aba7b;margin-bottom: 0px;">
         <h3>${menu.name}</h3>
     </div>
@@ -20,28 +20,32 @@
             <span style="color:red;">Sorry, you can <b>not</b> order from this menu right now.</span>
         </c:if>
     </div>
-    <div style="clear: both;margin-left: 50px;"></div>
+    <div style="clear: both;"></div>
+    <div style="margin-left: 0px;">
         <form role="form" id="order" action="/omo/orders/submitOrder" method="POST" enctype="application/x-www-form-urlencoded">
-        <c:if test="${canOrder}">
-        </c:if>
-        ${menuHTML}
-        <div style="clear: both;"></div>
-        <c:if test="${canOrder}">
-            <div class="" style="margin-top: 18px;margin-left: 40px;">
-                <div class="form-group">
-                    <label style="padding-top: 6px;" for="notes" class="col-sm-1 control-label">Notes</label>
-                    <%--<div class="col-sm-8" style="Zpadding-top: 7px;">--%>
-                        <input type="notes" class="form-control" id="notes" name="notes" placeholder="Type your order notes here.">
-                    <%--</div>--%>
-                </div>
+            <c:if test="${canOrder}">
+            </c:if>
+            <div style="ZZmargin-left:30px;">
+                ${menuHTML}
             </div>
-            <div style="margin-left: 40%;">
-                <div class="form-group">
-                    <button type="submit" class="btn-lg btn-success">Place Order</button>
+            <div style="clear: both;"></div>
+            <c:if test="${canOrder}">
+                <div class="" style="margin-top: 18px;margin-left: 40px;">
+                    <div class="form-group">
+                        <label style="padding-top: 6px;" for="notes" class="col-sm-1 control-label">Notes</label>
+                        <%--<div class="col-sm-8" style="Zpadding-top: 7px;">--%>
+                            <input type="notes" class="form-control" id="notes" name="notes" placeholder="Type your order notes here.">
+                        <%--</div>--%>
+                    </div>
                 </div>
-            </div>
-        </c:if>
-    </form> <!-- order -->
+                <div style="margin-left: 40%;">
+                    <div class="form-group">
+                        <button type="submit" class="btn-lg btn-success">Place Order</button>
+                    </div>
+                </div>
+            </c:if>
+        </form> <!-- order -->
+    </div>
 </div> <!-- container -->
 <script>
     $( document ).ready(function() {
