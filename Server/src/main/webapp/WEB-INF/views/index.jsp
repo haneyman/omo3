@@ -13,9 +13,9 @@
     </div>
 </div>
 <div id="main"><!-- Subhead ================================================== -->
-    <div class="jumbotron">
+    <div class="jumbotron" style="background-image: url('/omo/resources/assets/img/blurry1.jpg');  background-size: 100%;">
         <div class="container">
-            <h1>Menu Breeze</h1>
+            <h1>Menu <i>Breeze</i></h1>
             <p>Order your food, pick up your food, EAT.</p>
             <p><a class="btn btn-primary btn-lg " role="button" onclick="window.location.href='public/start'">Let's Do This &raquo;</a></p>
         </div>
@@ -31,5 +31,5 @@
         </div>
     </div>
 </div>--%>
-<div style="float: right;font-size: 9px;margin-right:10px;">V 0.23 - 4/20/14 MPH</div>
+<div style="float: right;font-size: 9px;margin-right:10px;">V 0.24 - 5/26/14 MPH</div>
 <!-- end of /index.jsp-->

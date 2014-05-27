@@ -16,14 +16,19 @@
     <table class="table">
         <tr>
             <th>Date</th>
-            <th>Status</th>
+            <%--<th>Status</th>--%>
             <th>Items</th>
         </tr>
         <c:forEach items="${orders}" var="order">
             <tr>
                 <td><fmt:formatDate value="${order.orderDate}" pattern="E MM/dd/yyyy "/>
-                    <br/><fmt:formatDate value="${order.orderDate}" pattern="hh:mm aa"/></td>
-                <td>${order.status}</td>
+                    <br/><fmt:formatDate value="${order.orderDate}" pattern="hh:mm aa"/>
+                    <div style="margin-left: 40px;margin-top: 40px;">
+                        <%--<button type="button" class="btn btn-info">Order this now!</button>--%>
+                        <a href="reorder/${order.id}" class="btn btn-primary active" role="button">Order This Again!</a>
+                    </div>
+                </td>
+                <%--<td>${order.status}</td>--%>
                 <td>
                     <table class="table table-striped" >
                         <c:forEach items="${order.menuItems}" var="menuItem">

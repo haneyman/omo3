@@ -29,7 +29,7 @@ public class OrderServiceImpl implements OrderService {
         for (Order order : orders){
             //System.out.println("order user: " + user);
             if (order.getUser() != null && order.getUser().getId().equals(user.getId()))  {
-                System.out.println("order user: " + user.getId());
+                //System.out.println("order user: " + user.getId());
                 userOrders.add(order);
             }
         }

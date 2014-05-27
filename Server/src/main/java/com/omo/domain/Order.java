@@ -45,4 +45,16 @@ public class Order {
         return fmt.format(new Date()).equals(fmt.format(orderDate));
     }
 
+    public Order copy() {
+        Order newOrder = new Order();
+        newOrder.setOrderDate(new Date());
+        newOrder.setStatus(ORDER_STATUS.OPEN);
+        newOrder.setMenu(getMenu());
+        newOrder.totalPretax = 0f;
+        newOrder.setNotes(notes);
+        newOrder.setUser(user);
+        newOrder.getMenuItems().addAll(getMenuItems());
+        return newOrder;
+    }
+
 }

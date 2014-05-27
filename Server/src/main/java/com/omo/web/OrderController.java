@@ -42,8 +42,23 @@ public class OrderController {
     @Autowired
     OrderRepository orderRepository;
 
+    @RequestMapping(value = "reorder/{id}", produces = "text/html")
+    public String reorderOrder(@PathVariable("id") BigInteger id, Model uiModel, HttpServletRequest httpServletRequest)
+            throws Exception {
+        logger.debug("reOrder " + id);
+        Order order = orderService.findOrder(id);
+        Order newOrder = order.copy();
+
+        uiModel.addAttribute("order", newOrder);
+        orderService.saveOrder(newOrder);
+        uiModel.addAttribute("id", newOrder.getId());
+        return "public/confirmOrder";
+    }
+
+
     @RequestMapping(value = "confirmOrder/{id}", produces = "text/html")
-    public String confirmOrder(@PathVariable("id") BigInteger id, Model uiModel, HttpServletRequest httpServletRequest) throws Exception {
+    public String confirmOrder(@PathVariable("id") BigInteger id, Model uiModel, HttpServletRequest httpServletRequest)
+            throws Exception {
         logger.debug("confirmOrder " + id);
         Order order = orderService.findOrder(id);
         if (order != null) {
@@ -192,6 +207,8 @@ public class OrderController {
 //        return "redirect:/orders/" + encodeUrlPathSegment(order.getId().toString(), httpServletRequest);
     }
 
+    //looks at name and parent (in internalNotes) and if its a combo, finds combo items and zeros out their price
+    //its a hack but it works for now...
     private void adjustForComboHack (Order order) {
         //HACK to adjust for 1/2 sand 1/2 soup
         boolean containsComboHalfSand = false;
