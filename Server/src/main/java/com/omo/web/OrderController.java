@@ -182,7 +182,7 @@ public class OrderController {
                 else {
                     menuItem.setInternalNotes(menuItemParent.getName());
                 }
-                total += menuItem.getPrice();
+//                total += menuItem.getPrice();
                 order.getMenuItems().add(menuItem);
 
 
@@ -230,17 +230,17 @@ public class OrderController {
         if (containsComboHalfSand || containsComboSalad || containsComboSoup) {
             for (MenuItem item2 : order.getMenuItems()) {
                 if (containsComboHalfSand && item2.getInternalNotes().contains("Sandwich")) {
-                    order.setTotalPretax(order.getTotalPretax() - item2.getPrice()); //credit back item so only combo is charged
+//                    order.setTotalPretax(order.getTotalPretax() - item2.getPrice()); //credit back item so only combo is charged
                     containsComboHalfSand = false;//so they don't get any more credits
-                    item2.setPrice(0f);
+//                    item2.setPrice(0f);
                 } else if (containsComboSalad && item2.getInternalNotes().contains("Salad")) {
-                    order.setTotalPretax(order.getTotalPretax() - item2.getPrice()); //credit back item so only combo is charged
+//                    order.setTotalPretax(order.getTotalPretax() - item2.getPrice()); //credit back item so only combo is charged
                     containsComboSalad = false;//so they don't get any more credits
-                    item2.setPrice(0f);
+//                    item2.setPrice(0f);
                 } else if (containsComboSoup && item2.getInternalNotes().contains("Soup")) {
-                    order.setTotalPretax(order.getTotalPretax() - item2.getPrice()); //credit back item so only combo is charged
+//                    order.setTotalPretax(order.getTotalPretax() - item2.getPrice()); //credit back item so only combo is charged
                     containsComboSoup = false;//so they don't get any more credits
-                    item2.setPrice(0f);
+//                    item2.setPrice(0f);
                 }
             }
         }

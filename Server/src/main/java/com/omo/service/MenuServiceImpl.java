@@ -52,6 +52,22 @@ public class MenuServiceImpl implements MenuService {
         return htmlAsString();
     }
 
+    public String getMenu(Menu menu) throws Exception {
+        logger.debug("getMenuAsHTML - loading html for menu " + menu.getName() +  "...");
+        html = new ArrayList<String>();
+        html.add(NEW_LINE + "<!-- begin generated menu html -->" + NEW_LINE);
+        html.add("<div class=\"container divMenu\">" + NEW_LINE);
+        html.add("    <div class=\"row divMenuRow\">" + NEW_LINE);
+        html.add("    <input type=\"hidden\" name=\"menuId\" value=\"" + menu.getId() + "\">" + NEW_LINE);
+        loadMenuItems(menu.getMenuItems(), 1);
+        html.add("    </div> <!-- divMenuRow -->" + NEW_LINE);
+        html.add("</div> <!-- divMenu -->" + NEW_LINE);
+        html.add("<!-- end generated menu html -->" + NEW_LINE);
+        logger.debug("Loading html for menu complete. Lines:" + html.size());
+        logger.debug("getMenuAsHTML done");
+        return htmlAsString();
+    }
+
     private void loadMenuItems(Set<MenuItem> menuItems, int level) throws Exception {
         List<MenuItem> menuItemsList = new ArrayList(menuItems);
         Collections.sort(menuItemsList, new Comparator<MenuItem>() {
@@ -105,18 +121,22 @@ public class MenuServiceImpl implements MenuService {
         level++;
         boolean checked = false;
         DecimalFormat myFormatter = new DecimalFormat("###.00");
-        String priceOutput = myFormatter.format(menuItem.getPrice());
         String name =  menuItem.getName().replaceAll(" ", "_").replaceAll("/","_");
         addToHTML(INDENT + "<div class=\"checkbox\">",level);
         addToHTML(INDENT + "    <label>",level);
-        addToHTML(INDENT + "        <input type=\"checkbox\" "  + checked + " name=\"" + MenuItem.MENUITEM_LABEL + "_" + menuItem.getUuid() + "\" value=\"" + name + "\">", level);
+        //addToHTML(INDENT + "        <input type=\"checkbox\" "  + checked + " name=\"" + MenuItem.MENUITEM_LABEL + "_" + menuItem.getUuid() + "\" value=\"" + name + "\">", level);
         addToHTML(INDENT + "    </label>",level);
         addToHTML(INDENT + "    <div class=\"divNamePrice\">",level);
         addToHTML(INDENT + "        <div class=\"menuItemName\">" + menuItem.getName() + " </div>",level);
-        if (menuItem.getPrice() > 0)
-            addToHTML(INDENT + "        <div class=\"menuItemPrice\">$" + priceOutput + "</div>",level);
-        else
-            addToHTML(INDENT + "        <div class=\"menuItemPrice\"> -----" + /*"&nbsp;" +*/ "</div>",level);
+        String priceOutput;
+        for (MenuItemOption option : menuItem.getOptions()) {
+            priceOutput = myFormatter.format(option.getPrice());
+            if (option.getPrice() > 0) {
+                addToHTML(INDENT + "        <div class=\"menuItemPrice\">$" + priceOutput + "</div>", level);
+            } else {
+                addToHTML(INDENT + "        <div class=\"menuItemPrice\"> -----" + /*"&nbsp;" +*/ "</div>", level);
+            }
+        }
         addToHTML(INDENT + "    </div>", level);
         addToHTML(INDENT + "</div><div style=\"clear:both\"></div>",level);
     }

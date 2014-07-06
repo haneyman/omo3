@@ -63,16 +63,23 @@ public class MenuController {
     public String showMenu(@PathVariable("id") BigInteger id, Model uiModel) throws Exception  {
         logger.debug("showMenu for:" + id);
         Menu menu = menuService.findMenu(id);
+        //TODO: Need to sort ALL the menu items before adding as attribute
         uiModel.addAttribute("menu", menu);
-        uiModel.addAttribute("canOrder", menuService.isMenuOrderable(menu));
+        String debugMode = System.getProperty("debug.mode");
+        if (debugMode != null && debugMode.equalsIgnoreCase("true"))
+            uiModel.addAttribute("canOrder", true);//
+        else
+            uiModel.addAttribute("canOrder", menuService.isMenuOrderable(menu));
         uiModel.addAttribute("offered", menuService.whenAndWhereOffered(menu));
 
+/*
         try {
             uiModel.addAttribute("menuHTML", menuService.getMenuAsHTML(menu));
         } catch (Exception e) {
             System.out.println("Exception: " + e.getMessage());
             e.printStackTrace();
         }
+*/
 
         return "public/menu";
     }

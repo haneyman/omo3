@@ -1,40 +1,22 @@
-.divMenu ul {list-style: none; padding: 0; margin: 0;}
-.divMenu ul li {list-style: none; float:left; width:150px;}
-.divMenuGroup {margin-left: 30px;}
-.divCheckbox {}
-.divNamePrice {float:left;width:70%;}
-.menuItemPrice {float:right; margin-right:20px;}
-.menuItemName {float:left; }
-.divMenuXX ul {float:left;}
-.container {margin-left: 20px;}
-/*
-.wide {
-    width:100%;
-    height:400px;
-    background-image:url('/omo/resources/assets/img/blurry1.jpg');
-    background-size:100%;
-    background-repeat: no-repeat;
-}
+.menu ul {list-style: none; }
+.menu ul li {list-style: none}
+#menuName {font-size: larger;}
+.menuDescription {}
+.menuSection{}
+.menuSectionLabel {color: #67b168;}
+.menuGroups {margin-left: 3%;}
+.menuGroup {margin: 5px; padding-right: 0px; padding-left: 0px; width:40%;}
+.menuGroupDescription {font-size: small;font-style: italic; }
+.menuGroupTitle {font-size: large;}
+.menuGroupBody {}
+.menuItem {padding-right: 0px; padding-left: 0px; margin: 0px;}
+.menuItemName { float:left;}
+.menuItemDescription {font-size: smaller;}
+.menuItemName a:link, a:visited {text-decoration: none; color: #296926}
+.menuItemName a:hover {text-decoration: none; color: #67b168}
 
-.wide img {
-    width:100%;
-}*/
-
-/*
-.logo {
-    color:#fff;
-    font-weight:800;
-    font-size:14pt;
-    padding:25px;
-    text-align:center;
-}
-
-.line {
-    padding-top:20px;
-    white-space:no-wrap;
-    overflow:hidden;
-    text-align:center;
-}*/
-
+.menuItemPrice {float:right;}
+.panelOptions {width: 75%; margin-left: 10%}
+#order {display:none;}
 
 

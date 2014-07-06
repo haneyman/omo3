@@ -5,13 +5,14 @@
     <form:create id="fc_com_omo_domain_MenuItem" modelAttribute="menuItem" path="/menuitems" render="${empty dependencies}" z="m3w2cXjb9w786k79X8dj8x2Yhl4=">
         <field:input field="name" id="c_com_omo_domain_MenuItem_name" z="LktpPuvyCcLUYEerDIZ0U0ZNavQ="/>
         <field:input field="description" id="c_com_omo_domain_MenuItem_description" z="BRdJ+hX2IEdVcZhFwFEWyOSAAMQ="/>
-        <field:input field="price" id="c_com_omo_domain_MenuItem_price" z="CzOQFfBvs3gA+zkqnpq8DgtFdnE="/>
         <field:input field="sortOrder" id="c_com_omo_domain_MenuItem_sortOrder" validationMessageCode="field_invalid_integer" z="kWPVfdjknCm1/GvQewm9XONvmJU="/>
         <field:simple field="childMenuItems" id="c_com_omo_domain_MenuItem_childMenuItems" messageCode="entity_reference_not_managed" messageCodeAttribute="Menu Item" z="q/GzBTVEZPwTbTfNEflB9tgPes8="/>
         <field:input field="type" id="c_com_omo_domain_MenuItem_type" z="N/fyj/h20Muod4mlu5Rq2Lk8c9M="/>
         <field:input field="uuid" id="c_com_omo_domain_MenuItem_uuid" z="il6ZhmiP9bVfEFvIlyXTnGYzuIs="/>
         <field:input field="parentUuid" id="c_com_omo_domain_MenuItem_parentUuid" z="l6yEil8TpwkZqnLQwVE2Eog8SbQ="/>
         <field:input field="internalNotes" id="c_com_omo_domain_MenuItem_internalNotes" z="1J/leCxauWeflHitkGx50e7i4zc="/>
+        <field:simple field="options" id="c_com_omo_domain_MenuItem_options" messageCode="entity_reference_not_managed" messageCodeAttribute="Menu Item Option" z="qCQyEtvcoz80gq5wVhPX6BuUGKw="/>
+        <field:input field="price" id="c_com_omo_domain_MenuItem_price" validationMessageCode="field_invalid_number" z="aETQyrxbvonJt4aI2hlMN36YWVc="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_omo_domain_MenuItem" render="${not empty dependencies}" z="7ogFR2yib/0G54hXxZ6b1qBJ7sI="/>
 </div>

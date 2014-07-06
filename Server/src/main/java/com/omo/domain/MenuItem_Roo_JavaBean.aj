@@ -4,6 +4,7 @@
 package com.omo.domain;
 
 import com.omo.domain.MenuItem;
+import com.omo.domain.MenuItemOption;
 import java.util.Set;
 
 privileged aspect MenuItem_Roo_JavaBean {
@@ -56,11 +57,11 @@ privileged aspect MenuItem_Roo_JavaBean {
         this.type = type;
     }
     
-    public float MenuItem.getPrice() {
+    public Float MenuItem.getPrice() {
         return this.price;
     }
     
-    public void MenuItem.setPrice(float price) {
+    public void MenuItem.setPrice(Float price) {
         this.price = price;
     }
     
@@ -70,6 +71,14 @@ privileged aspect MenuItem_Roo_JavaBean {
     
     public void MenuItem.setChildMenuItems(Set<MenuItem> childMenuItems) {
         this.childMenuItems = childMenuItems;
+    }
+    
+    public Set<MenuItemOption> MenuItem.getOptions() {
+        return this.options;
+    }
+    
+    public void MenuItem.setOptions(Set<MenuItemOption> options) {
+        this.options = options;
     }
     
     public String MenuItem.getInternalNotes() {

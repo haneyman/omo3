@@ -15,6 +15,7 @@ import java.util.List;
 @RunWith(SpringJUnit4ClassRunner.class)
 @Configurable
 public class InitializeAllData {
+    private static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(InitializeAllData.class);
 
     @SuppressWarnings("SpringJavaAutowiringInspection")
     @Autowired
@@ -26,6 +27,8 @@ public class InitializeAllData {
 
     @Test
     public void initializeAllTest() {
+        logger.info("Initializing data...");
+        logger.info("   resellers...");
         //reseller -----------------------------------------------------------------------------------------------------
         String resellerName = "El Cafecito";
         Reseller reseller = resellerRepository.findOneByName(resellerName);
@@ -38,23 +41,28 @@ public class InitializeAllData {
         resellerRepository.save(reseller);
 
         //restaurants --------------------------------------------------------------------------------------------------
+        logger.info("   restaurants...");
         RestaurantIntegrationTest restaurantIntegrationTest = new RestaurantIntegrationTest();
         restaurantIntegrationTest.deleteAllRestaurants();
         Restaurant restaurantBentolinos     = restaurantIntegrationTest.addRestaurant("Bentolinos", "old fashioned family operated catering business and deli");
         Restaurant restaurantElMolino       = restaurantIntegrationTest.addRestaurant("El Molino", "Mexcan Food Catering, Food To Go, and Tortilla Factory.");
         Restaurant restaurantASweetAffair   = restaurantIntegrationTest.addRestaurant("A Sweet Affair","Bakery, Sandwiches, Salads, Soups");
         Restaurant restaurantKinders        = restaurantIntegrationTest.addRestaurant("Kinders", "A tradition of great flavor.  A fresh taste for today.");
+        Restaurant restaurantQuiznos        = restaurantIntegrationTest.addRestaurant("Quiznos", "mmmm...TOASTY!");
 
 
         //menus --------------------------------------------------------------------------------------------------------
+        logger.info("   menus...");
         restaurantIntegrationTest.deleteAllMenus();
         Menu menuBentolinos = restaurantIntegrationTest.createMenuBentolinos();
         Menu menuElMolino = restaurantIntegrationTest.createMenuElMolino(restaurantElMolino);
         Menu menuKinders = restaurantIntegrationTest.createMenuKinders(restaurantKinders);
         Menu menuASweetAffair = restaurantIntegrationTest.createMenuSweetAffair(restaurantASweetAffair);
+        Menu menuQuiznos = restaurantIntegrationTest.createMenuQuiznos(restaurantQuiznos);
 
 
         //schedule -----------------------------------------------------------------------------------------------------
+        logger.info("   schedules...");
         restaurantIntegrationTest.deleteAllSchedules();
 
         //Days of week start from 1 which is Sunday, 0 is all days
@@ -82,6 +90,13 @@ public class InitializeAllData {
         schedule.setRestaurant(restaurantBentolinos);
         schedule.setDayOfWeek(3);
         schedule.setMenu(menuBentolinos);
+        scheduleRepository.save(schedule);
+
+        schedule = new Schedule();
+        schedule.setReseller(reseller);
+        schedule.setRestaurant(restaurantQuiznos);
+        schedule.setDayOfWeek(3);
+        schedule.setMenu(menuQuiznos);
         scheduleRepository.save(schedule);
 
         //Wednesday
@@ -122,6 +137,14 @@ public class InitializeAllData {
         //schedule.setDayOfWeek(7);
         //schedule.setMenu(menuBentolinos);
         //scheduleRepository.save(schedule);
+
+        //Sunday
+//        schedule = new Schedule();
+//        schedule.setReseller(reseller);
+//        schedule.setRestaurant(restaurantQuiznos);
+//        schedule.setDayOfWeek(7);
+//        schedule.setMenu(menuQuiznos);
+//        scheduleRepository.save(schedule);
     }
 
 }

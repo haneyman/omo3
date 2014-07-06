@@ -17,35 +17,62 @@ import java.util.UUID;
 @RooMongoEntity
 public class MenuItem {
 
-    public enum MenuItemTypes {MenuGroup, MenuItem, MenuSection, MenuBreak;}   // Arrays.asList(Menu.MenuItemTypes.values())
-    public static final String MENUITEM_LABEL = "menuitem_";
+    public enum MenuItemTypes {MenuGroup, MenuItem, MenuSection}   // Arrays.asList(Menu.MenuItemTypes.values())
+    public static final String MENUITEM_LABEL = "menuitem ";
     private String name;
     private String description;
     private String uuid;
     private String parentUuid;
     private Integer sortOrder;
     private MenuItemTypes type;
-    private float price;
+    private Float price;
     @OneToMany(cascade = CascadeType.ALL)
     private Set<MenuItem> childMenuItems = new HashSet<MenuItem>();
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<MenuItemOption> options = new HashSet<MenuItemOption>();
     private String internalNotes;//a hack way of storing parent descriptive text
 
+    //legacy constructor for 1 price only
     public MenuItem(String inName, String inDescription, Integer inSortOrder, MenuItemTypes inType, Float inPrice, String parent) {
         name = inName;
         description = inDescription;
         sortOrder = inSortOrder;
         type = inType;
-        price = inPrice;
         uuid = UUID.randomUUID().toString();
         parentUuid = parent;
-
-
+        this.price = inPrice;
+        //addOption(inPrice, "");
     }
 
+    public MenuItem(String inName, String inDescription, Integer inSortOrder, MenuItemTypes inType, String parent) {
+        name = inName;
+        description = inDescription;
+        sortOrder = inSortOrder;
+        type = inType;
+        uuid = UUID.randomUUID().toString();
+        parentUuid = parent;
+    }
+
+    //legacy method, for adding a single price
     public MenuItem addChildMenuItem(String name, String desc, Integer sortOrder, MenuItemTypes menuItemType, Float price) {
         MenuItem child = new MenuItem(name, desc, sortOrder, menuItemType, price, this.getUuid());
         this.getChildMenuItems().add(child);
         return child;
+    }
+
+    public MenuItem addChildMenuItem(String name, String desc, Integer sortOrder, MenuItemTypes menuItemType) {
+        MenuItem child = new MenuItem(name, desc, sortOrder, menuItemType, this.getUuid());
+        this.getChildMenuItems().add(child);
+        return child;
+    }
+
+    public MenuItemOption addOption(MenuItemOption.MenuItemOptionTypes type, Float price, String description) {
+        MenuItemOption option = new MenuItemOption(type, price, description);
+        if (options == null) {
+            options = new HashSet<MenuItemOption>();
+        }
+        options.add(option);
+        return option;
     }
 
     public MenuItem() {
