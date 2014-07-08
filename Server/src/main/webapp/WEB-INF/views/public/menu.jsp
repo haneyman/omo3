@@ -23,7 +23,24 @@
 
     function orderItem(item) {
         //TODO: gotta add the items to the order some how
-        alert('pretending to add item to order: ' + item);
+        //alert('pretending to add item to order: ' + item);
+        $.ajax({
+            url: "/omo/menus/getMenuItemForOrder/${menu.id}/" + item,
+            context: document.body,
+            dataType: "json",
+            async: false
+        }).done(function(data) {
+            //alert('done: ' + data);
+            $('#dialogOrderItemItemName').text(data.menuItem.name);
+            $('#dialogOrderItemItemDescription').text(data.menuItem.description);
+        }).error(function() {
+            //alert('Dangit, there was an error, please try again.');
+        });
+
+
+
+
+
         $('#dialogOrderItem').modal('show');
         //alert('fin');
     }
@@ -155,7 +172,7 @@
                 <div>
                     <h3 id="myModalLabel2">Add Item To Order?</h3>
                     <div style="color: #214f1e; background-color: #f5f5f5; padding: 20px; font-weight: 500; font-size: large;">
-                        Sandwich - Phlegmy Head Cheese</i>
+                        <span id="dialogOrderItemItemName">Error</span> - <span id="dialogOrderItemItemDescription"></span>
                     </div>
                 </div>
                 <!--div style="float: right;margin-top: -40px;">

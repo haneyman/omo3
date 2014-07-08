@@ -40,7 +40,7 @@ public class MenuController {
 
     //inject all the menu item info AND options for section, group, item into a single OrderItem object
     //used by the order item dialog, to confirm the item and select options.
-    @RequestMapping(value="orderItem/{menuId}/{itemId}", method = RequestMethod.GET)
+    @RequestMapping(value="getMenuItemForOrder/{menuId}/{itemUuid}", method = RequestMethod.GET)
     public @ResponseBody OrderItem getOrderItemInJSON(@PathVariable BigInteger menuId, @PathVariable String itemUuid) {
         Menu menu = menuRepository.findOne(menuId);
 
@@ -58,7 +58,7 @@ public class MenuController {
                             orderItem.getOptions().addAll(menuItemSection.getOptions());
                         }
                         if (menuItemGroup.getOptions().size() > 0) {
-                            orderItem.getOptions().addAll(menuItemSection.getOptions());
+                            orderItem.getOptions().addAll(menuItemGroup.getOptions());
                         }
                         break;
                     }
