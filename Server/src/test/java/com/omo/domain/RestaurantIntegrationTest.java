@@ -581,11 +581,11 @@ public class RestaurantIntegrationTest {
         groupOption.addChild(MenuItemOption.MenuItemOptionTypes.Item, 0F, "Wheat");
         groupOption.addChild(MenuItemOption.MenuItemOptionTypes.Item, 0F, "Rosemary Parmesan");
 
-        menuItem.addChildMenuItem("Black Angus Steak - With mozzarella & mild cheddar, sautéed mushrooms & onions, honey bourbon mustard & zesty grille sauce","",1,MenuItem.MenuItemTypes.MenuItem);
-        menuItem.addChildMenuItem("Double Swiss Prime Rib - with sautéed onions & mayo","",2,MenuItem.MenuItemTypes.MenuItem);
-        menuItem.addChildMenuItem("Peppercorn Prime Rib - with mozzarella, sautéed onions & peppercorn sauce","",3,MenuItem.MenuItemTypes.MenuItem);
-        menuItem.addChildMenuItem("Roast Beef & Horseradish - Black Angus roast beef, mild cheddar, sautéed onions, lettuce & tomatoes","",4,MenuItem.MenuItemTypes.MenuItem);
-        menuItem.addChildMenuItem("Spicy Prime Rib - with mild cheddar, fresh Q-salasa & chipotle mayo","",5,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Black Angus Steak", "With mozzarella & mild cheddar, sautéed mushrooms & onions, honey bourbon mustard & zesty grille sauce",1,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Double Swiss Prime Rib","with sautéed onions & mayo",2,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Peppercorn Prime Rib","with mozzarella, sautéed onions & peppercorn sauce",3,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Roast Beef & Horseradish","Black Angus roast beef, mild cheddar, sautéed onions, lettuce & tomatoes",4,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Spicy Prime Rib","with mild cheddar, fresh Q-salasa & chipotle mayo",5,MenuItem.MenuItemTypes.MenuItem);
         sectionMenuItem.getChildMenuItems().add(menuItem);//add group to section
 
         menuItem = new MenuItem("Chicken Subs","",1,MenuItem.MenuItemTypes.MenuGroup, 6.00f, sectionMenuItem.getUuid());
@@ -598,13 +598,13 @@ public class RestaurantIntegrationTest {
         groupOption.addChild(MenuItemOption.MenuItemOptionTypes.Item, 0F, "Wheat");
         groupOption.addChild(MenuItemOption.MenuItemOptionTypes.Item, 0F, "Rosemary Parmesan");
 
-        menuItem.addChildMenuItem("Baja Chicken - with bacon, mild cheddar cheese, onions, BBQ sauce, & chipotle mayo","",1,MenuItem.MenuItemTypes.MenuItem);
-        menuItem.addChildMenuItem("Chicken Carbonara - with bacon, mozzarella cheese, sautéed mushrooms & parmesan alfredo sauce","",2,MenuItem.MenuItemTypes.MenuItem);
-        menuItem.addChildMenuItem("Honey Bourbon Chicken - with seasonal greens, tomatoes, onions, honey bourbon mustard & zesty grille sauce","",3,MenuItem.MenuItemTypes.MenuItem);
-        menuItem.addChildMenuItem("Honey Mustard Chicken - with bacon, swiss cheese, lettuce, tomatoes, onions & honey mustard sauce","",4,MenuItem.MenuItemTypes.MenuItem);
-        menuItem.addChildMenuItem("Mesquite Chicken - with bacon, mild cheddar cheese, lettuce, tomatoes, onions & ranch dressing","",5,MenuItem.MenuItemTypes.MenuItem);
-        menuItem.addChildMenuItem("Pesto Caesar Chicken - with mozzarella, parmesan, romano & asiago cheese, seasonal greens, tomatoes, basil pesto & peppercorn caesar sauce","",5,MenuItem.MenuItemTypes.MenuItem);
-        menuItem.addChildMenuItem("Spicy Chicken - with mild cheddar, fresh Q-salasa & chipotle mayo","",5,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Baja Chicken","with bacon, mild cheddar cheese, onions, BBQ sauce, & chipotle mayo",1,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Chicken Carbonara","with bacon, mozzarella cheese, sautéed mushrooms & parmesan alfredo sauce",2,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Honey Bourbon Chicken","with seasonal greens, tomatoes, onions, honey bourbon mustard & zesty grille sauce",3,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Honey Mustard Chicken","with bacon, swiss cheese, lettuce, tomatoes, onions & honey mustard sauce",4,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Mesquite Chicken","with bacon, mild cheddar cheese, lettuce, tomatoes, onions & ranch dressing",5,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Pesto Caesar Chicken","with mozzarella, parmesan, romano & asiago cheese, seasonal greens, tomatoes, basil pesto & peppercorn caesar sauce",5,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Spicy Chicken","with mild cheddar, fresh Q-salasa & chipotle mayo",5,MenuItem.MenuItemTypes.MenuItem);
         sectionMenuItem.getChildMenuItems().add(menuItem);//add group to section
 
         menuItem = new MenuItem("Classic Subs","",1,MenuItem.MenuItemTypes.MenuGroup, 6.00f, sectionMenuItem.getUuid());
@@ -617,29 +617,29 @@ public class RestaurantIntegrationTest {
         groupOption.addChild(MenuItemOption.MenuItemOptionTypes.Item, 0F, "Wheat");
         groupOption.addChild(MenuItemOption.MenuItemOptionTypes.Item, 0F, "Rosemary Parmesan");
 
-        menuItem.addChildMenuItem("Classic Italian - Pepperoni, salami, capicola, ham, mozzarella, lettuce, black olives, tomatoes, onions & red wine vinaigrette dressing","",1,MenuItem.MenuItemTypes.MenuItem);
-        menuItem.addChildMenuItem("Ham & Swiss - with lettuce, tomatoes, red onins & mayo","",2,MenuItem.MenuItemTypes.MenuItem);
-        menuItem.addChildMenuItem("Honey Bacon Club - with turkey breast, ham, bacon, Swiss, lettuce, tomatoes, onions & honey-french dressing","",3,MenuItem.MenuItemTypes.MenuItem);
-        menuItem.addChildMenuItem("Italian Meatball - with double mozzarella, marinara sauce","",4,MenuItem.MenuItemTypes.MenuItem);
-        menuItem.addChildMenuItem("Oven Roast Turkey - with lettuce, tomatoes, red onins & mayo","",5,MenuItem.MenuItemTypes.MenuItem);
-        menuItem.addChildMenuItem("Spicy Monterey - with turkey breast, ham, mozzarella, pickles, lettuce, tomatoes, mayo & 4 pepper chili sauce","",5,MenuItem.MenuItemTypes.MenuItem);
-        menuItem.addChildMenuItem("The Traditional - with roast beef, turkey breast, ham, cheddar, lettuce, black olives, tomatoes, onions & ranch dressing","",6,MenuItem.MenuItemTypes.MenuItem);
-        menuItem.addChildMenuItem("Tuna - with cheddar, lettuce, tomatoes & mayo","",7,MenuItem.MenuItemTypes.MenuItem);
-        menuItem.addChildMenuItem("Turkey Bacon Guacamole - with mozzarella, lettuce, tomatoes, onions & ranch dressing ","",8,MenuItem.MenuItemTypes.MenuItem);
-        menuItem.addChildMenuItem("Turkey Lite - with lettuce, tomatoes, onions, cucumbers & fat-free balsamic vinaigrette dressing","",9,MenuItem.MenuItemTypes.MenuItem);
-        menuItem.addChildMenuItem("Turkey Ranch & Swiss - with lettuce, tomatoes, onions","",10,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Classic Italian","Pepperoni, salami, capicola, ham, mozzarella, lettuce, black olives, tomatoes, onions & red wine vinaigrette dressing",1,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Ham & Swiss","with lettuce, tomatoes, red onins & mayo",2,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Honey Bacon Club","with turkey breast, ham, bacon, Swiss, lettuce, tomatoes, onions & honey-french dressing",3,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Italian Meatball","with double mozzarella, marinara sauce",4,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Oven Roast Turkey","with lettuce, tomatoes, red onins & mayo",5,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Spicy Monterey","with turkey breast, ham, mozzarella, pickles, lettuce, tomatoes, mayo & 4 pepper chili sauce",5,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("The Traditional","with roast beef, turkey breast, ham, cheddar, lettuce, black olives, tomatoes, onions & ranch dressing",6,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Tuna","with cheddar, lettuce, tomatoes & mayo",7,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Turkey Bacon Guacamole","with mozzarella, lettuce, tomatoes, onions & ranch dressing ",8,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Turkey Lite","with lettuce, tomatoes, onions, cucumbers & fat-free balsamic vinaigrette dressing",9,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Turkey Ranch & Swiss","with lettuce, tomatoes, onions",10,MenuItem.MenuItemTypes.MenuItem);
         menuItem.addChildMenuItem("Ultimate Turkey Club", "with bacon, cheddar, lettuce, tomatoes & mayo",11,MenuItem.MenuItemTypes.MenuItem);
-        menuItem.addChildMenuItem("Veggie Guacamole - with cheddar, mozzarella, lettuce, black olives, tomatoes, onions, mushrooms & red wine vinaigrette dressing","",12,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Veggie Guacamole","with cheddar, mozzarella, lettuce, black olives, tomatoes, onions, mushrooms & red wine vinaigrette dressing",12,MenuItem.MenuItemTypes.MenuItem);
         sectionMenuItem.getChildMenuItems().add(menuItem);//add group to section
 
         sectionMenuItem = new MenuItem("Other Tasty Items","",1,MenuItem.MenuItemTypes.MenuSection, 0f, null);
         menu.getMenuItems().add(sectionMenuItem);
 
         menuItem = new MenuItem("Toasty Pastas","",1,MenuItem.MenuItemTypes.MenuGroup, 6.00f, sectionMenuItem.getUuid());
-        menuItem.addChildMenuItem("Mac & Cheese - with romano, parmesan, provolone & fontina cheeses, breadcrumbs. $6.49","",1,MenuItem.MenuItemTypes.MenuItem);
-        menuItem.addChildMenuItem("Mac & Cheese with Bacon - with romano, parmesan, provolone & fontina cheeses, breadcrumbs. $6.99","",2,MenuItem.MenuItemTypes.MenuItem);
-        menuItem.addChildMenuItem("Meatball Marinara - with mozzarella, 3-cheese blend. ","",3,MenuItem.MenuItemTypes.MenuItem);
-        menuItem.addChildMenuItem("Chicken Pesto - with 3-cheese blend, balsamic tomatoes. ","",4,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Mac & Cheese","with romano, parmesan, provolone & fontina cheeses, breadcrumbs. $6.49",1,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Mac & Cheese with Bacon","with romano, parmesan, provolone & fontina cheeses, breadcrumbs. $6.99",2,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Meatball Marinara","with mozzarella, 3-cheese blend. ",3,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Chicken Pesto","with 3-cheese blend, balsamic tomatoes. ",4,MenuItem.MenuItemTypes.MenuItem);
         sectionMenuItem.getChildMenuItems().add(menuItem);//add group to section
 
         menuItem = new MenuItem("Salads & Wraps","",1,MenuItem.MenuItemTypes.MenuGroup, 6.00f, sectionMenuItem.getUuid());
@@ -651,19 +651,19 @@ public class RestaurantIntegrationTest {
         groupOption.addChild(MenuItemOption.MenuItemOptionTypes.Item, 0f, "Salad");
         groupOption.addChild(MenuItemOption.MenuItemOptionTypes.Item, 0f, "Wrap");
 
-        menuItem.addChildMenuItem("Black & Blue Steak  - with Black Angus steak, blue cheese crumbles, onions, tomatoes, fat-free balsamic vinaigrette dressing","",1,MenuItem.MenuItemTypes.MenuItem);
-        menuItem.addChildMenuItem("Caesar Chicken - with 3-cheese blend, tomatoes, peppercorn caesar dressing","",2,MenuItem.MenuItemTypes.MenuItem);
-        menuItem.addChildMenuItem("Cobb - with chicken, bacon, hard-boiled egg, blue cheese crumbles, tomatoes, ranch dressing","",3,MenuItem.MenuItemTypes.MenuItem);
-        menuItem.addChildMenuItem("Harvest Chicken - with Honey-dijon chicken salad, apples, grapes, dried cranberries, cucumbers, tomatoes, pumpkin seeds, acai vinaigrette dressing","",4,MenuItem.MenuItemTypes.MenuItem);
-        menuItem.addChildMenuItem("Honey Mustard Chicken - with bacon, cheddar, tomatoes, honey mustard dressing\n","",5,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Black & Blue Steak ","with Black Angus steak, blue cheese crumbles, onions, tomatoes, fat-free balsamic vinaigrette dressing",1,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Caesar Chicken","with 3-cheese blend, tomatoes, peppercorn caesar dressing",2,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Cobb","with chicken, bacon, hard-boiled egg, blue cheese crumbles, tomatoes, ranch dressing",3,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Harvest Chicken","with Honey-dijon chicken salad, apples, grapes, dried cranberries, cucumbers, tomatoes, pumpkin seeds, acai vinaigrette dressing",4,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Honey Mustard Chicken","with bacon, cheddar, tomatoes, honey mustard dressing\n",5,MenuItem.MenuItemTypes.MenuItem);
         sectionMenuItem.getChildMenuItems().add(menuItem);//add group to section
 
         menuItem = new MenuItem("Grilled Flatbreads","",1,MenuItem.MenuItemTypes.MenuGroup, 6.00f, sectionMenuItem.getUuid());
-        menuItem.addChildMenuItem("Basil Pesto Chicken - with mozzarella, seasonal greens, tomatoes, basil pesto","",1,MenuItem.MenuItemTypes.MenuItem, 5.49f);
-        menuItem.addChildMenuItem("Chicken Bacon Ranch - with Swiss, seasonal greens, tomatoes","",2,MenuItem.MenuItemTypes.MenuItem);
-        menuItem.addChildMenuItem("Greek Chicken - with mozzarella, cucumbers, black olives, banana peppers, seasonal greens, tomatoes, Tzatziki dressing","",3,MenuItem.MenuItemTypes.MenuItem);
-        menuItem.addChildMenuItem("Honey Bourbon Chicken - with seasonal greens, tomatoes, onions, honey bourbon mustard & zesty grille sauce","",4,MenuItem.MenuItemTypes.MenuItem);
-        menuItem.addChildMenuItem("Sonoma Turkey - with cheddar, seasonal greens, tomatoes, chipotle mayo","",5,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Basil Pesto Chicken","with mozzarella, seasonal greens, tomatoes, basil pesto",1,MenuItem.MenuItemTypes.MenuItem, 5.49f);
+        menuItem.addChildMenuItem("Chicken Bacon Ranch","with Swiss, seasonal greens, tomatoes",2,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Greek Chicken","with mozzarella, cucumbers, black olives, banana peppers, seasonal greens, tomatoes, Tzatziki dressing",3,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Honey Bourbon Chicken","with seasonal greens, tomatoes, onions, honey bourbon mustard & zesty grille sauce",4,MenuItem.MenuItemTypes.MenuItem);
+        menuItem.addChildMenuItem("Sonoma Turkey","with cheddar, seasonal greens, tomatoes, chipotle mayo",5,MenuItem.MenuItemTypes.MenuItem);
         sectionMenuItem.getChildMenuItems().add(menuItem);//add group to section
 
         menuItem = new MenuItem("Soups of the Day","",1,MenuItem.MenuItemTypes.MenuGroup, 6.00f, sectionMenuItem.getUuid());

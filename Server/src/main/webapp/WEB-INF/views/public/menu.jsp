@@ -74,7 +74,6 @@
 </div>
 <!-- END THE ORDER -->
 
-
 <div class="menu" style="margin-bottom: 200px;">
     <div class="" style="padding-left:20px;background-color: #7aba7b;margin-bottom: 0px;padding:5px; ">
         <div style="float: right;margin-right: 35%;margin-top: 15px;">
@@ -112,9 +111,9 @@
                         <!-- Begin Menu Group ${group.name} -->
                         <div class="menuGroup panel panel-default col-xs-12 col-sm-12 col-md-6 col-lg-4">
                             <div class="menuGroupTitleArea panel-heading ">
-                                <span class="menuGroupTitle">Sandwiches Title</span>
+                                <span class="menuGroupTitle">${group.name}</span>
                                 <br/>
-                                <span class='menuGroupDescription'> <small>Made with Mayo, Mustard, Lettuce, Tomato & Pickles</small></span>
+                                <span class='menuGroupDescription'> <small>${group.description}</small></span>
                             </div>
                             <div class="menuGroupBody panel-body" >
                                 <c:forEach var="item" items='${group.childMenuItems}'>
@@ -122,14 +121,14 @@
                                     <div class="menuItem col-md-12 row-fluid">
                                         <div class="col-md-12">
                                             <div class="menuItemName">
-                                                <a href="#" onclick='orderItem(${item.uuid});return true;'>${item.name}
+                                                <a href="#" onclick='orderItem("${item.uuid}");return true;'>${item.name}
                                                     <c:if test="${!empty fn:trim(item.description)}">
                                                         - <span class="menuItemDescription">${item.description} </span>
                                                     </c:if>
                                                 </a>
                                             </div>
                                             <div class="menuItemPrice">
-                                                <a href="#" onclick='orderItem(${item.uuid});return true;'>${item.price}</a>
+                                                <a href="#" onclick='orderItem("${item.uuid}");return true;'>${item.price}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -145,5 +144,134 @@
         <!-- Menu Section -->
     </div>
 </div>
+
+
+<div id="dialogOrderItem" class="modal  fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!--<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>-->
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <div>
+                    <h3 id="myModalLabel2">Add Item To Order?</h3>
+                    <div style="color: #214f1e; background-color: #f5f5f5; padding: 20px; font-weight: 500; font-size: large;">
+                        Sandwich - Phlegmy Head Cheese</i>
+                    </div>
+                </div>
+                <!--div style="float: right;margin-top: -40px;">
+                    Not Registered Yet? <button class="btn btn-primary" onclick="$('#dialogLogin').modal('hide');$('#dialogRegister').modal('show');">Register</button>
+                </div-->
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" id="login" action="./omo/applicationusers/login" method="POST" enctype="application/x-www-form-urlencoded">
+                    <div class="" style="margin-left: 20px;">
+                        <div class="panelOptions panel panel-default " style="">
+                            <div class="panel-heading">Size</div>
+                            <div class="panel-body" style="padding-left: 30px;padding-right: 30px;">
+                                <div class="form-group" style="">
+                                    <div class="optionsSection radio">
+                                        <label>
+                                            <div style="float:left;">
+                                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                                Regular 7"
+                                            </div>
+                                            <div style="float:right;">
+                                                $7.00
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <div style="float:left;">
+                                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                                Large 10"
+                                            </div>
+                                            <div style="float:right;">
+                                                $9.00
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panelOptions panel panel-default " style="">
+                            <div class="panel-heading">Bread</div>
+                            <div class="panel-body" style="padding-left: 30px;padding-right: 30px;">
+                                <div class="form-group" style="">
+                                    <div class="optionsSection radio">
+                                        <label>
+                                            <div style="float:left;">
+                                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                                Wheat
+                                            </div>
+                                            <div style="float:right;">
+
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <div style="float:left;">
+                                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                                Moldy Bread
+                                            </div>
+                                            <div style="float:right;">
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <div style="float:left;">
+                                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                                Sheet Metal
+                                            </div>
+                                            <div style="float:right;">
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <div style="float:left;">
+                                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                                Lizard Skin
+                                            </div>
+                                            <div style="float:right;">
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panelOptions panel panel-default " style="">
+                            <div class="panel-heading">Notes</div>
+                            <div class="panel-body" style="padding-left: 30px;padding-right: 30px;">
+                                <div class="form-group" style="">
+                                    <div style="margin-top: 15px; margin-left: 15px;">
+                                        <!--<label for="notes" class="col-sm-1 control-label"  style="">Notes</label>-->
+                                        <div class="" style="width: 90%; margin-left: 10px;">
+                                            <input type="text" class="form-control" id="notes" name="notes" placeholder="Enter notes">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div style="margin-top:10">
+                    <button class="btn btn-success" style="margin-left: 4px;">Add To Order</button>
+                    <button class="btn btn-success" style="margin-left: 4px;">Add To Order AND Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 

@@ -4,17 +4,23 @@
 package com.omo.web;
 
 import com.omo.domain.OrderItem;
+import com.omo.repository.MenuItemRepository;
 import com.omo.web.OrderItemController;
 import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
 
 privileged aspect OrderItemController_Roo_Controller {
     
+    @Autowired
+    MenuItemRepository OrderItemController.menuItemRepository;
+    
     void OrderItemController.populateEditForm(Model uiModel, OrderItem orderItem) {
         uiModel.addAttribute("orderItem", orderItem);
+        uiModel.addAttribute("menuitems", menuItemRepository.findAll());
     }
     
     String OrderItemController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

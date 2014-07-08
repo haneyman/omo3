@@ -1,6 +1,8 @@
 package com.omo.web;
 
 import com.omo.domain.Menu;
+import com.omo.domain.MenuItem;
+import com.omo.domain.OrderItem;
 import com.omo.domain.Restaurant;
 import com.omo.repository.MenuRepository;
 import com.omo.repository.ResellerRepository;
@@ -35,6 +37,39 @@ public class MenuController {
     ResellerRepository resellerRepository;
     @Autowired
     RestaurantRepository restaurantRepository;
+
+    //inject all the menu item info AND options for section, group, item into a single OrderItem object
+    //used by the order item dialog, to confirm the item and select options.
+    @RequestMapping(value="orderItem/{menuId}/{itemId}", method = RequestMethod.GET)
+    public @ResponseBody OrderItem getOrderItemInJSON(@PathVariable BigInteger menuId, @PathVariable String itemUuid) {
+        Menu menu = menuRepository.findOne(menuId);
+
+        OrderItem orderItem = null;
+        //find the menu item for the menu
+        for (MenuItem menuItemSection : menu.getMenuItems()) {
+            for (MenuItem menuItemGroup : menuItemSection.getChildMenuItems())  {
+                for (MenuItem menuItem : menuItemGroup.getChildMenuItems())  {
+                    if (menuItem.getUuid().equalsIgnoreCase(itemUuid)) {
+                        orderItem = new OrderItem();
+                        orderItem.setMenuItem(menuItem);
+                        orderItem.setGroup(menuItemGroup);
+                        orderItem.setSection(menuItemSection);
+                        if (menuItemSection.getOptions() != null) {
+                            orderItem.getOptions().addAll(menuItemSection.getOptions());
+                        }
+                        if (menuItemGroup.getOptions().size() > 0) {
+                            orderItem.getOptions().addAll(menuItemSection.getOptions());
+                        }
+                        break;
+                    }
+                }
+            }
+        }
+
+        return orderItem;
+
+    }
+
 
     @RequestMapping(value = "listMenuPublic", produces = "text/html")
     public String listMenusPublic(Model uiModel) {
