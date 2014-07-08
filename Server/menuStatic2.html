@@ -1,0 +1,993 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML SYSTEM "about:legacy-compat">
+<html><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/><meta content="IE=8" http-equiv="X-UA-Compatible"/><!-- /public/head.jsp -->
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="hz3h7JDJm4RxE35GyuqhIArt0EmXG6MFnkFZWfh3Zzc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Lunch</title>
+
+    
+
+    <link rel="stylesheet" href="/omo/resources/assets/css/bootstrap.css" />
+    <link rel="stylesheet" href="/omo/resources/assets/css/bootstrap-responsive.css" />
+    <link rel="stylesheet" href="/omo/resources/assets/css/docs.css" />
+    <link rel="stylesheet" href="/omo/resources/assets/js/google-code-prettify/prettify.css" />
+    <LINK href="/omo/resources/styles/style.css" rel="stylesheet" type="text/css">
+    
+
+    <link href="/omo/resources/assets/ico/apple-touch-icon-144-precomposed.png" sizes="144x144" rel="apple-touch-icon-precomposed" />
+    <link href="/omo/resources/assets/ico/apple-touch-icon-114-precomposed.png" sizes="114x114" rel="apple-touch-icon-precomposed" />
+    <link href="/omo/resources/assets/ico/apple-touch-icon-72-precomposed.png" sizes="72x72" rel="apple-touch-icon-precomposed" />
+    <link href="/omo/resources/assets/ico/apple-touch-icon-57-precomposed.png" rel="apple-touch-icon-precomposed" />
+    <link href="/omo/resources/assets/ico/favicon.png" rel="shortcut icon" />
+    <link href="/omo/resources/assets/css/digitss.css" rel="stylesheet" />
+
+    <script src="/omo/resources/assets/js/jquery.js" ></script>
+    
+    <script src="/omo/resources/assets/js/bootstrap-transition.js" ></script>
+    <script src="/omo/resources/assets/js/bootstrap-alert.js" ></script>
+    <script src="/omo/resources/assets/js/bootstrap-modal.js" ></script>
+    <script src="/omo/resources/assets/js/bootstrap-dropdown.js" ></script>
+    <script src="/omo/resources/assets/js/bootstrap-scrollspy.js" ></script>
+    <script src="/omo/resources/assets/js/bootstrap-tab.js" ></script>
+    <script src="/omo/resources/assets/js/bootstrap-tooltip.js" ></script>
+    <script src="/omo/resources/assets/js/bootstrap-popover.js" ></script>
+    <script src="/omo/resources/assets/js/bootstrap-button.js" ></script>
+    <script src="/omo/resources/assets/js/bootstrap-collapse.js" ></script>
+    <script src="/omo/resources/assets/js/bootstrap-carousel.js" ></script>
+    <script src="/omo/resources/assets/js/bootstrap-typeahead.js" ></script>
+    <script src="/omo/resources/assets/js/bootstrap-affix.js" ></script>
+    <script src="/omo/resources/assets/js/holder/holder.js" ></script>
+    <script src="/omo/resources/assets/js/google-code-prettify/prettify.js" ></script>
+    <script src="/omo/resources/assets/js/application.js" ></script>
+    <script src="/omo/resources/assets/js/css3-mediaqueries.js"></script>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="/omo/resources/assets/js/html5shiv.js"></script>
+        <script src="/omo/resources/assets/js/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google Analytics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-49343212-1', 'menubreeze.com');
+        ga('send', 'pageview');
+
+    </script>
+
+
+    <title>MenuBreeze</title>
+<!-- END of /public/head.jsp -->
+</head><body class="tundra spring"><div id="wrapper"><div id="main">
+<!-- start topNavBar.jsp -->
+<script type="text/javascript">
+    $( document ).ready(function() {
+        var pathname = window.location.pathname;
+        if (pathname.indexOf("start") > -1)
+            $("#start").addClass('active');
+        if (pathname.indexOf("listMenuPublic") > -1)
+            $("#menus").addClass('active');
+        if (pathname.indexOf("myOrders") > -1)
+            $("#myOrders").addClass('active');
+        if (pathname.indexOf("about") > -1)
+            $("#about").addClass('active');
+        if (pathname.indexOf("orders/orders") > -1)
+            $("#allOrders").addClass('active');
+
+    });
+</script>
+    <header class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div style="" class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/omo">Menu<span style="font-style: italic">Breeze</span></a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul id="main-nav" class="nav navbar-nav">
+                    <li id="start" class=""><a href="/omo/public/start">Order</a></li>
+                    <li id="menus" class=""><a href="/omo/menus/listMenuPublic">Menus</a></li>
+                    
+                    <li id="about" class=""><a href="/omo/about">About</a></li>
+                        
+                </ul>
+                <div style="float:right; "  class="">
+                    
+                        
+                        
+                            <ul class="nav navbar-nav">
+                                <li class=""><a href="#dialogLogin"  data-toggle="modal">Log In</a></li>
+                                <li class=""><a href="#dialogRegister"  data-toggle="modal">Register</a></li>
+                            </ul>
+                        
+                    
+                </div>
+            </div><!--/.nav-collapse -->
+
+        </div>
+    </header>
+
+
+
+
+
+<script>
+    
+        $( document ).ready(function() {
+            $('input[type=checkbox]').hide();
+        });
+    
+</script>
+<div class="container" style="margin-bottom: 200px;">
+    <div class="" style="padding-left:20px;background-color: #7aba7b;margin-bottom: 0px;">
+        <h3>Menu for Bentolinos</h3>
+    </div>
+    <div style="float: right;width:50%">This menu is offered by El Cafecito on MON, TUE, you must order by 10:00 AM</div>
+    <div style="float:left;font-style: italic;width:50%">
+        
+        
+            <span style="color:red;">Sorry, you can <b>not</b> order from this menu right now.</span>
+        
+    </div>
+    <div style="clear: both;"></div>
+    <div style="margin-left: 0px;">
+        <form role="form" id="order" action="/omo/orders/submitOrder" method="POST" enctype="application/x-www-form-urlencoded">
+            
+            <div style="ZZmargin-left:30px;">
+                
+<!-- begin generated menu html -->
+<div class="container divMenu">
+    <div class="row divMenuRow">
+    <input type="hidden" name="menuId" value="25765116997843242385882827204">
+         <div class="divMenuSection row">
+         <h3>Sandwiches</h3>
+               <div class="divMenuGroup">
+                  <div class="col-xs-6 row divMenuGroupRow">
+                     <h4 class="menuGroupTitle">Sandwiches</h4>
+                     <p><span style='padding:10px;'>Made with Mayo, Mustard, Lettuce, Tomato & Pickles</span></p>
+                     <div class="divItems">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__e59b1528-d448-430e-84b6-93b24ac0f5eb" value="BLT">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">BLT </div>
+                                <div class="menuItemPrice">$6.00</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__ce805e7a-45c1-4795-bd1a-9450cb5cb944" value="Tuna_Salad">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Tuna Salad </div>
+                                <div class="menuItemPrice">$6.00</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__13911f10-28d2-4b0a-9ae4-7fb2d3c1335e" value="Corn_Beef">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Corn Beef </div>
+                                <div class="menuItemPrice">$6.00</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__ba856b72-1939-46fe-9eac-2983ad859aa0" value="Turkey">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Turkey </div>
+                                <div class="menuItemPrice">$6.00</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__ecffee8d-ece2-4e98-b2b7-ba7c9ee9e20d" value="Oven_Roasted_Turkey">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Oven Roasted Turkey </div>
+                                <div class="menuItemPrice">$6.00</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__ef7310e7-854a-4c8e-a8b4-84d1bfac8f5e" value="Roast_Beef">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Roast Beef </div>
+                                <div class="menuItemPrice">$6.00</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__ec4ced6b-abe8-4a57-82f3-7ad97849738b" value="Pastrami">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Pastrami </div>
+                                <div class="menuItemPrice">$6.00</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__19cea105-337e-407b-88b6-6c823f5e3edf" value="Meatloaf">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Meatloaf </div>
+                                <div class="menuItemPrice">$6.00</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__e4a5c930-880f-4a45-9788-c543709eb3ff" value="Ham">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Ham </div>
+                                <div class="menuItemPrice">$6.00</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__b349a8df-0eab-4ca6-8f80-78ee2749f723" value="Chicken_Salad">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Chicken Salad </div>
+                                <div class="menuItemPrice">$6.00</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__baf8697b-010a-43ce-9c2d-71c212d91f96" value="Crab_Salad">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Crab Salad </div>
+                                <div class="menuItemPrice">$6.00</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__aa477599-ef8f-421e-b648-7ac42bb8ad03" value="Salami">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Salami </div>
+                                <div class="menuItemPrice">$6.00</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__4a570739-918c-44d6-b1bb-5126c729ec13" value="Egg_Salad">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Egg Salad </div>
+                                <div class="menuItemPrice">$6.00</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__4eae4893-dbba-4f3e-b96c-70e9eb433a92" value="Vegetarian">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Vegetarian </div>
+                                <div class="menuItemPrice">$6.00</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                     </div> <!-- divItems -->
+                  </div> <!-- divMenuGroupRow -->
+               </div> <!-- divMenuGroup -->
+            <br/>
+               <div class="divMenuGroup">
+                  <div class="col-xs-6 row divMenuGroupRow">
+                     <h4 class="menuGroupTitle">Cheese</h4>
+                     <p><span style='padding:10px;'></span></p>
+                     <div class="divItems">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__d615924e-c68b-405d-8623-6bfbcbe4c57a" value="Provolone">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Provolone </div>
+                                <div class="menuItemPrice">$.80</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__3cf0c564-f937-44ee-867a-044ffb594385" value="Cheddar">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Cheddar </div>
+                                <div class="menuItemPrice">$.80</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__99317080-6dc3-4f35-8ace-37dd165a17ef" value="Swiss">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Swiss </div>
+                                <div class="menuItemPrice">$.80</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__e97e8230-786b-440d-9a28-0012bd425c15" value="American">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">American </div>
+                                <div class="menuItemPrice">$.80</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__1fc18943-6b07-4fe6-b269-3449256c543e" value="Jack">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Jack </div>
+                                <div class="menuItemPrice">$.80</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                     </div> <!-- divItems -->
+                  </div> <!-- divMenuGroupRow -->
+               </div> <!-- divMenuGroup -->
+            <br/>
+               <div class="divMenuGroup">
+                  <div class="col-xs-6 row divMenuGroupRow">
+                     <h4 class="menuGroupTitle">Bread</h4>
+                     <p><span style='padding:10px;'></span></p>
+                     <div class="divItems">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__aa364f08-c51a-43f8-894a-dda0da550da4" value="Sour_French_Bread">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Sour French Bread </div>
+                                <div class="menuItemPrice"> -----</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__bf415365-4ae5-4cec-ac2b-bc467a1f599b" value="Dutch_Crunch_Roll">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Dutch Crunch Roll </div>
+                                <div class="menuItemPrice"> -----</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__ee2bb633-4fe5-4c22-a25d-855e9a7ca916" value="Wheat_Roll">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Wheat Roll </div>
+                                <div class="menuItemPrice"> -----</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__0903d851-27a9-4b91-91dd-d20fd44019ef" value="Sliced_Sourdough">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Sliced Sourdough </div>
+                                <div class="menuItemPrice"> -----</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__94042f94-259d-4b84-b20c-43ff1ea5838c" value="Honey_White">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Honey White </div>
+                                <div class="menuItemPrice"> -----</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__69ad2587-5d9f-43c9-842e-9cd9e361bfea" value="Dark_Rye">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Dark Rye </div>
+                                <div class="menuItemPrice"> -----</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__fc819708-f7a3-4874-9963-e0b388563a18" value="Soft_Roll">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Soft Roll </div>
+                                <div class="menuItemPrice"> -----</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__3b2e5193-0bfb-4df7-aa14-c3f72485b0f3" value="Multi_Grain">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Multi Grain </div>
+                                <div class="menuItemPrice"> -----</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__783552e4-d37d-467b-af7b-e172dfd73439" value="Croissant">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Croissant </div>
+                                <div class="menuItemPrice">$1.00</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__ed585ae8-971b-4209-8fc6-d370b346ffe2" value="Focaccia_Roll">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Focaccia Roll </div>
+                                <div class="menuItemPrice">$1.00</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                     </div> <!-- divItems -->
+                  </div> <!-- divMenuGroupRow -->
+               </div> <!-- divMenuGroup -->
+            <br/>
+               <div class="divMenuGroup">
+                  <div class="col-xs-6 row divMenuGroupRow">
+                     <h4 class="menuGroupTitle">Sandwich Extras</h4>
+                     <p><span style='padding:10px;'></span></p>
+                     <div class="divItems">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__928117e7-8ab8-4c17-9014-9d283b72f7d7" value="Cranberry">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Cranberry </div>
+                                <div class="menuItemPrice">$.75</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__453627d1-875f-4bea-a3dc-aac7a6ac48b1" value="Avocado">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Avocado </div>
+                                <div class="menuItemPrice">$1.00</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__2aeca450-469c-422d-8884-b0cf39974c6a" value="Bacon">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Bacon </div>
+                                <div class="menuItemPrice">$.40</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                     </div> <!-- divItems -->
+                  </div> <!-- divMenuGroupRow -->
+               </div> <!-- divMenuGroup -->
+            <br/>
+               <div class="divMenuGroup">
+                  <div class="col-xs-6 row divMenuGroupRow">
+                     <h4 class="menuGroupTitle">Hot Sandwiches</h4>
+                     <p><span style='padding:10px;'></span></p>
+                     <div class="divItems">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__bfca5c3d-85e7-46e6-b845-f56075a4d62b" value="Chicken_Parmesan_W_Provolone">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Chicken Parmesan W/Provolone </div>
+                                <div class="menuItemPrice">$7.95</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__c8193f55-7e2b-4ef9-9369-c5cd3a3b06ca" value="Chicken_Pesto_W_Jack">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Chicken Pesto W/Jack </div>
+                                <div class="menuItemPrice">$7.95</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__59210889-2fa3-400c-b1a5-3d4e1e37c9ee" value="French_Dip_W_Au_Jus">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">French Dip W/Au Jus </div>
+                                <div class="menuItemPrice">$7.95</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                     </div> <!-- divItems -->
+                  </div> <!-- divMenuGroupRow -->
+               </div> <!-- divMenuGroup -->
+            <br/>
+               <div class="divMenuGroup">
+                  <div class="col-xs-6 row divMenuGroupRow">
+                     <h4 class="menuGroupTitle">Combos</h4>
+                     <p><span style='padding:10px;'></span></p>
+                     <div class="divItems">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__7611d40e-4304-49e0-a624-ba3ece230a61" value="1_2_Sand_+_Soup">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">1/2 Sand + Soup </div>
+                                <div class="menuItemPrice">$7.25</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__5d356048-9ebf-4596-9c9c-f94350673298" value="1_2_Sand_+_Salad">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">1/2 Sand + Salad </div>
+                                <div class="menuItemPrice">$7.25</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__a4d41a8e-319f-42e3-9143-feb2b0171899" value="Soup_+_Salad">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Soup + Salad </div>
+                                <div class="menuItemPrice">$7.25</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                     </div> <!-- divItems -->
+                  </div> <!-- divMenuGroupRow -->
+               </div> <!-- divMenuGroup -->
+            <br/>
+         </div> <!-- divMenuSection -->
+         <div class="divMenuSection row">
+         <h3>SOUP</h3>
+               <div class="divMenuGroup">
+                  <div class="col-xs-6 row divMenuGroupRow">
+                     <h4 class="menuGroupTitle">Soup Size</h4>
+                     <p><span style='padding:10px;'></span></p>
+                     <div class="divItems">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__7f83c945-3b50-4281-aa87-f045db58c740" value="12_Oz">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">12 Oz </div>
+                                <div class="menuItemPrice">$3.95</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__4d60bc85-9b4b-4a8f-89c9-63eb030acc9c" value="16_Oz">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">16 Oz </div>
+                                <div class="menuItemPrice">$5.00</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                     </div> <!-- divItems -->
+                  </div> <!-- divMenuGroupRow -->
+               </div> <!-- divMenuGroup -->
+            <br/>
+               <div class="divMenuGroup">
+                  <div class="col-xs-6 row divMenuGroupRow">
+                     <h4 class="menuGroupTitle">Soup Flavor</h4>
+                     <p><span style='padding:10px;'></span></p>
+                     <div class="divItems">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__66376b03-fbdf-4a8a-93e0-2d0014497225" value="Cream_Potato_(Mondays)">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Cream Potato (Mondays) </div>
+                                <div class="menuItemPrice"> -----</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__9e30c025-5c70-4c27-8f45-63cc9633d52e" value="Minestrone_(Tuesdays)">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Minestrone (Tuesdays) </div>
+                                <div class="menuItemPrice"> -----</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                     </div> <!-- divItems -->
+                  </div> <!-- divMenuGroupRow -->
+               </div> <!-- divMenuGroup -->
+            <br/>
+         </div> <!-- divMenuSection -->
+         <div class="divMenuSection row">
+         <h3>HOT FOOD</h3>
+               <div class="checkbox">
+                   <label>
+                       <input type="checkbox" false name="menuitem__801644b8-338b-41fe-9d2d-8067edaf8489" value="Beef_Lasagna">
+                   </label>
+                   <div class="divNamePrice">
+                       <div class="menuItemName">Beef Lasagna </div>
+                       <div class="menuItemPrice">$5.75</div>
+                   </div>
+               </div><div style="clear:both"></div>
+         </div> <!-- divMenuSection -->
+         <div class="divMenuSection row">
+         <h3>SALADS</h3>
+               <div class="divMenuGroup">
+                  <div class="col-xs-6 row divMenuGroupRow">
+                     <h4 class="menuGroupTitle">Deli Salads</h4>
+                     <p><span style='padding:10px;'></span></p>
+                     <div class="divItems">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__fd6b911f-75e0-4938-9765-8e357a71a9fd" value="Macaroni">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Macaroni </div>
+                                <div class="menuItemPrice">$3.50</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__0b162c95-2b93-47ad-bdc4-9f5184757862" value="Fresh_Fruit">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Fresh Fruit </div>
+                                <div class="menuItemPrice">$3.50</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__763f0fc4-a460-4159-a3f2-1a8a106a210f" value="Cucumber_Tomato">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Cucumber Tomato </div>
+                                <div class="menuItemPrice">$3.50</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__2c7a4af5-2f1b-4cd2-a20a-7a41d8156999" value="Red_Potato">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Red Potato </div>
+                                <div class="menuItemPrice">$3.50</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__6d88daac-071b-4c94-9616-53c5f7cbf9e8" value="Mixed_Beans">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Mixed Beans </div>
+                                <div class="menuItemPrice">$3.50</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__1cf7ed6c-2a76-4acc-a6da-ab2bcea31086" value="Cold_Tuna_with_Pasta_Shells">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Cold Tuna with Pasta Shells </div>
+                                <div class="menuItemPrice">$3.50</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__019192fa-ac89-4136-be6f-a2bc4ec92f5a" value="Cajun_Bean">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Cajun Bean </div>
+                                <div class="menuItemPrice">$3.50</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__0cf7a126-bc23-430a-af2b-ff07398b02e4" value="Pretzel_Jell-O">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Pretzel Jell-O </div>
+                                <div class="menuItemPrice">$3.50</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__76d89874-8761-4b2f-815b-1d932203a09f" value="Chicken_Salad">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Chicken Salad </div>
+                                <div class="menuItemPrice">$4.50</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__f0b09204-09e4-4bd8-b536-0111a27253c6" value="Tuna_Salad">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Tuna Salad </div>
+                                <div class="menuItemPrice">$4.50</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                     </div> <!-- divItems -->
+                  </div> <!-- divMenuGroupRow -->
+               </div> <!-- divMenuGroup -->
+            <br/>
+               <div class="divMenuGroup">
+                  <div class="col-xs-6 row divMenuGroupRow">
+                     <h4 class="menuGroupTitle">Green Salads</h4>
+                     <p><span style='padding:10px;'></span></p>
+                     <div class="divItems">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__689bbf00-19e2-4c80-96b5-fde0379adce4" value="Dressing_on_the_side">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Dressing on the side </div>
+                                <div class="menuItemPrice"> -----</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__f00815a4-cb94-4202-a6dd-caef3af6946f" value="Caesar_Salad">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Caesar Salad </div>
+                                <div class="menuItemPrice">$5.50</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__68b578a4-dc2f-41e1-8767-fc1a34456a7e" value="Garden_Salad">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Garden Salad </div>
+                                <div class="menuItemPrice">$5.50</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__5ef3b8bc-3162-483c-ae28-78b9ec3c486d" value="Chicken_Caesar_Salad">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Chicken Caesar Salad </div>
+                                <div class="menuItemPrice">$6.00</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__9d94dcc7-5cad-4201-b6ec-7711feb2e0ce" value="Garden_Salad_w_Chicken">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Garden Salad w/Chicken </div>
+                                <div class="menuItemPrice">$6.00</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__956c54c4-6c40-44bf-a815-64b7973ceefe" value="Pasta_primavera_w_chicken">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Pasta primavera w/chicken </div>
+                                <div class="menuItemPrice">$6.00</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__55e022ee-e9bb-4c1a-9fdb-a418e507bdb6" value="Taco_Salad">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Taco Salad </div>
+                                <div class="menuItemPrice">$6.00</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__db9316fa-ace6-4f25-82d7-031b4fb5b328" value="Oriental_Salad">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Oriental Salad </div>
+                                <div class="menuItemPrice">$6.00</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                     </div> <!-- divItems -->
+                  </div> <!-- divMenuGroupRow -->
+               </div> <!-- divMenuGroup -->
+            <br/>
+               <div class="divMenuGroup">
+                  <div class="col-xs-6 row divMenuGroupRow">
+                     <h4 class="menuGroupTitle">Dressing</h4>
+                     <p><span style='padding:10px;'></span></p>
+                     <div class="divItems">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__73225094-dacc-43d5-a820-c6dfdf7009a2" value="Caesar">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Caesar </div>
+                                <div class="menuItemPrice">$.50</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__8711dddf-aafc-42fe-a869-766821d6abe8" value="Ranch">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Ranch </div>
+                                <div class="menuItemPrice">$.50</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__690f98b7-f025-435b-835b-952ac57ef849" value="Oriental">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Oriental </div>
+                                <div class="menuItemPrice">$.50</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__569d39ae-a56a-4fb2-b04d-d11e10f641ab" value="Italian">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Italian </div>
+                                <div class="menuItemPrice">$.50</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" false name="menuitem__d87d2390-742f-467a-b7d5-217c1a3adaae" value="Balsamic_Vinegar">
+                            </label>
+                            <div class="divNamePrice">
+                                <div class="menuItemName">Balsamic Vinegar </div>
+                                <div class="menuItemPrice">$.50</div>
+                            </div>
+                        </div><div style="clear:both"></div>
+                     </div> <!-- divItems -->
+                  </div> <!-- divMenuGroupRow -->
+               </div> <!-- divMenuGroup -->
+            <br/>
+         </div> <!-- divMenuSection -->
+    </div> <!-- divMenuRow -->
+</div> <!-- divMenu -->
+<!-- end generated menu html -->
+
+            </div>
+            <div style="clear: both;"></div>
+            
+        </form> <!-- order -->
+    </div>
+</div> <!-- container -->
+<script>
+    $( document ).ready(function() {
+        $('.returnView').val('/menus/showMenu/25765116997843242385882827204');//sets the form field in login and register to which page to return to
+        
+    });
+</script>
+
+<style>
+    label {margin-right: 5px;font-weight: 800;}
+    .col-sm-10 {margin-bottom: 5px;}
+</style>
+<script>
+    function remind() {
+        url = "/omo/applicationusers/remind/" + encodeURIComponent($('#email').val().replace(/\./g, '&#46;'));
+//        alert(url);
+        window.location.href=url;
+    }
+</script>
+
+<!-- Modal -->
+<div id="dialogLogin" class="modal  fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                
+                
+                <div style="Zfloat: left;">
+                    <h3 id="myModalLabel2">Log In</h3>
+                </div>
+                    <div style="float: right;margin-top: -40px;">
+                        Not Registered Yet? <button class="btn btn-primary" onclick="$('#dialogLogin').modal('hide');$('#dialogRegister').modal('show');">Register</button>
+                    </div>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" id="login" action="/omo/applicationusers/login" method="POST" enctype="application/x-www-form-urlencoded">
+                    <input class="returnView" id="returnView" name="returnView" type="hidden" value=""/>
+                    <div class="form-group">
+                        <label for="email" class="col-sm-2 control-label">Email</label>
+                        <div class="col-sm-6">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="col-sm-2 control-label">Password</label>
+                        <div class="col-sm-6">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                            <a href="#" onclick="remind();">Remind me</a>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="btn btn-success" style="margin-left: 104px;">Login</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <span style="font-size: small;font-style: italic">Enter your login information OR press the "Register" button if you are NEW.</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="dialogRegister" class="modal  fade" tabindex="-1" role="dialog" aria-labelledby="registerHeader" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                
+                <h3 id="registerHeader">New User - Welcome!</h3>
+                    <div style="float: right;margin-top: -40px;">
+                        <button class="btn btn-primary" onclick="$('#dialogRegister').modal('hide');$('#dialogLogin').modal('show');">Log In</button>
+                    </div>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" id="applicationUser" action="/omo/applicationusers/registerUser" method="POST" enctype="application/x-www-form-urlencoded">
+                    <input  class="returnView" id="returnView" name="returnView" type="hidden" value=""/>
+                    <div class="form-group">
+                        <label for="email" class="col-sm-2 control-label">Email</label>
+                        <div class="col-sm-8">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="col-sm-2 control-label">Password</label>
+                        <div class="col-sm-8">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="nameFirst" class="col-sm-3 control-label">First Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="nameFirst" name="nameFirst" placeholder="First Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="nameLast" class="col-sm-3 control-label">Last Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="nameLast" name="nameLast" placeholder="Last Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneNumber" class="col-sm-3 control-label">Phone Number</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Phone Number">
+                        </div>
+                    </div>
+        
+                    <div class="form-group">
+                        <div style="margin-left: 200px; margin-top: 10px;">
+                        
+                            <button type="submit" class="btn btn-primary">Register Me!</button>
+                        </div>
+                    </div>
+
+        
+                </form>
+        
+            </div>
+        </div>
+    </div>
+    
+
+</div>
+
+<footer class="footer navbar navbar-fixed-bottom" >
+    <div class="container">
+        <div style="float:left;font-size: 11px;font-style: italic">Produced and Supported with loving care by <span style="text-align: center;color: #c12e2a"><a target="_blank" href="http://sales.mtsconsulting.biz">MTS Solutions</a></span></div>
+        <div style="float:right;">We love feedback - <a href="mailto:feedback@menubreeze.com">Bring It!</a></div>
+    </div>
+</footer>
+
+
+</div></div></body></html>

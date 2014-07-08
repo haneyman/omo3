@@ -1,0 +1,7 @@
+rem d:\maven\bin\mvn clean
+rem d:\maven\bin\mvn package -P "Skip Tests"
+"C:\Program Files (x86)\JetBrains\IntelliJ IDEA 13.1.1\jre\jre\bin\java" -Dmaven.home=D:\maven -Dclassworlds.conf=D:\maven\bin\m2.conf -Didea.launcher.port=7539 "-Didea.launcher.bin.path=C:\Program Files (x86)\JetBrains\IntelliJ IDEA 13.1.1\bin" -Dfile.encoding=UTF-8 -classpath "D:\maven\boot\plexus-classworlds-2.4.jar;C:\Program Files (x86)\JetBrains\IntelliJ IDEA 13.1.1\lib\idea_rt.jar" com.intellij.rt.execution.application.AppMain org.codehaus.classworlds.Launcher -Didea.version=13.1.1 clean -P "Skip Tests"
+"C:\Program Files (x86)\JetBrains\IntelliJ IDEA 13.1.1\jre\jre\bin\java" -Dmaven.home=D:\maven -Dclassworlds.conf=D:\maven\bin\m2.conf -Didea.launcher.port=7536 "-Didea.launcher.bin.path=C:\Program Files (x86)\JetBrains\IntelliJ IDEA 13.1.1\bin" -Dfile.encoding=UTF-8 -classpath "D:\maven\boot\plexus-classworlds-2.4.jar;C:\Program Files (x86)\JetBrains\IntelliJ IDEA 13.1.1\lib\idea_rt.jar" com.intellij.rt.execution.application.AppMain org.codehaus.classworlds.Launcher -Didea.version=13.1.1 package -P "Skip Tests"
+cd target
+scp -i  D:\Projects\EC2\amazonLinux.pem omo.war ec2-user@ec2-54-193-44-87.us-west-1.compute.amazonaws.com:/env/tomcat/apache-tomcat-7.0.52/webapps
+pause
