@@ -170,3 +170,8 @@ entity mongo --class ~.domain.MenuItemOption
 field string --fieldName description
 field number --fieldName price --type java.lang.Float
 // Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2014-07-05 11:04:24
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2014-07-27 14:24:45
+poll now
+exit
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2014-07-27 14:25:49
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2014-07-27 14:25:55

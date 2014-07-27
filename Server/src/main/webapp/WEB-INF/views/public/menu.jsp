@@ -29,12 +29,40 @@
             context: document.body,
             dataType: "json",
             async: false
-        }).done(function(data) {
+        }).done(function(data) {   //data is a OrderItem object
             //alert('done: ' + data);
             $('#dialogOrderItemItemName').text(data.menuItem.name);
             $('#dialogOrderItemItemDescription').text(data.menuItem.description);
+            $('#dialogOrderItemSections').html("");
+            var html = "<!-- begin genereated html from menu.jsp -->";
+            jQuery.each(data.options, function(i, option) {
+                html +=     "<div class=\"panelOptions panel panel-default \" >";
+                html +=     "   <div class=\"panel-heading\">" + option.description ;
+                html +=     "   </div> <!-- end panel-heading -->";
+                html +=     "   <div class=\"orderItemPanelBody panel-body\" >";
+                html +=     "      <div class=\"form-group\" >";
+                jQuery.each(option.children, function(i, child) {
+                    html += "           <div class=\"optionsSection radio\">";
+                    html += "              <label>";
+                    html += "                 <div class=\"orderItemOptionDescription\" >";
+                    html += "                    <input type=\"radio\" name=" + option.uuid + " id=" + child.uuid  + " value=" + option.description + "|" + child.uuid + "|" + child.price + " checked>";
+                    html += child.description;
+                    html += '                 </div> <!-- end radio option -->';
+                    html += "                 <div class=\"orderItemPrice\" > ";
+                    if (child.price != "0")
+                        html += "$" + child.price;
+                    html += "                 </div> <!-- end price -->";
+                    html += "              </label>";
+                    html += "           </div> <!-- end optionsSection -->";
+                });
+                html += "      </div> <!-- end form-group --> ";
+                html += "   </div> <!-- end panel-body --> ";
+                html += "</div> <!-- end panelOptions -->";
+
+            });
+            $('#dialogOrderItemSections').append(html);
         }).error(function() {
-            //alert('Dangit, there was an error, please try again.');
+            alert('Dangit, there was an error, please refresh and try again.');
         });
 
 
@@ -181,7 +209,8 @@
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" role="form" id="login" action="./omo/applicationusers/login" method="POST" enctype="application/x-www-form-urlencoded">
-                    <div class="" style="margin-left: 20px;">
+                    <div  id="dialogOrderItemSections" class="" style="margin-left: 20px;">
+<%--
                         <div class="panelOptions panel panel-default " style="">
                             <div class="panel-heading">Size</div>
                             <div class="panel-body" style="padding-left: 30px;padding-right: 30px;">
@@ -274,6 +303,7 @@
                                 </div>
                             </div>
                         </div>
+--%>
 
                     </div>
 

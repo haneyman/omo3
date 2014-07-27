@@ -19,4 +19,8 @@
 .panelOptions {width: 75%; margin-left: 10%}
 #order {display:none;}
 
+/*OrderItem dialog box in menu.jsp*/
+.orderItemPanelBody {padding-left: 30px;padding-right: 30px;}
+.orderItemPrice {float:right;}
+.orderItemOptionDescription {float:left;}
 

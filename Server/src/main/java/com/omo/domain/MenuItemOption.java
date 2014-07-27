@@ -8,6 +8,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.OneToMany;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 @RooJavaBean
 @RooToString
@@ -21,8 +22,11 @@ public class MenuItemOption {
 
     private MenuItemOptionTypes type;
 
+    private String uuid;
+
     @OneToMany(cascade = CascadeType.ALL)
     private Set<MenuItemOption> children = new HashSet<MenuItemOption>();
+
 
     //************
 
@@ -30,6 +34,7 @@ public class MenuItemOption {
         this.description = description;
         this.price = price;
         this.type = type;
+        this.uuid = UUID.randomUUID().toString();
     }
 
     public void addChild(MenuItemOptionTypes type, Float price, String description) {

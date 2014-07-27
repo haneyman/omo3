@@ -32,6 +32,14 @@ privileged aspect MenuItemOption_Roo_JavaBean {
         this.type = type;
     }
     
+    public String MenuItemOption.getUuid() {
+        return this.uuid;
+    }
+    
+    public void MenuItemOption.setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+    
     public Set<MenuItemOption> MenuItemOption.getChildren() {
         return this.children;
     }
