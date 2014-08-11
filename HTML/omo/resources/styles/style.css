@@ -1,0 +1,18 @@
+.menu ul {list-style: none; }
+.menu ul li {list-style: none}
+#menuName {font-size: larger;}
+.menuDescription {}
+.menuSection{}
+.menuSectionLabel {color: #67b168;}
+.menuGroups {margin-left: 3%;}
+.menuGroup {margin: 5px; padding-right: 0px; padding-left: 0px; width:40%;}
+.menuGroupDescription {font-size: small;font-style: italic; }
+.menuGroupTitle {font-size: large;}
+.menuGroupBody {}
+.menuItem {padding-right: 0px; padding-left: 0px; margin: 0px;}
+.menuItemName { float:left;}
+.menuItemName a:link, a:visited {text-decoration: none; color: #296926}
+.menuItemName a:hover {text-decoration: none; color: #67b168}
+.menuItemPrice {float:right;}
+.panelOptions {width: 75%; margin-left: 10%}
+#order {display:none;}
