@@ -5,6 +5,7 @@
 <%--@elvariable id="offered" type="string"--%>
 <%--@elvariable id="menu" type="com.omo.domain.Menu"--%>
 <script>
+    //<![CDATA[
     <%--<c:if test="${!canOrder}">--%>
     $( document ).ready(function() {
         $('#order').hide();
@@ -21,6 +22,13 @@
         </c:if>
     });
 
+    function submitOrderItem(checkout) {
+        if (checkout)
+            $('#dialogOrderItemCheckout').value("checkout");
+        //alert('submit ' + $('#inputCheckout').value());
+        $('#formOrderItem').submit();
+    };
+
     function orderItem(item) {
         //TODO: gotta add the items to the order some how
         //alert('pretending to add item to order: ' + item);
@@ -31,6 +39,8 @@
             async: false
         }).done(function(data) {   //data is a OrderItem object
             //alert('done: ' + data);
+            $('#dialogOrderItemMenuId').val("${menu.id}");
+            $('#dialogOrderItemItemUuid').val(data.menuItem.uuid);
             $('#dialogOrderItemItemName').text(data.menuItem.name);
             $('#dialogOrderItemItemDescription').text(data.menuItem.description);
             $('#dialogOrderItemSections').html("");
@@ -45,7 +55,8 @@
                     html += "           <div class=\"optionsSection radio\">";
                     html += "              <label>";
                     html += "                 <div class=\"orderItemOptionDescription\" >";
-                    html += "                    <input type=\"radio\" name=" + option.uuid + " id=" + child.uuid  + " value=" + option.description + "|" + child.uuid + "|" + child.price + " checked>";
+                    html += "                    <input type=\"radio\" name=OPTION_" + child.uuid + " value=" + child.uuid + " >";
+                    //html += "                    <input type=\"radio\" name=OPTION:" + option.uuid + " id=" + child.uuid  + " value=" + option.description + "|" + child.uuid + "|" + child.price + " checked>";
                     html += child.description;
                     html += '                 </div> <!-- end radio option -->';
                     html += "                 <div class=\"orderItemPrice\" > ";
@@ -203,117 +214,24 @@
                         <span id="dialogOrderItemItemName">Error</span> - <span id="dialogOrderItemItemDescription"></span>
                     </div>
                 </div>
-                <!--div style="float: right;margin-top: -40px;">
-                    Not Registered Yet? <button class="btn btn-primary" onclick="$('#dialogLogin').modal('hide');$('#dialogRegister').modal('show');">Register</button>
-                </div-->
             </div>
             <div class="modal-body">
-                <form class="form-horizontal" role="form" id="login" action="./omo/applicationusers/login" method="POST" enctype="application/x-www-form-urlencoded">
+                <form class="form-horizontal" role="form" id="formOrderItem" action="/omo/orders/submitOrderItem" method="POST" enctype="application/x-www-form-urlencoded">
+                    <input type="hidden" name="dialogOrderItemMenuId" id="dialogOrderItemMenuId" value="???">
+                    <input type="hidden" name="dialogOrderItemItemUuid" id="dialogOrderItemItemUuid" value="???">
+                    <input type="hidden" name="dialogOrderItemCheckout" id="dialogOrderItemCheckout" value="nahDontCheckout">
+                    <input type="hidden" name="dialogOrderItemQuantity" id="dialogOrderItemQuantity" value="1">
                     <div  id="dialogOrderItemSections" class="" style="margin-left: 20px;">
-<%--
-                        <div class="panelOptions panel panel-default " style="">
-                            <div class="panel-heading">Size</div>
-                            <div class="panel-body" style="padding-left: 30px;padding-right: 30px;">
-                                <div class="form-group" style="">
-                                    <div class="optionsSection radio">
-                                        <label>
-                                            <div style="float:left;">
-                                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                                                Regular 7"
-                                            </div>
-                                            <div style="float:right;">
-                                                $7.00
-                                            </div>
-                                        </label>
-                                    </div>
-                                    <div class="radio">
-                                        <label>
-                                            <div style="float:left;">
-                                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                                                Large 10"
-                                            </div>
-                                            <div style="float:right;">
-                                                $9.00
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="panelOptions panel panel-default " style="">
-                            <div class="panel-heading">Bread</div>
-                            <div class="panel-body" style="padding-left: 30px;padding-right: 30px;">
-                                <div class="form-group" style="">
-                                    <div class="optionsSection radio">
-                                        <label>
-                                            <div style="float:left;">
-                                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                                                Wheat
-                                            </div>
-                                            <div style="float:right;">
-
-                                            </div>
-                                        </label>
-                                    </div>
-                                    <div class="radio">
-                                        <label>
-                                            <div style="float:left;">
-                                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                                                Moldy Bread
-                                            </div>
-                                            <div style="float:right;">
-                                            </div>
-                                        </label>
-                                    </div>
-                                    <div class="radio">
-                                        <label>
-                                            <div style="float:left;">
-                                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                                                Sheet Metal
-                                            </div>
-                                            <div style="float:right;">
-                                            </div>
-                                        </label>
-                                    </div>
-                                    <div class="radio">
-                                        <label>
-                                            <div style="float:left;">
-                                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                                                Lizard Skin
-                                            </div>
-                                            <div style="float:right;">
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="panelOptions panel panel-default " style="">
-                            <div class="panel-heading">Notes</div>
-                            <div class="panel-body" style="padding-left: 30px;padding-right: 30px;">
-                                <div class="form-group" style="">
-                                    <div style="margin-top: 15px; margin-left: 15px;">
-                                        <!--<label for="notes" class="col-sm-1 control-label"  style="">Notes</label>-->
-                                        <div class="" style="width: 90%; margin-left: 10px;">
-                                            <input type="text" class="form-control" id="notes" name="notes" placeholder="Enter notes">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
---%>
-
+                        <%-- Content will be inserted in here by javascript --%>
                     </div>
-
-
+                    <label for="dialogOrderItemNote">Note</label>
+                    <input type="text" class="form-control" name="dialogOrderItemNote"  id="dialogOrderItemNote" placeholder="Note">
                 </form>
             </div>
             <div class="modal-footer">
                 <div style="margin-top:10">
-                    <button class="btn btn-success" style="margin-left: 4px;">Add To Order</button>
-                    <button class="btn btn-success" style="margin-left: 4px;">Add To Order AND Checkout</button>
+                    <button class="btn btn-success" style="margin-left: 4px;"  onclick='submitOrderItem(false);'>Add To Order</button>
+                    <button class="btn btn-success" style="margin-left: 4px;"  onclick='submitOrderItem(true);'>Add To Order AND Checkout</button>
                 </div>
             </div>
         </div>

@@ -16,15 +16,26 @@ public class OrderItem {
 
     private Integer quantity;
 
-    private String description;
+//    private String description;
 
-    private MenuItem group;
+//    private MenuItem group;
 
-    private MenuItem section;
+//    private MenuItem section;
 
-    private MenuItem menuItem;
+    private MenuItem menuItem;//actual Menu.menuItem with options attached
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private Set<MenuItemOption> options = new HashSet<MenuItemOption>();
+    private String note;
 
+    //@OneToMany(cascade = CascadeType.ALL)
+    //private Set<MenuItemOption> options = new HashSet<MenuItemOption>();
+
+    public OrderItem(Integer quantity, MenuItem menuItem, String note) {
+        this.quantity = quantity;
+//        this.description = description;
+        this.menuItem = menuItem;
+//        this.group = group;
+//        this.section = section;
+        this.note = note;
+
+    }
 }

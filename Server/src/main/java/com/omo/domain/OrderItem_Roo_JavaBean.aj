@@ -4,9 +4,7 @@
 package com.omo.domain;
 
 import com.omo.domain.MenuItem;
-import com.omo.domain.MenuItemOption;
 import com.omo.domain.OrderItem;
-import java.util.Set;
 
 privileged aspect OrderItem_Roo_JavaBean {
     
@@ -18,30 +16,7 @@ privileged aspect OrderItem_Roo_JavaBean {
         this.quantity = quantity;
     }
     
-    public String OrderItem.getDescription() {
-        return this.description;
-    }
-    
-    public void OrderItem.setDescription(String description) {
-        this.description = description;
-    }
-    
-    public MenuItem OrderItem.getGroup() {
-        return this.group;
-    }
-    
-    public void OrderItem.setGroup(MenuItem group) {
-        this.group = group;
-    }
-    
-    public MenuItem OrderItem.getSection() {
-        return this.section;
-    }
-    
-    public void OrderItem.setSection(MenuItem section) {
-        this.section = section;
-    }
-    
+
     public MenuItem OrderItem.getMenuItem() {
         return this.menuItem;
     }
@@ -50,12 +25,12 @@ privileged aspect OrderItem_Roo_JavaBean {
         this.menuItem = menuItem;
     }
     
-    public Set<MenuItemOption> OrderItem.getOptions() {
-        return this.options;
+    public String OrderItem.getNote() {
+        return this.note;
     }
     
-    public void OrderItem.setOptions(Set<MenuItemOption> options) {
-        this.options = options;
+    public void OrderItem.setNote(String note) {
+        this.note = note;
     }
     
 }

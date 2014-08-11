@@ -8,7 +8,7 @@
         <field:input field="group" id="c_com_omo_domain_OrderItem_group" z="Qh221Vz08qm5pcL/r6RgD1PF2YY="/>
         <field:input field="section" id="c_com_omo_domain_OrderItem_section" z="+nZh6gWKzNQo2+4P5iLl3/VwqXg="/>
         <field:input field="menuItem" id="c_com_omo_domain_OrderItem_menuItem" z="Xvo0zconDh5UopAGYOAJBgVE/Gs="/>
-        <field:simple field="options" id="c_com_omo_domain_OrderItem_options" messageCode="entity_reference_not_managed" messageCodeAttribute="Menu Item Option" z="lJfiKxGneZ+NEoWnSotvx5FQoF8="/>
+        <field:input field="note" id="c_com_omo_domain_OrderItem_note" z="xxb1PX6LRVCLcTKQhITiM0uQAis="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_omo_domain_OrderItem" render="${not empty dependencies}" z="Y7rj9tMk3AywVbP9A7apC6WFTys="/>
 </div>

@@ -38,6 +38,9 @@ public class OrderServiceImpl implements OrderService {
     }
 
     public void notifyOrder(Order order) {
+        //todo: redo this!!!
+    }
+/*
         StringBuffer body = new StringBuffer();
 //        body.append("<html><body>");
         body.append("<h3>Menu<i>Breeze</i></h3><hr/>");
@@ -73,6 +76,7 @@ public class OrderServiceImpl implements OrderService {
             }
         }
     }
+*/
 
 
 

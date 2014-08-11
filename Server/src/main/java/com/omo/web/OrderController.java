@@ -1,12 +1,9 @@
 package com.omo.web;
 
-import com.omo.domain.ApplicationUser;
-import com.omo.domain.Menu;
-import com.omo.domain.MenuItem;
-import com.omo.domain.Order;
+import com.omo.domain.*;
 import com.omo.repository.MenuRepository;
 import com.omo.repository.OrderRepository;
-import com.omo.service.EmailViaSES;
+import com.omo.service.MenuService;
 import com.omo.service.MenuServiceImpl;
 import com.omo.service.OrderService;
 import org.apache.commons.lang3.time.DateUtils;
@@ -14,17 +11,18 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.data.mongodb.core.query.Sort;
 import org.springframework.roo.addon.web.mvc.controller.scaffold.RooWebScaffold;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.util.UriUtils;
+import org.springframework.web.util.WebUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Date;
@@ -40,7 +38,12 @@ public class OrderController {
     @Autowired
     MenuRepository menuRepository;
     @Autowired
+    MenuService menuService;
+    @Autowired
     OrderRepository orderRepository;
+    @Autowired
+    OrderService orderService;
+
 
     @RequestMapping(value = "reorder/{id}", produces = "text/html")
     public String reorderOrder(@PathVariable("id") BigInteger id, Model uiModel, HttpServletRequest httpServletRequest)
@@ -135,16 +138,93 @@ public class OrderController {
         return "public/orders";
     }
 
+    /*
+    Called when they hit "add to order" in dialog in menu
+     */
+    @RequestMapping(value = "submitOrderItem", method = RequestMethod.POST, produces = "text/html")
+    public String submitOrderItem(Model uiModel, HttpServletRequest httpServletRequest, HttpSession session) throws Exception {
+        logger.debug("orderItem");
+        String menuId="";
+        String menuItemUUID;
+        MenuItem menuItem=null;
+        MenuItem menuItemParent;
+        Menu menu=null;
+        Float total=0f;
+        //get the current order or create one
+        Order order = (Order) session.getAttribute("order");
+        if (order == null) {
+            order = new Order();
+        }
+
+
+        String note  = httpServletRequest.getParameter("dialogOrderItemNote");
+        String checkout = httpServletRequest.getParameter("dialogOrderItemCheckout");
+        menuItemUUID = httpServletRequest.getParameter("dialogOrderItemItemUuid");
+        Integer menuItemQuantity = Integer.parseInt(httpServletRequest.getParameter("dialogOrderItemQuantity"));
+
+        //get the menu
+        menuId = httpServletRequest.getParameter("dialogOrderItemMenuId");
+        menu = menuRepository.findOne(new BigInteger(menuId));
+        if (menu == null)
+            throw new Exception("Could not retrieve menu: " + menu);
+        order.setMenu(menu);
+        logger.debug("Menu id parm found, menu set to: " + menu.getId());
+
+        //get the menu item and its options
+        menuItem = MenuServiceImpl.getMenuItemFromSet(menu.getMenuItems(), menuItemUUID);
+        //menuItemParent = MenuServiceImpl.getMenuItemFromSet(menu.getMenuItems(), menuItem.getParentUuid());
+        if (menuItem == null)
+            throw new Exception("   order could not find menuItem UUID:" + menuItemUUID);
+        //now loop through the parameters searching for options, then find the option in the menu, add to order
+        //refer to menu.jsp function orderItem(item)
+        //it contains options with names of "OPTION:" + option.uuid
+        Enumeration enumeration = httpServletRequest.getParameterNames();
+        menuItem.getOptions().clear();
+        MenuItemOption option;
+        String menuItemOptionUuid;
+        while (enumeration.hasMoreElements()) {
+            String parameterName = (String) enumeration.nextElement();
+            if (parameterName.toUpperCase().contains("OPTION_")) {
+                //using the name not value?                menuItemOptionUuid = httpServletRequest.getParameter(parameterName).substring(6);
+                menuItemOptionUuid = parameterName.substring(7);
+                option = menuService.findMenuItemOption(menu, menuItemOptionUuid);
+                menuItem.getOptions().add(option);
+            }
+        }
+
+        OrderItem orderItem = new OrderItem(menuItemQuantity, menuItem, note);
+        order.getOrderItems().add(orderItem);
+        order.setStatus(Order.ORDER_STATUS.INIT);
+        //order.setTotalPretax(total);
+//TODO: new solution for combos        adjustForComboHack(order);
+        ApplicationUser user = (ApplicationUser) session.getAttribute("applicationUser");
+        order.setUser(user);
+        session.setAttribute("order", order);
+        uiModel.asMap().clear();
+        orderService.saveOrder(order);
+        //pass the order id to confirmOrder?
+        logger.debug("Order updated with " + order.getMenu().getMenuItems().size() + " items." );
+        if (checkout.equalsIgnoreCase("checkout"))
+            //checkout???
+            return "redirect:/orders/confirmOrder" + encodeUrlPathSegment(order.getId().toString(), httpServletRequest);
+        else
+            //??????? back to menu?
+            return "redirect:/menus/showMenu/" + encodeUrlPathSegment(order.getMenu().getId().toString(), httpServletRequest);
+    }
+
+/*
 
     @RequestMapping(value = "submitOrder", method = RequestMethod.POST, produces = "text/html")
     public String createOrder(Model uiModel, HttpServletRequest httpServletRequest, HttpSession session) throws Exception {
         logger.debug("createOrder");
+*/
 /*
         if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, order);
             return "orders/create";
         }
-*/
+*//*
+
         String menuId="";
         String menuItemUUID;
         MenuItem menuItem;
@@ -174,14 +254,14 @@ public class OrderController {
                 menuItemUUID = parameterName.substring(MenuItem.MENUITEM_LABEL.length() + 1);
 //                logger.debug("   Order has menu item: " + menuItemUUID + " retrieving...");
                 menuItem = MenuServiceImpl.getMenuItemFromSet(menu.getMenuItems(), menuItemUUID);
-                menuItemParent = MenuServiceImpl.getMenuItemFromSet(menu.getMenuItems(), menuItem.getParentUuid());
+                //menuItemParent = MenuServiceImpl.getMenuItemFromSet(menu.getMenuItems(), menuItem.getParentUuid());
                 if (menuItem == null)
                     throw new Exception("   order could not find menuItem UUID:" + menuItemUUID);
-                if (menuItemParent == null)
-                    throw new Exception("   order could not find menuItem parent:" );
-                else {
-                    menuItem.setInternalNotes(menuItemParent.getName());
-                }
+//                if (menuItemParent == null)
+//                    throw new Exception("   order could not find menuItem parent:" );
+//                else {
+//                    menuItem.setInternalNotes(menuItemParent.getName());
+//                }
 //                total += menuItem.getPrice();
                 order.getMenuItems().add(menuItem);
 
@@ -207,8 +287,10 @@ public class OrderController {
 //        return "redirect:/orders/" + encodeUrlPathSegment(order.getId().toString(), httpServletRequest);
     }
 
+*/
     //looks at name and parent (in internalNotes) and if its a combo, finds combo items and zeros out their price
     //its a hack but it works for now...
+/*
     private void adjustForComboHack (Order order) {
         //HACK to adjust for 1/2 sand 1/2 soup
         boolean containsComboHalfSand = false;
@@ -246,6 +328,19 @@ public class OrderController {
         }
 
     }
+
+*/
+    String encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
+        String enc = httpServletRequest.getCharacterEncoding();
+        if (enc == null) {
+            enc = WebUtils.DEFAULT_CHARACTER_ENCODING;
+        }
+        try {
+            pathSegment = UriUtils.encodePathSegment(pathSegment, enc);
+        } catch (UnsupportedEncodingException uee) {}
+        return pathSegment;
+    }
+
 
 
 }

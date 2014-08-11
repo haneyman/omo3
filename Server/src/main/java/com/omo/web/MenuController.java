@@ -38,6 +38,15 @@ public class MenuController {
     @Autowired
     RestaurantRepository restaurantRepository;
 
+    //used by function orderItem(item) for the order item dialog in menu.jsp, to confirm the item and select options.
+    @RequestMapping(value="getMenuItemForOrder/{menuId}/{itemUuid}", method = RequestMethod.GET)
+    public @ResponseBody MenuItem getMenuItemInJSON(@PathVariable BigInteger menuId, @PathVariable String itemUuid) throws Exception {
+        MenuItem menuItem = menuService.getMenuItemWithOptions(menuId, itemUuid);
+        return menuItem;
+
+    }
+
+/*
     //inject all the menu item info AND options for section, group, item into a single OrderItem object
     //used by the order item dialog, to confirm the item and select options.
     @RequestMapping(value="getMenuItemForOrder/{menuId}/{itemUuid}", method = RequestMethod.GET)
@@ -52,8 +61,8 @@ public class MenuController {
                     if (menuItem.getUuid().equalsIgnoreCase(itemUuid)) {
                         orderItem = new OrderItem();
                         orderItem.setMenuItem(menuItem);
-                        orderItem.setGroup(menuItemGroup);
-                        orderItem.setSection(menuItemSection);
+                        //orderItem.setGroup(menuItemGroup);
+                        //orderItem.setSection(menuItemSection);
                         if (menuItemSection.getOptions() != null) {
                             orderItem.getOptions().addAll(menuItemSection.getOptions());
                         }
@@ -70,6 +79,7 @@ public class MenuController {
 
     }
 
+*/
 
     @RequestMapping(value = "listMenuPublic", produces = "text/html")
     public String listMenusPublic(Model uiModel) {

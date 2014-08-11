@@ -6,7 +6,6 @@ package com.omo.web;
 import com.omo.domain.ApplicationUser;
 import com.omo.domain.Menu;
 import com.omo.domain.MenuItem;
-import com.omo.domain.Order;
 import com.omo.domain.OrderItem;
 import com.omo.domain.Reseller;
 import com.omo.domain.Restaurant;
@@ -17,7 +16,6 @@ import com.omo.repository.ResellerRepository;
 import com.omo.repository.RestaurantRepository;
 import com.omo.repository.ScheduleRepository;
 import com.omo.service.MenuService;
-import com.omo.service.OrderService;
 import com.omo.web.ApplicationConversionServiceFactoryBean;
 import java.math.BigInteger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,9 +35,6 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     
     @Autowired
     MenuItemRepository ApplicationConversionServiceFactoryBean.menuItemRepository;
-    
-    @Autowired
-    OrderService ApplicationConversionServiceFactoryBean.orderService;
     
     @Autowired
     ResellerRepository ApplicationConversionServiceFactoryBean.resellerRepository;
@@ -101,7 +96,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<MenuItem, String> ApplicationConversionServiceFactoryBean.getMenuItemToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.omo.domain.MenuItem, java.lang.String>() {
             public String convert(MenuItem menuItem) {
-                return new StringBuilder().append(menuItem.getName()).append(' ').append(menuItem.getDescription()).append(' ').append(menuItem.getUuid()).append(' ').append(menuItem.getParentUuid()).toString();
+                return new StringBuilder().append(menuItem.getName()).append(' ').append(menuItem.getDescription()).append(' ').append(menuItem.getUuid()).append(' ').append(menuItem.getSortOrder()).toString();
             }
         };
     }
@@ -122,34 +117,10 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         };
     }
     
-    public Converter<Order, String> ApplicationConversionServiceFactoryBean.getOrderToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.omo.domain.Order, java.lang.String>() {
-            public String convert(Order order) {
-                return new StringBuilder().append(order.getOrderDate()).append(' ').append(order.getStatus()).append(' ').append(order.getTotalPretax()).append(' ').append(order.getNotes()).toString();
-            }
-        };
-    }
-    
-    public Converter<BigInteger, Order> ApplicationConversionServiceFactoryBean.getIdToOrderConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.math.BigInteger, com.omo.domain.Order>() {
-            public com.omo.domain.Order convert(java.math.BigInteger id) {
-                return orderService.findOrder(id);
-            }
-        };
-    }
-    
-    public Converter<String, Order> ApplicationConversionServiceFactoryBean.getStringToOrderConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.omo.domain.Order>() {
-            public com.omo.domain.Order convert(String id) {
-                return getObject().convert(getObject().convert(id, BigInteger.class), Order.class);
-            }
-        };
-    }
-    
     public Converter<OrderItem, String> ApplicationConversionServiceFactoryBean.getOrderItemToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.omo.domain.OrderItem, java.lang.String>() {
             public String convert(OrderItem orderItem) {
-                return new StringBuilder().append(orderItem.getQuantity()).append(' ').append(orderItem.getDescription()).toString();
+                return new StringBuilder().append(orderItem.getQuantity()).append(' ').append(orderItem.getNote()).toString();
             }
         };
     }
@@ -244,9 +215,6 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         registry.addConverter(getMenuItemToStringConverter());
         registry.addConverter(getIdToMenuItemConverter());
         registry.addConverter(getStringToMenuItemConverter());
-        registry.addConverter(getOrderToStringConverter());
-        registry.addConverter(getIdToOrderConverter());
-        registry.addConverter(getStringToOrderConverter());
         registry.addConverter(getOrderItemToStringConverter());
         registry.addConverter(getStringToOrderItemConverter());
         registry.addConverter(getResellerToStringConverter());

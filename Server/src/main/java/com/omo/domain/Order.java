@@ -29,10 +29,14 @@ public class Order {
     private String notes;
     @DBRef
     private ApplicationUser user;
+    @OneToMany(cascade = CascadeType.ALL)
+    private java.util.Set<OrderItem> orderItems = new HashSet<OrderItem>();
 
 
+/*  Moved under Menu
     @OneToMany(cascade = CascadeType.ALL)
     private java.util.Set<MenuItem> menuItems = new HashSet<MenuItem>();
+*/
 
     public Order() {
         setOrderDate(new Date());
@@ -53,7 +57,8 @@ public class Order {
         newOrder.totalPretax = 0f;
         newOrder.setNotes(notes);
         newOrder.setUser(user);
-        newOrder.getMenuItems().addAll(getMenuItems());
+        //newOrder.getMenuItems().addAll(getMenuItems());
+
         return newOrder;
     }
 

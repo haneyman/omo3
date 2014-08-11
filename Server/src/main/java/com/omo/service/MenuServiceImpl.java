@@ -36,6 +36,86 @@ public class MenuServiceImpl implements MenuService {
     ScheduleRepository scheduleRepository;
 
 
+    /**
+     * Finds menuItemOption in a menu,
+     * they are usually under a group under a menu item or menu item group
+     */
+    public MenuItemOption findMenuItemOption(Menu menu, String optionUuid) {
+        MenuItemOption option;
+        for (MenuItem menuItemSection : menu.getMenuItems()) {
+            option = findMenuItemOption(menuItemSection, optionUuid);//looks for option at section level
+            if (option != null) {
+                return option;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Finds menu item and loads all options into the menu item (even the options from parents)
+     *
+     */
+    @Override
+    public MenuItem getMenuItemWithOptions(BigInteger menuId, String menuItemUuid) throws Exception {
+        Menu menu = menuRepository.findOne(menuId);
+        MenuItem menuItemResult = null;
+        //OrderItem orderItem = null;
+        //find the menu item for the menu
+        for (MenuItem menuItemSection : menu.getMenuItems()) {
+            for (MenuItem menuItemGroup : menuItemSection.getChildMenuItems())  {
+                for (MenuItem menuItem : menuItemGroup.getChildMenuItems())  {
+                    if (menuItem.getUuid().equalsIgnoreCase(menuItemUuid)) {
+                        menuItemResult = menuItem;
+                        break;
+                    }
+                }
+            }
+        }
+        if (menuItemResult == null)
+            throw new Exception("menu item not found in MenuServiceImpl for menu " + menuId + "  item id "  + menuItemUuid);
+        //add menu group options
+        if (menuItemResult.getParent() != null && menuItemResult.getParent().getOptions() != null)
+            menuItemResult.getOptions().addAll(menuItemResult.getParent().getOptions());
+        //add menu section options
+        if (menuItemResult.getParent().getParent() != null && menuItemResult.getParent().getParent().getOptions() != null)
+            menuItemResult.getOptions().addAll(menuItemResult.getParent().getParent().getOptions());
+        //
+        return menuItemResult;
+    }
+
+    /**
+     * Finds menu item options by recursively searching a given menu item, usually called by above
+     *
+     * @param menuItem
+     * @param optionUuid
+     * @return
+     */
+    private MenuItemOption findMenuItemOption(MenuItem menuItem, String optionUuid) {
+        logger.debug("findMenuItemOption looking for " + optionUuid + " " + " under " + menuItem.getName());
+        for (MenuItemOption option : menuItem.getOptions()) {
+            //initial option is usually a group like "Bread"
+            if (option.getType().equals(MenuItemOption.MenuItemOptionTypes.Group)) {
+                for (MenuItemOption optionChild : option.getChildren()) {
+                    if (optionChild.getUuid().equalsIgnoreCase(optionUuid))
+                        return optionChild;
+                }
+            } else {
+                if (option.getUuid().equalsIgnoreCase(optionUuid))
+                    return option;
+            }
+        }
+        //if here didn't find it, look in children
+        MenuItemOption result = null;
+        for (MenuItem menuItemChild : menuItem.getChildMenuItems()) {
+            result = findMenuItemOption(menuItemChild, optionUuid);
+            if (result != null)
+                return result;
+        }
+
+        return null;
+    }
+/*
+
     public String getMenuAsHTML(Menu menu) throws Exception {
         logger.debug("getMenuAsHTML - loading html for menu " + menu.getName() +  "...");
         html = new ArrayList<String>();
@@ -52,6 +132,8 @@ public class MenuServiceImpl implements MenuService {
         return htmlAsString();
     }
 
+*/
+/*
     public String getMenu(Menu menu) throws Exception {
         logger.debug("getMenuAsHTML - loading html for menu " + menu.getName() +  "...");
         html = new ArrayList<String>();
@@ -67,6 +149,8 @@ public class MenuServiceImpl implements MenuService {
         logger.debug("getMenuAsHTML done");
         return htmlAsString();
     }
+*/
+/*
 
     private void loadMenuItems(Set<MenuItem> menuItems, int level) throws Exception {
         List<MenuItem> menuItemsList = new ArrayList(menuItems);
@@ -134,12 +218,15 @@ public class MenuServiceImpl implements MenuService {
             if (option.getPrice() > 0) {
                 addToHTML(INDENT + "        <div class=\"menuItemPrice\">$" + priceOutput + "</div>", level);
             } else {
-                addToHTML(INDENT + "        <div class=\"menuItemPrice\"> -----" + /*"&nbsp;" +*/ "</div>", level);
+                addToHTML(INDENT + "        <div class=\"menuItemPrice\"> -----" + */
+/*"&nbsp;" +*//*
+ "</div>", level);
             }
         }
         addToHTML(INDENT + "    </div>", level);
         addToHTML(INDENT + "</div><div style=\"clear:both\"></div>",level);
     }
+*/
 /*
 
     private void loadMenuItem(MenuItem menuItem, int level) {
@@ -165,6 +252,7 @@ public class MenuServiceImpl implements MenuService {
         addToHTML(INDENT + "</label>",level);
     }
 */
+/*
 
 
     private void addToHTML(String htmlLine, int level) {
@@ -182,6 +270,7 @@ public class MenuServiceImpl implements MenuService {
         return sb.toString();
     }
 
+*/
 
     public List<Menu> getMenuByName(String menuName) {
         return menuRepository.findByName(menuName);

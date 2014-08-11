@@ -33,12 +33,12 @@ privileged aspect MenuItem_Roo_JavaBean {
         this.uuid = uuid;
     }
     
-    public String MenuItem.getParentUuid() {
-        return this.parentUuid;
+    public MenuItem MenuItem.getParent() {
+        return this.parent;
     }
     
-    public void MenuItem.setParentUuid(String parentUuid) {
-        this.parentUuid = parentUuid;
+    public void MenuItem.setParent(MenuItem parent) {
+        this.parent = parent;
     }
     
     public Integer MenuItem.getSortOrder() {

@@ -14,6 +14,12 @@
             $("#allOrders").addClass('active');
 
     });
+
+    function showOrder() {
+        $("#order").slideDown();
+        //$("#myOrderButton").hide();
+    }
+
 </script>
 <header class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div style="" class="container">
@@ -40,7 +46,9 @@
                     </c:if>
                 </c:if>
                 <li id="divider" class="divider"><a href="#">|</a></li>
-                <li id="myOrder" class=""><a href="#" onclick="showOrder();">My Order<span style="color: #4aa13c"> 3 items = $12.75</a> </span></li>
+                <c:if test="${sessionScope.order != null}">
+                    <li id="myOrder" class=""><a href="#" onclick="showOrder();">My Order<span style="color: #4aa13c"> ${order.orderitems.size} items </span></a></li>
+                </c:if>
             </ul>
             <div style="float:right; "  class="">
                 <c:choose>
@@ -59,6 +67,34 @@
                 </c:choose>
             </div>
         </div><!--/.nav-collapse -->
+
+        <!-- THE ORDER -->
+        <div id="order" class="panel panel-success" style="float:right; width: 30%; margin-right: 10%; margin-top: 20px;">
+            <div class="panel-heading">
+                Order
+                <div style="float:right;" ><a href="#" onclick="hideOrder();">x</a></div>
+
+            </div>
+            <div class="panel-body">
+                <table class="table">
+                    <tr>
+                        <th>Qty</th>
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th><a href="#"></a></th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Phlegmy Head Cheese</td>
+                        <td>$6.00</td>
+                        <td><a href="#">Delete</a></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="panel-footer">
+                <button type="button" class="btn btn-success">Checkout</button>
+            </div>
+        </div>
+        <!-- END THE ORDER -->
     </div>
 </header>
-

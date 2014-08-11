@@ -9,6 +9,7 @@
             <table:column id="c_com_omo_domain_OrderItem_group" property="group" z="uwBcZfklFn2kxpe5iSwj78fQfFk="/>
             <table:column id="c_com_omo_domain_OrderItem_section" property="section" z="p48YzvDjKXQEScYlP5IZH93JoTQ="/>
             <table:column id="c_com_omo_domain_OrderItem_menuItem" property="menuItem" z="iUtAIphlmDWcBhQXdBGrFRqDJ+A="/>
+            <table:column id="c_com_omo_domain_OrderItem_note" property="note" z="FhmUxZo//lsE+WZr39viaT5jOO8="/>
         </table:table>
     </page:list>
 </div>

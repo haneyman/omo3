@@ -1,6 +1,7 @@
 package com.omo.domain;
 
 import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.layers.repository.mongo.RooMongoEntity;
 import org.springframework.roo.addon.tostring.RooToString;
@@ -22,7 +23,9 @@ public class MenuItem {
     private String name;
     private String description;
     private String uuid;
-    private String parentUuid;
+    @DBRef
+    private MenuItem parent;
+//    private String parentUuid;
     private Integer sortOrder;
     private MenuItemTypes type;
     private Float price;
@@ -33,35 +36,35 @@ public class MenuItem {
     private String internalNotes;//a hack way of storing parent descriptive text
 
     //legacy constructor for 1 price only
-    public MenuItem(String inName, String inDescription, Integer inSortOrder, MenuItemTypes inType, Float inPrice, String parent) {
+    public MenuItem(String inName, String inDescription, Integer inSortOrder, MenuItemTypes inType, Float inPrice, MenuItem parent) {
         name = inName;
         description = inDescription;
         sortOrder = inSortOrder;
         type = inType;
         uuid = UUID.randomUUID().toString();
-        parentUuid = parent;
+        parent = parent;
         this.price = inPrice;
         //addOption(inPrice, "");
     }
 
-    public MenuItem(String inName, String inDescription, Integer inSortOrder, MenuItemTypes inType, String parent) {
-        name = inName;
-        description = inDescription;
-        sortOrder = inSortOrder;
-        type = inType;
-        uuid = UUID.randomUUID().toString();
-        parentUuid = parent;
+    public MenuItem(String inName, String inDescription, Integer inSortOrder, MenuItemTypes inType, MenuItem parent) {
+        this.name = inName;
+        this.description = inDescription;
+        this.sortOrder = inSortOrder;
+        this.type = inType;
+        this.uuid = UUID.randomUUID().toString();
+        this.parent = parent;
     }
 
     //legacy method, for adding a single price
     public MenuItem addChildMenuItem(String name, String desc, Integer sortOrder, MenuItemTypes menuItemType, Float price) {
-        MenuItem child = new MenuItem(name, desc, sortOrder, menuItemType, price, this.getUuid());
+        MenuItem child = new MenuItem(name, desc, sortOrder, menuItemType, price, this);
         this.getChildMenuItems().add(child);
         return child;
     }
 
     public MenuItem addChildMenuItem(String name, String desc, Integer sortOrder, MenuItemTypes menuItemType) {
-        MenuItem child = new MenuItem(name, desc, sortOrder, menuItemType, this.getUuid());
+        MenuItem child = new MenuItem(name, desc, sortOrder, menuItemType, this);
         this.getChildMenuItems().add(child);
         return child;
     }

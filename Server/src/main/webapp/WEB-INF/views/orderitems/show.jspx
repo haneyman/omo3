@@ -8,5 +8,6 @@
         <field:display field="group" id="s_com_omo_domain_OrderItem_group" object="${orderitem}" z="QMhBgOFu0LVtf2r/d4fS4McNa3Q="/>
         <field:display field="section" id="s_com_omo_domain_OrderItem_section" object="${orderitem}" z="IlG4f8L/mkpdEni1vTKWwjBlz+w="/>
         <field:display field="menuItem" id="s_com_omo_domain_OrderItem_menuItem" object="${orderitem}" z="7rIJ/4WGzdapPDJSneD1QhP/zQ0="/>
+        <field:display field="note" id="s_com_omo_domain_OrderItem_note" object="${orderitem}" z="B4BH754AulJLMlp8o9/M2bh7RdA="/>
     </page:show>
 </div>

@@ -5,8 +5,8 @@ package com.omo.domain;
 
 import com.omo.domain.ApplicationUser;
 import com.omo.domain.Menu;
-import com.omo.domain.MenuItem;
 import com.omo.domain.Order;
+import com.omo.domain.OrderItem;
 import java.util.Date;
 import java.util.Set;
 
@@ -60,12 +60,12 @@ privileged aspect Order_Roo_JavaBean {
         this.user = user;
     }
     
-    public Set<MenuItem> Order.getMenuItems() {
-        return this.menuItems;
+    public Set<OrderItem> Order.getOrderItems() {
+        return this.orderItems;
     }
     
-    public void Order.setMenuItems(Set<MenuItem> menuItems) {
-        this.menuItems = menuItems;
+    public void Order.setOrderItems(Set<OrderItem> orderItems) {
+        this.orderItems = orderItems;
     }
     
 }
