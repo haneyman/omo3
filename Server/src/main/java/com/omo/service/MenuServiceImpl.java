@@ -73,12 +73,15 @@ public class MenuServiceImpl implements MenuService {
         }
         if (menuItemResult == null)
             throw new Exception("menu item not found in MenuServiceImpl for menu " + menuId + "  item id "  + menuItemUuid);
+
         //add menu group options
-        if (menuItemResult.getParent() != null && menuItemResult.getParent().getOptions() != null)
-            menuItemResult.getOptions().addAll(menuItemResult.getParent().getOptions());
+        MenuItem parentMenuItem = getMenuItemFromSet(menu.getMenuItems(), menuItemResult.getParentUuid());
+        if (parentMenuItem != null && parentMenuItem.getOptions() != null)
+            menuItemResult.getOptions().addAll(parentMenuItem.getOptions());
         //add menu section options
-        if (menuItemResult.getParent().getParent() != null && menuItemResult.getParent().getParent().getOptions() != null)
-            menuItemResult.getOptions().addAll(menuItemResult.getParent().getParent().getOptions());
+        MenuItem grandparentMenuItem = getMenuItemFromSet(menu.getMenuItems(), parentMenuItem.getParentUuid());
+        if (grandparentMenuItem != null && grandparentMenuItem.getOptions() != null)
+            menuItemResult.getOptions().addAll(grandparentMenuItem.getOptions());
         //
         return menuItemResult;
     }
@@ -276,8 +279,12 @@ public class MenuServiceImpl implements MenuService {
         return menuRepository.findByName(menuName);
     }
 
+    //recursively searchves for a menuItem within a menu
+    public  MenuItem getMenuItemByUuid(Menu menu, String menuItemUUID) {
+        return getMenuItemFromSet(menu.getMenuItems(), menuItemUUID);
+    }
 
-    //
+    //recursively searchves for a menuItem from a given set of menuItems
     public static MenuItem getMenuItemFromSet(Set<MenuItem> menuItemSet, String menuItemUUID) {
         //logger.debug("getmenuitemfromset looking for " + menuItemUUID);
         MenuItem result = null;

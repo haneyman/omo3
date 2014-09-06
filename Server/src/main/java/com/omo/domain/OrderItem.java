@@ -1,5 +1,6 @@
 package com.omo.domain;
 
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.layers.repository.mongo.RooMongoEntity;
 import org.springframework.roo.addon.tostring.RooToString;
@@ -18,16 +19,28 @@ public class OrderItem {
 
 //    private String description;
 
-//    private MenuItem group;
+    @DBRef
+    private Menu menu;
 
-//    private MenuItem section;
+    private Float total;
 
+    private MenuItem group;
+    private MenuItem section;
     private MenuItem menuItem;//actual Menu.menuItem with options attached
 
     private String note;
 
     //@OneToMany(cascade = CascadeType.ALL)
     //private Set<MenuItemOption> options = new HashSet<MenuItemOption>();
+
+
+    public OrderItem(Integer quantity,MenuItem section, MenuItem group, MenuItem menuItem, String note) {
+        this.quantity = quantity;
+        this.section = section;
+        this.group = group;
+        this.menuItem = menuItem;
+        this.note = note;
+    }
 
     public OrderItem(Integer quantity, MenuItem menuItem, String note) {
         this.quantity = quantity;

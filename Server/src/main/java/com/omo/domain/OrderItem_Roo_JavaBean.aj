@@ -3,6 +3,7 @@
 
 package com.omo.domain;
 
+import com.omo.domain.Menu;
 import com.omo.domain.MenuItem;
 import com.omo.domain.OrderItem;
 
@@ -16,7 +17,38 @@ privileged aspect OrderItem_Roo_JavaBean {
         this.quantity = quantity;
     }
     
-
+    public Menu OrderItem.getMenu() {
+        return this.menu;
+    }
+    
+    public void OrderItem.setMenu(Menu menu) {
+        this.menu = menu;
+    }
+    
+    public Float OrderItem.getTotal() {
+        return this.total;
+    }
+    
+    public void OrderItem.setTotal(Float total) {
+        this.total = total;
+    }
+    
+    public MenuItem OrderItem.getGroup() {
+        return this.group;
+    }
+    
+    public void OrderItem.setGroup(MenuItem group) {
+        this.group = group;
+    }
+    
+    public MenuItem OrderItem.getSection() {
+        return this.section;
+    }
+    
+    public void OrderItem.setSection(MenuItem section) {
+        this.section = section;
+    }
+    
     public MenuItem OrderItem.getMenuItem() {
         return this.menuItem;
     }

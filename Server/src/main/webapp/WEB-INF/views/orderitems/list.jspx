@@ -5,11 +5,11 @@
     <page:list id="pl_com_omo_domain_OrderItem" items="${orderitems}" z="imq2F/78B50u9anpvOW7JJsyc+c=">
         <table:table data="${orderitems}" id="l_com_omo_domain_OrderItem" path="/orderitems" z="rvI2J8T3hTLrUXXiNCZYoXt/At8=">
             <table:column id="c_com_omo_domain_OrderItem_quantity" property="quantity" z="hqz5u0cOxDS6sYYP9FEhQwSq0VM="/>
-            <table:column id="c_com_omo_domain_OrderItem_description" property="description" z="znyhBciO4vsIRuw3nghjxFmlT5w="/>
+            <table:column id="c_com_omo_domain_OrderItem_menuItem" property="menuItem" z="iUtAIphlmDWcBhQXdBGrFRqDJ+A="/>
+            <table:column id="c_com_omo_domain_OrderItem_menu" property="menu" z="j/+mohjWB+FcU0FkKIWpe4vTlGM="/>
+            <table:column id="c_com_omo_domain_OrderItem_total" property="total" z="3rC7EOYmRnzTtFzff1iS96wyaQ4="/>
             <table:column id="c_com_omo_domain_OrderItem_group" property="group" z="uwBcZfklFn2kxpe5iSwj78fQfFk="/>
             <table:column id="c_com_omo_domain_OrderItem_section" property="section" z="p48YzvDjKXQEScYlP5IZH93JoTQ="/>
-            <table:column id="c_com_omo_domain_OrderItem_menuItem" property="menuItem" z="iUtAIphlmDWcBhQXdBGrFRqDJ+A="/>
-            <table:column id="c_com_omo_domain_OrderItem_note" property="note" z="FhmUxZo//lsE+WZr39viaT5jOO8="/>
         </table:table>
     </page:list>
 </div>

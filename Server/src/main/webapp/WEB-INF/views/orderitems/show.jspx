@@ -4,10 +4,11 @@
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_com_omo_domain_OrderItem" object="${orderitem}" path="/orderitems" z="dGBd1qjwgtQnTlje9cg7Dimjcqc=">
         <field:display field="quantity" id="s_com_omo_domain_OrderItem_quantity" object="${orderitem}" z="GgTcfuaLjam2NV2m6JS+sZlk618="/>
-        <field:display field="description" id="s_com_omo_domain_OrderItem_description" object="${orderitem}" z="I7fltz+jbpVPFersDc+OmZDM8/8="/>
-        <field:display field="group" id="s_com_omo_domain_OrderItem_group" object="${orderitem}" z="QMhBgOFu0LVtf2r/d4fS4McNa3Q="/>
-        <field:display field="section" id="s_com_omo_domain_OrderItem_section" object="${orderitem}" z="IlG4f8L/mkpdEni1vTKWwjBlz+w="/>
         <field:display field="menuItem" id="s_com_omo_domain_OrderItem_menuItem" object="${orderitem}" z="7rIJ/4WGzdapPDJSneD1QhP/zQ0="/>
         <field:display field="note" id="s_com_omo_domain_OrderItem_note" object="${orderitem}" z="B4BH754AulJLMlp8o9/M2bh7RdA="/>
+        <field:display field="menu" id="s_com_omo_domain_OrderItem_menu" object="${orderitem}" z="/+2Sm/x8Nmg2a8uw0M5KDjCY5as="/>
+        <field:display field="total" id="s_com_omo_domain_OrderItem_total" object="${orderitem}" z="XcR45ifd+0obs9xiftjIAdHmnMk="/>
+        <field:display field="group" id="s_com_omo_domain_OrderItem_group" object="${orderitem}" z="QMhBgOFu0LVtf2r/d4fS4McNa3Q="/>
+        <field:display field="section" id="s_com_omo_domain_OrderItem_section" object="${orderitem}" z="IlG4f8L/mkpdEni1vTKWwjBlz+w="/>
     </page:show>
 </div>

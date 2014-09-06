@@ -46,6 +46,7 @@ public class RestaurantIntegrationTest {
     private static final String TEST_RESTAURANT_3 = "Test Restaurant 3";
     private static final String MENU1 = "Menu for " + TEST_RESTAURANT_1;
 
+/*
     @Test
     public void LoadAllData(){
         deleteAllMenus();
@@ -57,6 +58,7 @@ public class RestaurantIntegrationTest {
 
         testScheduleMenu(menu);
     }
+*/
 
 
 
@@ -551,6 +553,7 @@ public class RestaurantIntegrationTest {
     }
 
     public Menu createMenuQuiznos(Restaurant restaurant) {
+        logger.info("Creating menu for Quiznos...");
         //testAddTestRestaurants();
         String restaurantName = "Quiznos";
         Restaurant restaurant1 = restaurantRepository.findByName(restaurantName).get(0);
@@ -572,6 +575,7 @@ public class RestaurantIntegrationTest {
         final String SIZE_LARGE_SOUP = "Lg 16oz";
         final String SIZE_WRAP = "Wrap";
         MenuItem menuItem = new MenuItem("Steak Subs","",1,MenuItem.MenuItemTypes.MenuGroup, 0f, sectionMenuItem);
+
         MenuItemOption groupOption = menuItem.addOption(MenuItemOption.MenuItemOptionTypes.Group, null, "Size");
         groupOption.addChild(MenuItemOption.MenuItemOptionTypes.Item, 7.99F, SIZE_REGULAR);
         groupOption.addChild(MenuItemOption.MenuItemOptionTypes.Item, 9.99F, SIZE_LARGE);
@@ -581,12 +585,16 @@ public class RestaurantIntegrationTest {
         groupOption.addChild(MenuItemOption.MenuItemOptionTypes.Item, 0F, "Wheat");
         groupOption.addChild(MenuItemOption.MenuItemOptionTypes.Item, 0F, "Rosemary Parmesan");
 
+
         menuItem.addChildMenuItem("Black Angus Steak", "With mozzarella & mild cheddar, sautéed mushrooms & onions, honey bourbon mustard & zesty grille sauce",1,MenuItem.MenuItemTypes.MenuItem);
+
         menuItem.addChildMenuItem("Double Swiss Prime Rib","with sautéed onions & mayo",2,MenuItem.MenuItemTypes.MenuItem);
         menuItem.addChildMenuItem("Peppercorn Prime Rib","with mozzarella, sautéed onions & peppercorn sauce",3,MenuItem.MenuItemTypes.MenuItem);
         menuItem.addChildMenuItem("Roast Beef & Horseradish","Black Angus roast beef, mild cheddar, sautéed onions, lettuce & tomatoes",4,MenuItem.MenuItemTypes.MenuItem);
         menuItem.addChildMenuItem("Spicy Prime Rib","with mild cheddar, fresh Q-salasa & chipotle mayo",5,MenuItem.MenuItemTypes.MenuItem);
+
         sectionMenuItem.getChildMenuItems().add(menuItem);//add group to section
+
 
         menuItem = new MenuItem("Chicken Subs","",1,MenuItem.MenuItemTypes.MenuGroup, 6.00f, sectionMenuItem);
         groupOption = menuItem.addOption(MenuItemOption.MenuItemOptionTypes.Group, null, "Size");
@@ -675,6 +683,7 @@ public class RestaurantIntegrationTest {
         menuItem.addChildMenuItem("Chile","",3,MenuItem.MenuItemTypes.MenuItem);
         menuItem.addChildMenuItem("Chicken Tortilla","",4,MenuItem.MenuItemTypes.MenuItem);
         sectionMenuItem.getChildMenuItems().add(menuItem);//add group to section
+
 
 
         menuService.saveMenu(menu);

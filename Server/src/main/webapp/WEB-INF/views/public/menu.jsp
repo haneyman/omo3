@@ -29,39 +29,39 @@
         $('#formOrderItem').submit();
     };
 
+    //ajax call to MenuController.getMenuItemForOrderInJSON which return an OrderItem
     function orderItem(item) {
-        //TODO: gotta add the items to the order some how
-        //alert('pretending to add item to order: ' + item);
+        var itemUrl = "/omo/menus/getMenuItemForOrder/${menu.id}/" + item;
         $.ajax({
-            url: "/omo/menus/getMenuItemForOrder/${menu.id}/" + item,
+            url: itemUrl,
             context: document.body,
             dataType: "json",
             async: false
-        }).done(function(data) {   //data is a OrderItem object
+        }).done(function(orderItem) {   //data is a OrderItem object
             //alert('done: ' + data);
-            $('#dialogOrderItemMenuId').val("${menu.id}");
-            $('#dialogOrderItemItemUuid').val(data.menuItem.uuid);
-            $('#dialogOrderItemItemName').text(data.menuItem.name);
-            $('#dialogOrderItemItemDescription').text(data.menuItem.description);
+            $('#dialogOrderItemMenuId').val("${orderItem.menu.id}");
+            $('#dialogOrderItemItemUuid').val(orderItem.menuItem.uuid);
+            $('#dialogOrderItemItemName').text(orderItem.menuItem.name);
+            $('#dialogOrderItemItemDescription').text(orderItem.menuItem.description);
             $('#dialogOrderItemSections').html("");
             var html = "<!-- begin genereated html from menu.jsp -->";
-            jQuery.each(data.options, function(i, option) {
+            jQuery.each(orderItem.menuItem.options, function(i, optionGroup) {
                 html +=     "<div class=\"panelOptions panel panel-default \" >";
-                html +=     "   <div class=\"panel-heading\">" + option.description ;
+                html +=     "   <div class=\"panel-heading\">" + optionGroup.description ;
                 html +=     "   </div> <!-- end panel-heading -->";
                 html +=     "   <div class=\"orderItemPanelBody panel-body\" >";
                 html +=     "      <div class=\"form-group\" >";
-                jQuery.each(option.children, function(i, child) {
+                jQuery.each(optionGroup.children, function(j, option) {
                     html += "           <div class=\"optionsSection radio\">";
                     html += "              <label>";
                     html += "                 <div class=\"orderItemOptionDescription\" >";
-                    html += "                    <input type=\"radio\" name=OPTION_" + child.uuid + " value=" + child.uuid + " >";
+                    html += "                    <input type=\"radio\" name=OPTION_" + optionGroup.uuid + " value=" + option.uuid + " >";
                     //html += "                    <input type=\"radio\" name=OPTION:" + option.uuid + " id=" + child.uuid  + " value=" + option.description + "|" + child.uuid + "|" + child.price + " checked>";
-                    html += child.description;
+                    html += option.description;
                     html += '                 </div> <!-- end radio option -->';
                     html += "                 <div class=\"orderItemPrice\" > ";
-                    if (child.price != "0")
-                        html += "$" + child.price;
+                    if (option.price != "0")
+                        html += "$" + option.price;
                     html += "                 </div> <!-- end price -->";
                     html += "              </label>";
                     html += "           </div> <!-- end optionsSection -->";

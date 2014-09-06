@@ -23,9 +23,9 @@ public class MenuItem {
     private String name;
     private String description;
     private String uuid;
-    @DBRef
-    private MenuItem parent;
-//    private String parentUuid;
+//    @DBRef   get a system error when this is used, "cannot create a reference to an object with a null id"
+//    private MenuItem parent;
+    private String parentUuid;
     private Integer sortOrder;
     private MenuItemTypes type;
     private Float price;
@@ -36,35 +36,37 @@ public class MenuItem {
     private String internalNotes;//a hack way of storing parent descriptive text
 
     //legacy constructor for 1 price only
-    public MenuItem(String inName, String inDescription, Integer inSortOrder, MenuItemTypes inType, Float inPrice, MenuItem parent) {
+    public MenuItem(String inName, String inDescription, Integer inSortOrder, MenuItemTypes inType, Float inPrice, MenuItem inParent) {
         name = inName;
         description = inDescription;
         sortOrder = inSortOrder;
         type = inType;
         uuid = UUID.randomUUID().toString();
-        parent = parent;
+        if (inParent != null)
+            parentUuid = inParent.getUuid();
         this.price = inPrice;
         //addOption(inPrice, "");
     }
 
-    public MenuItem(String inName, String inDescription, Integer inSortOrder, MenuItemTypes inType, MenuItem parent) {
+    public MenuItem(String inName, String inDescription, Integer inSortOrder, MenuItemTypes inType /*, MenuItem parent*/) {
         this.name = inName;
         this.description = inDescription;
         this.sortOrder = inSortOrder;
         this.type = inType;
         this.uuid = UUID.randomUUID().toString();
-        this.parent = parent;
     }
 
     //legacy method, for adding a single price
     public MenuItem addChildMenuItem(String name, String desc, Integer sortOrder, MenuItemTypes menuItemType, Float price) {
         MenuItem child = new MenuItem(name, desc, sortOrder, menuItemType, price, this);
+        child.setParentUuid(this.uuid);
         this.getChildMenuItems().add(child);
         return child;
     }
 
     public MenuItem addChildMenuItem(String name, String desc, Integer sortOrder, MenuItemTypes menuItemType) {
-        MenuItem child = new MenuItem(name, desc, sortOrder, menuItemType, this);
+        MenuItem child = new MenuItem(name, desc, sortOrder, menuItemType/*, this*/);
+        child.setParentUuid(this.uuid);
         this.getChildMenuItems().add(child);
         return child;
     }

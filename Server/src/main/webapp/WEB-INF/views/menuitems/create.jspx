@@ -12,7 +12,7 @@
         <field:input field="internalNotes" id="c_com_omo_domain_MenuItem_internalNotes" z="1J/leCxauWeflHitkGx50e7i4zc="/>
         <field:simple field="options" id="c_com_omo_domain_MenuItem_options" messageCode="entity_reference_not_managed" messageCodeAttribute="Menu Item Option" z="qCQyEtvcoz80gq5wVhPX6BuUGKw="/>
         <field:input field="price" id="c_com_omo_domain_MenuItem_price" validationMessageCode="field_invalid_number" z="aETQyrxbvonJt4aI2hlMN36YWVc="/>
-        <field:input field="parent" id="c_com_omo_domain_MenuItem_parent" z="4trOlhEtyMmDIhCaOu8eXC1PVUE="/>
+        <field:input field="parentUuid" id="c_com_omo_domain_MenuItem_parentUuid" z="l6yEil8TpwkZqnLQwVE2Eog8SbQ="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_omo_domain_MenuItem" render="${not empty dependencies}" z="7ogFR2yib/0G54hXxZ6b1qBJ7sI="/>
 </div>

@@ -40,9 +40,14 @@ public class MenuController {
 
     //used by function orderItem(item) for the order item dialog in menu.jsp, to confirm the item and select options.
     @RequestMapping(value="getMenuItemForOrder/{menuId}/{itemUuid}", method = RequestMethod.GET)
-    public @ResponseBody MenuItem getMenuItemInJSON(@PathVariable BigInteger menuId, @PathVariable String itemUuid) throws Exception {
+    public @ResponseBody OrderItem getMenuItemForOrderInJSON(@PathVariable BigInteger menuId, @PathVariable String itemUuid) throws Exception {
+        Menu menu = menuRepository.findOne(menuId);
         MenuItem menuItem = menuService.getMenuItemWithOptions(menuId, itemUuid);
-        return menuItem;
+        MenuItem menuGroup = menuService.getMenuItemByUuid(menu, menuItem.getParentUuid());
+        MenuItem menuSection = menuService.getMenuItemByUuid(menu, menuGroup.getParentUuid());
+
+        OrderItem orderItem = new OrderItem(1, menuSection, menuGroup, menuItem, "");
+        return orderItem;
 
     }
 

@@ -5,6 +5,7 @@ package com.omo.web;
 
 import com.omo.domain.OrderItem;
 import com.omo.repository.MenuItemRepository;
+import com.omo.service.MenuService;
 import com.omo.web.OrderItemController;
 import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
@@ -16,10 +17,14 @@ import org.springframework.web.util.WebUtils;
 privileged aspect OrderItemController_Roo_Controller {
     
     @Autowired
+    MenuService OrderItemController.menuService;
+    
+    @Autowired
     MenuItemRepository OrderItemController.menuItemRepository;
     
     void OrderItemController.populateEditForm(Model uiModel, OrderItem orderItem) {
         uiModel.addAttribute("orderItem", orderItem);
+        uiModel.addAttribute("menus", menuService.findAllMenus());
         uiModel.addAttribute("menuitems", menuItemRepository.findAll());
     }
     

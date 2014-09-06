@@ -10,6 +10,6 @@
         <field:display field="uuid" id="s_com_omo_domain_MenuItem_uuid" object="${menuitem}" z="ASBo3yVYECbZBvnquZhu07YvHBU="/>
         <field:display field="internalNotes" id="s_com_omo_domain_MenuItem_internalNotes" object="${menuitem}" z="Pa3BaM3p0HtCIsTR7yjAlYtKcuM="/>
         <field:display field="price" id="s_com_omo_domain_MenuItem_price" object="${menuitem}" z="79ZLcJEhGevWcCZhZBOL+yBGQe8="/>
-        <field:display field="parent" id="s_com_omo_domain_MenuItem_parent" object="${menuitem}" z="gByvflINwgUZTKog6NsCrhlv+/Q="/>
+        <field:display field="parentUuid" id="s_com_omo_domain_MenuItem_parentUuid" object="${menuitem}" z="FdgOQRfcuM3aw1VZUbbI1kArqy8="/>
     </page:show>
 </div>

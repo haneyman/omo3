@@ -4,10 +4,11 @@
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_com_omo_domain_OrderItem" modelAttribute="orderItem" path="/orderitems" versionField="none" z="OTLraOOwxhuiDNp4GbtQvFgSAxs=">
         <field:input field="quantity" id="c_com_omo_domain_OrderItem_quantity" validationMessageCode="field_invalid_integer" z="glgKII6/uJ/TfevQnuozQ6Zwbdk="/>
-        <field:input field="description" id="c_com_omo_domain_OrderItem_description" z="+5YwY2IwadbLHWjg4hHS/ss8SGY="/>
-        <field:input field="group" id="c_com_omo_domain_OrderItem_group" z="Qh221Vz08qm5pcL/r6RgD1PF2YY="/>
-        <field:input field="section" id="c_com_omo_domain_OrderItem_section" z="+nZh6gWKzNQo2+4P5iLl3/VwqXg="/>
         <field:input field="menuItem" id="c_com_omo_domain_OrderItem_menuItem" z="Xvo0zconDh5UopAGYOAJBgVE/Gs="/>
         <field:input field="note" id="c_com_omo_domain_OrderItem_note" z="xxb1PX6LRVCLcTKQhITiM0uQAis="/>
+        <field:input field="menu" id="c_com_omo_domain_OrderItem_menu" z="KdiGjkjZSlqnouQ4rPFYPN56Zew="/>
+        <field:input field="total" id="c_com_omo_domain_OrderItem_total" validationMessageCode="field_invalid_number" z="DaRKGx6kwe7j56aIZb2+t2gyrBQ="/>
+        <field:input field="group" id="c_com_omo_domain_OrderItem_group" z="Qh221Vz08qm5pcL/r6RgD1PF2YY="/>
+        <field:input field="section" id="c_com_omo_domain_OrderItem_section" z="+nZh6gWKzNQo2+4P5iLl3/VwqXg="/>
     </form:update>
 </div>

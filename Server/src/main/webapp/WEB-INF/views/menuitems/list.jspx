@@ -9,7 +9,7 @@
             <table:column id="c_com_omo_domain_MenuItem_sortOrder" property="sortOrder" z="Wir4P79z4WnqP/IY+MReelgqCuY="/>
             <table:column id="c_com_omo_domain_MenuItem_type" property="type" z="oWAxTG9VSNTeQagzRl/BfYol7jo="/>
             <table:column id="c_com_omo_domain_MenuItem_uuid" property="uuid" z="iWQwbPSbS/n0Y68FwgD3/P0X+6M="/>
-            <table:column id="c_com_omo_domain_MenuItem_parent" property="parent" z="GdDqsuuHnCHbqQn8KBknT3Hhqw0="/>
+            <table:column id="c_com_omo_domain_MenuItem_parentUuid" property="parentUuid" z="+bIcN95QJfWJcZkAL4weXOotOEM="/>
         </table:table>
     </page:list>
 </div>

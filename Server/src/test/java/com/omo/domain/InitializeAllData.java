@@ -54,11 +54,11 @@ public class InitializeAllData {
         //menus --------------------------------------------------------------------------------------------------------
         logger.info("   menus...");
         restaurantIntegrationTest.deleteAllMenus();
+        Menu menuQuiznos = restaurantIntegrationTest.createMenuQuiznos(restaurantQuiznos);
         Menu menuBentolinos = restaurantIntegrationTest.createMenuBentolinos();
         Menu menuElMolino = restaurantIntegrationTest.createMenuElMolino(restaurantElMolino);
         Menu menuKinders = restaurantIntegrationTest.createMenuKinders(restaurantKinders);
         Menu menuASweetAffair = restaurantIntegrationTest.createMenuSweetAffair(restaurantASweetAffair);
-        Menu menuQuiznos = restaurantIntegrationTest.createMenuQuiznos(restaurantQuiznos);
 
 
         //schedule -----------------------------------------------------------------------------------------------------

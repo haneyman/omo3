@@ -19,6 +19,7 @@ public interface MenuService {
     public Boolean isMenuOrderable(Menu menu) throws Exception ;
     public String whenAndWhereOffered(Menu menu) throws Exception ;
     public MenuItemOption findMenuItemOption(Menu menu, String optionUuid) ;
+    public MenuItem getMenuItemByUuid(Menu menu, String menuItemUUID) ;
 
 
     MenuItem getMenuItemWithOptions(BigInteger menuId, String itemUuid) throws Exception;
