@@ -34,13 +34,15 @@ public class OrderItem {
     //private Set<MenuItemOption> options = new HashSet<MenuItemOption>();
 
 
-    public OrderItem(Integer quantity,MenuItem section, MenuItem group, MenuItem menuItem, String note) {
+    public OrderItem(Integer quantity, Menu menu, MenuItem section, MenuItem group, MenuItem menuItem, String note) {
         this.quantity = quantity;
         this.section = section;
         this.group = group;
         this.menuItem = menuItem;
         this.note = note;
+        this.menu = menu;
     }
+/*
 
     public OrderItem(Integer quantity, MenuItem menuItem, String note) {
         this.quantity = quantity;
@@ -51,4 +53,5 @@ public class OrderItem {
         this.note = note;
 
     }
+*/
 }

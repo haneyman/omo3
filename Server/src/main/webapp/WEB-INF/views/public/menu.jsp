@@ -29,7 +29,8 @@
         $('#formOrderItem').submit();
     };
 
-    //ajax call to MenuController.getMenuItemForOrderInJSON which return an OrderItem
+    //ajax call to MenuController.getMenuItemForOrderInJSON which returns an OrderItem,
+    //OrderItems contain a menuItem, menu, etc.
     function orderItem(item) {
         var itemUrl = "/omo/menus/getMenuItemForOrder/${menu.id}/" + item;
         $.ajax({
@@ -39,7 +40,7 @@
             async: false
         }).done(function(orderItem) {   //data is a OrderItem object
             //alert('done: ' + data);
-            $('#dialogOrderItemMenuId').val("${orderItem.menu.id}");
+            $('#dialogOrderItemMenuId').val("${menu.id}");
             $('#dialogOrderItemItemUuid').val(orderItem.menuItem.uuid);
             $('#dialogOrderItemItemName').text(orderItem.menuItem.name);
             $('#dialogOrderItemItemDescription').text(orderItem.menuItem.description);

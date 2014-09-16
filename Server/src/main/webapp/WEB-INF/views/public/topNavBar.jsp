@@ -47,7 +47,7 @@
                 </c:if>
                 <li id="divider" class="divider"><a href="#">|</a></li>
                 <c:if test="${sessionScope.order != null}">
-                    <li id="myOrder" class=""><a href="#" onclick="showOrder();">My Order<span style="color: #4aa13c"> ${order.orderitems.size} items </span></a></li>
+                    <li id="myOrder" class=""><a href="#" onclick="showOrder();">My Order<span style="color: #4aa13c"> ${order.orderItems.size()} items </span></a></li>
                 </c:if>
             </ul>
             <div style="float:right; "  class="">

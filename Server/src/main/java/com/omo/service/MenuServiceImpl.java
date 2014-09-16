@@ -40,16 +40,46 @@ public class MenuServiceImpl implements MenuService {
      * Finds menuItemOption in a menu,
      * they are usually under a group under a menu item or menu item group
      */
-    public MenuItemOption findMenuItemOption(Menu menu, String optionUuid) {
-        MenuItemOption option;
-        for (MenuItem menuItemSection : menu.getMenuItems()) {
-            option = findMenuItemOption(menuItemSection, optionUuid);//looks for option at section level
-            if (option != null) {
-                return option;
-            }
+    public MenuItemOption findOptionInMenu(Menu menu, String optionUuid) {
+        MenuItemOption menuItemResult=null;
+        for (MenuItem menuItem : menu.getMenuItems()) {
+            menuItemResult = findOptionInMenuItem(menuItem, optionUuid);
+            if (menuItemResult != null)
+                return menuItemResult;
         }
         return null;
     }
+
+
+    private MenuItemOption findOptionInMenuItem(MenuItem menuItem, String optionUuid) {
+        MenuItemOption result = null;
+        if (menuItem.getOptions() != null)
+            result = findOptionInOptions(menuItem.getOptions(), optionUuid);
+        if (result == null) {
+            //not in item's options, so look in item's child menu items
+            for (MenuItem childMenuItem : menuItem.getChildMenuItems()) {
+                result = findOptionInMenuItem(childMenuItem, optionUuid);//looks for option at section level
+                if (result != null) {
+                    return result;
+                }
+            }
+        }
+        return result;
+    }
+
+    private MenuItemOption findOptionInOptions(Set<MenuItemOption> options, String optionUuid) {
+        MenuItemOption result = null;
+        for (MenuItemOption option : options) {
+            if (option.getUuid().equalsIgnoreCase(optionUuid))
+                return option;
+            if (option.getChildren() != null)
+                result = findOptionInOptions(option.getChildren(), optionUuid);
+            if (result != null)
+                return result;
+        }
+        return result;
+    }
+
 
     /**
      * Finds menu item and loads all options into the menu item (even the options from parents)
@@ -94,7 +124,7 @@ public class MenuServiceImpl implements MenuService {
      * @return
      */
     private MenuItemOption findMenuItemOption(MenuItem menuItem, String optionUuid) {
-        logger.debug("findMenuItemOption looking for " + optionUuid + " " + " under " + menuItem.getName());
+        logger.debug("findOptionInMenu looking for " + optionUuid + " " + " under " + menuItem.getName());
         for (MenuItemOption option : menuItem.getOptions()) {
             //initial option is usually a group like "Bread"
             if (option.getType().equals(MenuItemOption.MenuItemOptionTypes.Group)) {

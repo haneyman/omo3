@@ -18,7 +18,7 @@ public interface MenuService {
     public List<Menu> findTodaysMenusForReseller(String resellerName) throws Exception ;
     public Boolean isMenuOrderable(Menu menu) throws Exception ;
     public String whenAndWhereOffered(Menu menu) throws Exception ;
-    public MenuItemOption findMenuItemOption(Menu menu, String optionUuid) ;
+    public MenuItemOption findOptionInMenu(Menu menu, String optionUuid) ;
     public MenuItem getMenuItemByUuid(Menu menu, String menuItemUUID) ;
 
 

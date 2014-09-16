@@ -80,10 +80,40 @@
                 <%--<td>${order.status}</td>--%>
                 <td>
                     <table class="table " >
+<%--
                         <tr>
                             <td><b>${order.menu.restaurant.name}</b></td>
                             <td></td>
                         </tr>
+--%>
+                        <c:forEach items="${order.orderItems}" var="orderItem">
+                            <tr>
+                                <td>${orderItem.section.name} - ${orderItem.group.name}
+                                        <%--<br/>--%>
+                                    - <span style="font-weight: 800">${orderItem.menuItem.name}</span>
+                                    <c:forEach items="${orderItem.menuItem.options}" var="optionGroup">
+                                    <c:forEach items="${optionGroup.children}" var="option">
+                                    <br/><span style="font-size: small">${optionGroup.description} - ${option.description}<span>
+                                                            </c:forEach>
+                                                        </c:forEach>
+                                </td>
+                                <td>
+                                    $ <fmt:formatNumber value="${menuItem.price}" type="currency" currencySymbol="" />
+                                </td>
+                                <c:choose>
+                                    <c:when test="${orderItem.note == ''}">
+                                        <!-- no notes  -->
+                                    </c:when>
+                                    <c:otherwise>
+                                        <table class="table " >
+                                            <tr><td><b>Note:</b> ${orderItem.note}</td><td></td></tr>
+                                        </table>
+                                    </c:otherwise>
+                                </c:choose>
+                            </tr>
+                        </c:forEach>
+
+<%--
                         <c:forEach items="${order.menuItems}" var="menuItem">
                             <tr>
                                 <td style="width:90%;"><div style="margin-left: 10px;">${menuItem.internalNotes} - ${menuItem.name}</div></td>
@@ -100,6 +130,7 @@
                                 <tr><td><div style="margin-left: 10px;"><b>Notes:</b> ${order.notes}</div></td><td></td></tr>
                             </c:otherwise>
                         </c:choose>
+--%>
                         <tr class="money">
                             <td style="text-align: left;">
                                 <div style="margin-left: 10px;text-align: right;margin-right: 4px;"><b>Total:</b></div>

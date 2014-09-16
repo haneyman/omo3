@@ -46,7 +46,7 @@ public class MenuController {
         MenuItem menuGroup = menuService.getMenuItemByUuid(menu, menuItem.getParentUuid());
         MenuItem menuSection = menuService.getMenuItemByUuid(menu, menuGroup.getParentUuid());
 
-        OrderItem orderItem = new OrderItem(1, menuSection, menuGroup, menuItem, "");
+        OrderItem orderItem = new OrderItem(1, menu, menuSection, menuGroup, menuItem, "");
         return orderItem;
 
     }

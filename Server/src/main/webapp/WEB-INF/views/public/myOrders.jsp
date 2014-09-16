@@ -31,34 +31,44 @@
                 <%--<td>${order.status}</td>--%>
                 <td>
                     <table class="table table-striped" >
-                        <c:forEach items="${order.menuItems}" var="menuItem">
+                        <c:forEach items="${order.orderItems}" var="orderItem">
                             <tr>
-                                <td>${menuItem.internalNotes} - ${menuItem.name}</td>
+                                <td>${orderItem.section.name} - ${orderItem.group.name}
+                                    <%--<br/>--%>
+                                    - <span style="font-weight: 800">${orderItem.menuItem.name}</span>
+                                    <c:forEach items="${orderItem.menuItem.options}" var="optionGroup">
+                                        <c:forEach items="${optionGroup.children}" var="option">
+                                            <br/><span style="font-size: small">${optionGroup.description} - ${option.description}<span>
+                                        </c:forEach>
+                                    </c:forEach>
+                                </td>
                                 <td>
                                     $ <fmt:formatNumber value="${menuItem.price}" type="currency" currencySymbol="" />
                                 </td>
+                                <c:choose>
+                                    <c:when test="${orderItem.note == ''}">
+                                        <!-- no notes  -->
+                                    </c:when>
+                                    <c:otherwise>
+                                        <table class="table " >
+                                            <tr><td><b>Note:</b> ${orderItem.note}</td><td></td></tr>
+                                        </table>
+                                    </c:otherwise>
+                                </c:choose>
                             </tr>
                         </c:forEach>
                         <tr><td style="text-align: right;"><b>Total:</b></td>
                             <td>
-                                <b>$ <fmt:formatNumber value="${order.totalPretax}" type="currency" currencySymbol="" /></b>
+                                <b>$ FIX <%--<fmt:formatNumber value="${order.totalPretax}" type="currency" currencySymbol="" />--%></b>
                             </td>
                         </tr>
                     </table>
-                    <c:choose>
-                        <c:when test="${order.notes == ''}">
-                            <!-- no notes  -->
-                        </c:when>
-                        <c:otherwise>
-                            <table class="table " >
-                                <tr><td><b>Notes:</b> ${order.notes}</td><td></td></tr>
-                            </table>
-                        </c:otherwise>
-                    </c:choose>
+
                 </td>
             </tr>
         </c:forEach>
     </table>
+<%--
     <div id="dialogOrderConfirm" class="modal  fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -108,4 +118,5 @@
             </div>
         </div>
     </div>
+--%>
 </div>

@@ -181,20 +181,31 @@ public class OrderController {
         Enumeration enumeration = httpServletRequest.getParameterNames();
         menuItem.getOptions().clear();
         MenuItemOption option;
+        MenuItemOption optionGroup;
         String menuItemOptionUuid;
+        String menuItemOptionGroupUuid;
+        //for options paramName is group, value is option
         while (enumeration.hasMoreElements()) {
             String parameterName = (String) enumeration.nextElement();
             if (parameterName.toUpperCase().contains("OPTION_")) {
                 //using the name not value?                menuItemOptionUuid = httpServletRequest.getParameter(parameterName).substring(6);
-                menuItemOptionUuid = parameterName.substring(7);
-                option = menuService.findMenuItemOption(menu, menuItemOptionUuid);
-                menuItem.getOptions().add(option);
+                menuItemOptionGroupUuid = parameterName.substring(7);
+                optionGroup = menuService.findOptionInMenu(menu, menuItemOptionGroupUuid);
+                //optionGroup.getChildren().clear();//clear out options and only put in selected option
+                MenuItemOption newOptionGroup = new MenuItemOption(optionGroup.getType(), optionGroup.getPrice(), optionGroup.getDescription());
+                newOptionGroup.setUuid(optionGroup.getUuid());
+                menuItemOptionUuid = httpServletRequest.getParameter(parameterName);
+                option = menuService.findOptionInMenu(menu, menuItemOptionUuid);
+                newOptionGroup.getChildren().add(option);
+                menuItem.getOptions().add(newOptionGroup);
             }
         }
 
-        OrderItem orderItem = new OrderItem(menuItemQuantity, menuItem, note);
+        //orderItem. order.setStatus(Order.ORDER_STATUS.INIT);
+        MenuItem menuItemGroup = menuService.getMenuItemByUuid(menu, menuItem.getParentUuid());
+        MenuItem menuItemSection = menuService.getMenuItemByUuid(menu, menuItemGroup.getParentUuid());
+        OrderItem orderItem = new OrderItem(menuItemQuantity, menu, menuItemSection, menuItemGroup, menuItem, note);
         order.getOrderItems().add(orderItem);
-        order.setStatus(Order.ORDER_STATUS.INIT);
         //order.setTotalPretax(total);
 //TODO: new solution for combos        adjustForComboHack(order);
         ApplicationUser user = (ApplicationUser) session.getAttribute("applicationUser");
@@ -204,11 +215,13 @@ public class OrderController {
         orderService.saveOrder(order);
         //pass the order id to confirmOrder?
         logger.debug("Order updated with " + order.getMenu().getMenuItems().size() + " items." );
+/*
         if (checkout.equalsIgnoreCase("checkout"))
             //checkout???
             return "redirect:/orders/confirmOrder" + encodeUrlPathSegment(order.getId().toString(), httpServletRequest);
         else
             //??????? back to menu?
+*/
             return "redirect:/menus/showMenu/" + encodeUrlPathSegment(order.getMenu().getId().toString(), httpServletRequest);
     }
 
