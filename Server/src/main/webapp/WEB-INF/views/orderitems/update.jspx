@@ -10,5 +10,7 @@
         <field:input field="total" id="c_com_omo_domain_OrderItem_total" validationMessageCode="field_invalid_number" z="DaRKGx6kwe7j56aIZb2+t2gyrBQ="/>
         <field:input field="group" id="c_com_omo_domain_OrderItem_group" z="Qh221Vz08qm5pcL/r6RgD1PF2YY="/>
         <field:input field="section" id="c_com_omo_domain_OrderItem_section" z="+nZh6gWKzNQo2+4P5iLl3/VwqXg="/>
+        <field:input field="totalOptions" id="c_com_omo_domain_OrderItem_totalOptions" validationMessageCode="field_invalid_number" z="0tnyRGMMJNFHnX2mrTnNKs8maoc="/>
+        <field:input field="price" id="c_com_omo_domain_OrderItem_price" validationMessageCode="field_invalid_number" z="Cc3B4pm3pEcFzAMYARLQTvQV37g="/>
     </form:update>
 </div>

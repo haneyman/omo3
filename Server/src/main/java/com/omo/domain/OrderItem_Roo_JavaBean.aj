@@ -33,6 +33,22 @@ privileged aspect OrderItem_Roo_JavaBean {
         this.total = total;
     }
     
+    public Float OrderItem.getTotalOptions() {
+        return this.totalOptions;
+    }
+    
+    public void OrderItem.setTotalOptions(Float totalOptions) {
+        this.totalOptions = totalOptions;
+    }
+    
+    public Float OrderItem.getPrice() {
+        return this.price;
+    }
+    
+    public void OrderItem.setPrice(Float price) {
+        this.price = price;
+    }
+    
     public MenuItem OrderItem.getGroup() {
         return this.group;
     }

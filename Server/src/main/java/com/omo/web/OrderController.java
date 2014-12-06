@@ -58,6 +58,7 @@ public class OrderController {
         return "public/confirmOrder";
     }
 
+/*
 
     @RequestMapping(value = "confirmOrder/{id}", produces = "text/html")
     public String confirmOrder(@PathVariable("id") BigInteger id, Model uiModel, HttpServletRequest httpServletRequest)
@@ -94,6 +95,7 @@ public class OrderController {
     }
 
 
+*/
 
 
 
@@ -210,10 +212,11 @@ public class OrderController {
 //TODO: new solution for combos        adjustForComboHack(order);
         ApplicationUser user = (ApplicationUser) session.getAttribute("applicationUser");
         order.setUser(user);
+        order.calculateTotals();
+        order.setStatus(Order.ORDER_STATUS.OPEN);//immediately placed on order in open status - no init bs
         session.setAttribute("order", order);
         uiModel.asMap().clear();
         orderService.saveOrder(order);
-        //pass the order id to confirmOrder?
         logger.debug("Order updated with " + order.getMenu().getMenuItems().size() + " items." );
 /*
         if (checkout.equalsIgnoreCase("checkout"))

@@ -76,7 +76,7 @@ public class InitializeAllData {
         scheduleRepository.save(schedule);
 */
 
-        //Monday
+/*        //Monday
         schedule = new Schedule();
         schedule.setReseller(reseller);
         schedule.setRestaurant(restaurantBentolinos);
@@ -90,7 +90,7 @@ public class InitializeAllData {
         schedule.setRestaurant(restaurantBentolinos);
         schedule.setDayOfWeek(3);
         schedule.setMenu(menuBentolinos);
-        scheduleRepository.save(schedule);
+        scheduleRepository.save(schedule);*/
 
         schedule = new Schedule();
         schedule.setReseller(reseller);

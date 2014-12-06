@@ -10,5 +10,7 @@
         <field:display field="total" id="s_com_omo_domain_OrderItem_total" object="${orderitem}" z="XcR45ifd+0obs9xiftjIAdHmnMk="/>
         <field:display field="group" id="s_com_omo_domain_OrderItem_group" object="${orderitem}" z="QMhBgOFu0LVtf2r/d4fS4McNa3Q="/>
         <field:display field="section" id="s_com_omo_domain_OrderItem_section" object="${orderitem}" z="IlG4f8L/mkpdEni1vTKWwjBlz+w="/>
+        <field:display field="totalOptions" id="s_com_omo_domain_OrderItem_totalOptions" object="${orderitem}" z="x+p801riu829IDueabv6aW1vvTE="/>
+        <field:display field="price" id="s_com_omo_domain_OrderItem_price" object="${orderitem}" z="6F79L14QWidAKkGXVIhdag30sQA="/>
     </page:show>
 </div>

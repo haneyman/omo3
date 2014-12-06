@@ -23,6 +23,8 @@ public class OrderItem {
     private Menu menu;
 
     private Float total;
+    private Float totalOptions;
+    private Float price;
 
     private MenuItem group;
     private MenuItem section;

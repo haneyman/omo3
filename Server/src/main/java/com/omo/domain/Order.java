@@ -42,6 +42,39 @@ public class Order {
         setOrderDate(new Date());
     }
 
+    // update order and orderitems with totals
+    //
+    // for each orderitem find price in item or group or section, then add up totals for options
+    public void calculateTotals() {
+        Float orderTotal = 0f;
+        for (OrderItem orderItem : this.orderItems) {
+            if (orderItem.getMenuItem().getPrice() != null && orderItem.getMenuItem().getPrice() > 0) {
+                orderItem.setPrice(orderItem.getMenuItem().getPrice());
+            } else if (orderItem.getGroup().getPrice() != null && orderItem.getGroup().getPrice() > 0) {
+                orderItem.setPrice(orderItem.getGroup().getPrice());
+            } else if (orderItem.getSection().getPrice() != null && orderItem.getSection().getPrice() > 0) {
+                orderItem.setPrice(orderItem.getSection().getPrice());
+            } else
+                orderItem.setPrice(0f);
+            orderItem.setTotalOptions(getOptionTotal(orderItem.getMenuItem()));
+            orderItem.setTotal(orderItem.getPrice() + orderItem.getTotalOptions() );
+            orderTotal += orderItem.getTotal();
+        }
+        setTotalPretax(orderTotal);
+    }
+
+    public Float getOptionTotal(MenuItem menuItem) {
+        Float total = 0f;
+        for (MenuItemOption option : menuItem.getOptions()) {
+            if (option.getType() == MenuItemOption.MenuItemOptionTypes.Group) {
+                for (MenuItemOption optionChild : option.getChildren()) {
+                    total += optionChild.getPrice();
+                }
+            }
+        }
+        return total;
+    }
+
     public enum  ORDER_STATUS {INIT, OPEN, CANCELLED, CLOSED};
 
     public boolean isToday() {

@@ -596,7 +596,7 @@ public class RestaurantIntegrationTest {
         sectionMenuItem.getChildMenuItems().add(menuItem);//add group to section
 
 
-        menuItem = new MenuItem("Chicken Subs","",1,MenuItem.MenuItemTypes.MenuGroup, 6.00f, sectionMenuItem);
+        menuItem = new MenuItem("Chicken Subs","",1,MenuItem.MenuItemTypes.MenuGroup, 0f, sectionMenuItem);
         groupOption = menuItem.addOption(MenuItemOption.MenuItemOptionTypes.Group, null, "Size");
         groupOption.addChild(MenuItemOption.MenuItemOptionTypes.Item, 7.99F, SIZE_REGULAR);
         groupOption.addChild(MenuItemOption.MenuItemOptionTypes.Item, 9.99F, SIZE_LARGE);
@@ -615,7 +615,7 @@ public class RestaurantIntegrationTest {
         menuItem.addChildMenuItem("Spicy Chicken","with mild cheddar, fresh Q-salasa & chipotle mayo",5,MenuItem.MenuItemTypes.MenuItem);
         sectionMenuItem.getChildMenuItems().add(menuItem);//add group to section
 
-        menuItem = new MenuItem("Classic Subs","",1,MenuItem.MenuItemTypes.MenuGroup, 6.00f, sectionMenuItem);
+        menuItem = new MenuItem("Classic Subs","",1,MenuItem.MenuItemTypes.MenuGroup, 0f, sectionMenuItem);
         groupOption = menuItem.addOption(MenuItemOption.MenuItemOptionTypes.Group, null, "Size");
         groupOption.addChild(MenuItemOption.MenuItemOptionTypes.Item, 7.49F, SIZE_REGULAR);
         groupOption.addChild(MenuItemOption.MenuItemOptionTypes.Item, 9.49F, SIZE_LARGE);

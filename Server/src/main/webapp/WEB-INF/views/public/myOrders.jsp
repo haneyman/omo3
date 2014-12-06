@@ -43,7 +43,7 @@
                                     </c:forEach>
                                 </td>
                                 <td>
-                                    $ <fmt:formatNumber value="${menuItem.price}" type="currency" currencySymbol="" />
+                                    $ <fmt:formatNumber value="${orderItem.total}" type="currency" currencySymbol="" />
                                 </td>
                                 <c:choose>
                                     <c:when test="${orderItem.note == ''}">
@@ -59,7 +59,7 @@
                         </c:forEach>
                         <tr><td style="text-align: right;"><b>Total:</b></td>
                             <td>
-                                <b>$ FIX <%--<fmt:formatNumber value="${order.totalPretax}" type="currency" currencySymbol="" />--%></b>
+                                <b>$ <fmt:formatNumber value="${order.totalPretax}" type="currency" currencySymbol="" /></b>
                             </td>
                         </tr>
                     </table>
