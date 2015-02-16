@@ -6,9 +6,9 @@ import java.math.BigInteger;
 import java.util.List;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
-import org.springframework.roo.addon.layers.repository.mongo.RooMongoRepository;
+import org.springframework.stereotype.Repository;
 
-@RooMongoRepository(domainType = Menu.class)
+@Repository
 public interface MenuRepository  extends PagingAndSortingRepository<Menu, BigInteger> {
 
     List<com.omo.domain.Menu> findAll();

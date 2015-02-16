@@ -1,22 +1,117 @@
 package com.omo.domain;
 
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Persistent;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.roo.addon.javabean.RooJavaBean;
-import org.springframework.roo.addon.layers.repository.mongo.RooMongoEntity;
-import org.springframework.roo.addon.tostring.RooToString;
 
 import javax.persistence.CascadeType;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
+import java.math.BigInteger;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
-@RooJavaBean
-@RooToString
-@RooMongoEntity
+@Persistent
 public class MenuItem {
+
+    @Id
+    private BigInteger id;
+
+    public String toString() {
+        return ReflectionToStringBuilder.toString(this, ToStringStyle.SHORT_PREFIX_STYLE);
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setType(MenuItemTypes type) {
+        this.type = type;
+    }
+
+    public Set<MenuItemOption> getOptions() {
+        return this.options;
+    }
+
+    public void setOptions(Set<MenuItemOption> options) {
+        this.options = options;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getUuid() {
+        return this.uuid;
+    }
+
+    public void setPrice(Float price) {
+        this.price = price;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
+    public Set<MenuItem> getChildMenuItems() {
+        return this.childMenuItems;
+    }
+
+    public String getParentUuid() {
+        return this.parentUuid;
+    }
+
+    public void setChildMenuItems(Set<MenuItem> childMenuItems) {
+        this.childMenuItems = childMenuItems;
+    }
+
+    public Float getPrice() {
+        return this.price;
+    }
+
+    public void setParentUuid(String parentUuid) {
+        this.parentUuid = parentUuid;
+    }
+
+    public Integer getSortOrder() {
+        return this.sortOrder;
+    }
+
+    public String getInternalNotes() {
+        return this.internalNotes;
+    }
+
+    public void setInternalNotes(String internalNotes) {
+        this.internalNotes = internalNotes;
+    }
+
+    public void setSortOrder(Integer sortOrder) {
+        this.sortOrder = sortOrder;
+    }
+
+    public MenuItemTypes getType() {
+        return this.type;
+    }
+
+    public BigInteger getId() {
+        return this.id;
+    }
+
+    public void setId(BigInteger id) {
+        this.id = id;
+    }
 
     public enum MenuItemTypes {MenuGroup, MenuItem, MenuSection}   // Arrays.asList(Menu.MenuItemTypes.values())
     public static final String MENUITEM_LABEL = "menuitem ";

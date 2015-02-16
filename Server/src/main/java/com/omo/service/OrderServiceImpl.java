@@ -5,18 +5,22 @@ import com.omo.domain.ApplicationUser;
 import com.omo.domain.MenuItem;
 import com.omo.domain.Order;
 import com.omo.repository.OrderRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.mail.MailException;
-import org.springframework.mail.javamail.MimeMessagePreparator;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.mail.Message;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
+@Transactional
+@Service
 public class OrderServiceImpl implements OrderService {
+
+    @Autowired
+    OrderRepository orderRepository;
 
     public List<Order> getOrdersByUser(ApplicationUser user) {
         //List<Order> orders = orderRepository.findAll();
@@ -39,6 +43,34 @@ public class OrderServiceImpl implements OrderService {
 
     public void notifyOrder(Order order) {
         //todo: redo this!!!
+    }
+
+    public long countAllOrders() {
+        return orderRepository.count();
+    }
+
+    public void deleteOrder(Order order) {
+        orderRepository.delete(order);
+    }
+
+    public Order findOrder(BigInteger id) {
+        return (Order) orderRepository.findOne(id);
+    }
+
+    public List<Order> findAllOrders() {
+        return orderRepository.findAll();
+    }
+
+    public List<Order> findOrderEntries(int firstResult, int maxResults) {
+        return orderRepository.findAll(new PageRequest(firstResult / maxResults, maxResults)).getContent();
+    }
+
+    public void saveOrder(Order order) {
+        orderRepository.save(order);
+    }
+
+    public Order updateOrder(Order order) {
+        return (Order) orderRepository.save(order);
     }
 /*
         StringBuffer body = new StringBuffer();

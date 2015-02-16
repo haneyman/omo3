@@ -1,22 +1,23 @@
 package com.omo.domain;
 
+import java.math.BigInteger;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Persistent;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.roo.addon.javabean.RooJavaBean;
-import org.springframework.roo.addon.layers.repository.mongo.RooMongoEntity;
-import org.springframework.roo.addon.tostring.RooToString;
 
-@RooJavaBean
-@RooToString
-@RooMongoEntity
+@Persistent
 public class Order {
 
     @Temporal(TemporalType.TIMESTAMP)
@@ -31,6 +32,8 @@ public class Order {
     private ApplicationUser user;
     @OneToMany(cascade = CascadeType.ALL)
     private java.util.Set<OrderItem> orderItems = new HashSet<OrderItem>();
+    @Id
+    private BigInteger id;
 
 
 /*  Moved under Menu
@@ -73,6 +76,74 @@ public class Order {
             }
         }
         return total;
+    }
+
+    public Menu getMenu() {
+        return this.menu;
+    }
+
+    public ORDER_STATUS getStatus() {
+        return this.status;
+    }
+
+    public Date getOrderDate() {
+        return this.orderDate;
+    }
+
+    public void setUser(ApplicationUser user) {
+        this.user = user;
+    }
+
+    public void setOrderDate(Date orderDate) {
+        this.orderDate = orderDate;
+    }
+
+    public void setStatus(ORDER_STATUS status) {
+        this.status = status;
+    }
+
+    public void setMenu(Menu menu) {
+        this.menu = menu;
+    }
+
+    public void setOrderItems(Set<OrderItem> orderItems) {
+        this.orderItems = orderItems;
+    }
+
+    public Float getTotalPretax() {
+        return this.totalPretax;
+    }
+
+    public void setTotalPretax(Float totalPretax) {
+        this.totalPretax = totalPretax;
+    }
+
+    public String getNotes() {
+        return this.notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
+    public ApplicationUser getUser() {
+        return this.user;
+    }
+
+    public Set<OrderItem> getOrderItems() {
+        return this.orderItems;
+    }
+
+    public String toString() {
+        return ReflectionToStringBuilder.toString(this, ToStringStyle.SHORT_PREFIX_STYLE);
+    }
+
+    public BigInteger getId() {
+        return this.id;
+    }
+
+    public void setId(BigInteger id) {
+        this.id = id;
     }
 
     public enum  ORDER_STATUS {INIT, OPEN, CANCELLED, CLOSED};

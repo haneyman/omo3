@@ -11,7 +11,6 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.roo.addon.web.mvc.controller.scaffold.RooWebScaffold;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,7 +30,6 @@ import java.util.List;
 
 @RequestMapping("/orders")
 @Controller
-@RooWebScaffold(path = "orders", formBackingObject = Order.class)
 public class OrderController {
     private static org.apache.log4j.Logger logger = Logger.getLogger(MenuController.class);
 

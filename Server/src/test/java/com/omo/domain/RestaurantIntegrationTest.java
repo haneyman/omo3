@@ -5,16 +5,23 @@ import com.omo.repository.ResellerRepository;
 import com.omo.repository.RestaurantRepository;
 import com.omo.repository.ScheduleRepository;
 import com.omo.service.MenuService;
+import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.roo.addon.test.RooIntegrationTest;
+import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
 
 import static junit.framework.Assert.assertTrue;
 
-@RooIntegrationTest(entity = Restaurant.class, transactional = false)
+@ContextConfiguration(locations = "classpath:/META-INF/spring/applicationContext*.xml")
+@RunWith(SpringJUnit4ClassRunner.class)
+@Configurable
 public class RestaurantIntegrationTest {
     private static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(RestaurantIntegrationTest.class);
 
@@ -45,6 +52,8 @@ public class RestaurantIntegrationTest {
     private static final String TEST_RESTAURANT_2 = "Test Restaurant 2";
     private static final String TEST_RESTAURANT_3 = "Test Restaurant 3";
     private static final String MENU1 = "Menu for " + TEST_RESTAURANT_1;
+    @Autowired
+    RestaurantDataOnDemand dod;
 
 /*
     @Test
@@ -695,4 +704,64 @@ public class RestaurantIntegrationTest {
 
     }
 
+    @Test
+    public void testCount() {
+        Assert.assertNotNull("Data on demand for 'Restaurant' failed to initialize correctly", dod.getRandomRestaurant());
+        long count = restaurantRepository.count();
+        Assert.assertTrue("Counter for 'Restaurant' incorrectly reported there were no entries", count > 0);
+    }
+
+    @Test
+    public void testFind() {
+        Restaurant obj = dod.getRandomRestaurant();
+        Assert.assertNotNull("Data on demand for 'Restaurant' failed to initialize correctly", obj);
+        BigInteger id = obj.getId();
+        Assert.assertNotNull("Data on demand for 'Restaurant' failed to provide an identifier", id);
+        obj = restaurantRepository.findOne(id);
+        Assert.assertNotNull("Find method for 'Restaurant' illegally returned null for id '" + id + "'", obj);
+        Assert.assertEquals("Find method for 'Restaurant' returned the incorrect identifier", id, obj.getId());
+    }
+
+    @Test
+    public void testFindAll() {
+        Assert.assertNotNull("Data on demand for 'Restaurant' failed to initialize correctly", dod.getRandomRestaurant());
+        long count = restaurantRepository.count();
+        Assert.assertTrue("Too expensive to perform a find all test for 'Restaurant', as there are " + count + " entries; set the findAllMaximum to exceed this value or set findAll=false on the integration test annotation to disable the test", count < 250);
+        List<Restaurant> result = restaurantRepository.findAll();
+        Assert.assertNotNull("Find all method for 'Restaurant' illegally returned null", result);
+        Assert.assertTrue("Find all method for 'Restaurant' failed to return any data", result.size() > 0);
+    }
+
+    @Test
+    public void testFindEntries() {
+        Assert.assertNotNull("Data on demand for 'Restaurant' failed to initialize correctly", dod.getRandomRestaurant());
+        long count = restaurantRepository.count();
+        if (count > 20) count = 20;
+        int firstResult = 0;
+        int maxResults = (int) count;
+        List<Restaurant> result = restaurantRepository.findAll(new org.springframework.data.domain.PageRequest(firstResult / maxResults, maxResults)).getContent();
+        Assert.assertNotNull("Find entries method for 'Restaurant' illegally returned null", result);
+        Assert.assertEquals("Find entries method for 'Restaurant' returned an incorrect number of entries", count, result.size());
+    }
+
+    @Test
+    public void testSave() {
+        Assert.assertNotNull("Data on demand for 'Restaurant' failed to initialize correctly", dod.getRandomRestaurant());
+        Restaurant obj = dod.getNewTransientRestaurant(Integer.MAX_VALUE);
+        Assert.assertNotNull("Data on demand for 'Restaurant' failed to provide a new transient entity", obj);
+        Assert.assertNull("Expected 'Restaurant' identifier to be null", obj.getId());
+        restaurantRepository.save(obj);
+        Assert.assertNotNull("Expected 'Restaurant' identifier to no longer be null", obj.getId());
+    }
+
+    @Test
+    public void testDelete() {
+        Restaurant obj = dod.getRandomRestaurant();
+        Assert.assertNotNull("Data on demand for 'Restaurant' failed to initialize correctly", obj);
+        BigInteger id = obj.getId();
+        Assert.assertNotNull("Data on demand for 'Restaurant' failed to provide an identifier", id);
+        obj = restaurantRepository.findOne(id);
+        restaurantRepository.delete(obj);
+        Assert.assertNull("Failed to remove 'Restaurant' with identifier '" + id + "'", restaurantRepository.findOne(id));
+    }
 }

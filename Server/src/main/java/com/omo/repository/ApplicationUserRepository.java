@@ -1,12 +1,14 @@
 package com.omo.repository;
 
 import com.omo.domain.ApplicationUser;
-import org.springframework.roo.addon.layers.repository.mongo.RooMongoRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.stereotype.Repository;
 
+import java.math.BigInteger;
 import java.util.List;
 
-@RooMongoRepository(domainType = ApplicationUser.class)
-public interface ApplicationUserRepository {
+@Repository
+public interface ApplicationUserRepository extends PagingAndSortingRepository<ApplicationUser, BigInteger>{
 
     List<com.omo.domain.ApplicationUser> findAll();
     ApplicationUser findOneByEmail(String email);

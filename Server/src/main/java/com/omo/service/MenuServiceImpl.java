@@ -2,6 +2,7 @@ package com.omo.service;
 
 
 import com.omo.domain.*;
+import com.omo.repository.MenuRepository;
 import com.omo.repository.ResellerRepository;
 import com.omo.repository.RestaurantRepository;
 import com.omo.repository.ScheduleRepository;
@@ -10,6 +11,8 @@ import org.joda.time.DateTimeZone;
 import org.joda.time.LocalDateTime;
 import org.joda.time.LocalTime;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigInteger;
 import java.text.DateFormat;
@@ -17,10 +20,14 @@ import java.text.DecimalFormat;
 import java.util.*;
 
 
+@Transactional
+@Service
 public class MenuServiceImpl implements MenuService {
     private static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(MenuServiceImpl.class);
     private static final String INDENT = "   ";
     private static final String NEW_LINE = "\n";//"\n";
+    @Autowired
+    MenuRepository menuRepository;
     private ArrayList<String> html;
 
     @Autowired
@@ -451,6 +458,34 @@ public class MenuServiceImpl implements MenuService {
         logger.debug("   findMenu found a menu: " + menu.getName());
 
         return menu;
+    }
+
+    public Menu updateMenu(Menu menu) {
+        return menuRepository.save(menu);
+    }
+
+    public long countAllMenus() {
+        return menuRepository.count();
+    }
+
+    public void deleteMenu(Menu menu) {
+        menuRepository.delete(menu);
+    }
+
+    public Menu findMenu(BigInteger id) {
+        return menuRepository.findOne(id);
+    }
+
+    public List<Menu> findAllMenus() {
+        return menuRepository.findAll();
+    }
+
+    public List<Menu> findMenuEntries(int firstResult, int maxResults) {
+        return menuRepository.findAll(new org.springframework.data.domain.PageRequest(firstResult / maxResults, maxResults)).getContent();
+    }
+
+    public void saveMenu(Menu menu) {
+        menuRepository.save(menu);
     }
 
 

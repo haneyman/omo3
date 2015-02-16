@@ -2,15 +2,27 @@ package com.omo.service;
 
 import com.omo.domain.ApplicationUser;
 import com.omo.domain.Order;
-import org.springframework.roo.addon.layers.service.RooService;
 
+import java.math.BigInteger;
 import java.util.List;
 
-@RooService(domainTypes = { com.omo.domain.Order.class })
 public interface OrderService {
     //public List<Order> getOrdersByUser(ApplicationUser user);
     List<Order> getOrdersByUser(ApplicationUser user) ;
     void notifyOrder(Order order) ;
+    public long countAllOrders() ;
+
+    public void deleteOrder(Order order) ;
+
+    public Order findOrder(BigInteger id) ;
+
+    public List<Order> findAllOrders() ;
+
+    public List<Order> findOrderEntries(int firstResult, int maxResults) ;
+
+    public void saveOrder(Order order);
+
+    public Order updateOrder(Order order) ;
 
 
 }

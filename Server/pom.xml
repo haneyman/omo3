@@ -4,7 +4,7 @@
     <groupId>com.omo</groupId>
     <artifactId>omo</artifactId>
     <packaging>war</packaging>
-    <version>0.1.0.BUILD-SNAPSHOT</version>
+    <version>2.0.D-SNAPSHOT</version>
     <name>omo</name>
     <profiles>
         <profile>
@@ -59,11 +59,12 @@
     </profiles>
     <properties>
         <aspectj.version>1.7.0</aspectj.version>
-        <java.version>1.6</java.version>
+        <java.version>1.7</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <roo.version>1.2.3.RELEASE</roo.version>
         <slf4j.version>1.7.2</slf4j.version>
-        <spring.version>3.2.0.RELEASE</spring.version>
+        <!--<spring.version>3.2.0.RELEASE</spring.version>-->
+        <spring.version>4.1.4.RELEASE</spring.version>
         <jetty.port>8085</jetty.port>
     </properties>
     <repositories>
@@ -77,11 +78,11 @@
             <name>Spring Maven Milestone Repository</name>
             <url>http://maven.springframework.org/milestone</url>
         </repository>
-        <repository>
-            <id>spring-roo-repository</id>
-            <name>Spring Roo Repository</name>
-            <url>http://spring-roo-repository.springsource.org/release</url>
-        </repository>
+        <!--<repository>-->
+            <!--<id>spring-roo-repository</id>-->
+            <!--<name>Spring Roo Repository</name>-->
+            <!--<url>http://spring-roo-repository.springsource.org/release</url>-->
+        <!--</repository>-->
     <repository>
             <id>spring-maven-snapshot</id>
             <url>http://maven.springframework.org/milestone</url>
@@ -99,11 +100,11 @@
             <name>Spring Maven Milestone Repository</name>
             <url>http://maven.springframework.org/milestone</url>
         </pluginRepository>
-        <pluginRepository>
-            <id>spring-roo-repository</id>
-            <name>Spring Roo Repository</name>
-            <url>http://spring-roo-repository.springsource.org/release</url>
-        </pluginRepository>
+        <!--<pluginRepository>-->
+            <!--<id>spring-roo-repository</id>-->
+            <!--<name>Spring Roo Repository</name>-->
+            <!--<url>http://spring-roo-repository.springsource.org/release</url>-->
+        <!--</pluginRepository>-->
     </pluginRepositories>
     <dependencies>
         <!-- General dependencies for standard applications -->
@@ -160,12 +161,12 @@
             <version>3.1</version>
         </dependency>
         <!-- ROO dependencies -->
-        <dependency>
+<!--        <dependency>
             <groupId>org.springframework.roo</groupId>
             <artifactId>org.springframework.roo.annotations</artifactId>
             <version>${roo.version}</version>
             <scope>provided</scope>
-        </dependency>
+        </dependency>-->
         <!-- Spring dependencies -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -287,11 +288,29 @@
             <artifactId>tiles-jsp</artifactId>
             <version>2.2.2</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.4.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.4.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-core-asl</artifactId>
+            <version>1.9.13</version>
+        </dependency>
+
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-mapper-asl</artifactId>
-            <version>1.9.12</version>
+            <version>1.9.13</version>
         </dependency>
+
         <dependency>
             <groupId>javax.mail</groupId>
             <artifactId>mail</artifactId>
@@ -320,13 +339,14 @@
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>
+<!--
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>aspectj-maven-plugin</artifactId>
                 <version>1.2</version>
-                <!-- NB: do not use 1.3 or 1.3.x due to MASPECTJ-90 and do not use 1.4 due to declare parents issue  -->
+                &lt;!&ndash; NB: do not use 1.3 or 1.3.x due to MASPECTJ-90 and do not use 1.4 due to declare parents issue  &ndash;&gt;
                 <dependencies>
-                    <!-- NB: You must use Maven 2.0.9 or above or these are ignored (see MNG-2972) -->
+                    &lt;!&ndash; NB: You must use Maven 2.0.9 or above or these are ignored (see MNG-2972) &ndash;&gt;
                     <dependency>
                         <groupId>org.aspectj</groupId>
                         <artifactId>aspectjrt</artifactId>
@@ -358,6 +378,7 @@
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
+-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
@@ -449,15 +470,25 @@
             </plugin>
 -->
             <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.0.6.v20130930</version>
+                <configuration>
+                    <webApp>
+                        <contextPath>/${project.artifactId}</contextPath>
+                    </webApp>
+                </configuration>
+            </plugin>
+<!--            <plugin>
                 <groupId>org.mortbay.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>8.1.4.v20120524</version>
-                <configuration>
+&lt;!&ndash;                <configuration>
                     <webAppConfig>
                         <contextPath>/${project.name}</contextPath>
                     </webAppConfig>
-                </configuration>
-            </plugin>
+                </configuration>&ndash;&gt;
+            </plugin>-->
 
         </plugins>
     </build>
