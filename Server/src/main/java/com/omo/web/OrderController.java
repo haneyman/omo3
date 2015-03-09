@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
 
@@ -23,10 +24,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Enumeration;
-import java.util.List;
+import java.util.*;
 
 @RequestMapping("/orders")
 @Controller
@@ -205,6 +203,7 @@ public class OrderController {
         MenuItem menuItemGroup = menuService.getMenuItemByUuid(menu, menuItem.getParentUuid());
         MenuItem menuItemSection = menuService.getMenuItemByUuid(menu, menuItemGroup.getParentUuid());
         OrderItem orderItem = new OrderItem(menuItemQuantity, menu, menuItemSection, menuItemGroup, menuItem, note);
+        orderItem.setId(BigInteger.valueOf(order.getOrderItems().size()+1)); //give it a sequential id for UI reference in hrefs
         order.getOrderItems().add(orderItem);
         //order.setTotalPretax(total);
 //TODO: new solution for combos        adjustForComboHack(order);
@@ -226,6 +225,36 @@ public class OrderController {
             return "redirect:/menus/showMenu/" + encodeUrlPathSegment(order.getMenu().getId().toString(), httpServletRequest);
     }
 
+    /*
+    Called when they hit "add to order" in dialog in menu
+     */
+    @RequestMapping(value="getOrderJSON", method = RequestMethod.GET)
+    public @ResponseBody Order getOrderAsJSON(HttpSession session) throws Exception {
+        logger.debug("getOrderAsJSON");
+        //grab order from session
+        Order order = (Order) session.getAttribute("order");
+        //if not there than look in db
+        if (order == null) {
+            ApplicationUser user = (ApplicationUser) session.getAttribute("applicationUser");
+            if (user == null)
+                return null;
+            //get the current order or create one
+            logger.debug("There was no order in session.  Checking db...");
+            order = orderService.getTodaysOrderByUser(user);
+            //order = new Order();
+        }
+
+        return order;
+    }
+
+    @RequestMapping(value="deleteOrderItem/{orderItemId}", method = RequestMethod.GET)
+    public @ResponseBody Order deleteOrderItemAJAX(@PathVariable("orderItemId") String orderItemId, HttpSession session) throws Exception {
+        logger.debug("deleting order item");
+        //grab order from session, not being in session is not feasible i believe
+        Order order = (Order) session.getAttribute("order");
+        orderService.deleteOrderItem(order, orderItemId);
+        return order;
+    }
 /*
 
     @RequestMapping(value = "submitOrder", method = RequestMethod.POST, produces = "text/html")

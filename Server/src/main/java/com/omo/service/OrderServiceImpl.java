@@ -4,6 +4,7 @@ package com.omo.service;
 import com.omo.domain.ApplicationUser;
 import com.omo.domain.MenuItem;
 import com.omo.domain.Order;
+import com.omo.domain.OrderItem;
 import com.omo.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -39,6 +40,44 @@ public class OrderServiceImpl implements OrderService {
         }
 
         return userOrders;
+    }
+
+    public Order getTodaysOrderByUser(ApplicationUser user) {
+        //List<Order> orders = orderRepository.findAll();
+//        PageRequest request =
+//                new PageRequest(0, 100, org.springframework.data.domain.Sort.Direction.DESC, "orderDate");
+        Order result = null;
+        List<Order> orders = orderRepository.findByUser(user);
+        for (Order order : orders){
+            //System.out.println("order user: " + user);
+            if (order.isToday())  {
+                result = order;
+            }
+        }
+
+        return result;
+    }
+
+    @Override
+    public void deleteOrderItem(Order order, String orderItemId) {
+        OrderItem orderItemTarget = null;
+        for (OrderItem orderItem : order.getOrderItems()) {
+            if (orderItem.getId().toString().equals(orderItemId )) {
+                orderItemTarget = orderItem;
+                break;
+            }
+        }
+        //remove and recreate id's - hokey but it works
+        if (orderItemTarget != null) {
+            order.getOrderItems().remove(orderItemTarget);
+            int i = 1;
+            for (OrderItem orderItem : order.getOrderItems()) {
+                orderItem.setId(BigInteger.valueOf(i++));
+            }
+            order.calculateTotals();
+
+            saveOrder(order);
+        }
     }
 
     public void notifyOrder(Order order) {

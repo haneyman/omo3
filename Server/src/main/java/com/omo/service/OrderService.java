@@ -24,5 +24,8 @@ public interface OrderService {
 
     public Order updateOrder(Order order) ;
 
+    public Order getTodaysOrderByUser(ApplicationUser user) ;
 
+
+    public void deleteOrderItem(Order order, String orderItemId) ;
 }

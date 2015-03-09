@@ -16,6 +16,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface OrderRepository extends PagingAndSortingRepository<Order, BigInteger> {
 
-    List<Order> findAll();
-
+    List<Order>  findAll();
+    List<Order>  findByUser(ApplicationUser user);
 }

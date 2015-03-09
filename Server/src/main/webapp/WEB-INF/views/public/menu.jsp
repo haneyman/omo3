@@ -8,7 +8,7 @@
     //<![CDATA[
     <%--<c:if test="${!canOrder}">--%>
     $( document ).ready(function() {
-        $('#order').hide();
+        $('#orderPopup').hide();
 
         $('.returnView').val('/menus/showMenu/${menu.id}');//sets the form field in login and register to which page to return to
         <c:if test="${canOrder}">
@@ -86,12 +86,56 @@
     }
 
     function showOrder() {
-        $("#order").slideDown();
+        loadOrderPopup();
+        $("#orderPopup").slideDown();
         $("#myOrderButton").hide();
     }
 
+    //this is where the html is generated for the popup order "My Order"
+    // makes a ajax call to retrieve the current order in session then iterates through the subcomponents
+    // analagous to the jsp iteration in orders.jsp
+    //
+    function loadOrderPopup() {
+        var itemUrl = "/omo/orders/getOrderJSON";
+        $.ajax({
+            url: itemUrl,
+            context: document.body,
+            dataType: "json"
+            //async: false
+        }).done(function(order) {
+            //alert('done: ' + data);
+            var html = "<!-- begin genereated html from menu.jsp -->";
+            html  += "<table class=\"table\">";
+            html  += "   <tbody>";
+            jQuery.each(order.orderItems, function(i, orderItem) {
+                html +=  "      <tr>";
+                html +=  "         <td>" + orderItem.quantity + "</td>";
+                html +=  "         <td>" + orderItem.section.name + " - " + orderItem.group.name + " - " +orderItem.menuItem.name ;
+                jQuery.each(orderItem.menuItem.options, function(j, optionGroup) {
+                    html += "<ul  style='list-style-type: none; height:8px; font-size: 12px;'>";
+                    jQuery.each(optionGroup.children, function(k, option) {
+                        html += "<li><div style='width:200px;float:left;'>" + optionGroup.description + " - " + option.description + "</div><div style='float:right'>$" + option.price + "</div></li>";
+                    })
+                    html += "</ul>";
+                });
+                if (orderItem.note != "")
+                    html +=  "<br/>Note: " + orderItem.note  ;
+                html +=  "</td>";
+                html +=  "         <td>$" + orderItem.total + "</td>";
+                html +=  "         <td><a href='#' onclick = 'deleteOrderItem(" + orderItem.id + ")' >Delete</a></td>";
+                html +=  "      </tr>" ;
+            });
+            html  += "   </tbody>";
+            html  += "</table>";
+            html  += "<div style='float:right;margin-right:60px;'> <b>  Total: $" + order.totalPretax + "</b></div>";
+            $('#orderPopupBody').html(html);
+        }).error(function() {
+            alert('Dangit, there was an error getting your order, please refresh and try again.');
+        });
+    }
+
     function hideOrder() {
-        $("#order").slideUp(function(){
+        $("#orderPopup").slideUp(function(){
             $("#myOrderButton").fadeIn();
         });
 
@@ -100,16 +144,35 @@
     function hideOrderItem() {
         $("#dialogOrderItem").fadeOut();
     }
+
+    function deleteOrderItem(id) {
+        hideOrder();
+        var itemUrl = "/omo/orders/deleteOrderItem/" + id;
+        $.ajax({
+            url: itemUrl,
+            context: document.body,
+            dataType: "json"
+            //async: false
+        }).done(function(order) {
+            //alert('Item deleted');
+            showOrder();
+        }).error(function() {
+            alert('Dangit, there was an error deleting that item, please refresh and try again or contact support.');
+        });
+    }
+
+
 </script>
 
 <!-- THE ORDER -->
-<div id="order" class="panel panel-success" style="float:right; width: 30%; margin-right: 10%; margin-top: 20px;">
+<div id="orderPopup" class="panel panel-success" style="float:right; width: 30%; margin-right: 10%; margin-top: 20px;">
     <div class="panel-heading">
-        Order
-        <div style="float:right;" ><a href="#" onclick="hideOrder();">x</a></div>
-
+        My Order for Today
+        <%--<div style="float:right;" ><a href="#" onclick="hideOrder();">x</a></div>--%>
+        <button type="button"  onclick="hideOrder();" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     </div>
-    <div class="panel-body">
+    <div id="orderPopupBody" class="panel-body">
+<%--
         <table class="table">
             <tr>
                 <th>Qty</th>
@@ -124,9 +187,13 @@
                 <td><a href="#">Delete</a></td>
             </tr>
         </table>
+--%>
     </div>
     <div class="panel-footer">
-        <button type="button" class="btn btn-success">Checkout</button>
+        <%--<button type="button" class="btn btn-success">Checkout</button>--%>
+            <%--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--%>
+            <button type="button" class="btn btn-success"   onclick="hideOrder();" >&nbsp;&nbsp;  OK  &nbsp;&nbsp;</button>
+        <div style="float:right;width:325px;"><i>These items will be ordered for you. <br/> Please pickup and pay at noon.  Enjoy!</i></div>
     </div>
 </div>
 <!-- END THE ORDER -->

@@ -45,9 +45,11 @@
                         <li id="allOrders" class=""><a href="/omo/orders/orders/open">All Orders</a></li>
                     </c:if>
                 </c:if>
-                <li id="divider" class="divider"><a href="#">|</a></li>
                 <c:if test="${sessionScope.order != null}">
-                    <li id="myOrder" class=""><a href="#" onclick="showOrder();">My Order<span style="color: #4aa13c"> ${order.orderItems.size()} items </span></a></li>
+                    <c:if test="${sessionScope.order.orderItems.size() > 0}">
+                        <li id="divider" class="divider"><a href="#">|</a></li>
+                        <li id="myOrder" class=""><a href="#" onclick="showOrder();">My Order<span style="color: #4aa13c"> ${order.orderItems.size()} items </span></a></li>
+                    </c:if>
                 </c:if>
             </ul>
             <div style="float:right; "  class="">
