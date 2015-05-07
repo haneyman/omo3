@@ -17,6 +17,8 @@
            </c:if>
         </c:if>
         <c:if test="${!canOrder}">
+            //$('.orderItemLink').off('click');
+            $('.orderItemLink').unbind('click');
             //$('input[type=checkbox]').hide();
             //TODO: disable order links
         </c:if>
@@ -165,7 +167,7 @@
 </script>
 
 <!-- THE ORDER -->
-<div id="orderPopup" class="panel panel-success" style="float:right; width: 30%; margin-right: 10%; margin-top: 20px;">
+<div id="orderPopup" class="panel panel-success" style="position: absolute;z-index: 900; width: 400px; margin-left: 30%; margin-top: 15px;">
     <div class="panel-heading">
         My Order for Today
         <%--<div style="float:right;" ><a href="#" onclick="hideOrder();">x</a></div>--%>
@@ -193,7 +195,7 @@
         <%--<button type="button" class="btn btn-success">Checkout</button>--%>
             <%--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--%>
             <button type="button" class="btn btn-success"   onclick="hideOrder();" >&nbsp;&nbsp;  OK  &nbsp;&nbsp;</button>
-        <div style="float:right;width:325px;"><i>These items will be ordered for you. <br/> Please pickup and pay at noon.  Enjoy!</i></div>
+        <div style="float:right;width:280px;margin-top: -3px;margin-left: 0px;"><i>These items will be ordered for you. <br/> Please pickup and pay at noon.  Enjoy!</i></div>
     </div>
 </div>
 <!-- END THE ORDER -->
@@ -201,7 +203,7 @@
 <div class="menu" style="margin-bottom: 200px;">
     <div class="" style="padding-left:20px;background-color: #7aba7b;margin-bottom: 0px;padding:5px; ">
         <div style="float: right;margin-right: 35%;margin-top: 15px;">
-            <button id="myOrderButton" type="button" class="btn btn-primary " data-toggle="button" onclick='showOrder();'  >My Order</button>
+            <%--<button id="myOrderButton" type="button" class="btn btn-primary " data-toggle="button" onclick='showOrder();'  >My Order</button>--%>
             <!--<a href="#" onclick="">My Order</a>-->
         </div>
         <h3>${menu.name} ${menu.description}</h3>
@@ -245,7 +247,11 @@
                                     <div class="menuItem col-md-12 row-fluid">
                                         <div class="col-md-12">
                                             <div class="menuItemName">
-                                                <a href="#" onclick='orderItem("${item.uuid}");return true;'>${item.name}
+                                                <a href="#" class="orderItemLink"
+                                                    <c:if test="${canOrder}">onclick='orderItem("${item.uuid}");return true;'</c:if>
+                                                    <c:if test="${!canOrder}">onclick="alert('Sorry, you can NOT order from this menu right now.');"</c:if>
+                                                >
+                                                    ${item.name}
                                                     <c:if test="${!empty fn:trim(item.description)}">
                                                         - <span class="menuItemDescription">${item.description} </span>
                                                     </c:if>
@@ -299,7 +305,7 @@
             <div class="modal-footer">
                 <div style="margin-top:10">
                     <button class="btn btn-success" style="margin-left: 4px;"  onclick='submitOrderItem(false);'>Add To Order</button>
-                    <button class="btn btn-success" style="margin-left: 4px;"  onclick='submitOrderItem(true);'>Add To Order AND Checkout</button>
+                    <%--<button class="btn btn-success" style="margin-left: 4px;"  onclick='submitOrderItem(true);'>Add To Order AND Checkout</button>--%>
                 </div>
             </div>
         </div>

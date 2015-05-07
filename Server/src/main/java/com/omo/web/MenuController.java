@@ -112,12 +112,21 @@ public class MenuController {
     }
 
     @RequestMapping(value = "showMenu/{id}", produces = "text/html")
-    public String showMenu(@PathVariable("id") BigInteger id, Model uiModel) throws Exception  {
+    public String showMenuNormal(@PathVariable("id") BigInteger id, Model uiModel) throws Exception  {
+        return showMenu(id, null, uiModel);
+    }
+    @RequestMapping(value = "showMenu/{id}/{debug}", produces = "text/html")
+    public String showMenuNormal(@PathVariable("id") BigInteger id, @PathVariable("debug") String debug, Model uiModel) throws Exception  {
+        return showMenu(id, debug, uiModel);
+    }
+
+
+    private String showMenu(BigInteger id, String debug, Model uiModel) throws Exception {
         logger.debug("showMenu for:" + id);
         Menu menu = menuService.findMenu(id);
         //TODO: Need to sort ALL the menu items before adding as attribute
         uiModel.addAttribute("menu", menu);
-        String debugMode = System.getProperty("debug.mode");
+        String debugMode = System.getProperty("debug");
         if (debugMode != null && debugMode.equalsIgnoreCase("true"))
             uiModel.addAttribute("canOrder", true);//
         else

@@ -31,8 +31,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="omo" />
         <module name="Server" />
+      </profile>
+      <profile default="false" name="Annotation profile for omo" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="omo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
