@@ -1,7 +1,10 @@
 package com.omo.domain;
 
+import com.omo.repository.MenuItemRepository;
 import com.omo.repository.ResellerRepository;
+import com.omo.repository.RestaurantRepository;
 import com.omo.repository.ScheduleRepository;
+import com.omo.service.MenuService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +27,17 @@ public class InitializeAllData {
     @SuppressWarnings("SpringJavaAutowiringInspection")
     @Autowired
     ResellerRepository resellerRepository;
+    @SuppressWarnings("SpringJavaAutowiringInspection")
+    @Autowired
+    MenuService menuService;
+
+    @SuppressWarnings("SpringJavaAutowiringInspection")
+    @Autowired
+    MenuItemRepository menuItemRepository;
+
+    @SuppressWarnings("SpringJavaAutowiringInspection")
+    @Autowired
+    RestaurantRepository restaurantRepository;
 
     @Test
     public void initializeAllTest() {
@@ -42,7 +56,7 @@ public class InitializeAllData {
 
         //restaurants --------------------------------------------------------------------------------------------------
         logger.info("   restaurants...");
-        RestaurantIntegrationTest restaurantIntegrationTest = new RestaurantIntegrationTest();
+        RestaurantIntegrationTest restaurantIntegrationTest = new RestaurantIntegrationTest(menuService, menuItemRepository, restaurantRepository, resellerRepository, scheduleRepository);
         restaurantIntegrationTest.deleteAllRestaurants();
         Restaurant restaurantBentolinos     = restaurantIntegrationTest.addRestaurant("Bentolinos", "old fashioned family operated catering business and deli");
         Restaurant restaurantElMolino       = restaurantIntegrationTest.addRestaurant("El Molino", "Mexcan Food Catering, Food To Go, and Tortilla Factory.");

@@ -46,6 +46,7 @@
     <script src="/omo/resources/assets/js/google-code-prettify/prettify.js" ></script>
     <script src="/omo/resources/assets/js/application.js" ></script>
     <script src="/omo/resources/assets/js/css3-mediaqueries.js"></script>
+    <script src="/omo/resources/assets/js/CryptoJS.js" ></script>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

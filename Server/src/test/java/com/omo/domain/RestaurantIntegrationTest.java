@@ -68,7 +68,16 @@ public class RestaurantIntegrationTest {
         testScheduleMenu(menu);
     }
 */
+    public RestaurantIntegrationTest(MenuService menuService, MenuItemRepository menuItemRepository, RestaurantRepository restaurantRepository,
+                                     ResellerRepository resellerRepository, ScheduleRepository scheduleRepository) {
+        //only way to instantiate these when test is instantiated in IntializeAllData
+        this.menuService = menuService;
+        this.menuItemRepository = menuItemRepository;
+        this.restaurantRepository = restaurantRepository;
+        this.resellerRepository = resellerRepository;
+        this.scheduleRepository = scheduleRepository;
 
+    }
 
 
     @Test
@@ -605,7 +614,7 @@ public class RestaurantIntegrationTest {
         sectionMenuItem.getChildMenuItems().add(menuItem);//add group to section
 
 
-        menuItem = new MenuItem("Chicken Subs","",1,MenuItem.MenuItemTypes.MenuGroup, 0f, sectionMenuItem);
+        menuItem = new MenuItem("Chicken Subs","",2,MenuItem.MenuItemTypes.MenuGroup, 0f, sectionMenuItem);
         groupOption = menuItem.addOption(MenuItemOption.MenuItemOptionTypes.Group, null, "Size");
         groupOption.addChild(MenuItemOption.MenuItemOptionTypes.Item, 7.99F, SIZE_REGULAR);
         groupOption.addChild(MenuItemOption.MenuItemOptionTypes.Item, 9.99F, SIZE_LARGE);
@@ -624,7 +633,7 @@ public class RestaurantIntegrationTest {
         menuItem.addChildMenuItem("Spicy Chicken","with mild cheddar, fresh Q-salasa & chipotle mayo",5,MenuItem.MenuItemTypes.MenuItem);
         sectionMenuItem.getChildMenuItems().add(menuItem);//add group to section
 
-        menuItem = new MenuItem("Classic Subs","",1,MenuItem.MenuItemTypes.MenuGroup, 0f, sectionMenuItem);
+        menuItem = new MenuItem("Classic Subs","",3,MenuItem.MenuItemTypes.MenuGroup, 0f, sectionMenuItem);
         groupOption = menuItem.addOption(MenuItemOption.MenuItemOptionTypes.Group, null, "Size");
         groupOption.addChild(MenuItemOption.MenuItemOptionTypes.Item, 7.49F, SIZE_REGULAR);
         groupOption.addChild(MenuItemOption.MenuItemOptionTypes.Item, 9.49F, SIZE_LARGE);
@@ -659,7 +668,7 @@ public class RestaurantIntegrationTest {
         menuItem.addChildMenuItem("Chicken Pesto","with 3-cheese blend, balsamic tomatoes. ",4,MenuItem.MenuItemTypes.MenuItem);
         sectionMenuItem.getChildMenuItems().add(menuItem);//add group to section
 
-        menuItem = new MenuItem("Salads & Wraps","",1,MenuItem.MenuItemTypes.MenuGroup, 6.00f, sectionMenuItem);
+        menuItem = new MenuItem("Salads & Wraps","",4,MenuItem.MenuItemTypes.MenuGroup, 6.00f, sectionMenuItem);
         groupOption = menuItem.addOption(MenuItemOption.MenuItemOptionTypes.Group, null, "Size");
         groupOption.addChild(MenuItemOption.MenuItemOptionTypes.Item, 4.99f, SIZE_SMALL);
         groupOption.addChild(MenuItemOption.MenuItemOptionTypes.Item, 7.49f, SIZE_LARGE);
@@ -764,4 +773,5 @@ public class RestaurantIntegrationTest {
         restaurantRepository.delete(obj);
         Assert.assertNull("Failed to remove 'Restaurant' with identifier '" + id + "'", restaurantRepository.findOne(id));
     }
+
 }

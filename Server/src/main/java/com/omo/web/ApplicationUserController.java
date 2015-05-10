@@ -22,6 +22,7 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
+import java.security.MessageDigest;
 
 
 @RequestMapping("/applicationusers")
@@ -68,18 +69,34 @@ public class ApplicationUserController {
 
     }
 
+    private static String convertByteArrayToHexString(byte[] arrayBytes) {
+        StringBuffer stringBuffer = new StringBuffer();
+        for (int i = 0; i < arrayBytes.length; i++) {
+            stringBuffer.append(Integer.toString((arrayBytes[i] & 0xff) + 0x100, 16)
+                    .substring(1));
+        }
+        return stringBuffer.toString();
+    }
+
+
     @RequestMapping(value = "login", method = RequestMethod.POST, produces = "text/html")
     public String login(@RequestParam(value="email") String email, @RequestParam(value="password") String password,
                         Model uiModel, HttpServletRequest request) throws Exception {
-        logger.debug("login for order ");
-        //String orderid = request.getParameter("orderId");
-        logger.debug("email:" + email);
+        logger.debug("login for email:" + email);
         ApplicationUser appUser = applicationUserRepository.findOneByEmail(email);
         if (appUser == null){
-            logger.debug("login unsuccessful");
+            logger.debug("login unsuccessful, unknown user");
             return "redirect:/public/start";
         } else {
-            logger.debug("login successful");
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] digest = md.digest(appUser.getPassword().getBytes());
+            String digestString = convertByteArrayToHexString(digest);
+            if (digestString.equals(password))
+                logger.debug("login successful");
+            else {
+                logger.debug("Incorrect password");
+                return "redirect:/public/start";//TODO:this should be a login page??
+            }
         }
         HttpSession session = request.getSession();
         session.setAttribute("applicationUser", appUser);

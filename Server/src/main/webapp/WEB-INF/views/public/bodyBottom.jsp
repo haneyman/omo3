@@ -4,6 +4,18 @@
     .col-sm-10 {margin-bottom: 5px;}
 </style>
 <script>
+    $( document ).ready(function() {
+
+        $("#login").submit(function(e){
+            e.preventDefault();
+            var form = this;
+            var hash = CryptoJS.MD5($('#password').val());
+            $('#password').val(hash);
+            form.submit(); // submit bypassing the jQuery bound event
+        });
+    });
+
+
     function remind() {
         url = "/omo/applicationusers/remind/" + encodeURIComponent($('#email').val().replace(/\./g, '&#46;'));
 //        alert(url);
