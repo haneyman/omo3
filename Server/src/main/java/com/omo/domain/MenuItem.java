@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import javax.persistence.CascadeType;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Temporal;
 import java.math.BigInteger;
 import java.util.HashSet;
@@ -125,6 +126,7 @@ public class MenuItem {
     private MenuItemTypes type;
     private Float price;
     @OneToMany(cascade = CascadeType.ALL)
+    @OrderBy("sortOrder ASC")
     private Set<MenuItem> childMenuItems = new HashSet<MenuItem>();
     @OneToMany(cascade = CascadeType.ALL)
     private Set<MenuItemOption> options = new HashSet<MenuItemOption>();

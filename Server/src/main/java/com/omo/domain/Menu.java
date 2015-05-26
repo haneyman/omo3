@@ -8,10 +8,9 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import javax.persistence.CascadeType;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.OrderBy;
 import java.math.BigInteger;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Persistent
 public class Menu {
@@ -101,6 +100,7 @@ public class Menu {
     private String description;
 
     @OneToMany(cascade = CascadeType.ALL)
+    //don't not work - @OrderBy("sortOrder ASC")
     private Set<MenuItem> menuItems = new HashSet<MenuItem>();
 
     @DBRef
@@ -112,5 +112,33 @@ public class Menu {
     private String orderContact;
 
 //public int () { return menuItems.size()};
+
+
+    class MenuItemComparator implements Comparator<MenuItem> {
+        public int compare(MenuItem mi1, MenuItem mi2) {
+            return mi1.getSortOrder().compareTo(mi2.getSortOrder());
+        }
+    }
+
+    public void sortMenuItems() {
+        setMenuItems(sortMenuItems(getMenuItems()));
+        sortMenuItemChildren(getMenuItems());
+    }
+
+    //recursively sorts given menu item list's children
+    private void sortMenuItemChildren(Set<MenuItem> menuItems) {
+        for (MenuItem menuItem: getMenuItems()) {
+            if (menuItem.getChildMenuItems() != null) {
+                menuItem.setChildMenuItems(sortMenuItems(menuItem.getChildMenuItems()));
+            }
+        }
+    }
+
+    private Set<MenuItem> sortMenuItems(Set<MenuItem> items) {
+        List<MenuItem> miList = new LinkedList<MenuItem>(items);
+        Collections.sort(miList, new MenuItemComparator());
+        Set<MenuItem> sortedItems = new LinkedHashSet<MenuItem>(miList);  //convert back to set - not sure necessary but what the hell
+        return sortedItems;
+    }
 
 }

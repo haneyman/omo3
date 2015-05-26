@@ -39,7 +39,6 @@ public class MenuServiceImpl implements MenuService {
     RestaurantRepository restaurantRepository;
 
     @Autowired
-    @SuppressWarnings("SpringJavaAutowiringInspection")
     ScheduleRepository scheduleRepository;
 
 
@@ -154,163 +153,7 @@ public class MenuServiceImpl implements MenuService {
 
         return null;
     }
-/*
 
-    public String getMenuAsHTML(Menu menu) throws Exception {
-        logger.debug("getMenuAsHTML - loading html for menu " + menu.getName() +  "...");
-        html = new ArrayList<String>();
-        html.add(NEW_LINE + "<!-- begin generated menu html -->" + NEW_LINE);
-        html.add("<div class=\"container divMenu\">" + NEW_LINE);
-        html.add("    <div class=\"row divMenuRow\">" + NEW_LINE);
-        html.add("    <input type=\"hidden\" name=\"menuId\" value=\"" + menu.getId() + "\">" + NEW_LINE);
-        loadMenuItems(menu.getMenuItems(), 1);
-        html.add("    </div> <!-- divMenuRow -->" + NEW_LINE);
-        html.add("</div> <!-- divMenu -->" + NEW_LINE);
-        html.add("<!-- end generated menu html -->" + NEW_LINE);
-        logger.debug("Loading html for menu complete. Lines:" + html.size());
-        logger.debug("getMenuAsHTML done");
-        return htmlAsString();
-    }
-
-*/
-/*
-    public String getMenu(Menu menu) throws Exception {
-        logger.debug("getMenuAsHTML - loading html for menu " + menu.getName() +  "...");
-        html = new ArrayList<String>();
-        html.add(NEW_LINE + "<!-- begin generated menu html -->" + NEW_LINE);
-        html.add("<div class=\"container divMenu\">" + NEW_LINE);
-        html.add("    <div class=\"row divMenuRow\">" + NEW_LINE);
-        html.add("    <input type=\"hidden\" name=\"menuId\" value=\"" + menu.getId() + "\">" + NEW_LINE);
-        loadMenuItems(menu.getMenuItems(), 1);
-        html.add("    </div> <!-- divMenuRow -->" + NEW_LINE);
-        html.add("</div> <!-- divMenu -->" + NEW_LINE);
-        html.add("<!-- end generated menu html -->" + NEW_LINE);
-        logger.debug("Loading html for menu complete. Lines:" + html.size());
-        logger.debug("getMenuAsHTML done");
-        return htmlAsString();
-    }
-*/
-/*
-
-    private void loadMenuItems(Set<MenuItem> menuItems, int level) throws Exception {
-        List<MenuItem> menuItemsList = new ArrayList(menuItems);
-        Collections.sort(menuItemsList, new Comparator<MenuItem>() {
-            public int compare(MenuItem mi1, MenuItem mi2) {
-                return (mi1.getSortOrder() > mi2.getSortOrder() ? 1 : (mi1.getSortOrder()==mi2.getSortOrder() ? 0 : -1));
-            }
-        });
-
-        for (MenuItem menuItem: menuItemsList) {
-            if (menuItem.getType().equals(MenuItem.MenuItemTypes.MenuSection)) {
-                loadMenuSection(menuItem, level);
-            } else if (menuItem.getType().equals(MenuItem.MenuItemTypes.MenuGroup)) {
-                loadMenuGroup(menuItem, level);
-            } else if (menuItem.getType().equals(MenuItem.MenuItemTypes.MenuItem)) {
-                loadMenuItem(menuItem, level);
-            } else
-                throw new Exception("Invalid Menu Item Type: \"" + menuItem.getType() + "\"");
-        }
-    }
-
-    private void loadMenuSection(MenuItem menuItem, int level) throws Exception {
-        level++;
-//        addToHTML("<div class=\"row\">",level);
-        addToHTML(INDENT + "<div class=\"divMenuSection row\">",level);
-        addToHTML(INDENT + "<h3>" + menuItem.getName() + "</h3>",level);
-
-        if (menuItem.getChildMenuItems().size() > 0) {
-            loadMenuItems(menuItem.getChildMenuItems(), level + 1);
-        }
-        addToHTML(INDENT + "</div> <!-- divMenuSection -->",level);
-//        addToHTML("</div>",level);
-    }
-
-    private void loadMenuGroup(MenuItem menuItem, int level) throws Exception {
-        level++;
-//        addToHTML("<div class=\"row\">",level);
-        addToHTML(INDENT + "<div class=\"divMenuGroup\">",level);
-        addToHTML(INDENT + INDENT + "<div class=\"col-xs-6 row divMenuGroupRow\">",level);
-        addToHTML(INDENT + INDENT + INDENT + "<h4 class=\"menuGroupTitle\">" + menuItem.getName() + "</h4>", level);
-        addToHTML(INDENT + INDENT + INDENT + "<p><span style='padding:10px;'>" + menuItem.getDescription() + "</span></p>",level);
-        addToHTML(INDENT + INDENT + INDENT + "<div class=\"divItems\">",level);
-        loadMenuItems(menuItem.getChildMenuItems(), level + 2);
-        addToHTML(INDENT + INDENT + INDENT + "</div> <!-- divItems -->", level);
-        addToHTML(INDENT + INDENT + "</div> <!-- divMenuGroupRow -->",level);
-        addToHTML(INDENT + "</div> <!-- divMenuGroup -->",level);
-        addToHTML("<br/>",level);
-//        addToHTML("</div>",level);
-    }
-
-    private void loadMenuItem(MenuItem menuItem, int level) {
-        level++;
-        boolean checked = false;
-        DecimalFormat myFormatter = new DecimalFormat("###.00");
-        String name =  menuItem.getName().replaceAll(" ", "_").replaceAll("/","_");
-        addToHTML(INDENT + "<div class=\"checkbox\">",level);
-        addToHTML(INDENT + "    <label>",level);
-        //addToHTML(INDENT + "        <input type=\"checkbox\" "  + checked + " name=\"" + MenuItem.MENUITEM_LABEL + "_" + menuItem.getUuid() + "\" value=\"" + name + "\">", level);
-        addToHTML(INDENT + "    </label>",level);
-        addToHTML(INDENT + "    <div class=\"divNamePrice\">",level);
-        addToHTML(INDENT + "        <div class=\"menuItemName\">" + menuItem.getName() + " </div>",level);
-        String priceOutput;
-        for (MenuItemOption option : menuItem.getOptions()) {
-            priceOutput = myFormatter.format(option.getPrice());
-            if (option.getPrice() > 0) {
-                addToHTML(INDENT + "        <div class=\"menuItemPrice\">$" + priceOutput + "</div>", level);
-            } else {
-                addToHTML(INDENT + "        <div class=\"menuItemPrice\"> -----" + */
-/*"&nbsp;" +*//*
- "</div>", level);
-            }
-        }
-        addToHTML(INDENT + "    </div>", level);
-        addToHTML(INDENT + "</div><div style=\"clear:both\"></div>",level);
-    }
-*/
-/*
-
-    private void loadMenuItem(MenuItem menuItem, int level) {
-        level++;
-        boolean checked = false;
-        DecimalFormat myFormatter = new DecimalFormat("###.00");
-        String priceOutput = myFormatter.format(menuItem.getPrice());
-        String name =  menuItem.getName().replaceAll(" ", "_").replaceAll("/","_");
-        addToHTML(INDENT + "<label>",level);
-        addToHTML(INDENT + "    <div class=\"divCheckbox\">",level);
-//        String group =
-        addToHTML(INDENT + "        <input type=\"checkbox\" "  + checked + " name=\"" + MenuItem.MENUITEM_LABEL + "_" + menuItem.getUuid() + "\" value=\"" + name + "\">", level);
-        addToHTML(INDENT + "    </div>",level);
-        addToHTML(INDENT + "    <div class=\"divNamePrice\">",level);
-        addToHTML(INDENT + "        <div class=\"menuItemName\">" + menuItem.getName() + " </div>",level);
-        if (menuItem.getPrice() > 0)
-            addToHTML(INDENT + "        <div class=\"menuItemPrice\">$" + priceOutput + "</div>",level);
-        else
-            addToHTML(INDENT + "        <div class=\"menuItemPrice\"> -----" + */
-/*"&nbsp;" +*//*
- "</div>",level);
-        addToHTML(INDENT + "    </div>", level);
-        addToHTML(INDENT + "</label>",level);
-    }
-*/
-/*
-
-
-    private void addToHTML(String htmlLine, int level) {
-        String totalIndention = "";
-        if (level > 0)
-            totalIndention = String.format(String.format("%%0%dd", level), 0).replace("0", INDENT);//adds level+1 number of indents to total indents
-        html.add(totalIndention + htmlLine + NEW_LINE);
-    }
-
-    private String htmlAsString() {
-        StringBuilder sb = new StringBuilder();
-        for (String line: html) {
-            sb.append(line);
-        }
-        return sb.toString();
-    }
-
-*/
 
     public List<Menu> getMenuByName(String menuName) {
         return menuRepository.findByName(menuName);
@@ -473,7 +316,9 @@ public class MenuServiceImpl implements MenuService {
     }
 
     public Menu findMenu(BigInteger id) {
-        return menuRepository.findOne(id);
+        Menu menu = menuRepository.findOne(id);
+        menu.sortMenuItems();
+        return menu;
     }
 
     public List<Menu> findAllMenus() {

@@ -111,7 +111,7 @@
 
 
 </script>
-<div class="menu" style="margin-bottom: 200px;">
+<div class="menu" style="margin-bottom: 500px;">
     <div class="" style="padding-left:20px;background-color: #7aba7b;margin-bottom: 0px;padding:5px; ">
         <div style="float: right;margin-right: 35%;margin-top: 15px;">
             <%--<button id="myOrderButton" type="button" class="btn btn-primary " data-toggle="button" onclick='showOrder();'  >My Order</button>--%>
@@ -166,7 +166,7 @@
                                                     <c:if test="${canOrder}">onclick='orderItem("${item.uuid}");return true;'</c:if>
                                                     <c:if test="${!canOrder}">onclick="alert('Sorry, you can NOT order from this menu right now.');"</c:if>
                                                 >
-                                                    ${item.name}
+                                                    <b>${item.name}</b>
                                                     <c:if test="${!empty fn:trim(item.description)}">
                                                         - <span class="menuItemDescription">${item.description} </span>
                                                     </c:if>
@@ -188,8 +188,8 @@
         </c:forEach>
         <!-- Menu Section -->
     </div>
-</div>
 
+</div>
 
 <div id="dialogOrderItem" class="modal  fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
