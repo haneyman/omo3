@@ -122,16 +122,24 @@ public class Menu {
 
     public void sortMenuItems() {
         setMenuItems(sortMenuItems(getMenuItems()));
-        sortMenuItemChildren(getMenuItems());
-    }
-
-    //recursively sorts given menu item list's children
-    private void sortMenuItemChildren(Set<MenuItem> menuItems) {
+        //sortMenuItemChildren(getMenuItems());
         for (MenuItem menuItem: getMenuItems()) {
             if (menuItem.getChildMenuItems() != null) {
-                menuItem.setChildMenuItems(sortMenuItems(menuItem.getChildMenuItems()));
+                menuItem.setChildMenuItems(sortMenuItemChildren(menuItem.getChildMenuItems()));
             }
         }
+
+
+    }
+
+    private void sortMenuItemChildren(Set<MenuItem> menuItems) {
+
+        for (MenuItem menuItem: getMenuItems()) {
+            if (menuItem.getChildMenuItems() != null) {
+                menuItem.setChildMenuItems(sortMenuItemChildren(menuItem.getChildMenuItems()));
+            }
+        }
+
     }
 
     private Set<MenuItem> sortMenuItems(Set<MenuItem> items) {
@@ -140,5 +148,18 @@ public class Menu {
         Set<MenuItem> sortedItems = new LinkedHashSet<MenuItem>(miList);  //convert back to set - not sure necessary but what the hell
         return sortedItems;
     }
+/*
+
+    //recursively sorts given menu item list's children
+    private void sortMenuItemChildren(Set<MenuItem> menuItems) {
+        for (MenuItem menuItem: getMenuItems()) {
+            if (menuItem.getChildMenuItems() != null) {
+//                menuItem.setChildMenuItems(sortMenuItems(menuItem.getChildMenuItems()));
+                menuItem.setChildMenuItems(sortMenuItems(menuItem.getChildMenuItems()));
+            }
+        }
+    }
+*/
+
 
 }
